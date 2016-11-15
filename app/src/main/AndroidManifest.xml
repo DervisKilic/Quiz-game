@@ -22,7 +22,8 @@
         <activity android:name=".MainGameActivity" />
         <activity android:name=".GameSettingsActivity" />
         <activity android:name=".ProfilesActivity" />
-        <activity android:name=".CreateProfileActivity" />
+        <activity android:name=".CreateProfileActivity"
+            android:label="@string/create_profile_lbl"/>
         <activity android:name=".CreateCategoryActivity" />
         <activity android:name=".CreateQuestionActivity" />
         <activity android:name=".AboutActivity"></activity>
