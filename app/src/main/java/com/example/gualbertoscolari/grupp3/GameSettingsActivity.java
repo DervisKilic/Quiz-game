@@ -47,11 +47,9 @@ public class GameSettingsActivity extends AppCompatActivity {
         category.add("Nature");
         category.add("Culture");
         category.add("All");
-        Spinner dropdown = (Spinner) findViewById(R.id.spinner1);
+        Spinner dropdown = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdown.setAdapter(chosenCategory);
-
-
     }
 
     public void play_button(View view) {

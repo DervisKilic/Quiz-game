@@ -81,7 +81,7 @@
         android:layout_alignParentEnd="true" />
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/category_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:spinnerMode="dialog"

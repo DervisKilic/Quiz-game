@@ -15,7 +15,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void play_button(View view) {
-        Intent playIntent = new Intent(this, MainGameActivity.class);
+        Intent playIntent = new Intent(this, ProfilesActivity.class);
         startActivity(playIntent);
     }
 
@@ -25,7 +25,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void high_score_button(View view) {
-        Intent highScoreIntent = new Intent(this, ProfilesActivity.class);
+        Intent highScoreIntent = new Intent(this, HighScoreActivity.class);
         startActivity(highScoreIntent);
     }
 }
