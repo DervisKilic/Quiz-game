@@ -11,10 +11,10 @@
     tools:context="com.example.gualbertoscolari.grupp3.CreateQuestionActivity">
 
     <TextView
-        android:id="@+id/create_categoryTitle"
+        android:id="@+id/create_question_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create your question"
+        android:text="Add your question"
         android:textStyle="bold"
         android:textColor="#030303"
         android:textAlignment="center"
@@ -23,10 +23,10 @@
     <EditText
         android:id="@+id/question"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_below="@id/create_categoryTitle"
+        android:layout_height="65dp"
+        android:layout_below="@id/create_question_title"
         android:hint="Enter your question here"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="20dp"
         android:textSize="20dp" />
 
     <EditText
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/question"
         android:hint="Option A:"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:textSize="20dp"/>
 
     <EditText
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/answer1"
         android:hint="Option B:"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:textSize="20dp"/>
 
     <EditText
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/answer2"
         android:hint="Option C:"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:textSize="20dp"/>
 
     <EditText
@@ -62,14 +62,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/answer3"
         android:hint="Option D:"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:textSize="20dp"/>
 
     <Button
+        android:id="@+id/create_question_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/answer4"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:text="Add question"
         android:textSize="20dp"/>
 </RelativeLayout>

@@ -10,7 +10,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gualbertoscolari.grupp3.CreateCategoryActivity">
 
+    <TextView
+        android:id="@+id/create_category_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add your categorie"
+        android:textStyle="bold"
+        android:textColor="#030303"
+        android:textAlignment="center"
+        android:textSize="25dp"/>
 
+    <EditText
+        android:id="@+id/categorie_name"
+        android:layout_below="@id/create_category_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the name of the categorie"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/create_categorie_button"
+        android:layout_below="@id/categorie_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Add categorie"
+        android:textSize="20dp"/>
 
 
 </RelativeLayout>
