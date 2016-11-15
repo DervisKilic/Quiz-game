@@ -20,5 +20,14 @@
         android:textAlignment="center"
         android:textSize="25dp"/>
 
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="184dp"
+        android:id="@+id/button" />
+
 
 </RelativeLayout>
