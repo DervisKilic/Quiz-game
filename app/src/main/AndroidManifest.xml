@@ -15,6 +15,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ResultActivity" />
+        <activity android:name=".HighscoreActivity" />
+        <activity android:name=".MainGameActivity" />
+        <activity android:name=".GameSettingsActivity" />
+        <activity android:name=".ProfilesActivity" />
+        <activity android:name=".CreateProfileActivity" />
+        <activity android:name=".CreateCategoryActivity" />
+        <activity android:name=".CreateQuestionActivity" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>
