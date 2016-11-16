@@ -10,4 +10,28 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gualbertoscolari.grupp3.HighScoreActivity">
 
+    <TextView
+        android:text="Välj kategori"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:id="@+id/category_highscoore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/category_list"
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/category_highscoore"/>
+
+    <TextView
+        android:id="@+id/highscoore"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/category_list"/>
+
+
+
 </RelativeLayout>
