@@ -13,8 +13,10 @@ import java.util.ArrayList;
 
 public class GameSettingsActivity extends AppCompatActivity {
     private ArrayList<String> category = new ArrayList<>();
+    private ArrayList<String> profile = new ArrayList<>();
     private int players = 0;
     private ArrayAdapter<String> chosenCategory;
+    private ArrayAdapter<String> chosenProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +49,37 @@ public class GameSettingsActivity extends AppCompatActivity {
         category.add("Nature");
         category.add("Culture");
         category.add("All");
-        Spinner dropdown = (Spinner) findViewById(R.id.category_spinner);
+        Spinner dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
-        dropdown.setAdapter(chosenCategory);
+        dropdownCategory.setAdapter(chosenCategory);
+
+
+        profile.add("Dervis");
+        profile.add("Fredrik");
+        profile.add("Gualberto");
+        profile.add("Simon");
+        Spinner dropdownProfile = (Spinner) findViewById(R.id.profile_spinner);
+        chosenProfile = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
+        dropdownProfile.setAdapter(chosenProfile);
     }
 
-    public void play_button(View view) {
+    public void goToMainGame(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
         startActivity(playIntent);
     }
 
-    public void create_question_button(View view) {
+    public void goToCreateQuestion(View view) {
         Intent createQuestionIntent = new Intent(this, CreateQuestionActivity.class);
         startActivity(createQuestionIntent);
     }
 
-    public void create_category_button(View view) {
+    public void goToCreateCategory(View view) {
             Intent createCategoryIntent = new Intent(this, CreateCategoryActivity.class);
             startActivity(createCategoryIntent);
+    }
+
+    public void goToCreateProfile(View view) {
+        Intent createProfileIntent = new Intent(this, CreateProfileActivity.class);
+        startActivity(createProfileIntent);
     }
 }
