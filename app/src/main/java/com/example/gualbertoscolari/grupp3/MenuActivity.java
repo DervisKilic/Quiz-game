@@ -14,4 +14,18 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    public void play_button(View view) {
+        Intent playIntent = new Intent(this, ProfilesActivity.class);
+        startActivity(playIntent);
+    }
+
+    public void about_button(View view) {
+        Intent aboutIntent = new Intent(this, AboutActivity.class);
+        startActivity(aboutIntent);
+    }
+
+    public void high_score_button(View view) {
+        Intent highScoreIntent = new Intent(this, HighScoreActivity.class);
+        startActivity(highScoreIntent);
+    }
 }
