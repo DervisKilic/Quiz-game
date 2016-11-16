@@ -17,4 +17,9 @@ public class CreateCategoryActivity extends AppCompatActivity {
         Intent gameSettings = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettings);
     }
+
+    public void addCategory(View v){
+        // Sends the text from the editText and adds it
+        // to the database as a new category
+    }
 }

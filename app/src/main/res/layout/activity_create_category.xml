@@ -38,7 +38,7 @@
         android:layout_marginTop="50dp"
         android:text="Add category"
         android:textSize="20dp"
-        android:onClick=""/>
+        android:onClick="addCategory"/>
 
     <Button
         android:layout_width="match_parent"
