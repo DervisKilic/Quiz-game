@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.gualbertoscolari.grupp3.CreateQuestionActivity">
+    tools:context="com.example.gualbertoscolari.grupp3.CreateQuestionActivity"
+    android:background="#7e38d408">
 
     <TextView
         android:id="@+id/create_question_title"
@@ -69,8 +70,20 @@
         android:id="@+id/create_question_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answer4"
-        android:layout_marginTop="15dp"
         android:text="Add question"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp" />
+
+
 </RelativeLayout>
