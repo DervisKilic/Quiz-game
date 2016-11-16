@@ -8,7 +8,83 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.gualbertoscolari.grupp3.CreateQuestionActivity">
+    tools:context="com.example.gualbertoscolari.grupp3.CreateQuestionActivity"
+    android:background="#7e38d408">
+
+    <TextView
+        android:id="@+id/create_question_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add your question"
+        android:textStyle="bold"
+        android:textColor="#030303"
+        android:textAlignment="center"
+        android:textSize="25dp"/>
+
+    <EditText
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@id/create_question_title"
+        android:hint="Enter your question here"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/answer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/question"
+        android:hint="Option A:"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/answer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer1"
+        android:hint="Option B:"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/answer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer2"
+        android:hint="Option C:"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/answer4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/answer3"
+        android:hint="Option D:"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/create_question_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add question"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/spinner_create_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp" />
+
 
     <TextView
         android:id="@+id/create_question_title"
