@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ResultActivity" />
-        <activity android:name=".HighscoreActivity" />
+        <activity android:name=".HighScoreActivity" />
         <activity android:name=".MainGameActivity" />
         <activity android:name=".GameSettingsActivity" />
         <activity android:name=".ProfilesActivity" />
