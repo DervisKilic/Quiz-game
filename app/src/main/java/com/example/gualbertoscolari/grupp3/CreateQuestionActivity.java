@@ -26,7 +26,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
         category.add("Culture");
         category.add("All");
         Spinner dropdown = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<String> chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
+        ArrayAdapter<String> chosenCategory = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdown.setAdapter(chosenCategory);
 
     }
