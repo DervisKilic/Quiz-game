@@ -21,7 +21,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/profile_name_hint"
+            android:hint="profile_name_hint"
             android:textSize="32sp" />
 
     </LinearLayout>
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/choose_img_txt"
+            android:text="choose_img_txt"
             android:textSize="32sp" />
 
     </LinearLayout>
@@ -62,13 +62,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/cancel_txt_btn" />
+            android:text="cancel_txt_btn" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/save_profile_txt_btn" />
+            android:text="save_profile_txt_btn" />
 
     </LinearLayout>
 
