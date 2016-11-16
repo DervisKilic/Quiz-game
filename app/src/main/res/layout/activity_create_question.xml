@@ -11,6 +11,8 @@
     tools:context="com.example.gualbertoscolari.grupp3.CreateQuestionActivity"
     android:background="#7e38d408">
 
+
+
     <Spinner
         android:id="@+id/spinner_create_question"
         android:layout_width="match_parent"
