@@ -1,8 +1,10 @@
 package com.example.gualbertoscolari.grupp3;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 
 public class CreateQuestionActivity extends AppCompatActivity {
@@ -13,6 +15,11 @@ public class CreateQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_question);
 
+    }
+
+    public void goToGameSettings(View v){
+        Intent gameSettings = new Intent(this, GameSettingsActivity.class);
+        startActivity(gameSettings);
     }
 
 }
