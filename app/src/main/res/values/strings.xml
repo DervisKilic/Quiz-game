@@ -4,4 +4,14 @@
     <string name="play">Play</string>
     <string name="highscore">Highscore</string>
     <string name="Quiz">Quiz</string>
+    <string-array name="array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>
