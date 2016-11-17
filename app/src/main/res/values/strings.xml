@@ -4,4 +4,13 @@
     <string name="play">Play</string>
     <string name="highscore">Highscore</string>
     <string name="Quiz">Quiz</string>
+    <string name="create_profile_title">Ny Profil:</string>
+    <string name="create_profile_activity_lbl">Ny Profil</string>
+    <string name="name_hint">Namn:</string>
+    <string name="profile_name_hint">Välj namn:</string>
+    <string name="cancel_txt_btn">Avbryt</string>
+    <string name="save_profile_txt_btn">Spara</string>
+    <string name="choose_img_txt">Välj bild</string>
+    <string name="about_activity_lbl">Om</string>
+    <string name="category_name">Enter the name of the category</string>
 </resources>
