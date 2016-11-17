@@ -24,6 +24,13 @@ public class MainGameActivity extends AppCompatActivity {
 
     private int numberOfAnsweredQ = 1;
 
+    TextView questiontv;
+    Button optABtn;
+    Button optBBtn;
+    Button optCBtn;
+    Button optDBtn;
+    private int numberOfAnsweredQ = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,22 +130,30 @@ public class MainGameActivity extends AppCompatActivity {
         } else {
             questiontv.setText("Du svarade fel , du är dum");
         }
+
+        if (numberOfAnsweredQ == 10) {
+            goToResult();
+        }
     }
 
     public void goToResult() {
-        // Går vidare till result activity:n
+        Intent intent = new Intent(this, ResultActivity.class);
+        startActivity(intent);
     }
 
     public void btn_a_pressed(View view) {
         checkCorrectAnswer(optABtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 
     public void btn_b_pressed(View view) {
         checkCorrectAnswer(optBBtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 
     public void btn_c_pressed(View view) {
         checkCorrectAnswer(optCBtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 
     public void btn_d_pressed(View view) {
