@@ -19,7 +19,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CATEGORY ="categorys";
 
-    private static final String TABLE_HIGHSCORE ="highscore";
 
     // tasks Table Columns names for questions
     private static final String KEY_ID = "id";
@@ -49,24 +48,24 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase = db;
 
         String sqlQuestions = "CREATE TABLE " + TABLE_QUEST+ " (";
-        sqlQuestions += KEY_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,";
-        sqlQuestions += KEY_QUEST + "VARCHAR(255) NOT NULL,";
-        sqlQuestions += KEY_OPTA + "VARCHAR(255) NOT NULL,";
-        sqlQuestions += KEY_OPTB + "VARCHAR(255) NOT NULL,";
-        sqlQuestions += KEY_OPTC + "VARCHAR(255) NOT NULL,";
-        sqlQuestions += KEY_OPTD + "VARCHAR(255) NOT NULL,";
-        sqlQuestions += KEY_CAT+ "VARCHAR(255) NOT NULL,";
-        sqlQuestions += KEY_ANSWER +"VARCHAR(255) NOT NULL";
+        sqlQuestions += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
+        sqlQuestions += "Question VARCHAR(255) NOT NULL,";
+        sqlQuestions += "opta VARCHAR(255) NOT NULL,";
+        sqlQuestions += "optb VARCHAR(255) NOT NULL,";
+        sqlQuestions += "optc VARCHAR(255) NOT NULL,";
+        sqlQuestions += "optd VARCHAR(255) NOT NULL,";
+        sqlQuestions += "category VARCHAR(255) NOT NULL,";
+        sqlQuestions += "answer VARCHAR(255) NOT NULL";
         sqlQuestions += ");";
 
-        Log.d("questions", "Database created");
+        Log.d("bajs", "Database created");
 
         db.execSQL(sqlQuestions);
 
         String sqlProfiles = "CREATE TABLE " + TABLE_PROFILE+ " (";
-        sqlProfiles += KEY_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,";
-        sqlProfiles += KEY_NAME + "VARCHAR(255) NOT NULL,";
-        sqlProfiles += KEY_SCORE + "INTEGER NOT NULL";
+        sqlProfiles += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
+        sqlProfiles += "name VARCHAR(255) NOT NULL,";
+        sqlProfiles += "score INTEGER NOT NULL";
         //sqlProfiles += KEY_IMG+ "BLOB NOT NULL,";
         sqlProfiles += ");";
 
@@ -75,29 +74,20 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(sqlProfiles);
 
         String sqlCategorys = "CREATE TABLE " + TABLE_CATEGORY+ " (";
-        sqlCategorys += KEY_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,";
-        sqlCategorys += KEY_CATEGORY+ "VARCHAR(255) NOT NULL";
+        sqlCategorys += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
+        sqlCategorys += "category VARCHAR(255) NOT NULL";
         sqlCategorys += ");";
 
         Log.d("categorys", "Database created");
 
+
         db.execSQL(sqlCategorys);
 
-        String sqlHighScore = "CREATE TABLE " + TABLE_HIGHSCORE+ " (";
-        sqlHighScore += ");";
-
-
-        Log.d("highscore", "Database created");
-
-        db.execSQL(sqlHighScore);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUEST + TABLE_PROFILE + TABLE_HIGHSCORE + TABLE_CATEGORY);
-        onCreate(db);
-
     }
 
     public void addQuestion(Question q) {
@@ -113,7 +103,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put("category", q.getCATEGORY());
         cvs.put("answer", q.getANSWER());
 
-        long id = db.insert("quest", null, cvs);
+        long id = db.insert(TABLE_QUEST, null, cvs);
 
         Log.d("Hej", "row id: "+id);
 
@@ -130,7 +120,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put("score", p.getScore());
         //cvs.put("profileimg", p.getProfileImg);
 
-        long id = db.insert("profile", null, cvs);
+        long id = db.insert(TABLE_PROFILE, null, cvs);
 
         Log.d("Hejprofile", "row id: "+id);
 
@@ -150,20 +140,4 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.close();
     }
-
-    public void setHighScore(String category, Profiles name, Profiles score){
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues cvs = new ContentValues();
-
-        long id = db.insert(TABLE_HIGHSCORE, null, cvs);
-        Log.d("High Score", "row id: "+id);
-
-        db.close();
-
-
-    }
-
-
-
 }
