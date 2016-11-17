@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter the name of the category"
+        android:textSize="25dp"
         android:layout_marginTop="50dp"/>
 
     <Button
@@ -36,7 +37,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Add category"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:onClick="addCategory"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/create_categorie_button"
+        android:text="Back"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:onClick="goToGameSettings"/>
+
+    <Spinner
+        android:id="@+id/delete_category_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categorie_name"
+        android:layout_marginTop="15dp"/>
 
 
 </RelativeLayout>
