@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainGameActivity extends AppCompatActivity {
@@ -29,6 +30,11 @@ public class MainGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
 
+        generateQuestion();
+    }
+
+    public void generateQuestion(){
+
         DbHelper db = new DbHelper(this);  // my question bank class
         quesList = db.getAllQuestions();  // this will fetch all quetonall questions
         currentQ = quesList.get(qid); // the current question
@@ -38,8 +44,9 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
-
         displayQuestion();
+
+
     }
 
     public void displayQuestion() {
@@ -72,6 +79,8 @@ public class MainGameActivity extends AppCompatActivity {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             goToResult();
         }
+
+        generateQuestion();
     }
 
     public void goToResult() {
