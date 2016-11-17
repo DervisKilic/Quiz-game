@@ -1,17 +1,12 @@
 package com.example.gualbertoscolari.grupp3;
 
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
-
-import java.util.ArrayList;
 
 import java.util.ArrayList;
 
@@ -56,7 +51,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
     }
 
     public void saveQuestion(View v){
-        inputQuestion = (EditText) findViewById(R.id.question);
+        inputQuestion = (EditText) findViewById(R.id.question_tv);
         String question = inputQuestion.getText().toString();
 
         inputOpta = (EditText) findViewById(R.id.opt_a);
