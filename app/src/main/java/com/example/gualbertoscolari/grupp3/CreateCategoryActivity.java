@@ -29,7 +29,6 @@ public class CreateCategoryActivity extends AppCompatActivity {
     public void addCategory(View v){
         // Calls the addCategory method in the CreateAndDelete class
         // and uses DBHelper to add the category
-        randomWord = (EditText) findViewById(R.id.current_word);
     }
 
     public String getCategory() {
