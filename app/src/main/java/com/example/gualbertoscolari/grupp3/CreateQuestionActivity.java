@@ -1,11 +1,26 @@
 package com.example.gualbertoscolari.grupp3;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
+
+import java.util.ArrayList;
 
 public class CreateQuestionActivity extends AppCompatActivity {
+
+    ArrayList<String> category = new ArrayList<>();
+    ArrayAdapter<String> chosenCategory;
+
+
 
     private int ID;
 
@@ -22,6 +37,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
     private EditText inputOptb;
     private EditText inputOptc;
     private EditText inputOptd;
+    private Spinner chosenCat;
     private EditText inputcorrectAnswer;
 
 
@@ -30,16 +46,45 @@ public class CreateQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_question);
 
-        inputQuestion = (EditText) findViewById(R.id.question);
-        inputOpta = (EditText) findViewById(R.id.answer1);
-        inputOptb = (EditText) findViewById(R.id.answer2);
-        inputOptc = (EditText) findViewById(R.id.answer3);
-        inputOptd = (EditText) findViewById(R.id.answer4);
-        inputcorrectAnswer = (EditText) findViewById(R.id.correct_a);
+        category.add("Sport");
+        category.add("Nature");
+        category.add("Culture");
+        category.add("All");
+        Spinner dropdownCategory = (Spinner) findViewById(R.id.spinner_create_question);
+        chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
+        dropdownCategory.setAdapter(chosenCategory);
     }
 
-    public void Onclixk(){
-        Question q = new Question(QUESTION,OPTA,OPTB, OPTC, OPTD, CAT, ANSWER);
-        DbHelper.addQuestion();
+    public void saveQuestion(View v){
+        inputQuestion = (EditText) findViewById(R.id.question);
+        String question = inputQuestion.getText().toString();
+
+        inputOpta = (EditText) findViewById(R.id.opt_a);
+        String opta = inputOpta.getText().toString();
+
+        inputOptb = (EditText) findViewById(R.id.opt_b);
+        String optb = inputOptb.getText().toString();
+
+        inputOptc = (EditText) findViewById(R.id.opt_c);
+        String optc = inputOptc.getText().toString();
+
+        inputOptd = (EditText) findViewById(R.id.opt_d);
+        String optd = inputOptd.getText().toString();
+
+        chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
+        String cat = chosenCat.toString();
+
+        inputcorrectAnswer = (EditText) findViewById(R.id.right_answer);
+        String correctAnswer = inputcorrectAnswer.getText().toString();
+
+
+        Question q = new Question(question,opta,optb, optc, optd, cat, correctAnswer);
+        DbHelper db = new DbHelper(getApplicationContext());
+
+        db.addQuestion(q);
     }
+
+
+
+
 }
