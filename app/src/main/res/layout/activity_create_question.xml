@@ -33,7 +33,7 @@
         android:textSize="25dp"/>
 
     <EditText
-        android:id="@+id/question"
+        android:id="@+id/question_tv"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_below="@id/create_question_title"
@@ -45,7 +45,7 @@
         android:id="@+id/opt_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/question"
+        android:layout_below="@id/question_tv"
         android:hint="Option A:"
         android:layout_marginTop="10dp"
         android:textSize="20dp"/>

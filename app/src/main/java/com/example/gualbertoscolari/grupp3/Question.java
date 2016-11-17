@@ -2,6 +2,7 @@ package com.example.gualbertoscolari.grupp3;
 
 public class Question{
 
+    private int ID;
     private String QUESTION;
     private String OPTA;
     private String OPTB;
@@ -13,6 +14,7 @@ public class Question{
     private String ANSWER;
 
     public Question(){
+        ID = 0;
         QUESTION = "";
         OPTA = "";
         OPTB = "";
@@ -35,6 +37,9 @@ public class Question{
         ANSWER = aNSWER;
     }
 
+    public int getID() {
+        return ID;
+    }
 
 
     public String getQUESTION() {
@@ -65,6 +70,9 @@ public class Question{
         return ANSWER;
     }
 
+    public void setID(int id) {
+        ID = id;
+    }
 
     public void setQUESTION(String QUESTION) {
         this.QUESTION = QUESTION;
