@@ -1,5 +1,8 @@
 package com.example.gualbertoscolari.grupp3;
 
-public class GameLogic {
+
+public class GameLogic extends MainGameActivity{
+
+
 
 }

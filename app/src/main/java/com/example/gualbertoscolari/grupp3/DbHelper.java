@@ -2,11 +2,14 @@ package com.example.gualbertoscolari.grupp3;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.sql.Blob;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -140,4 +143,31 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.close();
     }
+
+    public List<Question> getAllQuestions() {
+        List<Question> quesList = new ArrayList<Question>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_QUEST + " ORDER BY RANDOM()";
+        dbase = this.getReadableDatabase();
+        Cursor cursor = dbase.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Question quest = new Question();
+                quest.setID(0);
+                quest.setQUESTION(cursor.getString(1));
+                quest.setOPTA(cursor.getString(2));
+                quest.setOPTB(cursor.getString(3));
+                quest.setOPTC(cursor.getString(4));
+                quest.setOPTD(cursor.getString(5));
+                quest.setCATEGORY(cursor.getString(6));
+                quest.setANSWER(cursor.getString(7));
+
+                quesList.add(quest);
+            } while (cursor.moveToNext());
+        }
+        // return quest list
+        return quesList;
+    }
+
 }
