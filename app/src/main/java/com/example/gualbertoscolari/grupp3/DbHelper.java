@@ -175,5 +175,4 @@ public class DbHelper extends SQLiteOpenHelper {
         cursor.close();
         return quesList;
     }
-
 }
