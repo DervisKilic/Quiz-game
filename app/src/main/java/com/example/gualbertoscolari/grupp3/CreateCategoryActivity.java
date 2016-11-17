@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 public class CreateCategoryActivity extends AppCompatActivity {
 
-    private String category = "";
+    String cat;
+    EditText category;
 
 
     @Override
@@ -27,11 +28,16 @@ public class CreateCategoryActivity extends AppCompatActivity {
     }
 
     public void addCategory(View v){
-        // Calls the addCategory method in the CreateAndDelete class
-        // and uses DBHelper to add the category
+        category = (EditText) findViewById(R.id.question);
+        cat = category.getText().toString();
+
+        DbHelper db = new DbHelper(getApplicationContext());
+
+        db.addCategory(cat);
+
     }
 
     public String getCategory() {
-        return category;
+        return cat;
     }
 }

@@ -47,14 +47,9 @@
         android:text="Back"
         android:textSize="20dp"
         android:layout_marginTop="15dp"
-        android:onClick="goToGameSettings"/>
+        android:onClick="addCategory"/>
 
-    <Spinner
-        android:id="@+id/delete_category_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/categorie_name"
-        android:layout_marginTop="15dp"/>
+
 
 
 </RelativeLayout>
