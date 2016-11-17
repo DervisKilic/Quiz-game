@@ -126,14 +126,7 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_c_pressed(View view) {
         checkCorrectAnswer(optCBtn.getText().toString());
         numberOfAnsweredQ++;
-            questiontv.setText("Hurra du svarade rätt på den här frågan");
-        } else {
-            questiontv.setText("Du svarade fel , du är dum");
-        }
 
-        if (numberOfAnsweredQ == 10) {
-            goToResult();
-        }
     }
 
     public void goToResult() {
