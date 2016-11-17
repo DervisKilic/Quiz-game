@@ -130,9 +130,9 @@ public class DbHelper extends SQLiteOpenHelper {
     public void addCategorys(String category) {
 
         SQLiteDatabase db = getWritableDatabase();
-
+        //Kolla med dervis angående "Categorys" och "Category"
         ContentValues cvs = new ContentValues();
-        cvs.put("categorys", category);
+        cvs.put("category", category);
 
         long id = db.insert(TABLE_CATEGORY, null, cvs);
 
