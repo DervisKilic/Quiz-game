@@ -1,5 +1,6 @@
 package com.example.gualbertoscolari.grupp3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ public class MainGameActivity extends AppCompatActivity {
     Button optBBtn;
     Button optCBtn;
     Button optDBtn;
-
+    private int numberOfAnsweredQ = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,25 +52,34 @@ public class MainGameActivity extends AppCompatActivity {
         } else {
             questiontv.setText("Du svarade fel , du är dum");
         }
+
+        if (numberOfAnsweredQ == 10) {
+            goToResult();
+        }
     }
 
     public void goToResult() {
-        // Går vidare till result activity:n
+        Intent intent = new Intent(this, ResultActivity.class);
+        startActivity(intent);
     }
 
     public void btn_a_pressed(View view) {
         checkCorrectAnswer(optABtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 
     public void btn_b_pressed(View view) {
         checkCorrectAnswer(optBBtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 
     public void btn_c_pressed(View view) {
         checkCorrectAnswer(optCBtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 
     public void btn_d_pressed(View view) {
         checkCorrectAnswer(optDBtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 }
