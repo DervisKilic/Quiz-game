@@ -12,15 +12,14 @@
     android:background="#7e38d408">
 
 
-
     <Spinner
         android:id="@+id/spinner_create_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answer4"
+        android:layout_below="@+id/right_answer"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="5dp" />
 
 
     <TextView
@@ -39,44 +38,53 @@
         android:layout_height="65dp"
         android:layout_below="@id/create_question_title"
         android:hint="Enter your question here"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/answer1"
+        android:id="@+id/opt_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/question"
         android:hint="Option A:"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/answer2"
+        android:id="@+id/opt_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answer1"
+        android:layout_below="@+id/opt_a"
         android:hint="Option B:"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/answer3"
+        android:id="@+id/opt_c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answer2"
+        android:layout_below="@+id/opt_b"
         android:hint="Option C:"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/answer4"
+        android:id="@+id/opt_d"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/answer3"
+        android:layout_below="@id/opt_c"
         android:hint="Option D:"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/right_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/opt_d"
+        android:hint="Correct answer"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/create_question_button"
@@ -87,6 +95,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="1dp"
         android:onClick="goToGameSettings"/>
+
 </RelativeLayout>

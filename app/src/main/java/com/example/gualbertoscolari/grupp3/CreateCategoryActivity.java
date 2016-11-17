@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class CreateCategoryActivity extends AppCompatActivity {
+
+    private String category = "";
 
 
     @Override
@@ -24,7 +27,12 @@ public class CreateCategoryActivity extends AppCompatActivity {
     }
 
     public void addCategory(View v){
-        // Sends the text from the editText and adds it
-        // to the database as a new category
+        // Calls the addCategory method in the CreateAndDelete class
+        // and uses DBHelper to add the category
+        randomWord = (EditText) findViewById(R.id.current_word);
+    }
+
+    public String getCategory() {
+        return category;
     }
 }

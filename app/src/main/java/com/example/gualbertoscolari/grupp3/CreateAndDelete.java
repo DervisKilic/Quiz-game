@@ -2,6 +2,10 @@ package com.example.gualbertoscolari.grupp3;
 
 public class CreateAndDelete {
 
+    CreateCategoryActivity c1 = new CreateCategoryActivity();
+
+    String cat = c1.getCategory();
+
     public void createProfile(){
         //Creates a profile and uses DBHelper to add it
         //to the Data Base
