@@ -48,12 +48,18 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
 
         if (optString.equals(questiontv.getText().toString()) ) {
+            //Ifall man svarar rätt händer detta
+
             questiontv.setText("Hurra du svarade rätt på den här frågan");
         } else {
+
+            //Ifall man svarar fel händer detta
             questiontv.setText("Du svarade fel , du är dum");
         }
 
         if (numberOfAnsweredQ == 10) {
+
+            //Du har svarat på alla frågor , du tas till resultskärmen.
             goToResult();
         }
     }
