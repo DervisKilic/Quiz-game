@@ -25,7 +25,6 @@
         <activity android:name=".HighScoreActivity" />
         <activity android:name=".MainGameActivity" />
         <activity android:name=".GameSettingsActivity" />
-        <activity android:name=".ProfilesActivity" />
         <activity android:name=".CreateProfileActivity" />
         <activity android:name=".CreateCategoryActivity" />
         <activity android:name=".CreateQuestionActivity" />
