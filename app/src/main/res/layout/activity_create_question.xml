@@ -88,12 +88,14 @@
 
     <Button
         android:id="@+id/create_question_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add question"
         android:textSize="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="goToGameSettings"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="1dp"
+        android:onClick="saveQuestion"/>
 
 </RelativeLayout>
