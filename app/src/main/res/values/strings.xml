@@ -12,4 +12,6 @@
     <string name="save_profile_txt_btn">Spara</string>
     <string name="choose_img_txt">Välj bild</string>
     <string name="about_activity_lbl">Om</string>
+
+    <string name="about_activity_ic_title">Om</string>
 </resources>
