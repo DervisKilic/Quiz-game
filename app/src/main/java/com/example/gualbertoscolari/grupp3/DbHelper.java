@@ -85,12 +85,17 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(sqlCategorys);
+        db.close();
 
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUEST + TABLE_CATEGORY + TABLE_PROFILE);
+        onCreate(db);
+
+
     }
 
     public void addQuestion(Question q) {
@@ -98,13 +103,13 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cvs = new ContentValues();
-        cvs.put("Question", q.getQUESTION());
-        cvs.put("opta", q.getOPTA());
-        cvs.put("optb", q.getOPTB());
-        cvs.put("optc", q.getOPTC());
-        cvs.put("optd", q.getOPTD());
-        cvs.put("category", q.getCATEGORY());
-        cvs.put("answer", q.getANSWER());
+        cvs.put(KEY_QUEST, q.getQUESTION());
+        cvs.put(KEY_OPTA, q.getOPTA());
+        cvs.put(KEY_OPTB, q.getOPTB());
+        cvs.put(KEY_OPTC, q.getOPTC());
+        cvs.put(KEY_OPTD, q.getOPTD());
+        cvs.put(KEY_CAT, q.getCATEGORY());
+        cvs.put(KEY_ANSWER, q.getANSWER());
 
         long id = db.insert(TABLE_QUEST, null, cvs);
 
@@ -119,9 +124,9 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cvs = new ContentValues();
-        cvs.put("name", p.getName());
-        cvs.put("score", p.getScore());
-        //cvs.put("profileimg", p.getProfileImg);
+        cvs.put(KEY_NAME, p.getName());
+        cvs.put(KEY_SCORE, p.getScore());
+        //cvs.put(KEY_IMG, p.getProfileImg);
 
         long id = db.insert(TABLE_PROFILE, null, cvs);
 
@@ -135,7 +140,7 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cvs = new ContentValues();
-        cvs.put("categorys", category);
+        cvs.put(KEY_CATEGORY, category);
 
         long id = db.insert(TABLE_CATEGORY, null, cvs);
 
@@ -167,6 +172,7 @@ public class DbHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         // return quest list
+        cursor.close();
         return quesList;
     }
 
