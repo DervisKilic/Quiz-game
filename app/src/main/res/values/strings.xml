@@ -14,4 +14,5 @@
     <string name="about_activity_lbl">Om</string>
 
     <string name="about_activity_ic_title">Om</string>
+    <string name="enter_category_name">Enter the name of the category</string>
 </resources>
