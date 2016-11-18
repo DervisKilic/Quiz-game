@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class CreateCategoryActivity extends AppCompatActivity {
 
-    private int a;
+    private String cat;
     private EditText category;
 
 
@@ -33,7 +33,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
 
     public void addCategory(View v){
         category = (EditText) findViewById(R.id.categorie_name);
-        String cat = category.getText().toString();
+        cat = category.getText().toString();
 
         DbHelper db = new DbHelper(getApplicationContext());
         db.addCategorys(cat);
@@ -44,7 +44,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
 
     }
 
-    /*public String getCategory() {
+    public String getCategory() {
         return cat;
-    }*/
+    }
 }
