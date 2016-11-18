@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class CreateCategoryActivity extends AppCompatActivity {
 
-
+    private int a;
     private EditText category;
 
 

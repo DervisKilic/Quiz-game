@@ -17,6 +17,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     private int players = 0;
     private ArrayAdapter<String> chosenCategory;
     private ArrayAdapter<String> chosenProfile;
+    public static String cat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         Spinner dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
-
+        cat = chosenCategory.toString();
 
         profile.add("Dervis");
         profile.add("Fredrik");
@@ -61,6 +62,8 @@ public class GameSettingsActivity extends AppCompatActivity {
         Spinner dropdownProfile = (Spinner) findViewById(R.id.profile_spinner);
         chosenProfile = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
         dropdownProfile.setAdapter(chosenProfile);
+
+
     }
 
     public void goToMainGame(View view) {
