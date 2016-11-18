@@ -17,7 +17,7 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_result_menu, menu);
+        getMenuInflater().inflate(R.menu.general_toolbar, menu);
         return super.onCreateOptionsMenu(menu);
 
     }

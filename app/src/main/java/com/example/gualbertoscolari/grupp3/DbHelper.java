@@ -22,6 +22,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CATEGORY ="categorys";
 
+    private static final String TEST_GIT ="YAY";
+
 
     // tasks Table Columns names for questions
     private static final String KEY_ID = "id";
@@ -85,12 +87,17 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(sqlCategorys);
+        db.close();
 
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUEST + TABLE_CATEGORY + TABLE_PROFILE);
+        onCreate(db);
+
+
     }
 
     public void addQuestion(Question q) {
@@ -98,13 +105,13 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cvs = new ContentValues();
-        cvs.put("Question", q.getQUESTION());
-        cvs.put("opta", q.getOPTA());
-        cvs.put("optb", q.getOPTB());
-        cvs.put("optc", q.getOPTC());
-        cvs.put("optd", q.getOPTD());
-        cvs.put("category", q.getCATEGORY());
-        cvs.put("answer", q.getANSWER());
+        cvs.put(KEY_QUEST, q.getQUESTION());
+        cvs.put(KEY_OPTA, q.getOPTA());
+        cvs.put(KEY_OPTB, q.getOPTB());
+        cvs.put(KEY_OPTC, q.getOPTC());
+        cvs.put(KEY_OPTD, q.getOPTD());
+        cvs.put(KEY_CAT, q.getCATEGORY());
+        cvs.put(KEY_ANSWER, q.getANSWER());
 
         long id = db.insert(TABLE_QUEST, null, cvs);
 
@@ -119,9 +126,9 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cvs = new ContentValues();
-        cvs.put("name", p.getName());
-        cvs.put("score", p.getScore());
-        //cvs.put("profileimg", p.getProfileImg);
+        cvs.put(KEY_NAME, p.getName());
+        cvs.put(KEY_SCORE, p.getScore());
+        //cvs.put(KEY_IMG, p.getProfileImg);
 
         long id = db.insert(TABLE_PROFILE, null, cvs);
 
@@ -133,9 +140,9 @@ public class DbHelper extends SQLiteOpenHelper {
     public void addCategorys(String category) {
 
         SQLiteDatabase db = getWritableDatabase();
-        //Kolla med dervis angående "Categorys" och "Category"
+
         ContentValues cvs = new ContentValues();
-        cvs.put("category", category);
+        cvs.put(KEY_CATEGORY, category);
 
         long id = db.insert(TABLE_CATEGORY, null, cvs);
 
@@ -167,7 +174,7 @@ public class DbHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         // return quest list
+        cursor.close();
         return quesList;
     }
-
 }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainGameActivity extends AppCompatActivity {
@@ -23,7 +22,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optCBtn;
     private Button optDBtn;
 
-    private int numberOfAnsweredQ = 0;
+    private int numberOfAnsweredQ = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +43,8 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
-        displayQuestion();
 
+        displayQuestion();
 
     }
 
