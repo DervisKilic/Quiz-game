@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_result_menu, menu);
+        getMenuInflater().inflate(R.menu.general_toolbar, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -35,5 +36,10 @@ public class ResultActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToGameSettings(View view) {
+        Intent playAgainIntent = new Intent(this, GameSettingsActivity.class);
+        startActivity(playAgainIntent);
     }
 }
