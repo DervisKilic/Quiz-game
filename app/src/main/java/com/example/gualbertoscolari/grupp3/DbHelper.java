@@ -22,7 +22,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CATEGORY ="categorys";
 
-    private static final String TEST_GIT ="YAY";
 
 
     // tasks Table Columns names for questions
