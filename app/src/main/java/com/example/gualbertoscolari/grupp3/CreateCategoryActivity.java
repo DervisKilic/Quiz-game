@@ -13,10 +13,9 @@ import android.widget.Toast;
 
 
 public class CreateCategoryActivity extends AppCompatActivity {
-
-    private String cat;
+    
     private EditText category;
-
+    private String cat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
