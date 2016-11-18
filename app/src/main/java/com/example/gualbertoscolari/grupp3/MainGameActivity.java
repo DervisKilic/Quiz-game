@@ -24,13 +24,6 @@ public class MainGameActivity extends AppCompatActivity {
 
     private int numberOfAnsweredQ = 1;
 
-    TextView questiontv;
-    Button optABtn;
-    Button optBBtn;
-    Button optCBtn;
-    Button optDBtn;
-    private int numberOfAnsweredQ = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,14 +57,13 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setText(currentQ.getOPTB());
         optCBtn.setText(currentQ.getOPTC());
         optDBtn.setText(currentQ.getOPTD());
+    }
 
     public void checkCorrectAnswer(String optString) {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
 
-        numberOfAnsweredQ++;
-
-        if (optString.equals(questiontv.getText().toString())) {
+        if (optString.equals(questiontv.getText().toString()) ) {
             //Ifall man svarar rätt händer detta
 
             questiontv.setText("Hurra du svarade rätt på den här frågan");
@@ -108,28 +100,10 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_c_pressed(View view) {
         checkCorrectAnswer(optCBtn.getText().toString());
         numberOfAnsweredQ++;
-
-    }
-
-    public void goToResult() {
-        Intent intent = new Intent(this, ResultActivity.class);
-        startActivity(intent);
-    }
-
-    public void btn_a_pressed(View view) {
-        checkCorrectAnswer(optABtn.getText().toString());
-    }
-
-    public void btn_b_pressed(View view) {
-
-        checkCorrectAnswer(optBBtn.getText().toString());
-    }
-
-    public void btn_c_pressed(View view) {
-        checkCorrectAnswer(optCBtn.getText().toString());
     }
 
     public void btn_d_pressed(View view) {
         checkCorrectAnswer(optDBtn.getText().toString());
+        numberOfAnsweredQ++;
     }
 }
