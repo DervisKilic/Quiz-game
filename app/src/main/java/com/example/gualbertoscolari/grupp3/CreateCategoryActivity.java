@@ -16,6 +16,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
 
     private String cat;
     private EditText category;
+    //HEj EHJ
 
 
     @Override
