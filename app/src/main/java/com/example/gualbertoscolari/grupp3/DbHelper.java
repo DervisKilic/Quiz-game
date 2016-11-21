@@ -193,4 +193,17 @@ public class DbHelper extends SQLiteOpenHelper {
         cursor.close();
         return profList;
     }
+
+    public void addStandardQuestionsSQL(){
+        addQuestion(StandardQuestions.q1);
+        addQuestion(StandardQuestions.q2);
+        addQuestion(StandardQuestions.q3);
+        addQuestion(StandardQuestions.q4);
+        addQuestion(StandardQuestions.q5);
+        addQuestion(StandardQuestions.q6);
+        addQuestion(StandardQuestions.q7);
+        addQuestion(StandardQuestions.q8);
+        addQuestion(StandardQuestions.q9);
+        addQuestion(StandardQuestions.q10);
+    }
 }
