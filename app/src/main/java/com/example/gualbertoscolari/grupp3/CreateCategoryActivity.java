@@ -16,13 +16,13 @@ public class CreateCategoryActivity extends AppCompatActivity {
     
     private EditText category;
 
-    //HEj EHJ
+
 
     private String cat;
 
 
 
-    String a;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
