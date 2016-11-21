@@ -29,6 +29,8 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
+        DbHelper db = new DbHelper(this);  // my question bank class
+        db.addStandardQuestionsSQL();
 
         generateQuestion();
     }
@@ -36,6 +38,7 @@ public class MainGameActivity extends AppCompatActivity {
     public void generateQuestion(){
 
         DbHelper db = new DbHelper(this);  // my question bank class
+
         quesList = db.getAllQuestions();  // this will fetch all quetonall questions
         currentQ = quesList.get(qid); // the current question
 

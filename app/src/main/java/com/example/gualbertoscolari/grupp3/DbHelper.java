@@ -18,18 +18,18 @@ public class DbHelper extends SQLiteOpenHelper {
     // tasks table name for questions
     private static final String TABLE_QUEST = "quest";
     // tasks table name for profiles
-    private static final String TABLE_PROFILE ="profile";
+    private static final String TABLE_PROFILE = "profile";
     //
-    private static final String TABLE_CATEGORY ="categorys";
+    private static final String TABLE_CATEGORY = "categorys";
 
     // tasks Table Columns names for questions
     private static final String KEY_ID = "id";
     private static final String KEY_QUEST = "question";
-    private static final String KEY_OPTA= "opta";
-    private static final String KEY_OPTB= "optb";
-    private static final String KEY_OPTC= "optc";
-    private static final String KEY_OPTD= "optd";
-    private static final String KEY_CAT= "category";
+    private static final String KEY_OPTA = "opta";
+    private static final String KEY_OPTB = "optb";
+    private static final String KEY_OPTC = "optc";
+    private static final String KEY_OPTD = "optd";
+    private static final String KEY_CAT = "category";
     private static final String KEY_ANSWER = "answer";
 
     private static final String KEY_NAME = "name";
@@ -48,7 +48,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         dbase = db;
 
-        String sqlQuestions = "CREATE TABLE " + TABLE_QUEST+ " (";
+        String sqlQuestions = "CREATE TABLE " + TABLE_QUEST + " (";
         sqlQuestions += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlQuestions += "Question VARCHAR(255) NOT NULL,";
         sqlQuestions += "opta VARCHAR(255) NOT NULL,";
@@ -61,9 +61,10 @@ public class DbHelper extends SQLiteOpenHelper {
 
         Log.d("bajs", "Database created");
 
+
         db.execSQL(sqlQuestions);
 
-        String sqlProfiles = "CREATE TABLE " + TABLE_PROFILE+ " (";
+        String sqlProfiles = "CREATE TABLE " + TABLE_PROFILE + " (";
         sqlProfiles += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlProfiles += "name VARCHAR(255) NOT NULL,";
         sqlProfiles += "score INTEGER NOT NULL";
@@ -74,7 +75,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.execSQL(sqlProfiles);
 
-        String sqlCategorys = "CREATE TABLE " + TABLE_CATEGORY+ " (";
+        String sqlCategorys = "CREATE TABLE " + TABLE_CATEGORY + " (";
         sqlCategorys += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlCategorys += "category VARCHAR(255) NOT NULL";
         sqlCategorys += ");";
@@ -84,7 +85,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.execSQL(sqlCategorys);
 
-        addStandardQuestionsSQL();
+
     }
 
     @Override
@@ -110,7 +111,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         long id = db.insert(TABLE_QUEST, null, cvs);
 
-        Log.d("Hej", "row id: "+id);
+        Log.d("Hej", "row id: " + id);
 
         db.close();
 
@@ -127,7 +128,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         long id = db.insert(TABLE_PROFILE, null, cvs);
 
-        Log.d("Hejprofile", "row id: "+id);
+        Log.d("Hejprofile", "row id: " + id);
 
         db.close();
     }
@@ -141,7 +142,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         long id = db.insert(TABLE_CATEGORY, null, cvs);
 
-        Log.d("Hejcategory", "row id: "+id);
+        Log.d("Hejcategory", "row id: " + id);
 
         db.close();
     }
@@ -152,7 +153,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM " + TABLE_QUEST + " ORDER BY RANDOM()";
         dbase = this.getReadableDatabase();
         //Cursor cursor = dbase.rawQuery(selectQuery, null);
-        Cursor cursor = dbase.query(true, TABLE_QUEST, null, null,null,null,null,"Random()", null);
+        Cursor cursor = dbase.query(true, TABLE_QUEST, null, null, null, null, null, "Random()", null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -196,16 +197,21 @@ public class DbHelper extends SQLiteOpenHelper {
         return profList;
     }
 
-    public void addStandardQuestionsSQL(){
-        addQuestion(StandardQuestions.q1);
-        addQuestion(StandardQuestions.q2);
-        addQuestion(StandardQuestions.q3);
-        addQuestion(StandardQuestions.q4);
-        addQuestion(StandardQuestions.q5);
-        addQuestion(StandardQuestions.q6);
-        addQuestion(StandardQuestions.q7);
-        addQuestion(StandardQuestions.q8);
-        addQuestion(StandardQuestions.q9);
-        addQuestion(StandardQuestions.q10);
+    public void addStandardQuestionsSQL() {
+        List<Question> quesList = getAllQuestions();
+        if(quesList.size() < 9) {
+            addQuestion(StandardQuestions.q1);
+            addQuestion(StandardQuestions.q2);
+            addQuestion(StandardQuestions.q3);
+            addQuestion(StandardQuestions.q4);
+            addQuestion(StandardQuestions.q5);
+            addQuestion(StandardQuestions.q6);
+            addQuestion(StandardQuestions.q7);
+            addQuestion(StandardQuestions.q8);
+            addQuestion(StandardQuestions.q9);
+            addQuestion(StandardQuestions.q10);
+        }
+
+        Log.d("Kiss", "Questions added yeah");
     }
 }
