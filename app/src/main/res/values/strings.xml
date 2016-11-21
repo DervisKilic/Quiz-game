@@ -12,11 +12,7 @@
     <string name="save_profile_txt_btn">Spara</string>
     <string name="choose_img_txt">Välj bild</string>
     <string name="about_activity_lbl">Om</string>
-<<<<<<< HEAD
     <string name="category_name">Enter the name of the category</string>
-=======
-
     <string name="about_activity_ic_title">Om</string>
     <string name="enter_category_name">Enter the name of the category</string>
->>>>>>> 7ecffd3c3b3240ebc35a1d8fabe9cbc21372d380
 </resources>
