@@ -5,6 +5,7 @@
 /.idea/libraries
 /.idea/misc
 /.idea/codeStyleSettings.xml
+.idea/
 .DS_Store
 /build
 /captures
