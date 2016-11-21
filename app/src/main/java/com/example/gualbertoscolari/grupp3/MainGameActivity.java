@@ -22,6 +22,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optCBtn;
     private Button optDBtn;
 
+
     private int numberOfAnsweredQ = 1;
 
     @Override

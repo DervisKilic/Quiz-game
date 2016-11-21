@@ -83,7 +83,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(sqlCategorys);
-        db.close();
     }
 
     @Override
@@ -150,7 +149,8 @@ public class DbHelper extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_QUEST + " ORDER BY RANDOM()";
         dbase = this.getReadableDatabase();
-        Cursor cursor = dbase.rawQuery(selectQuery, null);
+        //Cursor cursor = dbase.rawQuery(selectQuery, null);
+        Cursor cursor = dbase.query(true, TABLE_QUEST, null, null,null,null,null,"Random()", null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -170,5 +170,27 @@ public class DbHelper extends SQLiteOpenHelper {
         // return quest list
         cursor.close();
         return quesList;
+    }
+
+    public List<Profiles> getAllProfiles() {
+        List<Profiles> profList = new ArrayList<Profiles>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_PROFILE;
+        dbase = this.getReadableDatabase();
+        Cursor cursor = dbase.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Profiles p = new Profiles();
+                p.setName(cursor.getString(1));
+                p.setScore(cursor.getInt(2));
+
+
+                profList.add(p);
+            } while (cursor.moveToNext());
+        }
+        // return quest list
+        cursor.close();
+        return profList;
     }
 }

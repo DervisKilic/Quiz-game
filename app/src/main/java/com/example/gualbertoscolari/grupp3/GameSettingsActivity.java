@@ -5,11 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GameSettingsActivity extends AppCompatActivity {
     private ArrayList<String> category = new ArrayList<>();
@@ -18,6 +21,15 @@ public class GameSettingsActivity extends AppCompatActivity {
     private ArrayAdapter<String> chosenCategory;
     private ArrayAdapter<String> chosenProfile;
     public static String cat;
+
+    private Spinner profileSpinner;
+
+
+    List<Profiles> profList;
+    int score = 0;
+    int pid = 0;
+
+    Profiles currentP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +76,13 @@ public class GameSettingsActivity extends AppCompatActivity {
         dropdownProfile.setAdapter(chosenProfile);
 
 
+        DbHelper db = new DbHelper(this);  // my profile bank class
+        profList = db.getAllProfiles();  // this will fetch all quetonall questions
+
+        for (int i = 0; i < profList.size(); i++ ){
+            currentP = profList.get(i); // the current profile
+            profile.add(currentP.getName());
+        }
     }
 
     public void goToMainGame(View view) {
@@ -84,5 +103,6 @@ public class GameSettingsActivity extends AppCompatActivity {
     public void goToCreateProfile(View view) {
         Intent createProfileIntent = new Intent(this, CreateProfileActivity.class);
         startActivity(createProfileIntent);
+        finish();
     }
 }

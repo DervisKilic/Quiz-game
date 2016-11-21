@@ -1,5 +1,6 @@
 package com.example.gualbertoscolari.grupp3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,5 +26,10 @@ public class CreateProfileActivity extends AppCompatActivity {
         DbHelper db = new DbHelper(getApplicationContext());
 
         db.addProfile(p);
+    }
+
+    public void goToGameSettings(View view) {
+        Intent playAgainIntent = new Intent(this, GameSettingsActivity.class);
+        startActivity(playAgainIntent);
     }
 }

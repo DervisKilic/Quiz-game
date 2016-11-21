@@ -63,7 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/cancel_txt_btn" />
+            android:text="@string/cancel_txt_btn"
+            android:onClick="goToGameSettings"
+            android:id="@+id/create_profile_back" />
 
         <Button
             android:layout_width="wrap_content"
