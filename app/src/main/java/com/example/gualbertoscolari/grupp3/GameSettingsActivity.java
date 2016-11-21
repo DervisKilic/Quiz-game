@@ -75,7 +75,6 @@ public class GameSettingsActivity extends AppCompatActivity {
         chosenProfile = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
         dropdownProfile.setAdapter(chosenProfile);
 
-        int x;
         DbHelper db = new DbHelper(this);  // my profile bank class
         profList = db.getAllProfiles();  // this will fetch all quetonall questions
 
