@@ -87,8 +87,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.execSQL(sqlCategorys);
         db.close();
-
-
     }
 
     @Override
