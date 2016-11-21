@@ -83,6 +83,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(sqlCategorys);
+
+        addStandardQuestionsSQL();
     }
 
     @Override
