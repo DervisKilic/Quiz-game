@@ -17,7 +17,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
     private EditText category;
     private String cat;
 
-    //senaste
+    //senaste 12an
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
