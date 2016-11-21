@@ -19,7 +19,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/profileName"
+            android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/profile_name_hint"
