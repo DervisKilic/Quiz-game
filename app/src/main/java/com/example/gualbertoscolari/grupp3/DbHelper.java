@@ -197,6 +197,8 @@ public class DbHelper extends SQLiteOpenHelper {
         return profList;
     }
 
+    // This is to be removed. Used for testing app with questions. This method is called in
+    // MainGameActivity.java (in onCreate)
     public void addStandardQuestionsSQL() {
         List<Question> quesList = getAllQuestions();
         if(quesList.size() < 9) {
