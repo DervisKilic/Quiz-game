@@ -22,8 +22,6 @@ public class DbHelper extends SQLiteOpenHelper {
     //
     private static final String TABLE_CATEGORY ="categorys";
 
-
-
     // tasks Table Columns names for questions
     private static final String KEY_ID = "id";
     private static final String KEY_QUEST = "question";
@@ -38,8 +36,7 @@ public class DbHelper extends SQLiteOpenHelper {
     //private static final String KEY_IMG = "profileimg";
     private static final String KEY_SCORE = "score";
 
-    private static final String KEY_CATEGORY = GameSettingsActivity.cat;
-
+    private static final String KEY_CATEGORY = "category";
 
     private SQLiteDatabase dbase;
 
