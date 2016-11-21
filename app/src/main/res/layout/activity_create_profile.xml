@@ -65,6 +65,7 @@
             android:layout_weight="1"
             android:text="@string/cancel_txt_btn"
             android:onClick="goToGameSettings"
+            android:textAllCaps="false"
             android:id="@+id/create_profile_back" />
 
         <Button
@@ -72,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/save_profile_txt_btn"
+            android:textAllCaps="false"
             android:onClick="saveProfile" />
 
     </LinearLayout>

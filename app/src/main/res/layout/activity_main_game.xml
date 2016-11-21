@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="btn_a_pressed"
+            android:textAllCaps="false"
             android:text="answer_a" />
 
         <Button
@@ -59,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="btn_b_pressed"
+            android:textAllCaps="false"
             android:text="answer_b" />
     </LinearLayout>
 
@@ -71,19 +73,19 @@
         <Button
             android:id="@+id/answer_btn_c"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="btn_c_pressed"
+            android:textAllCaps="false"
             android:text="answer_c" />
 
         <Button
             android:id="@+id/answer_btn_d"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="btn_d_pressed"
+            android:textAllCaps="false"
             android:text="answer_d" />
 
     </LinearLayout>

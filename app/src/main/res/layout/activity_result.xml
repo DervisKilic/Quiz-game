@@ -46,23 +46,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textAllCaps="false"
             android:text="MAIN MENU" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:textAllCaps="false"
             android:text="HIGHSCORE" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/play_btn_layout"
-        android:layout_above="@id/bottom_btn_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_above="@+id/bottom_btn_layout"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false"
+        android:layout_alignParentStart="true">
 
         <Button
             android:layout_width="match_parent"
