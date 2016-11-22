@@ -7,25 +7,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
 //
 public class MainGameActivity extends AppCompatActivity {
 
-    GameLogic g1;
+    private Profile p1;
+    private GameLogic g1 = new GameLogic(p1);
 
-    List<Question> quesList;
-    int score = 0;
-    int qid = 0;
-
-    Question currentQ;
-    private TextView questiontv;
-    private Button optABtn;
-    private Button optBBtn;
-    private Button optCBtn;
-    private Button optDBtn;
     private String answer;
+    private TextView questiontv = (TextView) findViewById(R.id.question_tv);
+    private Button optABtn = (Button) findViewById(R.id.answer_btn_a);
+    private Button optBBtn = (Button) findViewById(R.id.answer_btn_b);
+    private Button optCBtn = (Button) findViewById(R.id.answer_btn_c);
+    private Button optDBtn = (Button) findViewById(R.id.answer_btn_d);
 
 
     private int numberOfAnsweredQ = 0;
@@ -34,16 +31,6 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
-        DbHelper db = new DbHelper(this);  // my question bank class
-        db.addStandardQuestionsSQL();
-    }
-
-    public void generateQuestion(){
-
-        DbHelper db = new DbHelper(this);  // my question bank class
-
-        quesList = db.getAllQuestions();  // this will fetch all quetonall questions
-        currentQ = quesList.get(qid); // the current question
 
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
@@ -51,29 +38,26 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
 
-        displayQuestion();
 
     }
+
 
     public void displayQuestion() {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
 
-        g1 = new GameLogic(lista med 10 frågor);
-
-
-        questiontv.setText(g1.qList(numberOfAnsweredQ).getQUESTION());
-        optABtn.setText(g1.qList(numberOfAnsweredQ).getOPTA());
-        optBBtn.setText(g1.qList(numberOfAnsweredQ).getOPTB());
-        optCBtn.setText(g1.qList(numberOfAnsweredQ).getOPTC());
-        optDBtn.setText(g1.qList(numberOfAnsweredQ).getOPTD());
+        questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
+        optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
+        optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
+        optCBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
+        optDBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
     }
 
     public void checkCorrectAnswer(String optString) {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
 
-        answer = g1.qList(numberOfAnsweredQ).getAnswers();
+        answer = g1.getQuestions().get(numberOfAnsweredQ).getANSWER();
 
         if (answer.equals(optString)) {
             //Ifall man svarar rätt händer detta

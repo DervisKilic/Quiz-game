@@ -21,17 +21,17 @@ public class GameLogic extends MainGameActivity {
         this.p1 = p1;
         this.p2 = p2;
         this.category = category;
-        getTenQuestions(category);
+        getTenQuestions();
     }
 
-    public GameLogic(Profile p1, String category) {
+    public GameLogic(Profile p1) {
         this.p1 = p1;
         this.category = category;
-        getTenQuestions(category);
+        getTenQuestions();
     }
 
-    private void getTenQuestions(String category) {
-        tenQuestions = db.getAllQuestions(category);
+    private void getTenQuestions() {
+        tenQuestions = db.getAllQuestions();
     }
 
     public void increaseScore(int score) {
