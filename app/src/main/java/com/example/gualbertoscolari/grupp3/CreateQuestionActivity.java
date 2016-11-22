@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,14 +19,6 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
 
     private int ID;
-
-    private String QUESTION;
-    private String OPTA;
-    private String OPTB;
-    private String OPTC;
-    private String OPTD;
-    private String CAT;
-    private String ANSWER;
 
     private EditText inputQuestion;
     private EditText inputOpta;
@@ -54,23 +47,43 @@ public class CreateQuestionActivity extends AppCompatActivity {
         inputQuestion = (EditText) findViewById(R.id.question_tv);
         String question = inputQuestion.getText().toString();
 
+        inputQuestion.setText("");
+        inputQuestion.setHint("Enter your question:");
+
         inputOpta = (EditText) findViewById(R.id.opt_a);
         String opta = inputOpta.getText().toString();
+
+        inputOpta.setText("");
+        inputOpta.setHint("Option: A");
 
         inputOptb = (EditText) findViewById(R.id.opt_b);
         String optb = inputOptb.getText().toString();
 
+        inputOptb.setText("");
+        inputOptb.setHint("Option: B");
+
         inputOptc = (EditText) findViewById(R.id.opt_c);
         String optc = inputOptc.getText().toString();
 
+        inputOptc.setText("");
+        inputOptc.setHint("Option: C");
+
         inputOptd = (EditText) findViewById(R.id.opt_d);
         String optd = inputOptd.getText().toString();
+
+        inputOptd.setText("");
+        inputOptd.setHint("Option: D");
 
         chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
         String cat = chosenCat.toString();
 
         inputcorrectAnswer = (EditText) findViewById(R.id.right_answer);
         String correctAnswer = inputcorrectAnswer.getText().toString();
+
+        inputcorrectAnswer.setText("");
+        inputcorrectAnswer.setHint("Correct answer:");
+
+        Toast.makeText(this, "You added a new question", Toast.LENGTH_SHORT).show();
 
 
         Question q = new Question(question,opta,optb, optc, optd, cat, correctAnswer);
