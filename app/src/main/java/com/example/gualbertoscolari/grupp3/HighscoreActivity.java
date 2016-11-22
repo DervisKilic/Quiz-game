@@ -2,7 +2,9 @@ package com.example.gualbertoscolari.grupp3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+//Ska låta användaren lista highscoren efter specifik kategori eller alla.
+//Spinner funktion skall finnas för att välja mellan kategorierna.
+//
 public class HighScoreActivity extends AppCompatActivity {
 
     @Override

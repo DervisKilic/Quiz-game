@@ -7,16 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
-
+//Lagra skriva och läsa frågor, profiler och kategorier till och från databasen.
+//
 public class DbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "quiz_db";
     // tasks table name for questions
-    private static final String TABLE_QUEST = "quest";
+    private static final String TABLE_QUESTION = "quest";
     // tasks table name for profiles
     private static final String TABLE_PROFILE = "profile";
     //
@@ -48,7 +48,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         dbase = db;
 
-        String sqlQuestions = "CREATE TABLE " + TABLE_QUEST + " (";
+        String sqlQuestions = "CREATE TABLE " + TABLE_QUESTION + " (";
         sqlQuestions += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlQuestions += "Question VARCHAR(255) NOT NULL,";
         sqlQuestions += "opta VARCHAR(255) NOT NULL,";
@@ -90,7 +90,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUEST + TABLE_CATEGORY + TABLE_PROFILE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE);
         onCreate(db);
 
 
@@ -109,7 +109,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_CAT, q.getCATEGORY());
         cvs.put(KEY_ANSWER, q.getANSWER());
 
-        long id = db.insert(TABLE_QUEST, null, cvs);
+        long id = db.insert(TABLE_QUESTION, null, cvs);
 
         Log.d("Hej", "row id: " + id);
 
@@ -117,7 +117,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addProfile(Profiles p) {
+    public void addProfile(Profile p) {
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -150,10 +150,10 @@ public class DbHelper extends SQLiteOpenHelper {
     public List<Question> getAllQuestions() {
         List<Question> quesList = new ArrayList<Question>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_QUEST + " ORDER BY RANDOM()";
+        String selectQuery = "SELECT * FROM " + TABLE_QUESTION + " ORDER BY RANDOM()";
         dbase = this.getReadableDatabase();
         //Cursor cursor = dbase.rawQuery(selectQuery, null);
-        Cursor cursor = dbase.query(true, TABLE_QUEST, null, null, null, null, null, "Random()", null);
+        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -175,8 +175,8 @@ public class DbHelper extends SQLiteOpenHelper {
         return quesList;
     }
 
-    public List<Profiles> getAllProfiles() {
-        List<Profiles> profList = new ArrayList<Profiles>();
+    public List<Profile> getAllProfiles() {
+        List<Profile> profList = new ArrayList<Profile>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_PROFILE;
         dbase = this.getReadableDatabase();
@@ -184,7 +184,7 @@ public class DbHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Profiles p = new Profiles();
+                Profile p = new Profile();
                 p.setName(cursor.getString(1));
                 p.setScore(cursor.getInt(2));
 

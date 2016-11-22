@@ -10,19 +10,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+//Klassen är till för att skapa egna kategorier.
+//Den tar emot en text sträng från användaren med valt kategori namn,
+//och skickar in det till databasen.
+//Metoden getCategory ska tas bort då vi hämtar kategorin från databasen.
+//Toasters och if satser för felhantering.
 
 public class CreateCategoryActivity extends AppCompatActivity {
     
     private EditText category;
-
-
-
     private String cat;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,15 +1,16 @@
 package com.example.gualbertoscolari.grupp3;
+//setters behövs inte då värdena sätts i konstruktorn.
 
-public class Profiles {
+public class Profile {
 
     private String name;
     private int score;
 
-    public Profiles(){
+    public Profile(){
         name = "";
         score = 0;
     }
-    public Profiles(String nAme, int sCore){
+    public Profile(String nAme, int sCore){
         name = nAme;
         score = sCore;
     }

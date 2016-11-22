@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+//Första menyn man kommer till, finns 3 knappar som tar spelaren vidare till olika aktiviteter.
 public class MenuActivity extends AppCompatActivity {
 
     @Override

@@ -1,9 +1,8 @@
 package com.example.gualbertoscolari.grupp3;
 
-
+//Innehåller alla standard frågor.
 
 public class StandardQuestions {
-
 
         public static Question q1 = new Question("Vilket trädslag är det i glasspinnen?", "Bok", "Alm", "Björk", "Al", "Natur", "Bok");
         public static Question q2 = new Question("Ungefär hur många slag slår ett människohjärta per minut?","30-40","110-130","60-70","80-90","Natur","60-70");

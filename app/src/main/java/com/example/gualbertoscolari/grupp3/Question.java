@@ -1,4 +1,6 @@
 package com.example.gualbertoscolari.grupp3;
+//Den tomma konstruktorn ska tas bort.
+//Ett question objekt innehåller 1 fråga 4 svar 1 rätt svar och 1 kategori.
 
 public class Question{
 

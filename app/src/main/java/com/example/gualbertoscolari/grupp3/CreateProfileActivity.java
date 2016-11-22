@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
+//Klassen låter användaren skapa en profil att spela med.
+//Klassen innehåller 2 knappar 1 för att spara sin profil och 1 för att gå tillbaka till GameSettings
+//Save knappen sparar ner profilnamnet i en variabel och skickar till databasen.
+//Toasters och if satser för felhantering.
 public class CreateProfileActivity extends AppCompatActivity {
 
     private EditText inputName;
@@ -25,7 +28,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         inputName = (EditText) findViewById(R.id.profile_name);
         String name = inputName.getText().toString();
 
-        Profiles p = new Profiles(name, 0);
+        Profile p = new Profile(name, 0);
         DbHelper db = new DbHelper(getApplicationContext());
 
         inputName.setText("");

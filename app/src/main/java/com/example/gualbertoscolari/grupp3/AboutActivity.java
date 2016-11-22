@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+//Skriver ut info om utvecklarna och en företagslogga.
+//Är klar men väntar på slutgiltiga designen.
 
 public class AboutActivity extends AppCompatActivity {
 

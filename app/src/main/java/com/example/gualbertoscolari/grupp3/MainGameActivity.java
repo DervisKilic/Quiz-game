@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
-
+//Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
+//Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
+//
 public class MainGameActivity extends AppCompatActivity {
 
     List<Question> quesList;

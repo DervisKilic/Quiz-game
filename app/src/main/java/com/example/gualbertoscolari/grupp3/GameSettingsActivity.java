@@ -5,15 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//Inställningar för spelomgång antal spelare, val av profil, val av kategori.
+//Här kan man välja att skapa nya kategorier, profiler och frågor.
+//Valen sparas ner i ett intent som skickas vidare till Maingame där det skapas upp en instans av
+//GameLogic
 public class GameSettingsActivity extends AppCompatActivity {
     private ArrayList<String> category = new ArrayList<>();
     private ArrayList<String> profile = new ArrayList<>();
@@ -25,11 +26,11 @@ public class GameSettingsActivity extends AppCompatActivity {
     private Spinner profileSpinner;
 
 
-    List<Profiles> profList;
+    List<Profile> profList;
     int score = 0;
     int pid = 0;
 
-    Profiles currentP;
+    Profile currentP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

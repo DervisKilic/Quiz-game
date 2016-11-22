@@ -10,13 +10,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+//Skapar upp en fråga med 4 alternativ och 1 rätt svar.
+//Man väljer även vilken kategori frågan skall läggas til i som hämtas från databasen.
+//Toasters och if satser för felhantering.
 
 public class CreateQuestionActivity extends AppCompatActivity {
 
     ArrayList<String> category = new ArrayList<>();
     ArrayAdapter<String> chosenCategory;
-
-
 
     private int ID;
 
@@ -25,8 +26,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
     private EditText inputOptb;
     private EditText inputOptc;
     private EditText inputOptd;
-    private Spinner chosenCat;
     private EditText inputcorrectAnswer;
+    private Spinner chosenCat;
 
 
     @Override
