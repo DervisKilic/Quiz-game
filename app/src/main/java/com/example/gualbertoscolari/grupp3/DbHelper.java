@@ -147,8 +147,8 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<Question> getAllQuestions(String category) {
-        List<Question> quesList = new ArrayList<Question>();
+    public ArrayList<Question> getAllQuestions(String category) {
+        ArrayList<Question> quesList = new ArrayList<Question>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_QUESTION + " ORDER BY RANDOM()";
         dbase = this.getReadableDatabase();
