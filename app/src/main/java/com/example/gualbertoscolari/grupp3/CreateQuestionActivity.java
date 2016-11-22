@@ -48,31 +48,31 @@ public class CreateQuestionActivity extends AppCompatActivity {
         String question = inputQuestion.getText().toString();
 
         inputQuestion.setText("");
-        inputQuestion.setHint("Enter your question:");
+        inputQuestion.setHint(R.string.enter_q_hint);
 
         inputOpta = (EditText) findViewById(R.id.opt_a);
         String opta = inputOpta.getText().toString();
 
         inputOpta.setText("");
-        inputOpta.setHint("Option: A");
+        inputOpta.setHint(R.string.enter_opt_a_hint);
 
         inputOptb = (EditText) findViewById(R.id.opt_b);
         String optb = inputOptb.getText().toString();
 
         inputOptb.setText("");
-        inputOptb.setHint("Option: B");
+        inputOptb.setHint(R.string.enter_opt_b_hint);
 
         inputOptc = (EditText) findViewById(R.id.opt_c);
         String optc = inputOptc.getText().toString();
 
         inputOptc.setText("");
-        inputOptc.setHint("Option: C");
+        inputOptc.setHint(R.string.enter_opt_c_hint);
 
         inputOptd = (EditText) findViewById(R.id.opt_d);
         String optd = inputOptd.getText().toString();
 
         inputOptd.setText("");
-        inputOptd.setHint("Option: D");
+        inputOptd.setHint(R.string.enter_opt_d_hint);
 
         chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
         String cat = chosenCat.toString();
@@ -81,7 +81,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
         String correctAnswer = inputcorrectAnswer.getText().toString();
 
         inputcorrectAnswer.setText("");
-        inputcorrectAnswer.setHint("Correct answer:");
+        inputcorrectAnswer.setHint(R.string.enter_corr_answ_hint);
 
         Toast.makeText(this, "You added a new question", Toast.LENGTH_SHORT).show();
 

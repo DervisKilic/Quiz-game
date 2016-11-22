@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_below="@id/create_question_title"
-        android:hint="Enter your question here"
+        android:hint="@string/enter_q_hint"
         android:layout_marginTop="10dp"
         android:textSize="20dp" />
 
@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/question_tv"
-        android:hint="Option A:"
+        android:hint="@string/enter_opt_a_hint"
         android:layout_marginTop="10dp"
         android:textSize="20dp"/>
 
@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/opt_a"
-        android:hint="Option B:"
+        android:hint="@string/enter_opt_b_hint"
         android:layout_marginTop="10dp"
         android:textSize="20dp"/>
 
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/opt_b"
-        android:hint="Option C:"
+        android:hint="@string/enter_opt_c_hint"
         android:layout_marginTop="10dp"
         android:textSize="20dp"/>
 
@@ -73,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/opt_c"
-        android:hint="Option D:"
+        android:hint="@string/enter_opt_d_hint"
         android:layout_marginTop="10dp"
         android:textSize="20dp"/>
 
@@ -82,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/opt_d"
-        android:hint="Correct answer"
+        android:hint="@string/enter_corr_answ_hint"
         android:textSize="20dp"
         android:layout_marginTop="10dp"/>
 
