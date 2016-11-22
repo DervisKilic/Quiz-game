@@ -147,13 +147,13 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<Question> getAllQuestions() {
+    public List<Question> getAllQuestions(String category) {
         List<Question> quesList = new ArrayList<Question>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_QUESTION + " ORDER BY RANDOM()";
         dbase = this.getReadableDatabase();
         //Cursor cursor = dbase.rawQuery(selectQuery, null);
-        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", null);
+        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, category, null, null, null, "Random()", "10");
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -200,7 +200,7 @@ public class DbHelper extends SQLiteOpenHelper {
     // This is to be removed. Used for testing app with questions. This method is called in
     // MainGameActivity.java (in onCreate)
     public void addStandardQuestionsSQL() {
-        List<Question> quesList = getAllQuestions();
+        List<Question> quesList = getAllQuestions("Nature");
         if(quesList.size() < 9) {
             addQuestion(StandardQuestions.q1);
             addQuestion(StandardQuestions.q2);
