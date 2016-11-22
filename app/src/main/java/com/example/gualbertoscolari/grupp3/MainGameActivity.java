@@ -13,6 +13,8 @@ import java.util.List;
 //
 public class MainGameActivity extends AppCompatActivity {
 
+    GameLogic g1;
+
     List<Question> quesList;
     int score = 0;
     int qid = 0;
@@ -23,9 +25,10 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optBBtn;
     private Button optCBtn;
     private Button optDBtn;
+    private String answer;
 
 
-    private int numberOfAnsweredQ = 1;
+    private int numberOfAnsweredQ = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,6 @@ public class MainGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_game);
         DbHelper db = new DbHelper(this);  // my question bank class
         db.addStandardQuestionsSQL();
-
-        generateQuestion();
     }
 
     public void generateQuestion(){
@@ -58,18 +59,23 @@ public class MainGameActivity extends AppCompatActivity {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
 
-        questiontv.setText(currentQ.getQUESTION());
-        optABtn.setText(currentQ.getOPTA());
-        optBBtn.setText(currentQ.getOPTB());
-        optCBtn.setText(currentQ.getOPTC());
-        optDBtn.setText(currentQ.getOPTD());
+        g1 = new GameLogic(lista med 10 frågor);
+
+
+        questiontv.setText(g1.qList(numberOfAnsweredQ).getQUESTION());
+        optABtn.setText(g1.qList(numberOfAnsweredQ).getOPTA());
+        optBBtn.setText(g1.qList(numberOfAnsweredQ).getOPTB());
+        optCBtn.setText(g1.qList(numberOfAnsweredQ).getOPTC());
+        optDBtn.setText(g1.qList(numberOfAnsweredQ).getOPTD());
     }
 
     public void checkCorrectAnswer(String optString) {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
 
-        if (optString.equals(questiontv.getText().toString()) ) {
+        answer = g1.qList(numberOfAnsweredQ).getAnswers();
+
+        if (answer.equals(optString)) {
             //Ifall man svarar rätt händer detta
 
             questiontv.setText("Hurra du svarade rätt på den här frågan");
@@ -79,13 +85,11 @@ public class MainGameActivity extends AppCompatActivity {
             questiontv.setText("Du svarade fel , du är dum");
         }
 
-        if (numberOfAnsweredQ == 10) {
+        if (numberOfAnsweredQ == 9) {
 
             //Du har svarat på alla frågor , du tas till resultskärmen.
             goToResult();
         }
-
-        generateQuestion();
     }
 
     public void goToResult() {
