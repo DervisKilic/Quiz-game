@@ -30,12 +30,16 @@ public class GameLogic extends MainGameActivity {
         getTenQuestions(category);
     }
 
-    public void getTenQuestions(String category) {
+    private void getTenQuestions(String category) {
         tenQuestions = db.getAllQuestions(category);
     }
 
     public void increaseScore(int score) {
         this.score += score;
+    }
+
+    public ArrayList<Question> getQuestions(){
+        return tenQuestions;
     }
 
 
