@@ -15,14 +15,14 @@ import java.util.List;
 public class MainGameActivity extends AppCompatActivity {
 
     private Profile p1;
-    private GameLogic g1 = new GameLogic(p1);
+    private GameLogic g1;
 
     private String answer;
-    private TextView questiontv = (TextView) findViewById(R.id.question_tv);
-    private Button optABtn = (Button) findViewById(R.id.answer_btn_a);
-    private Button optBBtn = (Button) findViewById(R.id.answer_btn_b);
-    private Button optCBtn = (Button) findViewById(R.id.answer_btn_c);
-    private Button optDBtn = (Button) findViewById(R.id.answer_btn_d);
+    private TextView questiontv;
+    private Button optABtn;
+    private Button optBBtn;
+    private Button optCBtn;
+    private Button optDBtn;
 
 
     private int numberOfAnsweredQ = 0;
@@ -31,6 +31,8 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
+
+        g1 = new GameLogic(p1);
 
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
