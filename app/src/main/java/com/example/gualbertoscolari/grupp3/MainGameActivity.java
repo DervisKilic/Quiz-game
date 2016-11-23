@@ -1,6 +1,7 @@
 package com.example.gualbertoscolari.grupp3;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Timer;
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
@@ -35,6 +37,8 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optCBtn;
     private Button optDBtn;
     private TextView cat;
+    private TextView timerTV;
+    Timer timer;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
 
@@ -70,6 +74,19 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
         displayQuestion();
+
+
+
+       /* new CountDownTimer(3000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                timerTV.setText("Seconds remaining : " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                timerTV.setText("Done!");
+            }
+        }.start();
+        */
 
     }
 
@@ -109,6 +126,9 @@ public class MainGameActivity extends AppCompatActivity {
         }
         displayQuestion();
     }
+
+
+
 
     public void goToResult() {
         Intent intent = new Intent(this, ResultActivity.class);
