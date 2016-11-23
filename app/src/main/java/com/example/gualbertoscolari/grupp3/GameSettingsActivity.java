@@ -21,23 +21,24 @@ public class GameSettingsActivity extends AppCompatActivity {
     private ArrayList<String> category = new ArrayList<>();
     private ArrayList<String> profile = new ArrayList<>();
     private ArrayAdapter<String> chosenCategory;
-    private ArrayAdapter<String> chosenProfile;
+    private ArrayAdapter<String> chosenProfileP1;
+    private ArrayAdapter<String> chosenProfileP2;
+    String p1;
+    String p2;
     public static String cat;
     private CheckBox c1;
     private CheckBox c2;
+
+    private int players;
 
     private Spinner profileSpinner1;
     private Spinner profileSpinner2;
     private TextView profile2Tv;
     private ImageView profileIv2;
 
+    private List<Profile> profList;
 
-
-    List<Profile> profList;
-    int score = 0;
-    int pid = 0;
-
-    Profile currentP;
+    private Profile currentP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,8 @@ public class GameSettingsActivity extends AppCompatActivity {
                 profile2Tv.setVisibility(View.GONE);
                 profileIv2.setVisibility(View.GONE);
 
+                players = 1;
+
             }
         });
         c2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -69,6 +72,7 @@ public class GameSettingsActivity extends AppCompatActivity {
                 profileSpinner2.setVisibility(View.VISIBLE);
                 profile2Tv.setVisibility(View.VISIBLE);
                 profileIv2.setVisibility(View.VISIBLE);
+                players = 2;
 
             }
         });
@@ -91,9 +95,12 @@ public class GameSettingsActivity extends AppCompatActivity {
         profile2Tv = (TextView) findViewById(R.id.current_profile2_tv);
         profileIv2 = (ImageView) findViewById(R.id.profile_img_iv2);
 
-        chosenProfile = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
-        profileSpinner1.setAdapter(chosenProfile);
-        profileSpinner2.setAdapter(chosenProfile);
+        chosenProfileP1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
+        chosenProfileP2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
+        profileSpinner1.setAdapter(chosenProfileP1);
+        profileSpinner2.setAdapter(chosenProfileP2);
+        p1 = profileSpinner1.getAdapter().toString();
+        p2 = profileSpinner2.getAdapter().toString();
 
         DbHelper db = new DbHelper(this);  // my profile bank class
         profList = db.getAllProfiles();  // this will fetch all quetonall questions
@@ -109,7 +116,13 @@ public class GameSettingsActivity extends AppCompatActivity {
 
     public void goToMainGame(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
+
+        playIntent.putExtra(GameLogic.CATEGORY, cat);
+        playIntent.putExtra((GameLogic.PLAYERS), players);
+        playIntent.putExtra(GameLogic.FIRSTPROFILE,p1);
+        playIntent.putExtra(GameLogic.SECONDPROFILE,p2);
         startActivity(playIntent);
+        finish();
     }
 
     public void goToCreateQuestion(View view) {

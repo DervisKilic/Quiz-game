@@ -1,6 +1,7 @@
 package com.example.gualbertoscolari.grupp3;
 
 import android.content.Context;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,17 @@ import java.util.List;
 //En timer metod som sköter värdet på poängen och avslutar rundan.
 //
 public class GameLogic extends MainGameActivity {
+
+
+    public final static String CATEGORY = "chosen category";
+    public final static String PLAYERS = "number of players";
+    public final static String FIRSTPROFILE = "name of the player 1";
+    public final static String SECONDPROFILE = "name of the player 1";
+
+        String chosenCat = getIntent().getStringExtra(CATEGORY);
+        String numberOfPlayers = getIntent().getStringExtra(PLAYERS);
+        String p1Name = getIntent().getStringExtra(FIRSTPROFILE);
+        String p2Name = getIntent().getStringExtra(SECONDPROFILE);
 
     private DbHelper db;
     private int score = 0;
