@@ -11,20 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gualbertoscolari.grupp3.GameSettingsActivity">
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/radioGroup"
-        android:orientation="horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="34dp"
-        android:gravity="center_horizontal"
-        android:checkedButton="1">
-
-    </RadioGroup>
-
     <Button
         android:text="Create Question"
         android:layout_width="90dp"
@@ -124,7 +110,6 @@
         android:text="1"
         android:id="@+id/one_player_cb"
         android:textSize="22sp"
-        android:layout_alignBottom="@+id/radioGroup"
         android:layout_toLeftOf="@+id/two_player_cb"
         android:layout_toStartOf="@+id/two_player_cb" />
 
@@ -134,7 +119,6 @@
         android:text="2"
         android:id="@+id/two_player_cb"
         android:textSize="22sp"
-        android:layout_alignBottom="@+id/radioGroup"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -157,8 +141,8 @@
         android:layout_below="@+id/current_profile2_tv" />
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="80sp"
+        android:layout_height="50sp"
         app:srcCompat="@drawable/bild2"
         android:id="@+id/profile_img_iv2"
         android:layout_below="@+id/profile_spinner2"
@@ -175,6 +159,5 @@
         android:layout_alignBottom="@+id/current_profile1_tv"
         android:layout_toLeftOf="@+id/two_player_cb"
         android:layout_toStartOf="@+id/two_player_cb" />
-
 
 </RelativeLayout>
