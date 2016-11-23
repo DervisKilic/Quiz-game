@@ -1,6 +1,7 @@
 package com.example.gualbertoscolari.grupp3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //Standard frågor profiler och kategorier ska skapas upp i Gamelogic vid anrop och skickar en lista
 //med dessa till MainGameActivity och skriver ut dom.
@@ -14,7 +15,7 @@ public class GameLogic extends MainGameActivity {
     private String category;
     private Profile p1;
     private Profile p2;
-    private ArrayList<Question> tenQuestions;
+    private List<Question> tenQuestions;
 
 
     public GameLogic(Profile p1, Profile p2, String category) {
@@ -38,7 +39,7 @@ public class GameLogic extends MainGameActivity {
         this.score += score;
     }
 
-    public ArrayList<Question> getQuestions(){
+    public List<Question> getQuestions(){
         return tenQuestions;
     }
 
