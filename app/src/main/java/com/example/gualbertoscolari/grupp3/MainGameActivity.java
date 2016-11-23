@@ -3,6 +3,7 @@ package com.example.gualbertoscolari.grupp3;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -64,13 +65,16 @@ public class MainGameActivity extends AppCompatActivity {
 
         if (answer.equals(optString)) {
             //Ifall man svarar rätt händer detta
+            Log.d("Svarstest", "Rätt");
 
             questiontv.setText("Hurra du svarade rätt på den här frågan");
         } else {
-
+            Log.d("Svarstest", "Fel");
             //Ifall man svarar fel händer detta
             questiontv.setText("Du svarade fel , du är dum");
         }
+
+        numberOfAnsweredQ++;
 
         if (numberOfAnsweredQ == 9) {
 
@@ -86,22 +90,18 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void btn_a_pressed(View view) {
-        numberOfAnsweredQ++;
         checkCorrectAnswer(optABtn.getText().toString());
     }
 
     public void btn_b_pressed(View view) {
-        numberOfAnsweredQ++;
         checkCorrectAnswer(optBBtn.getText().toString());
     }
 
     public void btn_c_pressed(View view) {
-        numberOfAnsweredQ++;
         checkCorrectAnswer(optCBtn.getText().toString());
     }
 
     public void btn_d_pressed(View view) {
-        numberOfAnsweredQ++;
         checkCorrectAnswer(optDBtn.getText().toString());
     }
 }
