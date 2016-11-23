@@ -63,7 +63,7 @@ public class MainGameActivity extends AppCompatActivity {
             //Ifall man svarar rätt händer detta
             Log.d("Svarstest", "Rätt");
             //Ifall man svarar rätt händer detta
-            Log.d(TAG, "Answer:  " + answer + " optstring:  " + optString + " The Question was answered correctly ");
+            Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
             questiontv.setText("Hurra du svarade rätt på den här frågan");
 
         } else {
