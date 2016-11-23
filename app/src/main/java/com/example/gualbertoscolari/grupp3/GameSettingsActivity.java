@@ -1,15 +1,18 @@
 package com.example.gualbertoscolari.grupp3;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +28,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     private ArrayAdapter<String> chosenProfileP2;
     String p1;
     String p2;
-    public static String cat;
+    private String cat;
     private CheckBox c1;
     private CheckBox c2;
 
@@ -35,6 +38,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     private Spinner profileSpinner2;
     private TextView profile2Tv;
     private ImageView profileIv2;
+    private Spinner dropdownCategory;
 
     private List<Profile> profList;
 
@@ -77,19 +81,64 @@ public class GameSettingsActivity extends AppCompatActivity {
             }
         });
 
+        getStandardCategorys();
+        getStandardProfiles();
+
+        profileSpinner2.setVisibility(View.GONE);
+        profile2Tv.setVisibility(View.GONE);
+        profileIv2.setVisibility(View.GONE);
+    }
+
+    public void goToMainGame(View view) {
+        Intent playIntent = new Intent(this, MainGameActivity.class);
+
+        cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
+
+        playIntent.putExtra(MainGameActivity.CATEGORY, cat);
+        playIntent.putExtra(String.valueOf((GameLogic.PLAYERS)), players);
+        playIntent.putExtra(GameLogic.FIRSTPROFILE,p1);
+        playIntent.putExtra(GameLogic.SECONDPROFILE,p2);
+        startActivity(playIntent);
+        finish();
+    }
+
+
+    public void goToCreateQuestion(View view) {
+        Intent createQuestionIntent = new Intent(this, CreateQuestionActivity.class);
+        startActivity(createQuestionIntent);
+    }
+
+    public void goToCreateCategory(View view) {
+            Intent createCategoryIntent = new Intent(this, CreateCategoryActivity.class);
+            startActivity(createCategoryIntent);
+    }
+
+    public void goToCreateProfile(View view) {
+        Intent createProfileIntent = new Intent(this, CreateProfileActivity.class);
+        startActivity(createProfileIntent);
+        finish();
+    }
+
+    public void getStandardCategorys(){
+
         category.add("Sport");
-        category.add("Nature");
+        category.add("Natur");
         category.add("Culture");
         category.add("All");
-        Spinner dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
+        dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
-        cat = chosenCategory.toString();
+
+
+    }
+
+    public void getStandardProfiles(){
 
         profile.add("Dervis");
         profile.add("Fredrik");
         profile.add("Gualberto");
         profile.add("Simon");
+
         profileSpinner1 = (Spinner) findViewById(R.id.profile_spinner);
         profileSpinner2 = (Spinner) findViewById(R.id.profile_spinner2);
         profile2Tv = (TextView) findViewById(R.id.current_profile2_tv);
@@ -109,35 +158,6 @@ public class GameSettingsActivity extends AppCompatActivity {
             currentP = profList.get(i); // the current profile
             profile.add(currentP.getName());
         }
-        profileSpinner2.setVisibility(View.GONE);
-        profile2Tv.setVisibility(View.GONE);
-        profileIv2.setVisibility(View.GONE);
-    }
 
-    public void goToMainGame(View view) {
-        Intent playIntent = new Intent(this, MainGameActivity.class);
-
-        playIntent.putExtra(GameLogic.CATEGORY, cat);
-        playIntent.putExtra((GameLogic.PLAYERS), players);
-        playIntent.putExtra(GameLogic.FIRSTPROFILE,p1);
-        playIntent.putExtra(GameLogic.SECONDPROFILE,p2);
-        startActivity(playIntent);
-        finish();
-    }
-
-    public void goToCreateQuestion(View view) {
-        Intent createQuestionIntent = new Intent(this, CreateQuestionActivity.class);
-        startActivity(createQuestionIntent);
-    }
-
-    public void goToCreateCategory(View view) {
-            Intent createCategoryIntent = new Intent(this, CreateCategoryActivity.class);
-            startActivity(createCategoryIntent);
-    }
-
-    public void goToCreateProfile(View view) {
-        Intent createProfileIntent = new Intent(this, CreateProfileActivity.class);
-        startActivity(createProfileIntent);
-        finish();
     }
 }

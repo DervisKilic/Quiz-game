@@ -1,7 +1,6 @@
 package com.example.gualbertoscolari.grupp3;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,23 +8,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
 //
 public class MainGameActivity extends AppCompatActivity {
 
+    public final static String CATEGORY = "chosen category";
+    public final static int PLAYERS = Integer.parseInt("number of players");
+    public final static String FIRSTPROFILE = "name of the player 1";
+    public final static String SECONDPROFILE = "name of the player 1";
+
+    private int numberOfPlayers;
+    private String p1Name;
+    private String p2Name;
+
     private Profile p1;
+    private Profile p2;
     private GameLogic g1;
 
     private String answer;
     private TextView questiontv;
+    private String chosenCat;
     private Button optABtn;
     private Button optBBtn;
     private Button optCBtn;
     private Button optDBtn;
+    private TextView cat;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
 
@@ -35,7 +44,25 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
-        g1 = new GameLogic(p1, "Natur", this);
+        Bundle extras = getIntent().getExtras();
+
+        chosenCat = extras.getString(CATEGORY);
+        p1Name = extras.getString(FIRSTPROFILE);
+        p2Name = extras.getString(SECONDPROFILE);
+        numberOfPlayers = extras.getInt(String.valueOf(PLAYERS));
+
+
+
+        cat = (TextView) findViewById(R.id.chosen_category);
+
+
+        if(numberOfPlayers == 1){
+            g1 = new GameLogic(p1, chosenCat, this);
+        }else{
+
+            g1 = new GameLogic(p1,p2, chosenCat, this);
+        }
+
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
@@ -49,6 +76,7 @@ public class MainGameActivity extends AppCompatActivity {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
         questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
+        cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
         optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
         optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
         optCBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
