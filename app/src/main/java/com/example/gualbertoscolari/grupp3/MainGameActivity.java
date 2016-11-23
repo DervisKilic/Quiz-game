@@ -1,6 +1,7 @@
 package com.example.gualbertoscolari.grupp3;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
 //
@@ -25,6 +27,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optCBtn;
     private Button optDBtn;
 
+    private static final String TAG = "MAINGAME_ACTIVITY";
 
     private int numberOfAnsweredQ = 0;
 
@@ -32,24 +35,19 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
-
         g1 = new GameLogic(p1, "Natur", this);
-
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
-
         displayQuestion();
 
     }
 
-
     public void displayQuestion() {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
-
         questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
         optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
         optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
@@ -60,26 +58,25 @@ public class MainGameActivity extends AppCompatActivity {
     public void checkCorrectAnswer(String optString) {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
-
         answer = g1.getQuestions().get(numberOfAnsweredQ).getANSWER();
-
         if (answer.equals(optString)) {
             //Ifall man svarar rätt händer detta
             Log.d("Svarstest", "Rätt");
-
+            //Ifall man svarar rätt händer detta
+            Log.d(TAG, "Answer:  " + answer + " optstring:  " + optString + " The Question was answered correctly ");
             questiontv.setText("Hurra du svarade rätt på den här frågan");
+
         } else {
-            Log.d("Svarstest", "Fel");
             //Ifall man svarar fel händer detta
+            Log.d(TAG, "Answer: " + answer + "optstring:  " + optString + " The Question was answered wrongly");
             questiontv.setText("Du svarade fel , du är dum");
+
         }
-
         numberOfAnsweredQ++;
-
         if (numberOfAnsweredQ == 9) {
-
             //Du har svarat på alla frågor , du tas till resultskärmen.
             goToResult();
+
         }
         displayQuestion();
     }
