@@ -150,10 +150,8 @@ public class DbHelper extends SQLiteOpenHelper {
     public List<Question> getAllQuestions() {
         List<Question> quesList = new ArrayList<Question>();
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_QUESTION + " ORDER BY RANDOM()";
-        dbase = this.getReadableDatabase();
-        //Cursor cursor = dbase.rawQuery(selectQuery, null);
-        Cursor cursor = dbase.query(TABLE_QUESTION, null, null, null, null, null, "Random()", null);
+        dbase = getReadableDatabase();
+        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", "10");
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -179,7 +177,7 @@ public class DbHelper extends SQLiteOpenHelper {
         List<Profile> profList = new ArrayList<Profile>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_PROFILE;
-        dbase = this.getReadableDatabase();
+        dbase = getReadableDatabase();
         Cursor cursor = dbase.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {

@@ -32,7 +32,7 @@ public class MainGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
 
-        g1 = new GameLogic(p1);
+        g1 = new GameLogic(p1, this);
 
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
@@ -40,6 +40,7 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
 
+        displayQuestion();
 
     }
 
@@ -76,6 +77,7 @@ public class MainGameActivity extends AppCompatActivity {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             goToResult();
         }
+        displayQuestion();
     }
 
     public void goToResult() {
@@ -84,22 +86,22 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void btn_a_pressed(View view) {
-        checkCorrectAnswer(optABtn.getText().toString());
         numberOfAnsweredQ++;
+        checkCorrectAnswer(optABtn.getText().toString());
     }
 
     public void btn_b_pressed(View view) {
-        checkCorrectAnswer(optBBtn.getText().toString());
         numberOfAnsweredQ++;
+        checkCorrectAnswer(optBBtn.getText().toString());
     }
 
     public void btn_c_pressed(View view) {
-        checkCorrectAnswer(optCBtn.getText().toString());
         numberOfAnsweredQ++;
+        checkCorrectAnswer(optCBtn.getText().toString());
     }
 
     public void btn_d_pressed(View view) {
-        checkCorrectAnswer(optDBtn.getText().toString());
         numberOfAnsweredQ++;
+        checkCorrectAnswer(optDBtn.getText().toString());
     }
 }

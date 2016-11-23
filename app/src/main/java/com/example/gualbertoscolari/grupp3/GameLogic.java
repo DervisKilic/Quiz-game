@@ -1,5 +1,7 @@
 package com.example.gualbertoscolari.grupp3;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
 //
 public class GameLogic extends MainGameActivity {
 
-    private DbHelper db = new DbHelper(this);
+    private DbHelper db;
     private int score = 0;
     private String category;
     private Profile p1;
@@ -25,8 +27,9 @@ public class GameLogic extends MainGameActivity {
         getTenQuestions();
     }
 
-    public GameLogic(Profile p1) {
+    public GameLogic(Profile p1, Context context) {
         this.p1 = p1;
+        db = new DbHelper(context);
         this.category = category;
         getTenQuestions();
     }
