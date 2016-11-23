@@ -77,7 +77,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
         inputOptd.setHint(R.string.enter_opt_d_hint);
 
         chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
-        String cat = chosenCat.toString();
+        String cat = chosenCat.getSelectedItem().toString();
 
         inputcorrectAnswer = (EditText) findViewById(R.id.right_answer);
         String correctAnswer = inputcorrectAnswer.getText().toString();
