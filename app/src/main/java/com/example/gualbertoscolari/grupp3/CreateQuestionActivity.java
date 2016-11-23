@@ -1,6 +1,7 @@
 package com.example.gualbertoscolari.grupp3;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -91,6 +92,12 @@ public class CreateQuestionActivity extends AppCompatActivity {
         DbHelper db = new DbHelper(getApplicationContext());
 
         db.addQuestion(q);
+    }
+
+    public void backToMain(View view){
+        Intent GameStettingsActivity = new Intent(this, GameSettingsActivity.class);
+        startActivity(GameStettingsActivity);
+
     }
 
 

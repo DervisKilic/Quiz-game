@@ -38,8 +38,9 @@
         android:layout_height="65dp"
         android:layout_below="@id/create_question_title"
         android:hint="@string/enter_q_hint"
-        android:layout_marginTop="10dp"
-        android:textSize="20dp" />
+        android:layout_marginTop="5dp"
+        android:textSize="20dp"
+        />
 
     <EditText
         android:id="@+id/opt_a"
@@ -47,8 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/question_tv"
         android:hint="@string/enter_opt_a_hint"
-        android:layout_marginTop="10dp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/opt_b"
@@ -56,8 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/opt_a"
         android:hint="@string/enter_opt_b_hint"
-        android:layout_marginTop="10dp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/opt_c"
@@ -65,8 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/opt_b"
         android:hint="@string/enter_opt_c_hint"
-        android:layout_marginTop="10dp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/opt_d"
@@ -74,8 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/opt_c"
         android:hint="@string/enter_opt_d_hint"
-        android:layout_marginTop="10dp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/right_answer"
@@ -84,19 +85,30 @@
         android:layout_below="@+id/opt_d"
         android:hint="@string/enter_corr_answ_hint"
         android:textSize="20dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="5dp"/>
 
     <Button
         android:id="@+id/create_question_button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textAllCaps="false"
+        android:onClick="backToMain"/>
+
+    <Button
+        android:id="@+id/create_question_back_button"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Add question"
         android:textSize="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="1dp"
+        android:layout_alignParentRight="true"
         android:textAllCaps="false"
         android:onClick="saveQuestion"/>
+
+
 
 </RelativeLayout>
