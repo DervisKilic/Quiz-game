@@ -88,25 +88,19 @@
         android:layout_marginTop="5dp"/>
 
     <Button
+        style="@style/create_activity_button"
         android:id="@+id/create_question_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textSize="20dp"
+        android:text="@string/add_question_back_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:textAllCaps="false"
         android:onClick="backToMain"/>
 
     <Button
+        style="@style/create_activity_button"
         android:id="@+id/create_question_back_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Add question"
-        android:textSize="20dp"
+        android:text="@string/add_question_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textAllCaps="false"
         android:onClick="saveQuestion"/>
 
 

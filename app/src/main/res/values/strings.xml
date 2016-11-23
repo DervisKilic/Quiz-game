@@ -9,7 +9,7 @@
     <string name="name_hint">Namn:</string>
     <string name="profile_name_hint">Välj namn:</string>
     <string name="cancel_txt_btn">Back</string>
-    <string name="save_profile_txt_btn">Spara</string>
+    <string name="save_profile_txt_btn">Add profile</string>
     <string name="choose_img_txt">Välj bild</string>
     <string name="about_activity_lbl">Om</string>
     <string name="category_name">Enter the name of the category</string>
@@ -21,4 +21,8 @@
     <string name="enter_opt_c_hint">Option C:</string>
     <string name="enter_opt_d_hint">Option D:</string>
     <string name="enter_corr_answ_hint">Correct answer</string>
+    <string name="add_category_button">Add category</string>
+    <string name="add_category_back_button">Back</string>
+    <string name="add_question_button">Add question</string>
+    <string name="add_question_back_button">Back</string>
 </resources>

@@ -54,29 +54,30 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            style="@style/create_activity_button"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:text="@string/cancel_txt_btn"
             android:onClick="goToGameSettings"
             android:textAllCaps="false"
             android:id="@+id/create_profile_back" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            style="@style/create_activity_button"
+            android:id="@+id/create_profile_add"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             android:text="@string/save_profile_txt_btn"
             android:textAllCaps="false"
             android:onClick="saveProfile" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>
