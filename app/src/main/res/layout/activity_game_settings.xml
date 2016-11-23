@@ -36,37 +36,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:text="Number of players"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numer_of_players_tv"
-        android:textSize="22sp"
-        android:layout_below="@+id/radioGroup"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:id="@+id/two_player_cb"
-        android:textSize="22sp"
-        android:layout_alignBaseline="@+id/one_player_cb"
-        android:layout_alignBottom="@+id/one_player_cb"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:id="@+id/one_player_cb"
-        android:textSize="22sp"
-        android:layout_alignTop="@+id/radioGroup"
-        android:layout_toLeftOf="@+id/two_player_cb"
-        android:layout_toStartOf="@+id/two_player_cb" />
-
     <Button
         android:text="Create Category"
         android:layout_width="90dp"
@@ -90,16 +59,6 @@
         android:layout_alignStart="@+id/play_button" />
 
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/bild2"
-        android:id="@+id/profile_img_iv"
-        android:layout_below="@+id/category_spinner"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="63dp" />
-
     <Button
         android:text="Play"
         android:layout_width="wrap_content"
@@ -120,15 +79,6 @@
         android:layout_alignLeft="@+id/profile_spinner"
         android:layout_alignStart="@+id/profile_spinner" />
 
-    <Spinner
-        android:id="@+id/profile_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dialog"
-        android:layout_below="@+id/current_profile_tv"
-        android:layout_alignRight="@+id/current_profile_tv"
-        android:layout_alignEnd="@+id/current_profile_tv" />
-
     <TextView
         android:text="Category"
         android:layout_width="wrap_content"
@@ -140,16 +90,91 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/bild2"
+        android:id="@+id/profile_img_iv"
+        android:layout_below="@+id/profile_spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <TextView
-        android:text="Choose Profile"
+        android:text="Player 1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/current_profile_tv"
+        android:id="@+id/current_profile1_tv"
         android:textSize="22sp"
         android:layout_below="@+id/category_spinner"
+        android:layout_alignRight="@+id/profile_img_iv"
+        android:layout_alignEnd="@+id/profile_img_iv" />
+
+    <Spinner
+        android:id="@+id/profile_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/current_profile1_tv"
+        android:layout_alignLeft="@+id/current_profile1_tv"
+        android:layout_alignStart="@+id/current_profile1_tv" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:id="@+id/one_player_cb"
+        android:textSize="22sp"
+        android:layout_alignBottom="@+id/radioGroup"
+        android:layout_toLeftOf="@+id/two_player_cb"
+        android:layout_toStartOf="@+id/two_player_cb" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:id="@+id/two_player_cb"
+        android:textSize="22sp"
+        android:layout_alignBottom="@+id/radioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Number of players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numer_of_players_tv"
+        android:textSize="22sp"
+        android:layout_alignTop="@+id/one_player_cb"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp" />
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/profile_spinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/current_profile2_tv" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/bild2"
+        android:id="@+id/profile_img_iv2"
+        android:layout_below="@+id/profile_spinner2"
+        android:layout_alignLeft="@+id/current_profile2_tv"
+        android:layout_alignStart="@+id/current_profile2_tv" />
+
+    <TextView
+        android:text="Player 2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/current_profile2_tv"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/current_profile1_tv"
+        android:layout_alignBottom="@+id/current_profile1_tv"
+        android:layout_toLeftOf="@+id/two_player_cb"
+        android:layout_toStartOf="@+id/two_player_cb" />
 
 
 </RelativeLayout>
