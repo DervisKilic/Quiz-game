@@ -19,32 +19,26 @@ public class GameLogic extends MainGameActivity {
     private Profile p2;
     private List<Question> tenQuestions;
 
-
-    public GameLogic(Profile p1, Profile p2, String category) {
+    public GameLogic(Profile p1, Profile p2, String category, Context context) {
         this.p1 = p1;
         this.p2 = p2;
         this.category = category;
-        getTenQuestions();
-    }
-
-    public GameLogic(Profile p1, Context context) {
-        this.p1 = p1;
         db = new DbHelper(context);
-        this.category = category;
-        getTenQuestions();
+        tenQuestions = db.getAllQuestions(category);
     }
 
-    private void getTenQuestions() {
-        tenQuestions = db.getAllQuestions();
+    public GameLogic(Profile p1, String category, Context context) {
+        this.p1 = p1;
+        this.category = category;
+        db = new DbHelper(context);
+        tenQuestions = db.getAllQuestions(category);
     }
 
     public void increaseScore(int score) {
         this.score += score;
     }
 
-    public List<Question> getQuestions(){
+    public List<Question> getQuestions() {
         return tenQuestions;
     }
-
-
 }

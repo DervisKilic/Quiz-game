@@ -32,7 +32,7 @@ public class MainGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
 
-        g1 = new GameLogic(p1, this);
+        g1 = new GameLogic(p1, "Natur", this);
 
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
