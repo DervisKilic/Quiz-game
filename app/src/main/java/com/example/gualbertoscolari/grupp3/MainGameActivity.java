@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class MainGameActivity extends AppCompatActivity {
 
     public final static String CATEGORY = "chosen category";
-    public final static int PLAYERS = Integer.parseInt("number of players");
+    public final static String PLAYERS = "number of players";
     public final static String FIRSTPROFILE = "name of the player 1";
     public final static String SECONDPROFILE = "name of the player 1";
 
@@ -50,7 +50,6 @@ public class MainGameActivity extends AppCompatActivity {
         p1Name = extras.getString(FIRSTPROFILE);
         p2Name = extras.getString(SECONDPROFILE);
         numberOfPlayers = extras.getInt(String.valueOf(PLAYERS));
-
 
 
         cat = (TextView) findViewById(R.id.chosen_category);

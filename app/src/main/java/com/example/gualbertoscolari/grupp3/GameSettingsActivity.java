@@ -95,7 +95,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
 
         playIntent.putExtra(MainGameActivity.CATEGORY, cat);
-        playIntent.putExtra(String.valueOf((GameLogic.PLAYERS)), players);
+        playIntent.putExtra(GameLogic.PLAYERS, players);
         playIntent.putExtra(GameLogic.FIRSTPROFILE,p1);
         playIntent.putExtra(GameLogic.SECONDPROFILE,p2);
         startActivity(playIntent);
