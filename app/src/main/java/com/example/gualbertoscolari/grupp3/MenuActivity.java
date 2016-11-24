@@ -29,7 +29,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void high_score_button(View view) {
-        Intent highScoreIntent = new Intent(this, HighScoreActivity.class);
+        Intent highScoreIntent = new Intent(this, HighscoreActivity.class);
         startActivity(highScoreIntent);
     }
 }

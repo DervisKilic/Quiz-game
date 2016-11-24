@@ -5,7 +5,7 @@ import android.os.Bundle;
 //Ska låta användaren lista highscoren efter specifik kategori eller alla.
 //Spinner funktion skall finnas för att välja mellan kategorierna.
 //
-public class HighScoreActivity extends AppCompatActivity {
+public class HighscoreActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

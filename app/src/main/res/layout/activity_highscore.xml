@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.gualbertoscolari.grupp3.HighScoreActivity">
+    tools:context="com.example.gualbertoscolari.grupp3.HighscoreActivity">
 
     <TextView
         android:text="Välj kategori"

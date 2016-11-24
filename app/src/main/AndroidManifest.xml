@@ -22,7 +22,7 @@
 
         </activity>
 
-        <activity android:name=".HighScoreActivity" />
+        <activity android:name=".HighscoreActivity" />
         <activity android:name=".MainGameActivity" />
         <activity android:name=".GameSettingsActivity" />
         <activity android:name=".CreateProfileActivity" />
