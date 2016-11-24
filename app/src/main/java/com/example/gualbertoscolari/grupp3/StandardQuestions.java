@@ -6,7 +6,7 @@ public class StandardQuestions {
 
         //Natur
         public static Question q1 = new Question("Vilket trädslag är det i glasspinnen?", "Bok", "Alm", "Björk", "Al", "Natur", "Bok");
-        public static Question q2 = new Question("");
+        public static Question q2 = new Question();
         public static Question q3 = new Question();
         public static Question q4 = new Question();
         public static Question q5 = new Question();
@@ -33,7 +33,7 @@ public class StandardQuestions {
         public static Question q22 = new Question("Vad har skådesåpelaren Arnold Schwarzeneger för stor passion vid sidan av skådespelandet ?", "Cigarrer", "Ishockey", "Politik", "Skidåkning", "Kultur/Nöje", "Politik");
         public static Question q23 = new Question("Vem har skapat den hittils dyraste sålda tavlan ?", "Francis Bacon", "Claude Monet", "Rembrandt van Rijn", "Sandro Boticelli", "Kultur/Nöje", "Francis Bacon");
         public static Question q24 = new Question("Vad heter den berömda teatern i Milano ?", "Teatro Magico", "La Scala", "Il Teatro", "Teatro Olimpico", "Kultur/Nöje", "La Scala");
-        public static Question q25 = new Question("Hur högt är tornet Turning Torso i Malmö ?", "201 m", "190 m", "187 m", "204 m" "Kultur/Nöje", "190 m");
+        public static Question q25 = new Question("Hur högt är tornet Turning Torso i Malmö ?", "201 m", "190 m", "187 m", "204 m", "Kultur/Nöje", "190 m");
         public static Question q26 = new Question("Vad heter serien den svenska skådespelerskan Alicia Wikander slog igenom i ?", "Svenska hjärtan", "Saltön", "Andra Avenyn", "Nya tider", "Kultur/Nöje", "Andra Avenyn");
         public static Question q27 = new Question("I nordisk mytologi förekommer namnet Grane. Vilket djur är det som heter så ?", "En galt", "En häst", "En ekorre", "En oxe", "Kultur/Nöje", "En häst");
         public static Question q28 = new Question("Namnet Ran förekommeri nordisk mytologi. Vad var Ran för något ? ", "En dvärg", "En människa", "En gudinna", "En gud", "Kultur/Nöje", "En gudinna");

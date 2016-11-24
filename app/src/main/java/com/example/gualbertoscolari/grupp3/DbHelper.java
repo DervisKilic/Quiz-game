@@ -196,17 +196,27 @@ public class DbHelper extends SQLiteOpenHelper {
     // MainGameActivity.java (in onCreate)
     public void addStandardItemsSQL() {
         List<Question> quesList = getAllQuestions("Natur");
-        if(quesList.size() < 9) {
-            addQuestion(StandardQuestions.q1);
-            addQuestion(StandardQuestions.q2);
-            addQuestion(StandardQuestions.q3);
-            addQuestion(StandardQuestions.q4);
-            addQuestion(StandardQuestions.q5);
-            addQuestion(StandardQuestions.q6);
-            addQuestion(StandardQuestions.q7);
-            addQuestion(StandardQuestions.q8);
-            addQuestion(StandardQuestions.q9);
-            addQuestion(StandardQuestions.q10);
+        if(quesList.size() < 15) {
+            addQuestion(StandardQuestions.q11);
+            addQuestion(StandardQuestions.q12);
+            addQuestion(StandardQuestions.q13);
+            addQuestion(StandardQuestions.q14);
+            addQuestion(StandardQuestions.q15);
+            addQuestion(StandardQuestions.q16);
+            addQuestion(StandardQuestions.q17);
+            addQuestion(StandardQuestions.q18);
+            addQuestion(StandardQuestions.q19);
+            addQuestion(StandardQuestions.q20);
+            addQuestion(StandardQuestions.q21);
+            addQuestion(StandardQuestions.q22);
+            addQuestion(StandardQuestions.q23);
+            addQuestion(StandardQuestions.q24);
+            addQuestion(StandardQuestions.q25);
+            addQuestion(StandardQuestions.q26);
+            addQuestion(StandardQuestions.q27);
+            addQuestion(StandardQuestions.q28);
+            addQuestion(StandardQuestions.q29);
+            addQuestion(StandardQuestions.q30);
         }
         List<String> catList = getAllCatagories();
         if(catList.size() < 6) {
