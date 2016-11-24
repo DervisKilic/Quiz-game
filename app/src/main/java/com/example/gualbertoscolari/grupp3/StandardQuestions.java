@@ -4,14 +4,50 @@ package com.example.gualbertoscolari.grupp3;
 
 public class StandardQuestions {
 
+        //Natur
         public static Question q1 = new Question("Vilket trädslag är det i glasspinnen?", "Bok", "Alm", "Björk", "Al", "Natur", "Bok");
-        public static Question q2 = new Question("Ungefär hur många slag slår ett människohjärta per minut?","30-40","110-130","60-70","80-90","Natur","60-70");
-        public static Question q3 = new Question("När kom potatisen till Europa?", "På 1300--talet?", "På 1500-talet", "På 1700-talet", "På 1900-talet", "Natur", "På 1500-talet");
-        public static Question q4 = new Question("Vilken enhet mäter elektrisk spänning?","Volt","Ampere","Watt","Ohm","Natur","Volt");
-        public static Question q5 = new Question("Hur många mjölktänder har en tvååring?","16","30","20","198","Natur","20");
-        public static Question q6 = new Question("Påskdagen första söndagen efter första fullmånen efter..","Fastlagssöndagen","Vårdagjämningen","Askonsdagen","Nyår","Natur","Vårdagjämningen");
-        public static Question q7 = new Question("I vilken sport förekommer begreppen trap och skeet?","Lerduveskytte","Rodel","Cricket","Golf","Natur","Lerduveskytte");
-        public static Question q8 = new Question("Marilyn Monroes sista film hette vad?", "I hetaste laget", "Gasljus", "De missanpassade", "Star Wars", "Natur", "De missanpassade");
-        public static Question q9 = new Question("Var bor besättningen på ett fartyg?", "I skansen", "I durken", "I pentryt", "I fören", "Natur", "I skansen");
-        public static Question q10 = new Question("Var hölls den första världsutställningen 1851?", "I London", "I Amsterdam", "I New York", " I Paris", "Natur", "I London");
+        public static Question q2 = new Question("");
+        public static Question q3 = new Question();
+        public static Question q4 = new Question();
+        public static Question q5 = new Question();
+        public static Question q6 = new Question();
+        public static Question q7 = new Question();
+        public static Question q8 = new Question();
+        public static Question q9 = new Question();
+        public static Question q10 = new Question();
+
+        //Sport
+        public static Question q11 = new Question("Vad heter sveriges genom tiderna bästa höjdhopperska ?", "Kajsa Bergsten", "Kajsa Borgqvist", "Kajsa Bergvist", "Kajsa Borgström,", "Sport", "Kajsa Bergqvist");
+        public static Question q12 = new Question("Vid vilket OS avgjorde Peter Forsberg med en spektakulär straff ?", "Nagano 98", "Lillehammer 94", "Turin 06", "Salt Lake City 02", "Sport", "Lillehammer 94");
+        public static Question q13 = new Question("Vilken klubb var Zlatan Ibrahimovic första utländska proffsklubb ?", "AC Milan", "Manchester United", "Ajax", "FC Köpenhamn", "Sport", "Ajax");
+        public static Question q14 = new Question("Hur många spelare är det på planen när en fotbollsmatch startar ?", "20", "22", "18", "24" ,"Sport", "22");
+        public static Question q15 = new Question("Vilken sport spelas inte med en klubba ?", "Hockey", "Tennis", "Bandy", "Lacrosse", "Sport", "Tennis");
+        public static Question q16 = new Question("Vem innehar världsrekordet i höjdhopp ?", "Javier Sotomayor", "Patrik Sjöberg", "Pat Matzdorf", "Igor Paklin", "Sport", "Javier Sotomayor");
+        public static Question q17 = new Question("Vad heter den nuvarande svenske Formel 1 föraren ?", "Pontus Karlsson", "Kenneth Hansen", "Marcus Ericsson", "Robin Lund", "Sport", "Marcus Ericcson");
+        public static Question q18 = new Question("Hur lång är en halvlek i handboll ?" , "25 min", "30 min", "40 min", "20 min", "Sport", "30 min");
+        public static Question q19 = new Question("Vilket år vann Björn Borg sin första Grand Slam-turnering ?", "1973", "1976", "1974", "1978", "Sport", "1974");
+        public static Question q20 = new Question("Inom vilken sport hålls tävlingen O-ringen ?", "Orientering", "Skytte", "Fotboll", "Friidrott", "Sport", "Orientering");
+
+        //Kultur/Nöje
+        public static Question q21 = new Question("Vem spelar Tony Soprano i serien The Sopranos ?", "Michael Imperioni", "James Gandolfini", "Michael Madsen", "Steve Schirripa", "Kultur/Nöje", "James Gandolfini");
+        public static Question q22 = new Question("Vad har skådesåpelaren Arnold Schwarzeneger för stor passion vid sidan av skådespelandet ?", "Cigarrer", "Ishockey", "Politik", "Skidåkning", "Kultur/Nöje", "Politik");
+        public static Question q23 = new Question("Vem har skapat den hittils dyraste sålda tavlan ?", "Francis Bacon", "Claude Monet", "Rembrandt van Rijn", "Sandro Boticelli", "Kultur/Nöje", "Francis Bacon");
+        public static Question q24 = new Question("Vad heter den berömda teatern i Milano ?", "Teatro Magico", "La Scala", "Il Teatro", "Teatro Olimpico", "Kultur/Nöje", "La Scala");
+        public static Question q25 = new Question("Hur högt är tornet Turning Torso i Malmö ?", "201 m", "190 m", "187 m", "204 m" "Kultur/Nöje", "190 m");
+        public static Question q26 = new Question("Vad heter serien den svenska skådespelerskan Alicia Wikander slog igenom i ?", "Svenska hjärtan", "Saltön", "Andra Avenyn", "Nya tider", "Kultur/Nöje", "Andra Avenyn");
+        public static Question q27 = new Question("I nordisk mytologi förekommer namnet Grane. Vilket djur är det som heter så ?", "En galt", "En häst", "En ekorre", "En oxe", "Kultur/Nöje", "En häst");
+        public static Question q28 = new Question("Namnet Ran förekommeri nordisk mytologi. Vad var Ran för något ? ", "En dvärg", "En människa", "En gudinna", "En gud", "Kultur/Nöje", "En gudinna");
+        public static Question q29 = new Question("Vem var formgivaren bakom den klassiska fåtöljen 'Ägget'", "Carl Malmsten", "Lena Larsson", "Marcello Siard", "Arne Jacobsen", "Kultur/Nöje", "Arne Jacobsen");
+        public static Question q30 = new Question("Lena Endre hade en framstående roll i en svensk TV-serie om ett varuhus. Vad hette varuhuset ?", "Wettergrens", "Svedbergs", "Lidmans", "Öhmans", "Kultur/Nöje", "Öhmans");
+
+        //Historia
+
+        //Samhälle
+
+
+
+
+
+
+
 }
