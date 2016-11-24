@@ -182,10 +182,7 @@ public class DbHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Profile p = new Profile();
-                p.setName(cursor.getString(1));
-                p.setScore(cursor.getInt(2));
-
+                Profile p = new Profile(cursor.getString(1), (cursor.getInt(2)));
 
                 profList.add(p);
             } while (cursor.moveToNext());

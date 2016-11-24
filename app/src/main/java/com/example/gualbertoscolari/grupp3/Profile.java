@@ -6,9 +6,17 @@ public class Profile {
     private String name;
     private int score;
 
+
+    //For creating new profile
     public Profile(String nAme){
         name = nAme;
         score = 0;
+    }
+
+    //For creating profile from databas
+    public Profile(String nAme, int sCore){
+        name = nAme;
+        score = sCore;
     }
 
     public String getName() {

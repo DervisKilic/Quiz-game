@@ -42,4 +42,12 @@ public class GameLogic extends MainGameActivity {
     public List<Question> getQuestions() {
         return tenQuestions;
     }
+
+    public Profile getP1() {
+        return p1;
+    }
+
+    public Profile getP2() {
+        return p2;
+    }
 }
