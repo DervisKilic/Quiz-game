@@ -197,6 +197,16 @@ public class DbHelper extends SQLiteOpenHelper {
     public void addStandardItemsSQL() {
         List<Question> quesList = getAllQuestions("Natur");
         if(quesList.size() < 15) {
+            addQuestion(StandardQuestions.q1);
+            addQuestion(StandardQuestions.q2);
+            addQuestion(StandardQuestions.q3);
+            addQuestion(StandardQuestions.q4);
+            addQuestion(StandardQuestions.q5);
+            addQuestion(StandardQuestions.q6);
+            addQuestion(StandardQuestions.q7);
+            addQuestion(StandardQuestions.q8);
+            addQuestion(StandardQuestions.q9);
+            addQuestion(StandardQuestions.q10);
             addQuestion(StandardQuestions.q11);
             addQuestion(StandardQuestions.q12);
             addQuestion(StandardQuestions.q13);
@@ -217,6 +227,26 @@ public class DbHelper extends SQLiteOpenHelper {
             addQuestion(StandardQuestions.q28);
             addQuestion(StandardQuestions.q29);
             addQuestion(StandardQuestions.q30);
+            addQuestion(StandardQuestions.q31);
+            addQuestion(StandardQuestions.q32);
+            addQuestion(StandardQuestions.q33);
+            addQuestion(StandardQuestions.q34);
+            addQuestion(StandardQuestions.q35);
+            addQuestion(StandardQuestions.q36);
+            addQuestion(StandardQuestions.q37);
+            addQuestion(StandardQuestions.q38);
+            addQuestion(StandardQuestions.q39);
+            addQuestion(StandardQuestions.q40);
+            addQuestion(StandardQuestions.q41);
+            addQuestion(StandardQuestions.q42);
+            addQuestion(StandardQuestions.q43);
+            addQuestion(StandardQuestions.q44);
+            addQuestion(StandardQuestions.q45);
+            addQuestion(StandardQuestions.q46);
+            addQuestion(StandardQuestions.q47);
+            addQuestion(StandardQuestions.q48);
+            addQuestion(StandardQuestions.q49);
+            addQuestion(StandardQuestions.q50);
         }
         List<String> catList = getAllCatagories();
         if(catList.size() < 6) {

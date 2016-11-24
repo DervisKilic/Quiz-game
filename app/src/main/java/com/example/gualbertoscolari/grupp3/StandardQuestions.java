@@ -5,7 +5,6 @@ package com.example.gualbertoscolari.grupp3;
 public class StandardQuestions {
 
         //Natur
-
         public static Question q1 = new Question("Vilket trädslag är det i glasspinnen ?", "Bok", "Alm", "Björk", "Al", "Natur", "Bok");
         public static Question q2 = new Question("Vilken uggla är sveriges största ?", "Berguv", "Kattuggla", "Hornuggla", "Minervauggla", "Natur", "Berguv");
         public static Question q3 = new Question("Vad är mossor för något ? ", "Växter", "Insekter", "Vattenlevande djur", "Molekyler", "Natur", "Växter");
@@ -16,7 +15,6 @@ public class StandardQuestions {
         public static Question q8 = new Question("Vad heter Hälsinglands landskapsblomma ?", "Nässelklocka", "Blåeld", "Teveronika", "Lin", "Natur", "Lin");
         public static Question q9 = new Question("Hur många ungar brukar en fullvuxen huskatt få i en kull ?", "7-11", "4-6", "2-4", "8-10", "Natur", "4-6");
         public static Question q10 = new Question("Vilken av dessa katter är alltid långhårig ? ", "Perser", "Huskatt", "Siames", "Bondkatt", "Natur", "Perser");
-
 
         //Sport
         public static Question q11 = new Question("Vad heter sveriges genom tiderna bästa höjdhopperska ?", "Kajsa Bergsten", "Kajsa Borgqvist", "Kajsa Bergvist", "Kajsa Borgström,", "Sport", "Kajsa Bergqvist");
@@ -38,7 +36,7 @@ public class StandardQuestions {
         public static Question q25 = new Question("Hur högt är tornet Turning Torso i Malmö ?", "201 m", "190 m", "187 m", "204 m", "Kultur/Nöje", "190 m");
         public static Question q26 = new Question("Vad heter serien den svenska skådespelerskan Alicia Wikander slog igenom i ?", "Svenska hjärtan", "Saltön", "Andra Avenyn", "Nya tider", "Kultur/Nöje", "Andra Avenyn");
         public static Question q27 = new Question("I nordisk mytologi förekommer namnet Grane. Vilket djur är det som heter så ?", "En galt", "En häst", "En ekorre", "En oxe", "Kultur/Nöje", "En häst");
-        public static Question q28 = new Question("Namnet Ran förekommeri nordisk mytologi. Vad var Ran för något ? ", "En dvärg", "En människa", "En gudinna", "En gud", "Kultur/Nöje", "En gudinna");
+        public static Question q28 = new Question("Namnet Ran förekommer i nordisk mytologi. Vad var Ran för något ? ", "En dvärg", "En människa", "En gudinna", "En gud", "Kultur/Nöje", "En gudinna");
         public static Question q29 = new Question("Vem var formgivaren bakom den klassiska fåtöljen 'Ägget'", "Carl Malmsten", "Lena Larsson", "Marcello Siard", "Arne Jacobsen", "Kultur/Nöje", "Arne Jacobsen");
         public static Question q30 = new Question("Lena Endre hade en framstående roll i en svensk TV-serie om ett varuhus. Vad hette varuhuset ?", "Wettergrens", "Svedbergs", "Lidmans", "Öhmans", "Kultur/Nöje", "Öhmans");
 
@@ -53,8 +51,6 @@ public class StandardQuestions {
         public static Question q38 = new Question("Vilket land styrdes inte någon gång av Frankrike under kolonialismen ?", "Colombia", "Algeriet", "Vietnam", "Kamerun", "Historia", "Colombia");
         public static Question q39 = new Question("Vilken släkt kom Gustav Vasas mamma ifrån ? ", "Sture", "Eka", "Sparre", "Gren", "Historia", "Eka");
         public static Question q40 = new Question("Vilket år tillträde John F Kennedy som USA's president ?", "1960", "1961", "1959", "1963", "Historia", "1961");
-
-
 
         //Samhälle
         public static Question q41 = new Question("Vad betyder ordet  demokrati ? ", "Rättvisa", "Orättvisa", "Folkstyre", "Folkbildning", "Samhälle", "Folkbildning");
