@@ -63,8 +63,9 @@
 
         <TextView
             android:id="@+id/timer_tv"
-            android:layout_width="100dp"
-            android:layout_height="70dp"
+            android:text="Seconds left!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             />
 
     </LinearLayout>

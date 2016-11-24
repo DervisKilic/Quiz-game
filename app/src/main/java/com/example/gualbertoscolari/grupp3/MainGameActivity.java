@@ -38,7 +38,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optDBtn;
     private TextView cat;
     private TextView timerTV;
-    Timer timer;
+    private CountDownTimer timer;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
 
@@ -49,44 +49,26 @@ public class MainGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
         Bundle extras = getIntent().getExtras();
-
         chosenCat = extras.getString(CATEGORY);
         p1Name = extras.getString(FIRSTPROFILE);
         p2Name = extras.getString(SECONDPROFILE);
         numberOfPlayers = extras.getInt(String.valueOf(PLAYERS));
-
         p1 = new Profile(p1Name, 0);
         p2 = new Profile(p2Name, 0);
-
         cat = (TextView) findViewById(R.id.chosen_category);
-
-
-        if(numberOfPlayers == 1){
+        timerTV = (TextView) findViewById(R.id.timer_tv);
+        if (numberOfPlayers == 1) {
             g1 = new GameLogic(p1, chosenCat, this);
-        }else{
-
-            g1 = new GameLogic(p1,p2, chosenCat, this);
+        } else {
+            g1 = new GameLogic(p1, p2, chosenCat, this);
         }
-
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
         displayQuestion();
-
-
-
-       /* new CountDownTimer(3000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                timerTV.setText("Seconds remaining : " + millisUntilFinished / 1000);
-            }
-
-            public void onFinish() {
-                timerTV.setText("Done!");
-            }
-        }.start();
-        */
+        resetTimer();
 
     }
 
@@ -99,6 +81,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
         optCBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
         optDBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
+
     }
 
     public void checkCorrectAnswer(String optString) {
@@ -110,13 +93,14 @@ public class MainGameActivity extends AppCompatActivity {
             Log.d("Svarstest", "Rätt");
             //Ifall man svarar rätt händer detta
             Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
-            questiontv.setText("Hurra du svarade rätt på den här frågan");
+            timer.cancel();
+            Log.d(TAG, "checkCorrectAnswer: timer canceled");
 
         } else {
             //Ifall man svarar fel händer detta
             Log.d(TAG, "Answer: " + answer + "optstring:  " + optString + " The Question was answered wrongly");
-            questiontv.setText("Du svarade fel , du är dum");
-
+            timer.cancel();
+            Log.d(TAG, "checkCorrectAnswer: timer canceled");
         }
         numberOfAnsweredQ++;
         if (numberOfAnsweredQ == 9) {
@@ -125,10 +109,22 @@ public class MainGameActivity extends AppCompatActivity {
 
         }
         displayQuestion();
+        resetTimer();
     }
 
+    public void resetTimer() {
+        timer = new CountDownTimer(11000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                timerTV.setText("Time left: " + millisUntilFinished / 1000);
+            }
 
+            public void onFinish() {
+                timerTV.setText("Done!");
+            }
+        }.start();
+        Log.d(TAG, "resetTimer: Timer started");
 
+    }
 
     public void goToResult() {
         Intent intent = new Intent(this, ResultActivity.class);
@@ -137,17 +133,21 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_a_pressed(View view) {
         checkCorrectAnswer(optABtn.getText().toString());
+
     }
 
     public void btn_b_pressed(View view) {
         checkCorrectAnswer(optBBtn.getText().toString());
+
     }
 
     public void btn_c_pressed(View view) {
         checkCorrectAnswer(optCBtn.getText().toString());
+
     }
 
     public void btn_d_pressed(View view) {
         checkCorrectAnswer(optDBtn.getText().toString());
+
     }
 }
