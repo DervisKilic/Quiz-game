@@ -43,20 +43,31 @@ public class StandardQuestions {
         public static Question q30 = new Question("Lena Endre hade en framstående roll i en svensk TV-serie om ett varuhus. Vad hette varuhuset ?", "Wettergrens", "Svedbergs", "Lidmans", "Öhmans", "Kultur/Nöje", "Öhmans");
 
         //Historia
-        public static Question q31 = new Question("Vad hette den kavalleriofficer som ledde de styrkor som blev besegrade av Sioux-indianer vid Little Big Horn", "Custer", "Washington", "Lincoln", "Sherman", "Historia", "Custer");
-        public static Question q32 = new Question();
-        public static Question q33 = new Question();
-        public static Question q34 = new Question();
-        public static Question q35 = new Question();
-        public static Question q36 = new Question();
-        public static Question q37 = new Question();
-        public static Question q38 = new Question();
-        public static Question q39 = new Question();
-        public static Question q40 = new Question();
+        public static Question q31 = new Question("Vad hette den kavalleriofficer som ledde de styrkor som blev besegrade av Sioux-indianer vid Little Big Horn ?", "Custer", "Washington", "Lincoln", "Sherman", "Historia", "Custer");
+        public static Question q32 = new Question("Vilket år sker följande händelser, mordet på Olof Palme, rymdfärjan Challenger exploderar, kärnkraftsolyckan i Tjernobyl ?", "1987", "1990", "1986", "1985", "Historia", "1986");
+        public static Question q33 = new Question("Viket år anföll japan Pearl Harbour ?", "1941", "1945", "1942", "1943", "Historia", "1941");
+        public static Question q34 = new Question("År 1962 döms denne ökände brottsling till fängelse första gången. Vem ?", "Tony Olsson", "Stig Bergling", "Gustaf Raskenstam", "Lars Inge Svartenbrandt", "Historia", "Lars Inge Svartenbrandt");
+        public static Question q35 = new Question("Ett britiskt band väcker 1965 hysteri när de kommer  till Stockholm för första gången och ger en konsert, vilket va bandet ?", "Cool Candys", "Rolling Stones", "Led Zeppelin", "The Who", "Historia", "Rolling Stones");
+        public static Question q36 = new Question("Hur lång var fartyget Titanic ?", "167 m", "204 m", "294 m", "269 m", "Historia", "269 m");
+        public static Question q37 = new Question("Vad hette gudarnas hall som man kom till när man dog i strid, om man var en tapper krigare enligt asatron ?", "Ymer", "Loke", "Valhall", "Yggdrasil", "Historia", "Valhall");
+        public static Question q38 = new Question("Vilket land styrdes inte någon gång av Frankrike under kolonialismen ?", "Colombia", "Algeriet", "Vietnam", "Kamerun", "Historia", "Colombia");
+        public static Question q39 = new Question("Vilken släkt kom Gustav Vasas mamma ifrån ? ", "Sture", "Eka", "Sparre", "Gren", "Historia", "Eka");
+        public static Question q40 = new Question("Vilket år tillträde John F Kennedy som USA's president ?", "1960", "1961", "1959", "1963", "Historia", "1961");
 
 
 
         //Samhälle
+        public static Question q41 = new Question("Vad betyder ordet  demokrati ? ", "Rättvisa", "Orättvisa", "Folkstyre", "Folkbildning", "Samhälle", "Folkbildning");
+        public static Question q42 = new Question("Vilket av följande partier anses inte vara en borgerligt sådant ?", "Kd", "Centerpartiet", "Moderaterna", "Socialdemokraterna", "Samhälle", "Socialdemokraterna");
+        public static Question q43 = new Question("Vad betyder ordet federation ?", "Tillbedjan", "Överskott", "Förbund", "Samling", "Samhälle", "Förbund");
+        public static Question q44 = new Question("Vilket av följande områden är inte en uppgift för riksdagen ? ", "Sedelutgivning", "Bestämma statens budget", "Stifta lagar", "Utse statsminister", "Samhälle", "Sedelutgivning");
+        public static Question q45 = new Question("Vad kallas EU:s högsta lagstiftande organ ? ", "Europeiska rådet", "Kommissionen", "Alltinget", "Europaparlamentet", "Samhälle", "Europaparlamentet");
+        public static Question q46 = new Question("Vad betyder statsråd ?", "Medlem i regeringen", "Experternas råd", "Expertundersökning", "Arbetsgrupp i riksdagen", "Samhälle", "Medlem i regeringen");
+        public static Question q47 = new Question("Hur många mandat finns det i den svenska riksdagen ?", "4", "199", "349", "350", "Samhälle", "349");
+        public static Question q48 = new Question("Vad blir 0.5 * 1/2 ? ", "1", "0.5", "0.125", "0.25", "Samhälle", "0.25");
+        public static Question q49 = new Question("Vilket år förlorades Finland för Sveriges del till förmån för Ryssland ?", "1809", "1939", "1905", "1718", "Samhälle", "1809");
+        public static Question q50 = new Question("Vem blev utsedd till miss Universum 1984", "Lena Philipsson", "Carolina Gynning", "Yvonne Ryding", "Daniella Lombard", "Samhälle", "Yvonne Ryding");
+
 
 
 

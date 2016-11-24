@@ -17,5 +17,9 @@
         <item name="android:textAllCaps">false</item>
 
     </style>
+    <style name="main_menu_icons">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">50dp</item>
+    </style>
 
 </resources>
