@@ -52,32 +52,37 @@ public class GameSettingsActivity extends AppCompatActivity {
         c1 = (CheckBox) findViewById(R.id.one_player_cb);
         c2 = (CheckBox) findViewById(R.id.two_player_cb);
 
+        c1.setChecked(true);
+
         c1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                c2.setChecked(false);
-                c1.setChecked(b);
+
+                if(c1.isChecked() && c2.isChecked() || !c2.isChecked()){
+                    c1.setChecked(true);
+                    c2.setChecked(false);
+                }
 
                 profileSpinner2.setVisibility(View.GONE);
                 profile2Tv.setVisibility(View.GONE);
                 profileIv2.setVisibility(View.GONE);
 
                 players = 1;
-
             }
         });
         c2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                c1.setChecked(false);
-                c2.setChecked(b);
 
+                if(!c1.isChecked() || c2.isChecked()){
+                    c1.setChecked(false);
+                    c2.setChecked(true);
+                }
 
                 profileSpinner2.setVisibility(View.VISIBLE);
                 profile2Tv.setVisibility(View.VISIBLE);
                 profileIv2.setVisibility(View.VISIBLE);
                 players = 2;
-
             }
         });
 
