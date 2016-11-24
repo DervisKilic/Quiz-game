@@ -133,7 +133,12 @@ public class GameSettingsActivity extends AppCompatActivity {
     }
 
     public void getStandardProfiles(){
-
+        DbHelper db = new DbHelper(this);  // my profile bank class
+        profList = db.getAllProfiles();  // this will fetch all quetonall questions
+        for (int i = 0; i < profList.size(); i++ ){
+            currentP = profList.get(i); // the current profile
+            profile.add(currentP.getName());
+        }
 
 
         profileSpinner1 = (Spinner) findViewById(R.id.profile_spinner);
@@ -148,13 +153,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         p1 = profileSpinner1.getAdapter().toString();
         p2 = profileSpinner2.getAdapter().toString();
 
-        DbHelper db = new DbHelper(this);  // my profile bank class
-        profList = db.getAllProfiles();  // this will fetch all quetonall questions
 
-        for (int i = 0; i < profList.size(); i++ ){
-            currentP = profList.get(i); // the current profile
-            profile.add(currentP.getName());
-        }
 
     }
 }
