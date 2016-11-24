@@ -132,10 +132,7 @@ public class GameSettingsActivity extends AppCompatActivity {
 
     public void getStandardProfiles(){
 
-        profile.add("Dervis");
-        profile.add("Fredrik");
-        profile.add("Gualberto");
-        profile.add("Simon");
+
 
         profileSpinner1 = (Spinner) findViewById(R.id.profile_spinner);
         profileSpinner2 = (Spinner) findViewById(R.id.profile_spinner2);

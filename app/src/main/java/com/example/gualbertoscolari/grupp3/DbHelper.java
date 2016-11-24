@@ -221,6 +221,15 @@ public class DbHelper extends SQLiteOpenHelper {
             addCategorys("All");
         }
 
+        List<Profile> profileList= getAllProfiles();
+        if(profileList.size() < 4){
+            addProfile(new Profile("Dervis"));
+            addProfile(new Profile("Fredrik"));
+            addProfile(new Profile("Gualberto"));
+            addProfile(new Profile("Simon"));
+        }
+
+
         Log.d("Kiss", "Questions added yeah");
     }
 

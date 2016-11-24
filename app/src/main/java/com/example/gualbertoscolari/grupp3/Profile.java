@@ -6,13 +6,9 @@ public class Profile {
     private String name;
     private int score;
 
-    public Profile(){
-        name = "";
-        score = 0;
-    }
-    public Profile(String nAme, int sCore){
+    public Profile(String nAme){
         name = nAme;
-        score = sCore;
+        score = 0;
     }
 
     public String getName() {
