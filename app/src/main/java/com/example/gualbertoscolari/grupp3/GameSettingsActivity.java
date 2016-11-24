@@ -93,11 +93,13 @@ public class GameSettingsActivity extends AppCompatActivity {
         Intent playIntent = new Intent(this, MainGameActivity.class);
 
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
+        p1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
+        p2 = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
 
         playIntent.putExtra(MainGameActivity.CATEGORY, cat);
-        playIntent.putExtra(GameLogic.PLAYERS, players);
-        playIntent.putExtra(GameLogic.FIRSTPROFILE,p1);
-        playIntent.putExtra(GameLogic.SECONDPROFILE,p2);
+        playIntent.putExtra(MainGameActivity.PLAYERS, players);
+        playIntent.putExtra(MainGameActivity.FIRSTPROFILE,p1);
+        playIntent.putExtra(MainGameActivity.SECONDPROFILE,p2);
         startActivity(playIntent);
         finish();
     }
