@@ -11,13 +11,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 //Skapar upp en fråga med 4 alternativ och 1 rätt svar.
 //Man väljer även vilken kategori frågan skall läggas til i som hämtas från databasen.
 //Toasters och if satser för felhantering.
 
 public class CreateQuestionActivity extends AppCompatActivity {
 
-    ArrayList<String> category = new ArrayList<>();
+    List<String> category = new ArrayList<>();
     ArrayAdapter<String> chosenCategory;
 
     private int ID;
@@ -35,11 +36,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_question);
-
-        category.add("Sport");
-        category.add("Nature");
-        category.add("Culture");
-        category.add("All");
+        DbHelper db = new DbHelper(this);
+        category = db.getAllCatagories();
         Spinner dropdownCategory = (Spinner) findViewById(R.id.spinner_create_question);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);

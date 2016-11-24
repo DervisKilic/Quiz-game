@@ -21,7 +21,7 @@ import java.util.List;
 //Valen sparas ner i ett intent som skickas vidare till Maingame där det skapas upp en instans av
 //GameLogic
 public class GameSettingsActivity extends AppCompatActivity {
-    private ArrayList<String> category = new ArrayList<>();
+    private List<String> category = new ArrayList<>();
     private ArrayList<String> profile = new ArrayList<>();
     private ArrayAdapter<String> chosenCategory;
     private ArrayAdapter<String> chosenProfileP1;
@@ -120,11 +120,9 @@ public class GameSettingsActivity extends AppCompatActivity {
     }
 
     public void getStandardCategorys(){
+        DbHelper db = new DbHelper(this);
 
-        category.add("Sport");
-        category.add("Natur");
-        category.add("Culture");
-        category.add("All");
+        category = db.getAllCatagories();
         dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);

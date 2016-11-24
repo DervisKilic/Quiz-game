@@ -197,7 +197,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     // This is to be removed. Used for testing app with questions. This method is called in
     // MainGameActivity.java (in onCreate)
-    public void addStandardQuestionsSQL() {
+    public void addStandardItemsSQL() {
         List<Question> quesList = getAllQuestions("Natur");
         if(quesList.size() < 9) {
             addQuestion(StandardQuestions.q1);
@@ -211,7 +211,31 @@ public class DbHelper extends SQLiteOpenHelper {
             addQuestion(StandardQuestions.q9);
             addQuestion(StandardQuestions.q10);
         }
+        List<String> catList = getAllCatagories();
+        if(catList.size() < 6) {
+            addCategorys("Sport");
+            addCategorys("Natur");
+            addCategorys("Kultur/Nöje");
+            addCategorys("Historia");
+            addCategorys("Samhälle");
+            addCategorys("All");
+        }
 
         Log.d("Kiss", "Questions added yeah");
+    }
+
+    public List<String> getAllCatagories(){
+        List<String> catList = new ArrayList<String>();
+        dbase = getReadableDatabase();
+        Cursor cursor = dbase.query(TABLE_CATEGORY, null, null, null, null, null ,null);
+        if (cursor.moveToFirst()) {
+            do {
+
+                catList.add(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+        // return quest list
+        cursor.close();
+        return catList;
     }
 }
