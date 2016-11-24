@@ -17,7 +17,7 @@ public class MainGameActivity extends AppCompatActivity {
     public final static String CATEGORY = "chosen category";
     public final static String PLAYERS = "number of players";
     public final static String FIRSTPROFILE = "name of the player 1";
-    public final static String SECONDPROFILE = "name of the player 1";
+    public final static String SECONDPROFILE = "name of the player 2";
 
     private int numberOfPlayers;
     private String p1Name;
@@ -51,6 +51,8 @@ public class MainGameActivity extends AppCompatActivity {
         p2Name = extras.getString(SECONDPROFILE);
         numberOfPlayers = extras.getInt(String.valueOf(PLAYERS));
 
+        p1 = new Profile(p1Name, 0);
+        p2 = new Profile(p2Name, 0);
 
         cat = (TextView) findViewById(R.id.chosen_category);
 
