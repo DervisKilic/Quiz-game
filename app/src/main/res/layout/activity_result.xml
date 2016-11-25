@@ -48,7 +48,7 @@
             android:layout_weight="1"
             android:textAllCaps="false"
             android:text="Main Menu"
-            android:onClick="goToMainMenu"/>
+            android:onClick="goToMenu"/>
 
         <Button
             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
             android:layout_height="match_parent"
             android:text="Play Again"
             android:textAllCaps="false"
-            android:onClick="goToGameSettings"/>
+            android:onClick="goToMainGame"/>
     </LinearLayout>
 
 </RelativeLayout>

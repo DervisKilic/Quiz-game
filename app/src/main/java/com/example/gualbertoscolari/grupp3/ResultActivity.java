@@ -39,7 +39,7 @@ public class ResultActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToMainMenu(View view) {
+    public void goToMenu(View view) {
         Intent menu = new Intent(this, MenuActivity.class);
         startActivity(menu);
     }
@@ -47,5 +47,10 @@ public class ResultActivity extends AppCompatActivity {
     public void goToHighScore(View view){
         Intent HighScore = new Intent(this, HighscoreActivity.class);
         startActivity(HighScore);
+    }
+
+    public void goToMainGame(View view){
+        Intent gameSettings = new Intent(this, GameSettingsActivity.class);
+        startActivity(gameSettings);
     }
 }
