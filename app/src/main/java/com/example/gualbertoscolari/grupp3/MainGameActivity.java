@@ -91,6 +91,7 @@ public class MainGameActivity extends AppCompatActivity {
         if (answer.equals(optString)) {
             //Ifall man svarar rätt händer detta
             Log.d("Svarstest", "Rätt");
+            g1.increaseScoreP1(10);
             //Ifall man svarar rätt händer detta
             Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
             timer.cancel();
