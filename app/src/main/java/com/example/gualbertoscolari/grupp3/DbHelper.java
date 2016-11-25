@@ -196,7 +196,7 @@ public class DbHelper extends SQLiteOpenHelper {
     // MainGameActivity.java (in onCreate)
     public void addStandardItemsSQL() {
         List<Question> quesList = getAllQuestions("Natur");
-        if(quesList.size() < 15) {
+        if(quesList.size() < 10) {
             addQuestion(StandardQuestions.q1);
             addQuestion(StandardQuestions.q2);
             addQuestion(StandardQuestions.q3);
