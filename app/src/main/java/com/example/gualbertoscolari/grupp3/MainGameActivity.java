@@ -117,9 +117,11 @@ public class MainGameActivity extends AppCompatActivity {
         timer = new CountDownTimer(11000, 1000) {
             public void onTick(long millisUntilFinished) {
                 timerTV.setText("Time left: " + millisUntilFinished / 1000);
+
             }
 
             public void onFinish() {
+
                 timerTV.setText("Done!");
             }
         }.start();
