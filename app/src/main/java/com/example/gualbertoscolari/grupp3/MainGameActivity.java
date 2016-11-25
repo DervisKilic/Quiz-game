@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Timer;
@@ -39,6 +40,8 @@ public class MainGameActivity extends AppCompatActivity {
     private TextView cat;
     private TextView timerTV;
     private CountDownTimer timer;
+    private ProgressBar progressbar;
+    private int scoreValue;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
 
@@ -57,6 +60,8 @@ public class MainGameActivity extends AppCompatActivity {
         p2 = new Profile(p2Name, 0);
         cat = (TextView) findViewById(R.id.chosen_category);
         timerTV = (TextView) findViewById(R.id.timer_tv);
+        progressbar = (ProgressBar) findViewById(R.id.progressbar);
+
         if (numberOfPlayers == 1) {
             g1 = new GameLogic(p1, chosenCat, this);
         } else {
@@ -114,14 +119,17 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void resetTimer() {
-        timer = new CountDownTimer(11000, 1000) {
+        timer = new CountDownTimer(10000, 10) {
             public void onTick(long millisUntilFinished) {
-                timerTV.setText("Time left: " + millisUntilFinished / 1000);
 
+                timerTV.setText("Points " + millisUntilFinished + 1000 / 1000 );
+                scoreValue = (int) (millisUntilFinished + 100 / 1000);
+                int progress = (int) (millisUntilFinished / 100);
+                progressbar.setProgress(progress);
             }
 
             public void onFinish() {
-
+                progressbar.setProgress(0);
                 timerTV.setText("Done!");
             }
         }.start();
