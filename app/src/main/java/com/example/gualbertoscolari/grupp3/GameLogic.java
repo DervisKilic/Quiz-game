@@ -37,6 +37,7 @@ public class GameLogic extends MainGameActivity {
 
     public void increaseScoreP1(int score) {
 
+
         p1.setScore(this.score += score);
     }
 

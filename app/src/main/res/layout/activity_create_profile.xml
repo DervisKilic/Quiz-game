@@ -14,7 +14,6 @@
     <LinearLayout
         android:id="@+id/name"
         android:layout_centerHorizontal="true"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -30,7 +29,6 @@
     <LinearLayout
         android:id="@+id/anonymous_img_layout"
         android:layout_centerHorizontal="true"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name">
@@ -54,30 +52,26 @@
     </LinearLayout>
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <Button
             style="@style/create_activity_button"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:text="@string/cancel_txt_btn"
-            android:onClick="goToGameSettings"
-            android:textAllCaps="false"
-            android:id="@+id/create_profile_back" />
+            android:id="@+id/create_categorie_button"
+            android:layout_weight="1"
+            android:text="@string/create_back_button"
+            android:onClick="goToGameSettings"/>
 
         <Button
             style="@style/create_activity_button"
-            android:id="@+id/create_profile_add"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/save_profile_txt_btn"
-            android:textAllCaps="false"
-            android:onClick="saveProfile" />
+            android:id="@+id/create_category_back_button"
+            android:layout_weight="1"
+            android:text="@string/create_profile_button"
+            android:onClick="addCategory"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>

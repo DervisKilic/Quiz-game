@@ -128,6 +128,8 @@ public class MainGameActivity extends AppCompatActivity {
                 progressbar.setProgress(progress);
             }
 
+
+
             public void onFinish() {
                 progressbar.setProgress(0);
                 timerTV.setText("Done!");
@@ -160,5 +162,9 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_d_pressed(View view) {
         checkCorrectAnswer(optDBtn.getText().toString());
 
+    }
+
+    public int getScoreValue(){
+           return scoreValue;
     }
 }

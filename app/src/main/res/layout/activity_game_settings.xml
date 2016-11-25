@@ -12,7 +12,7 @@
     tools:context="com.example.gualbertoscolari.grupp3.GameSettingsActivity">
 
     <Button
-        android:text="Create Question"
+        android:text="@string/add_question"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:id="@+id/create_question_button"
@@ -23,7 +23,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Create Category"
+        android:text="@string/add_category"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:id="@+id/create_category_button"
@@ -34,7 +34,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Create Profile"
+        android:text="@string/add_profile"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:id="@+id/add_profile_button"
@@ -46,7 +46,7 @@
 
 
     <Button
-        android:text="Play"
+        android:text="@string/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/play_button"
