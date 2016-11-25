@@ -96,7 +96,7 @@ public class MainGameActivity extends AppCompatActivity {
         if (answer.equals(optString)) {
             //Ifall man svarar rätt händer detta
             Log.d("Svarstest", "Rätt och fick ");
-            g1.increaseScoreP1(10);
+            g1.increaseScoreP1(scoreValue);
             //Ifall man svarar rätt händer detta
             Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
             timer.cancel();
@@ -122,8 +122,8 @@ public class MainGameActivity extends AppCompatActivity {
         timer = new CountDownTimer(10000, 10) {
             public void onTick(long millisUntilFinished) {
 
-                timerTV.setText("Points " + millisUntilFinished + 1000 / 1000 );
-                scoreValue = (int) (millisUntilFinished + 100 / 1000);
+                timerTV.setText("Points " + (millisUntilFinished/100 ));
+                scoreValue = (int) (millisUntilFinished/100);
                 int progress = (int) (millisUntilFinished / 100);
                 progressbar.setProgress(progress);
             }
