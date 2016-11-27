@@ -45,7 +45,7 @@
         android:layout_below="@+id/profile_name"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:text="Question here. Long question looks like this"
+        android:text="Starts in 3.......2.......1"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="20sp"/>
@@ -59,7 +59,6 @@
         android:gravity="center">
 
         <TextView
-            android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/chosen_category"
@@ -74,7 +73,6 @@
 
         <TextView
             android:id="@+id/timer_tv"
-            android:text="Seconds left!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />

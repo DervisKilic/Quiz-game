@@ -80,6 +80,11 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
+
+        optABtn.setVisibility(View.GONE);
+        optBBtn.setVisibility(View.GONE);
+        optCBtn.setVisibility(View.GONE);
+        optDBtn.setVisibility(View.GONE);
         displayQuestion();
         resetTimer();
 
@@ -89,10 +94,18 @@ public class MainGameActivity extends AppCompatActivity {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
 
+
+
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                optABtn.setVisibility(View.VISIBLE);
+                optBBtn.setVisibility(View.VISIBLE);
+                optCBtn.setVisibility(View.VISIBLE);
+                optDBtn.setVisibility(View.VISIBLE);
+
                 playerName.setText(currentPlayer.getName());
                 questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
                 cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
