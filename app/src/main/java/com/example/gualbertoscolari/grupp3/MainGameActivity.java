@@ -21,6 +21,9 @@ public class MainGameActivity extends AppCompatActivity {
     public final static String PLAYERS = "number of players";
     public final static String FIRSTPROFILE = "name of the player 1";
     public final static String SECONDPROFILE = "name of the player 2";
+    public final static String SCOREPLAYER1 = "score of player 1";
+    public final static String SCOREPLAYER2 = "score of player 2";
+
 
     private int numberOfPlayers;
     private String p1Name;
@@ -98,9 +101,6 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
 
-        Log.d("aaaaaaa", numberOfAnsweredQ + "");
-        Log.d("aaaaaaa", numberOfPlayers + "");
-
         if (g1.checkCorrectAnswer(optString, g1.getQuestions().get(numberOfAnsweredQ).getANSWER())) {
             //Ifall man svarar rätt händer detta
             Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
@@ -111,11 +111,10 @@ public class MainGameActivity extends AppCompatActivity {
             Log.d(TAG, "Answer: " + answer + "optstring:  " + optString + " The Question was answered wrongly");
         }
 
+        // Adds to numberOfAnsweredQ depending on number of players.
         if (numberOfPlayers == 2 && currentPlayer == p2){
             numberOfAnsweredQ++;
-        }
-
-        if(numberOfPlayers == 1) {
+        }else if(numberOfPlayers == 1) {
             numberOfAnsweredQ++;
         }
 
@@ -129,9 +128,7 @@ public class MainGameActivity extends AppCompatActivity {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             goToResult();
             finish();
-
         }else {
-
             displayQuestion();
             resetTimer();
         }
@@ -147,8 +144,6 @@ public class MainGameActivity extends AppCompatActivity {
                 progressbar.setProgress(progress);
             }
 
-
-
             public void onFinish() {
                 progressbar.setProgress(0);
                 timerTV.setText("Done!");
@@ -159,8 +154,17 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
+    // Gets called when game is finished. Sends info about second player if numberOfPlayers == 2
     public void goToResult() {
         Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra(CATEGORY, chosenCat);
+        intent.putExtra(PLAYERS, numberOfPlayers);
+        intent.putExtra(FIRSTPROFILE,p1.getName());
+        intent.putExtra(SCOREPLAYER1, p1.getScore());
+        if(numberOfPlayers == 2) {
+            intent.putExtra(SECONDPROFILE, p2.getName());
+            intent.putExtra(SCOREPLAYER2, p2.getScore());
+        }
         startActivity(intent);
         finish();
     }
