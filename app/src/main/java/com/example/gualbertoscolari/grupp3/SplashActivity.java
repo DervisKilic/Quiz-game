@@ -35,7 +35,6 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
                     Intent menuIntent = new Intent(SplashActivity.this,MenuActivity.class);
                     startActivity(menuIntent);
                     finish();
-                    isFinishing();
                 }
             }
         };
