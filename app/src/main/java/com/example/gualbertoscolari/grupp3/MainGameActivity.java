@@ -52,6 +52,18 @@ public class MainGameActivity extends AppCompatActivity {
     private int numberOfAnsweredQ = 0;
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        displayQuestion();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resetTimer();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
@@ -74,6 +86,7 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
 
+
         optABtn.setVisibility(View.GONE);
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
@@ -82,7 +95,8 @@ public class MainGameActivity extends AppCompatActivity {
         resetTimer();
 
 
-        startActivity( new Intent(MainGameActivity.this, PopUp.class));
+        startActivity(new Intent(MainGameActivity.this, PopUp.class));
+
 
     }
 
