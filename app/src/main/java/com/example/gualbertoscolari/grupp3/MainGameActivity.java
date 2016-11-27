@@ -21,6 +21,8 @@ public class MainGameActivity extends AppCompatActivity {
     public final static String PLAYERS = "number of players";
     public final static String FIRSTPROFILE = "name of the player 1";
     public final static String SECONDPROFILE = "name of the player 2";
+    public final static String SCOREPLAYER1 = "score of player 1";
+    public final static String SCOREPLAYER2 = "score of player 2";
 
     private int numberOfPlayers;
     private String p1Name;
@@ -29,8 +31,10 @@ public class MainGameActivity extends AppCompatActivity {
     private Profile p1;
     private Profile p2;
     private GameLogic g1;
+    private Profile currentPlayer;
 
     private String answer;
+    private TextView playerName;
     private TextView questiontv;
     private String chosenCat;
     private Button optABtn;
@@ -61,12 +65,9 @@ public class MainGameActivity extends AppCompatActivity {
         cat = (TextView) findViewById(R.id.chosen_category);
         timerTV = (TextView) findViewById(R.id.timer_tv);
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
-
-        if (numberOfPlayers == 1) {
-            g1 = new GameLogic(p1, chosenCat, this);
-        } else {
-            g1 = new GameLogic(p1, p2, chosenCat, this);
-        }
+        g1 = new GameLogic(chosenCat, this);
+        currentPlayer = p1;
+        playerName = (TextView) findViewById(R.id.profile_name);
         questiontv = (TextView) findViewById(R.id.question_tv);
         optABtn = (Button) findViewById(R.id.answer_btn_a);
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
@@ -80,6 +81,7 @@ public class MainGameActivity extends AppCompatActivity {
     public void displayQuestion() {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
+        playerName.setText(currentPlayer.getName());
         questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
         cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
         optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
@@ -89,41 +91,45 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
-    public void checkCorrectAnswer(String optString) {
+    public void onButtonGuess(String optString) {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
-        answer = g1.getQuestions().get(numberOfAnsweredQ).getANSWER();
-        if (answer.equals(optString)) {
-            //Ifall man svarar rätt händer detta
-            Log.d("Svarstest", "Rätt och fick ");
-            g1.increaseScoreP1(10);
+        timer.cancel();
+        if (g1.checkCorrectAnswer(optString, g1.getQuestions().get(numberOfAnsweredQ).getANSWER())) {
             //Ifall man svarar rätt händer detta
             Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
-            timer.cancel();
-            Log.d(TAG, "checkCorrectAnswer: timer canceled");
+            currentPlayer.setScore(currentPlayer.getScore() + scoreValue);
 
         } else {
             //Ifall man svarar fel händer detta
             Log.d(TAG, "Answer: " + answer + "optstring:  " + optString + " The Question was answered wrongly");
-            timer.cancel();
-            Log.d(TAG, "checkCorrectAnswer: timer canceled");
         }
-        numberOfAnsweredQ++;
-        if (numberOfAnsweredQ == 9) {
+        // Adds to numberOfAnsweredQ depending on number of players.
+        if (numberOfPlayers == 2 && currentPlayer == p2) {
+            numberOfAnsweredQ++;
+        } else if (numberOfPlayers == 1) {
+            numberOfAnsweredQ++;
+        }
+        if (currentPlayer == p1 && numberOfPlayers == 2) {
+            currentPlayer = p2;
+        } else {
+            currentPlayer = p1;
+        }
+        if (numberOfAnsweredQ == 10) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             goToResult();
-
+            finish();
+        } else {
+            displayQuestion();
+            resetTimer();
         }
-        displayQuestion();
-        resetTimer();
     }
 
     public void resetTimer() {
         timer = new CountDownTimer(10000, 10) {
             public void onTick(long millisUntilFinished) {
-
-                timerTV.setText("Points " + (millisUntilFinished / 100) );
-                scoreValue = (int) (millisUntilFinished + 100 / 1000);
+                timerTV.setText("Points " + (millisUntilFinished / 100));
+                scoreValue = (int) (millisUntilFinished / 100);
                 int progress = (int) (millisUntilFinished / 100);
                 progressbar.setProgress(progress);
             }
@@ -137,28 +143,42 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
+    // Gets called when game is finished. Sends info about second player if numberOfPlayers == 2
     public void goToResult() {
         Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra(CATEGORY, chosenCat);
+        intent.putExtra(PLAYERS, numberOfPlayers);
+        intent.putExtra(FIRSTPROFILE, p1.getName());
+        intent.putExtra(SCOREPLAYER1, p1.getScore());
+        if (numberOfPlayers == 2) {
+            intent.putExtra(SECONDPROFILE, p2.getName());
+            intent.putExtra(SCOREPLAYER2, p2.getScore());
+        }
         startActivity(intent);
+        finish();
     }
 
     public void btn_a_pressed(View view) {
-        checkCorrectAnswer(optABtn.getText().toString());
+        onButtonGuess(optABtn.getText().toString());
 
     }
 
     public void btn_b_pressed(View view) {
-        checkCorrectAnswer(optBBtn.getText().toString());
+        onButtonGuess(optBBtn.getText().toString());
 
     }
 
     public void btn_c_pressed(View view) {
-        checkCorrectAnswer(optCBtn.getText().toString());
+        onButtonGuess(optCBtn.getText().toString());
 
     }
 
     public void btn_d_pressed(View view) {
-        checkCorrectAnswer(optDBtn.getText().toString());
+        onButtonGuess(optDBtn.getText().toString());
 
+    }
+
+    public int getScoreValue() {
+        return scoreValue;
     }
 }

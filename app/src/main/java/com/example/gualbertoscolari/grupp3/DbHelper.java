@@ -39,6 +39,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_CATEGORY = "category";
 
     private SQLiteDatabase dbase;
+    //private boolean close;
 
     public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -47,6 +48,8 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         dbase = db;
+
+
 
         String sqlQuestions = "CREATE TABLE " + TABLE_QUESTION + " (";
         sqlQuestions += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
@@ -84,7 +87,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(sqlCategorys);
-        db.close();
+
 
     }
 
@@ -187,9 +190,11 @@ public class DbHelper extends SQLiteOpenHelper {
                 profList.add(p);
             } while (cursor.moveToNext());
         }
+
         // return quest list
         cursor.close();
         return profList;
+
     }
 
     // This is to be removed. Used for testing app with questions. This method is called in
@@ -247,6 +252,8 @@ public class DbHelper extends SQLiteOpenHelper {
             addQuestion(StandardQuestions.q48);
             addQuestion(StandardQuestions.q49);
             addQuestion(StandardQuestions.q50);
+
+
         }
         List<String> catList = getAllCatagories();
         if(catList.size() < 6) {

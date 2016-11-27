@@ -14,46 +14,28 @@ import java.util.List;
 public class GameLogic extends MainGameActivity {
 
     private DbHelper db;
-    private int score = 0;
     private String category;
-    private Profile p1;
-    private Profile p2;
     private List<Question> tenQuestions;
 
-    public GameLogic(Profile p1, Profile p2, String category, Context context) {
-        this.p1 = p1;
-        this.p2 = p2;
+    public GameLogic(String category, Context context) {
+
         this.category = category;
         db = new DbHelper(context);
         tenQuestions = db.getAllQuestions(category);
     }
 
-    public GameLogic(Profile p1, String category, Context context) {
-        this.p1 = p1;
-        this.category = category;
-        db = new DbHelper(context);
-        tenQuestions = db.getAllQuestions(category);
-    }
-
-    public void increaseScoreP1(int score) {
-
-        p1.setScore(this.score += score);
-    }
-
-    public void increaseScoreP2(int score) {
-
-        p2.setScore(this.score += score);
-    }
 
     public List<Question> getQuestions() {
         return tenQuestions;
     }
 
-    public Profile getP1() {
-        return p1;
-    }
+    public boolean checkCorrectAnswer(String option, String answer){
 
-    public Profile getP2() {
-        return p2;
+        if(option.endsWith(answer)){
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

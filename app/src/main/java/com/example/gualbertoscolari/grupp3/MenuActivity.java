@@ -13,9 +13,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        DbHelper db = new DbHelper(this);
-        db.addStandardItemsSQL();
-
     }
 
     public void play_button(View view) {

@@ -39,8 +39,18 @@ public class ResultActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToGameSettings(View view) {
-        Intent playAgainIntent = new Intent(this, GameSettingsActivity.class);
-        startActivity(playAgainIntent);
+    public void goToMenu(View view) {
+        Intent menu = new Intent(this, MenuActivity.class);
+        startActivity(menu);
+    }
+
+    public void goToHighScore(View view){
+        Intent HighScore = new Intent(this, HighscoreActivity.class);
+        startActivity(HighScore);
+    }
+
+    public void goToMainGame(View view){
+        Intent gameSettings = new Intent(this, GameSettingsActivity.class);
+        startActivity(gameSettings);
     }
 }

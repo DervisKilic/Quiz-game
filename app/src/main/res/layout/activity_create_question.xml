@@ -87,21 +87,26 @@
         android:textSize="20dp"
         android:layout_marginTop="5dp"/>
 
-    <Button
-        style="@style/create_activity_button"
-        android:id="@+id/create_question_button"
-        android:text="@string/add_question_back_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:onClick="backToMain"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
-    <Button
-        style="@style/create_activity_button"
-        android:id="@+id/create_question_back_button"
-        android:text="@string/add_question_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="saveQuestion"/>
+        <Button
+            style="@style/create_activity_button"
+            android:id="@+id/create_categorie_button"
+            android:layout_weight="1"
+            android:text="@string/create_back_button"
+            android:onClick="backToMain"/>
+
+        <Button
+            style="@style/create_activity_button"
+            android:id="@+id/create_category_back_button"
+            android:layout_weight="1"
+            android:text="@string/add_question_button"
+            android:onClick="saveQuestion"/>
+
+    </LinearLayout>
 
 
 

@@ -47,14 +47,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:text="Main Menu" />
+            android:text="Main Menu"
+            android:onClick="goToMenu"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:text="High Score" />
+            android:text="High Score"
+            android:onClick="goToHighScore"/>
 
     </LinearLayout>
 
@@ -73,7 +75,7 @@
             android:layout_height="match_parent"
             android:text="Play Again"
             android:textAllCaps="false"
-            android:onClick="goToGameSettings"/>
+            android:onClick="goToMainGame"/>
     </LinearLayout>
 
 </RelativeLayout>

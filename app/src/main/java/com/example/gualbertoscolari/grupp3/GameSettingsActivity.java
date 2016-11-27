@@ -32,7 +32,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     private CheckBox c1;
     private CheckBox c2;
 
-    private int players;
+    private int players = 1;
 
     private Spinner profileSpinner1;
     private Spinner profileSpinner2;
