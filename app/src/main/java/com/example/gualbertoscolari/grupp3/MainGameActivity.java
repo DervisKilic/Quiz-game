@@ -122,7 +122,7 @@ public class MainGameActivity extends AppCompatActivity {
         timer = new CountDownTimer(10000, 10) {
             public void onTick(long millisUntilFinished) {
 
-                timerTV.setText("Points " + millisUntilFinished + 1000 / 1000 );
+                timerTV.setText("Points " + (millisUntilFinished / 100) );
                 scoreValue = (int) (millisUntilFinished + 100 / 1000);
                 int progress = (int) (millisUntilFinished / 100);
                 progressbar.setProgress(progress);
