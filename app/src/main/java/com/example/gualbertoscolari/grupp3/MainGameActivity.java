@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Timer;
-
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
 //
@@ -82,6 +80,9 @@ public class MainGameActivity extends AppCompatActivity {
         optDBtn.setVisibility(View.GONE);
         displayQuestion();
         resetTimer();
+
+
+        startActivity( new Intent(MainGameActivity.this, PopUp.class));
 
     }
 

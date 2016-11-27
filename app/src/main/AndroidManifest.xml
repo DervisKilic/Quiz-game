@@ -30,6 +30,7 @@
         <activity android:name=".CreateQuestionActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".MenuActivity" />
+        <activity android:name=".PopUp" />
     </application>
 
 </manifest>
