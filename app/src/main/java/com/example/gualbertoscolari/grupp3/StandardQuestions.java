@@ -23,7 +23,7 @@ public class StandardQuestions {
         public static Question q14 = new Question("Hur många spelare är det på planen när en fotbollsmatch startar ?", "20", "22", "18", "24" ,"Sport", "22");
         public static Question q15 = new Question("Vilken sport spelas inte med en klubba ?", "Hockey", "Tennis", "Bandy", "Lacrosse", "Sport", "Tennis");
         public static Question q16 = new Question("Vem innehar världsrekordet i höjdhopp ?", "Javier Sotomayor", "Patrik Sjöberg", "Pat Matzdorf", "Igor Paklin", "Sport", "Javier Sotomayor");
-        public static Question q17 = new Question("Vad heter den nuvarande svenske Formel 1 föraren ?", "Pontus Karlsson", "Kenneth Hansen", "Marcus Ericsson", "Robin Lund", "Sport", "Marcus Ericcson");
+        public static Question q17 = new Question("Vad heter den nuvarande svenske Formel 1 föraren ?", "Pontus Karlsson", "Kenneth Hansen", "Marcus Ericsson", "Robin Lund", "Sport", "Marcus Ericsson");
         public static Question q18 = new Question("Hur lång är en halvlek i handboll ?" , "25 min", "30 min", "40 min", "20 min", "Sport", "30 min");
         public static Question q19 = new Question("Vilket år vann Björn Borg sin första Grand Slam-turnering ?", "1973", "1976", "1974", "1978", "Sport", "1974");
         public static Question q20 = new Question("Inom vilken sport hålls tävlingen O-ringen ?", "Orientering", "Skytte", "Fotboll", "Friidrott", "Sport", "Orientering");
