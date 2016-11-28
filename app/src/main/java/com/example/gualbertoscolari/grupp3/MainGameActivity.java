@@ -1,13 +1,19 @@
 package com.example.gualbertoscolari.grupp3;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -47,6 +53,9 @@ public class MainGameActivity extends AppCompatActivity {
     private int scoreValue;
     private boolean correctAnswer;
     private final Handler handler = new Handler();
+
+    private Button Close;
+    private PopupWindow popup;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
     private static final int REQUEST_CODE = 100;
@@ -92,7 +101,6 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
-
 
         optABtn.setVisibility(View.GONE);
         optBBtn.setVisibility(View.GONE);
@@ -187,9 +195,20 @@ public class MainGameActivity extends AppCompatActivity {
 
 
         }else {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
 
-            displayQuestion();
-            resetTimer();
+
+            if(numberOfPlayers == 2){
+                resetQuestion();
+                showPopupNextPlayer();
+            }else {
+                displayQuestion();
+                resetTimer();
+            }
+                }
+            }, 1000); // 1000 milliseconds = 1 second
         }
     }
 
@@ -295,7 +314,44 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
-    public int getScoreValue() {
-        return scoreValue;
+    public void showPopupNextPlayer(){
+
+
+        LayoutInflater inflate = (LayoutInflater) MainGameActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflate.inflate(R.layout.popup_2_players, (ViewGroup) findViewById(R.id.pop_up));
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        double width = dm.widthPixels * 0.8;
+        double height = dm.heightPixels * 0.2;
+        popup = new PopupWindow(layout, (int) width, (int) height, true);
+        popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+        Close = (Button) findViewById(R.id.close_popup);
+
+
+    }
+
+    public void closePopup(View v){
+
+        popup.dismiss();
+        displayQuestion();
+        resetTimer();
+    }
+
+    public void resetQuestion(){
+
+        playerName.setText("");
+        questiontv.setText("");
+        cat.setText("");
+        optABtn.setText("");
+        optBBtn.setText("");
+        optCBtn.setText("");
+        optDBtn.setText("");
+
+        optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+        optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+        optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+        optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+
     }
 }
