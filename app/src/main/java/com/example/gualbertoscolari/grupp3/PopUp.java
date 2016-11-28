@@ -26,7 +26,7 @@ public class PopUp extends Activity {
         popUpTV = (TextView) findViewById(R.id.popup_countdown_tv);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int) (width * .8), (int) (height * .8));
+        getWindow().setLayout((int) (width * .5), (int) (height * .2));
         countdown();
 
     }
