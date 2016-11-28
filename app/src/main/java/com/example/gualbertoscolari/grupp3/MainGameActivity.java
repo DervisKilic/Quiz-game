@@ -215,12 +215,12 @@ public class MainGameActivity extends AppCompatActivity {
     public void goToResult() {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra(CATEGORY, chosenCat);
-        intent.putExtra(PLAYERS, numberOfPlayers);
+        intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
         intent.putExtra(FIRSTPROFILE, p1.getName());
-        intent.putExtra(SCOREPLAYER1, p1.getScore());
+        intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
         if (numberOfPlayers == 2) {
             intent.putExtra(SECONDPROFILE, p2.getName());
-            intent.putExtra(SCOREPLAYER2, p2.getScore());
+            intent.putExtra(SCOREPLAYER2, String.valueOf(p2.getScore()));
         }
         startActivity(intent);
         finish();

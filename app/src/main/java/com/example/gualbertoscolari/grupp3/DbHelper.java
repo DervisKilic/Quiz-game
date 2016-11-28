@@ -47,9 +47,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        dbase = db;
-
-
 
         String sqlQuestions = "CREATE TABLE " + TABLE_QUESTION + " (";
         sqlQuestions += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
