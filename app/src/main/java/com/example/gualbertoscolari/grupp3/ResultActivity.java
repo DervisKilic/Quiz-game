@@ -81,19 +81,21 @@ public class ResultActivity extends AppCompatActivity {
             img1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
         }
 
-        if(p2Name.equals("Dervis")){
-            img2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
-        }
-        if(p2Name.equals("Fredrik")){
-            img2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
-        }
-        if(p2Name.equals("Gualberto")){
-            img2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
-        }
-        if(p2Name.equals("Simon")){
-            img2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
-        }
+        if(players.equals("2")) {
 
+            if (p2Name.equals("Dervis")) {
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+            }
+            if (p2Name.equals("Fredrik")) {
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+            }
+            if (p2Name.equals("Gualberto")) {
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+            }
+            if (p2Name.equals("Simon")) {
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+            }
+        }
 
     }
 
