@@ -54,13 +54,13 @@ public class MainGameActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        displayQuestion();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        resetTimer();
+
     }
 
     @Override
