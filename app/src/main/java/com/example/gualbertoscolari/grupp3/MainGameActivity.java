@@ -45,7 +45,8 @@ public class MainGameActivity extends AppCompatActivity {
     private CountDownTimer timer;
     private ProgressBar progressbar;
     private int scoreValue;
-    private boolean svar;
+    private boolean correctAnswer;
+    private final Handler handler = new Handler();
 
     private static final String TAG = "MAINGAME_ACTIVITY";
 
@@ -62,6 +63,7 @@ public class MainGameActivity extends AppCompatActivity {
         super.onResume();
 
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,9 +107,6 @@ public class MainGameActivity extends AppCompatActivity {
         //och skriver ut svaren på knapparna.
 
 
-
-
-        final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -147,6 +146,8 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
 
+        correctAnswer = g1.checkCorrectAnswer(optString, g1.getQuestions().get(numberOfAnsweredQ).getANSWER());
+
         if (g1.checkCorrectAnswer(optString, g1.getQuestions().get(numberOfAnsweredQ).getANSWER())) {
 
             //Ifall man svarar rätt händer detta
@@ -171,16 +172,12 @@ public class MainGameActivity extends AppCompatActivity {
         if (numberOfAnsweredQ == 10) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
 
-            final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     goToResult();
-                    finish();
                 }
             }, 1000); // 1000 milliseconds = 1 second
-
-
 
 
         }else {
@@ -191,12 +188,15 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void resetTimer() {
+        handler.postDelayed(new Runnable() {
 
+            @Override
+            public void run() {
                 timer = new CountDownTimer(10000, 10) {
                     public void onTick(long millisUntilFinished) {
 
-                        timerTV.setText("Points " + (millisUntilFinished/100 ));
-                        scoreValue = (int) (millisUntilFinished/100);
+                        timerTV.setText("Points " + (millisUntilFinished / 100));
+                        scoreValue = (int) (millisUntilFinished / 100);
                         int progress = (int) (millisUntilFinished / 100);
                         progressbar.setProgress(progress);
                     }
@@ -207,11 +207,8 @@ public class MainGameActivity extends AppCompatActivity {
                     }
                 }.start();
                 Log.d(TAG, "resetTimer: Timer started");
-
-
-
-
-
+            }
+        }, 1000); // 1000 milliseconds = 1 second
 
     }
 
@@ -227,12 +224,11 @@ public class MainGameActivity extends AppCompatActivity {
             intent.putExtra(SCOREPLAYER2, p2.getScore());
         }
         startActivity(intent);
-        finish();
     }
 
     public void btn_a_pressed(View view) {
         onButtonGuess(optABtn.getText().toString());
-        if (svar){
+        if (correctAnswer){
             optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         }else{
             optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
@@ -246,7 +242,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_b_pressed(View view) {
         onButtonGuess(optBBtn.getText().toString());
-        if (svar){
+        if (correctAnswer){
             optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         }else{
             optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
@@ -261,7 +257,7 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_c_pressed(View view) {
         onButtonGuess(optCBtn.getText().toString());
 
-        if (svar){
+        if (correctAnswer){
             optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         }else{
             optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
@@ -280,7 +276,7 @@ public class MainGameActivity extends AppCompatActivity {
 
 
         onButtonGuess(optDBtn.getText().toString());
-        if (svar){
+        if (correctAnswer){
             optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         }else{
             optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
