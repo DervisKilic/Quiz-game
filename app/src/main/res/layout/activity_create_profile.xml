@@ -76,7 +76,7 @@
             android:id="@+id/create_category_back_button"
             android:layout_weight="1"
             android:text="@string/create_profile_button"
-            android:onClick="addCategory"
+            android:onClick="saveProfile"
             android:textColor="#FFFFFF"
             android:background="@drawable/standardcustombutton"
             android:shadowColor="#FFEAE6"
