@@ -16,7 +16,7 @@
         android:id="@+id/create_category_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add your category"
+        android:text="@string/add_your_category"
         android:textStyle="bold"
         android:textColor="#030303"
         android:textAlignment="center"
