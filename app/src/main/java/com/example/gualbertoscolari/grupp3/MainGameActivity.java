@@ -2,6 +2,7 @@ package com.example.gualbertoscolari.grupp3;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +47,7 @@ public class MainGameActivity extends AppCompatActivity {
     private CountDownTimer timer;
     private ProgressBar progressbar;
     private int scoreValue;
+    private boolean svar;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
 
@@ -73,6 +75,11 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
+
+        optABtn.setVisibility(View.GONE);
+        optBBtn.setVisibility(View.GONE);
+        optCBtn.setVisibility(View.GONE);
+        optDBtn.setVisibility(View.GONE);
         displayQuestion();
         resetTimer();
 
@@ -81,13 +88,37 @@ public class MainGameActivity extends AppCompatActivity {
     public void displayQuestion() {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
-        playerName.setText(currentPlayer.getName());
-        questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
-        cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
-        optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
-        optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
-        optCBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
-        optDBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
+
+
+
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                optABtn.setVisibility(View.VISIBLE);
+                optBBtn.setVisibility(View.VISIBLE);
+                optCBtn.setVisibility(View.VISIBLE);
+                optDBtn.setVisibility(View.VISIBLE);
+
+                playerName.setText(currentPlayer.getName());
+                questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
+                cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
+                optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
+                optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
+                optCBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
+                optDBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
+
+                optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+                optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+                optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+                optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+            }
+        }, 1000); // 1000 milliseconds = 1 second
+
+
+
+
 
     }
 
@@ -95,7 +126,9 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
+
         if (g1.checkCorrectAnswer(optString, g1.getQuestions().get(numberOfAnsweredQ).getANSWER())) {
+
             //Ifall man svarar rätt händer detta
             Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
             currentPlayer.setScore(currentPlayer.getScore() + scoreValue);
@@ -126,20 +159,27 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void resetTimer() {
-        timer = new CountDownTimer(10000, 10) {
-            public void onTick(long millisUntilFinished) {
-                timerTV.setText("Points " + (millisUntilFinished / 100));
-                scoreValue = (int) (millisUntilFinished / 100);
-                int progress = (int) (millisUntilFinished / 100);
-                progressbar.setProgress(progress);
-            }
 
-            public void onFinish() {
-                progressbar.setProgress(0);
-                timerTV.setText("Done!");
-            }
-        }.start();
-        Log.d(TAG, "resetTimer: Timer started");
+                timer = new CountDownTimer(10000, 10) {
+                    public void onTick(long millisUntilFinished) {
+
+                        timerTV.setText("Points " + (millisUntilFinished/100 ));
+                        scoreValue = (int) (millisUntilFinished/100);
+                        int progress = (int) (millisUntilFinished / 100);
+                        progressbar.setProgress(progress);
+                    }
+
+                    public void onFinish() {
+                        progressbar.setProgress(0);
+                        timerTV.setText("Done!");
+                    }
+                }.start();
+                Log.d(TAG, "resetTimer: Timer started");
+
+
+
+
+
 
     }
 
@@ -160,21 +200,47 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_a_pressed(View view) {
         onButtonGuess(optABtn.getText().toString());
+        if (svar){
+            optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+        }else{
+            optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+        }
 
     }
 
     public void btn_b_pressed(View view) {
         onButtonGuess(optBBtn.getText().toString());
+        if (svar){
+            optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+        }else{
+            optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+        }
 
     }
 
     public void btn_c_pressed(View view) {
         onButtonGuess(optCBtn.getText().toString());
 
+        if (svar){
+            optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+        }else{
+            optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+        }
+
     }
 
     public void btn_d_pressed(View view) {
+
+
+
+
+
         onButtonGuess(optDBtn.getText().toString());
+        if (svar){
+            optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+        }else{
+            optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+        }
 
     }
 

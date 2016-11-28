@@ -45,7 +45,7 @@
         android:layout_below="@+id/profile_name"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:text="Question here. Long question looks like this"
+        android:text="Starts in 3.......2.......1"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="20sp"/>
@@ -59,7 +59,6 @@
         android:gravity="center">
 
         <TextView
-            android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/chosen_category"
@@ -74,7 +73,6 @@
 
         <TextView
             android:id="@+id/timer_tv"
-            android:text="Seconds left!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -94,7 +92,13 @@
             android:layout_weight="1"
             android:onClick="btn_a_pressed"
             android:textAllCaps="false"
-            android:text="answer_a" />
+            android:text="answer_a"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:id="@+id/answer_btn_b"
@@ -103,7 +107,13 @@
             android:layout_weight="1"
             android:onClick="btn_b_pressed"
             android:textAllCaps="false"
-            android:text="answer_b" />
+            android:text="answer_b"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
     </LinearLayout>
 
     <LinearLayout
@@ -119,7 +129,13 @@
             android:layout_weight="1"
             android:onClick="btn_c_pressed"
             android:textAllCaps="false"
-            android:text="answer_c" />
+            android:text="answer_c"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:id="@+id/answer_btn_d"
@@ -128,7 +144,13 @@
             android:layout_weight="1"
             android:onClick="btn_d_pressed"
             android:textAllCaps="false"
-            android:text="answer_d" />
+            android:text="answer_d"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
     </LinearLayout>
 

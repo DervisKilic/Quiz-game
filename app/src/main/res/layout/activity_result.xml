@@ -48,7 +48,13 @@
             android:layout_weight="1"
             android:textAllCaps="false"
             android:text="Main Menu"
-            android:onClick="goToMenu"/>
+            android:onClick="goToMenu"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:layout_width="match_parent"
@@ -56,7 +62,13 @@
             android:layout_weight="1"
             android:textAllCaps="false"
             android:text="High Score"
-            android:onClick="goToHighScore"/>
+            android:onClick="goToHighScore"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
     </LinearLayout>
 
@@ -75,7 +87,13 @@
             android:layout_height="match_parent"
             android:text="Play Again"
             android:textAllCaps="false"
-            android:onClick="goToMainGame"/>
+            android:onClick="goToMainGame"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
     </LinearLayout>
 
 </RelativeLayout>

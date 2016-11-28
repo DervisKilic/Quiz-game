@@ -62,14 +62,27 @@
             android:id="@+id/create_categorie_button"
             android:layout_weight="1"
             android:text="@string/create_back_button"
-            android:onClick="goToGameSettings"/>
+            android:onClick="goToGameSettings"
+
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             style="@style/create_activity_button"
             android:id="@+id/create_category_back_button"
             android:layout_weight="1"
             android:text="@string/create_profile_button"
-            android:onClick="addCategory"/>
+            android:onClick="addCategory"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
     </LinearLayout>
 

@@ -97,14 +97,26 @@
             android:id="@+id/create_categorie_button"
             android:layout_weight="1"
             android:text="@string/create_back_button"
-            android:onClick="backToMain"/>
+            android:onClick="backToMain"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             style="@style/create_activity_button"
             android:id="@+id/create_category_back_button"
             android:layout_weight="1"
             android:text="@string/add_question_button"
-            android:onClick="saveQuestion"/>
+            android:onClick="saveQuestion"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
     </LinearLayout>
 
