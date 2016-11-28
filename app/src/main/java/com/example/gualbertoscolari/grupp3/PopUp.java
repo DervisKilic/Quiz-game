@@ -15,6 +15,7 @@ public class PopUp extends Activity {
     private static final String TAG = "POPUP_ACTIVITY";
     CountDownTimer timer;
     TextView popUpTV;
+    private static final int REQUEST_CODE =100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,9 @@ public class PopUp extends Activity {
             }
 
             public void onFinish() {
+
+
+
                 finish();
             }
         }.start();

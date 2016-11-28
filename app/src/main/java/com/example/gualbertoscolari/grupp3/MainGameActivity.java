@@ -49,18 +49,23 @@ public class MainGameActivity extends AppCompatActivity {
     private final Handler handler = new Handler();
 
     private static final String TAG = "MAINGAME_ACTIVITY";
+    private static final int REQUEST_CODE = 100;
 
     private int numberOfAnsweredQ = 0;
 
     @Override
     protected void onPause() {
         super.onPause();
+        progressbar.setProgress(0);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        displayQuestion();
+        resetTimer();
 
     }
 
@@ -93,11 +98,12 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
-        displayQuestion();
-        resetTimer();
 
 
-        startActivity(new Intent(MainGameActivity.this, PopUp.class));
+        startActivity(new Intent(this, PopUp.class));
+
+
+
 
 
     }
@@ -224,6 +230,7 @@ public class MainGameActivity extends AppCompatActivity {
             intent.putExtra(SCOREPLAYER2, p2.getScore());
         }
         startActivity(intent);
+        finish();
     }
 
     public void btn_a_pressed(View view) {
