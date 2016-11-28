@@ -116,6 +116,11 @@ public class MainGameActivity extends AppCompatActivity {
                 optCBtn.setVisibility(View.VISIBLE);
                 optDBtn.setVisibility(View.VISIBLE);
 
+                optABtn.setEnabled(true);
+                optBBtn.setEnabled(true);
+                optCBtn.setEnabled(true);
+                optDBtn.setEnabled(true);
+
                 playerName.setText(currentPlayer.getName());
                 questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
                 cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
@@ -165,9 +170,21 @@ public class MainGameActivity extends AppCompatActivity {
         }
         if (numberOfAnsweredQ == 10) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
-            goToResult();
-            finish();
-        } else {
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    goToResult();
+                    finish();
+                }
+            }, 1000); // 1000 milliseconds = 1 second
+
+
+
+
+        }else {
+
             displayQuestion();
             resetTimer();
         }
@@ -220,6 +237,10 @@ public class MainGameActivity extends AppCompatActivity {
         }else{
             optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
         }
+        optABtn.setEnabled(false);
+        optBBtn.setEnabled(false);
+        optCBtn.setEnabled(false);
+        optDBtn.setEnabled(false);
 
     }
 
@@ -230,6 +251,10 @@ public class MainGameActivity extends AppCompatActivity {
         }else{
             optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
         }
+        optABtn.setEnabled(false);
+        optBBtn.setEnabled(false);
+        optCBtn.setEnabled(false);
+        optDBtn.setEnabled(false);
 
     }
 
@@ -241,6 +266,10 @@ public class MainGameActivity extends AppCompatActivity {
         }else{
             optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
         }
+        optABtn.setEnabled(false);
+        optBBtn.setEnabled(false);
+        optCBtn.setEnabled(false);
+        optDBtn.setEnabled(false);
 
     }
 
@@ -256,6 +285,10 @@ public class MainGameActivity extends AppCompatActivity {
         }else{
             optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
         }
+        optABtn.setEnabled(false);
+        optBBtn.setEnabled(false);
+        optCBtn.setEnabled(false);
+        optDBtn.setEnabled(false);
 
     }
 

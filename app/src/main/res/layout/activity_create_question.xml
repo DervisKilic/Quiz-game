@@ -19,7 +19,8 @@
         android:layout_below="@+id/right_answer"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"/>
+
 
 
     <TextView
