@@ -17,7 +17,7 @@ public class StandardQuestions {
         public static Question q10 = new Question("Vilken av dessa katter är alltid långhårig ? ", "Perser", "Huskatt", "Siames", "Bondkatt", "Natur", "Perser");
 
         //Sport
-        public static Question q11 = new Question("Vad heter sveriges genom tiderna bästa höjdhopperska ?", "Kajsa Bergsten", "Kajsa Borgqvist", "Kajsa Bergvist", "Kajsa Borgström,", "Sport", "Kajsa Bergqvist");
+        public static Question q11 = new Question("Vad heter sveriges genom tiderna bästa höjdhopperska ?", "Kajsa Bergsten", "Kajsa Borgqvist", "Kajsa Bergqvist", "Kajsa Borgström,", "Sport", "Kajsa Bergqvist");
         public static Question q12 = new Question("Vid vilket OS avgjorde Peter Forsberg med en spektakulär straff ?", "Nagano 98", "Lillehammer 94", "Turin 06", "Salt Lake City 02", "Sport", "Lillehammer 94");
         public static Question q13 = new Question("Vilken klubb var Zlatan Ibrahimovic första utländska proffsklubb ?", "AC Milan", "Manchester United", "Ajax", "FC Köpenhamn", "Sport", "Ajax");
         public static Question q14 = new Question("Hur många spelare är det på planen när en fotbollsmatch startar ?", "20", "22", "18", "24" ,"Sport", "22");
