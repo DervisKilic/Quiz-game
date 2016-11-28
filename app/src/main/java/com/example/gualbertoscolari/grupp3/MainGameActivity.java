@@ -103,6 +103,30 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
+
+        switch (chosenCat) {
+            case "Sport":
+                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.sportruta) );
+                break;
+
+            case "Samhälle":
+                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.samhallruta) );
+                break;
+
+            case "Kultur/Nöje":
+                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.kulturnojeruta) );
+                break;
+
+            case "Historia":
+                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.historiaruta) );
+                break;
+
+            case "Natur":
+                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.naturruta) );
+                break;
+        }
+
+
         startActivity(new Intent(this, PopUp.class));
 
     }
