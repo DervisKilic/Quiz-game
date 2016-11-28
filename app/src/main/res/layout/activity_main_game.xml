@@ -80,43 +80,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/top_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/below_buttons">
-
-        <Button
-            android:id="@+id/answer_btn_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="btn_a_pressed"
-            android:textAllCaps="false"
-            android:text="answer_a"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/standardcustombutton"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"/>
-
-        <Button
-            android:id="@+id/answer_btn_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="btn_b_pressed"
-            android:textAllCaps="false"
-            android:text="answer_b"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/standardcustombutton"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"/>
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/below_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -152,6 +115,45 @@
             android:shadowDy="0"
             android:shadowRadius="5"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/top_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/below_buttons"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/answer_btn_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btn_a_pressed"
+            android:textAllCaps="false"
+            android:text="answer_a"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
+
+        <Button
+            android:id="@+id/answer_btn_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btn_b_pressed"
+            android:textAllCaps="false"
+            android:text="answer_b"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
     </LinearLayout>
 
 </RelativeLayout>
