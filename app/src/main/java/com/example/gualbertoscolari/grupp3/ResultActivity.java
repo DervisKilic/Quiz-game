@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 //Skriver ut resultatet. Har 3 knappar.
@@ -33,6 +34,8 @@ public class ResultActivity extends AppCompatActivity {
     private TextView scorep1;
     private TextView player2;
     private TextView scorep2;
+    private ImageView img1;
+    private ImageView img2;
 
 
 
@@ -47,6 +50,8 @@ public class ResultActivity extends AppCompatActivity {
         category = (TextView) findViewById(R.id.category);
         player1 = (TextView) findViewById(R.id.player1_name);
         scorep1 = (TextView) findViewById(R.id.player1_score);
+        img1 = (ImageView) findViewById(R.id.profile_img1);
+        img2 = (ImageView) findViewById(R.id.profile_img2);
 
         Bundle extras = getIntent().getExtras();
         chosenCategory = extras.getString(CATEGORY);
@@ -57,13 +62,37 @@ public class ResultActivity extends AppCompatActivity {
         P2Score = extras.getString(SCOREPLAYER2);
 
 
-
-
         player1.setText(p1Name);
         scorep1.setText(P1Score);
         player2.setText(p2Name);
         scorep2.setText(P2Score);
         category.setText(chosenCategory);
+
+        if(p1Name.equals("Dervis")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+        }
+        if(p1Name.equals("Fredrik")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+        }
+        if(p1Name.equals("Gualberto")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+        }
+        if(p1Name.equals("Simon")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+        }
+
+        if(p2Name.equals("Dervis")){
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+        }
+        if(p2Name.equals("Fredrik")){
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+        }
+        if(p2Name.equals("Gualberto")){
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+        }
+        if(p2Name.equals("Simon")){
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+        }
 
 
     }
