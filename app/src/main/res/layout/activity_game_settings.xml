@@ -103,8 +103,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/bild2"
-        android:id="@+id/profile_img_iv"
+        android:id="@+id/profile_img_iv1"
         android:layout_below="@+id/profile_spinner"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -115,9 +114,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/current_profile1_tv"
         android:textSize="22sp"
-        android:layout_below="@+id/category_spinner"
-        android:layout_alignRight="@+id/profile_img_iv"
-        android:layout_alignEnd="@+id/profile_img_iv" />
+        android:layout_below="@+id/category_spinner" />
 
     <Spinner
         android:id="@+id/profile_spinner"
@@ -167,7 +164,6 @@
     <ImageView
         android:layout_width="80sp"
         android:layout_height="50sp"
-        app:srcCompat="@drawable/bild2"
         android:id="@+id/profile_img_iv2"
         android:layout_below="@+id/profile_spinner2"
         android:layout_alignLeft="@+id/current_profile2_tv"

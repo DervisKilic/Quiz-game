@@ -2,6 +2,7 @@ package com.example.gualbertoscolari.grupp3;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,12 +38,16 @@ public class GameSettingsActivity extends AppCompatActivity {
     private Spinner profileSpinner1;
     private Spinner profileSpinner2;
     private TextView profile2Tv;
+    private ImageView profileIv1;
     private ImageView profileIv2;
     private Spinner dropdownCategory;
 
     private List<Profile> profList;
 
     private Profile currentP;
+
+    String name1;
+    String name2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,18 +142,18 @@ public class GameSettingsActivity extends AppCompatActivity {
 
     }
 
-    public void getStandardProfiles(){
+    public void getStandardProfiles() {
         DbHelper db = new DbHelper(this);  // my profile bank class
         profList = db.getAllProfiles();  // this will fetch all quetonall questions
-        for (int i = 0; i < profList.size(); i++ ){
+        for (int i = 0; i < profList.size(); i++) {
             currentP = profList.get(i); // the current profile
             profile.add(currentP.getName());
         }
 
-
         profileSpinner1 = (Spinner) findViewById(R.id.profile_spinner);
         profileSpinner2 = (Spinner) findViewById(R.id.profile_spinner2);
         profile2Tv = (TextView) findViewById(R.id.current_profile2_tv);
+        profileIv1 = (ImageView) findViewById(R.id.profile_img_iv1);
         profileIv2 = (ImageView) findViewById(R.id.profile_img_iv2);
 
         chosenProfileP1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
@@ -158,7 +163,61 @@ public class GameSettingsActivity extends AppCompatActivity {
         p1 = profileSpinner1.getAdapter().toString();
         p2 = profileSpinner2.getAdapter().toString();
 
+        profileSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                name1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
 
+                if(name1.equals("Dervis")){
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+                }
 
+                if(name1.equals("Fredrik")){
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+                }
+
+                if(name1.equals("Gualberto")){
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+                }
+
+                if(name1.equals("Simon")){
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        profileSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                name2 = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
+
+                if(name2.equals("Dervis")){
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+                }
+
+                if(name2.equals("Fredrik")){
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+                }
+
+                if(name2.equals("Gualberto")){
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+                }
+
+                if(name2.equals("Simon")){
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 }
