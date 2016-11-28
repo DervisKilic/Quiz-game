@@ -48,7 +48,8 @@
         android:text="Starts in 3.......2.......1"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:background="@drawable/ruta1"/>
 
     <LinearLayout
         android:id="@+id/timer_and_points"
