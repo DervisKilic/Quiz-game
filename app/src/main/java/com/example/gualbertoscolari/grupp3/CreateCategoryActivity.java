@@ -35,15 +35,17 @@ public class CreateCategoryActivity extends AppCompatActivity {
     }
 
     public void addCategory(View v){
-        category = (EditText) findViewById(R.id.categorie_name);
-        cat = category.getText().toString();
 
         DbHelper db = new DbHelper(getApplicationContext());
-        db.addCategorys(cat);
+
+        category = (EditText) findViewById(R.id.categorie_name);
+        cat = category.getText().toString();
 
         category.setText("");
         Toast.makeText(this, "You added a new category", Toast.LENGTH_SHORT).show();
         category.setHint(this.getString(R.string.enter_category_name));
+
+        db.addCategorys(cat);
 
     }
 

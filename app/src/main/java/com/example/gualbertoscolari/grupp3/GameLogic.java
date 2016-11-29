@@ -38,4 +38,9 @@ public class GameLogic extends MainGameActivity {
         }
 
     }
+
+    public void shuffleOptions(String a, String b, String c, String d){
+
+
+    }
 }

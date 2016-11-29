@@ -13,9 +13,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
@@ -38,6 +45,7 @@ public class MainGameActivity extends AppCompatActivity {
     private GameLogic g1;
     private Profile currentPlayer;
 
+    private ImageView questionFrame;
     private String answer;
     private TextView playerName;
     private TextView questiontv;
@@ -46,6 +54,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optBBtn;
     private Button optCBtn;
     private Button optDBtn;
+    private List<String> optionList;
     private TextView cat;
     private TextView timerTV;
     private CountDownTimer timer;
@@ -54,7 +63,7 @@ public class MainGameActivity extends AppCompatActivity {
     private boolean correctAnswer;
     private final Handler handler = new Handler();
 
-    private Button Close;
+    private Button close;
     private PopupWindow popup;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
@@ -103,6 +112,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
+        questionFrame = (ImageView) findViewById(R.id.question_frame);
 
         loadQuestionFrame();
         startActivity(new Intent(this, PopUp.class));
@@ -126,10 +136,13 @@ public class MainGameActivity extends AppCompatActivity {
                 playerName.setText(currentPlayer.getName());
                 questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
                 cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
-                optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
-                optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
-                optCBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
-                optDBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
+                //Randomize options
+                optionList = shuffleOptions();
+
+                optABtn.setText(optionList.get(0));
+                optBBtn.setText(optionList.get(1));
+                optCBtn.setText(optionList.get(2));
+                optDBtn.setText(optionList.get(3));
                 optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
@@ -293,7 +306,7 @@ public class MainGameActivity extends AppCompatActivity {
         double height = dm.heightPixels * 0.2;
         popup = new PopupWindow(layout, (int) width, (int) height, true);
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
-        Close = (Button) findViewById(R.id.close_popup);
+        close = (Button) findViewById(R.id.close_popup);
 
     }
 
@@ -322,28 +335,39 @@ public class MainGameActivity extends AppCompatActivity {
 
         switch (chosenCat) {
             case "Sport":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.sportruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.sportruta) );
                 break;
 
             case "Samhälle":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.samhallruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.samhallruta) );
                 break;
 
             case "Kultur/Nöje":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.kulturnojeruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.kulturnojeruta) );
                 break;
 
             case "Historia":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.historiaruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.historiaruta) );
                 break;
 
             case "Natur":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.naturruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.naturruta) );
                 break;
 
             case "Alla kategorier":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.blandat) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.blandat) );
 
         }
+    }
+
+    public List<String> shuffleOptions(){
+        List<String> options = new ArrayList<>();
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
+        Collections.shuffle(options);
+
+        return options;
     }
 }

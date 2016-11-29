@@ -23,7 +23,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String TABLE_CATEGORY = "categorys";
 
     // tasks Table Columns names for questions
-    private static final String KEY_ID = "id";
+    private static final String KEY_ID = "_id";
     private static final String KEY_QUEST = "question";
     private static final String KEY_OPTA = "opta";
     private static final String KEY_OPTB = "optb";
@@ -33,7 +33,6 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_ANSWER = "answer";
 
     private static final String KEY_NAME = "name";
-    //private static final String KEY_IMG = "profileimg";
     private static final String KEY_SCORE = "score";
 
     private static final String KEY_CATEGORY = "category";
@@ -178,6 +177,24 @@ public class DbHelper extends SQLiteOpenHelper {
         return quesList;
     }
 
+    public List<String> getCreatedQuestions(){
+        List<String> questionList = new ArrayList<>();
+        dbase = getReadableDatabase();
+        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, KEY_ID+">?", new String[]{"50"}, null, null, null, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+
+                questionList.add(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+        // return quest list
+        cursor.close();
+        return questionList;
+
+    }
+
     public List<Profile> getAllProfiles() {
         List<Profile> profList = new ArrayList<Profile>();
         // Select All Query
@@ -192,7 +209,6 @@ public class DbHelper extends SQLiteOpenHelper {
                 profList.add(p);
             } while (cursor.moveToNext());
         }
-
         // return quest list
         cursor.close();
         return profList;

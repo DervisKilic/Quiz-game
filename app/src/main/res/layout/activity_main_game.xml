@@ -31,6 +31,7 @@
         android:layout_below="@id/question_tv"
         android:layout_marginTop="10dp"/>
 
+
     <TextView
         android:id="@+id/counter"
         android:layout_width="match_parent"
@@ -41,18 +42,6 @@
         android:gravity="center"
         android:layout_below="@id/progressbar"
         android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/question_tv"
-        android:layout_below="@+id/profile_name"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="Starts in 3.......2.......1"
-        android:textColor="#c3ffffff"
-        android:gravity="center"
-        android:textStyle="italic"
-        android:background="@drawable/historiaruta"
-        android:textSize="18sp"/>
 
     <LinearLayout
         android:id="@+id/timer_and_points"
@@ -102,7 +91,8 @@
             android:shadowColor="#FFEAE6"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:shadowRadius="5"
+            android:layout_margin="5sp"/>
 
         <Button
             android:id="@+id/answer_btn_d"
@@ -117,7 +107,8 @@
             android:shadowColor="#FFEAE6"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:shadowRadius="5"
+            android:layout_margin="5sp"/>
 
     </LinearLayout>
 
@@ -142,7 +133,8 @@
             android:shadowColor="#FFEAE6"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:shadowRadius="5"
+            android:layout_margin="5sp"/>
 
         <Button
             android:id="@+id/answer_btn_b"
@@ -157,7 +149,35 @@
             android:shadowColor="#FFEAE6"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:shadowRadius="5"
+            android:layout_margin="5sp"/>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/question_frame"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textColor="#c3ffffff"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:layout_below="@+id/profile_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/question_tv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Starts in 3.......2.......1"
+        android:textColor="#c3ffffff"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:layout_below="@+id/profile_name"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"/>
+
+
 
 </RelativeLayout>
