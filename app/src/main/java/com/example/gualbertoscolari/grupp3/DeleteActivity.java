@@ -1,7 +1,9 @@
 package com.example.gualbertoscolari.grupp3;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +20,6 @@ public class DeleteActivity extends AppCompatActivity {
 
     ArrayAdapter<String> arrayAdapter;
     ArrayList<String> listItems = new ArrayList<String>();
-    ListView lv;
 
 
     ListView quiestions;
@@ -32,13 +33,13 @@ public class DeleteActivity extends AppCompatActivity {
 
         DbHelper db = new DbHelper(this);
 
-        db.open();
-        List<String> all = db.ge();
+        //db.open();
+        List<String> all = db.getCreatedQuestions();
         if(all.size()>0) // check if list contains items.
         {
-            lv = (ListView)findViewById(R.id.question_list);
-            arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, all);
-            lv.setAdapter(arrayAdapter);
+            quiestions = (ListView)findViewById(R.id.question_list);
+            arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,all);
+            quiestions.setAdapter(arrayAdapter);
         }
         else
         {
@@ -49,13 +50,32 @@ public class DeleteActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                //FREDRIK METOD FÖR ATT TA BORT SPELARE
+                AlertDialog diaBox = AskOption();
+                diaBox.show();
             }
         });
-
-
     }
 
+    private AlertDialog AskOption()
+    {
+        AlertDialog myQuittingDialogBox =new AlertDialog.Builder(this)
+                //set message, title, and icon
+                .setTitle("Delete")
+                .setMessage("Do you want to Delete")
+                .setIcon(R.drawable.natur)
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
-
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //your deleting code
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        return myQuittingDialogBox;
+    }
 }

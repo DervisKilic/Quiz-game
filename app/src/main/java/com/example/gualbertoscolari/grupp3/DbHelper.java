@@ -178,25 +178,16 @@ public class DbHelper extends SQLiteOpenHelper {
         return quesList;
     }
 
-    public List<Question> getCreatedQuestions(){
-        List<Question> questionList = new ArrayList<>();
+    public List<String> getCreatedQuestions(){
+        List<String> questionList = new ArrayList<>();
         dbase = getReadableDatabase();
-        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, KEY_ID+"<?", new String[]{"50"}, null, null, null, null);
+        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, KEY_ID+">?", new String[]{"50"}, null, null, null, null);
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Question quest = new Question();
-                quest.setID(0);
-                quest.setQUESTION(cursor.getString(1));
-                quest.setOPTA(cursor.getString(2));
-                quest.setOPTB(cursor.getString(3));
-                quest.setOPTC(cursor.getString(4));
-                quest.setOPTD(cursor.getString(5));
-                quest.setCATEGORY(cursor.getString(6));
-                quest.setANSWER(cursor.getString(7));
 
-                questionList.add(quest);
+                questionList.add(cursor.getString(1));
             } while (cursor.moveToNext());
         }
         // return quest list
