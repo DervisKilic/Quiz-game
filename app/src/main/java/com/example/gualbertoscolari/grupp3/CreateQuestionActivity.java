@@ -49,23 +49,45 @@ public class CreateQuestionActivity extends AppCompatActivity {
         inputQuestion = (EditText) findViewById(R.id.question_tv);
         String question = inputQuestion.getText().toString();
 
-        inputQuestion.setText("");
-        inputQuestion.setHint(R.string.enter_q_hint);
+        if(question.length() > 150) {
+            Toast.makeText(this, "Max 150 letters", Toast.LENGTH_SHORT).show();
+            inputQuestion.setText("");
+            inputQuestion.setHint(R.string.enter_q_hint);
+
+
+        }
+
+
 
         inputOpta = (EditText) findViewById(R.id.opt_a);
         String opta = inputOpta.getText().toString();
 
+
+        Toast.makeText(this, "Max 15 letters", Toast.LENGTH_SHORT).show();
         inputOpta.setText("");
         inputOpta.setHint(R.string.enter_opt_a_hint);
+
+
+
 
         inputOptb = (EditText) findViewById(R.id.opt_b);
         String optb = inputOptb.getText().toString();
 
+
+        Toast.makeText(this, "Max 15 letters", Toast.LENGTH_SHORT).show();
         inputOptb.setText("");
         inputOptb.setHint(R.string.enter_opt_b_hint);
 
+
+
         inputOptc = (EditText) findViewById(R.id.opt_c);
         String optc = inputOptc.getText().toString();
+
+
+        Toast.makeText(this, "Max 15 letters", Toast.LENGTH_SHORT).show();
+        inputOptc.setText("");
+        inputOptc.setHint(R.string.enter_opt_a_hint);
+
 
         inputOptc.setText("");
         inputOptc.setHint(R.string.enter_opt_c_hint);
@@ -85,10 +107,12 @@ public class CreateQuestionActivity extends AppCompatActivity {
         inputcorrectAnswer.setText("");
         inputcorrectAnswer.setHint(R.string.enter_corr_answ_hint);
 
+
+
         Toast.makeText(this, "You added a new question", Toast.LENGTH_SHORT).show();
 
 
-        Question q = new Question(question,opta,optb, optc, optd, cat, correctAnswer);
+        Question q = new Question(question, correctAnswer, optb, optc, optd, cat, correctAnswer);
         DbHelper db = new DbHelper(getApplicationContext());
 
         db.addQuestion(q);

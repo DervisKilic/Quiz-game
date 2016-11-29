@@ -26,16 +26,24 @@ public class CreateProfileActivity extends AppCompatActivity {
     public void saveProfile(View view) {
 
         inputName = (EditText) findViewById(R.id.profile_name);
-        String name = inputName.getText().toString();
+        name = inputName.getText().toString();
 
         Profile p = new Profile(name, 0);
         DbHelper db = new DbHelper(getApplicationContext());
 
-        inputName.setText("");
-        Toast.makeText(this, "You added a new profile", Toast.LENGTH_SHORT).show();
-        inputName.setHint(this.getString(R.string.enter_category_name));
+        if(name.length() > 12){
+            Toast.makeText(this, "Max 12 letters", Toast.LENGTH_SHORT).show();
+            inputName.setText("");
+            inputName.setHint(this.getString(R.string.create_profile));
 
-        db.addProfile(p);
+        } else {
+            Toast.makeText(this, "You added a new profile", Toast.LENGTH_SHORT).show();
+            inputName.setText("");
+            inputName.setHint(this.getString(R.string.create_profile));
+            db.addProfile(p);
+        }
+
+
     }
 
     public void goToGameSettings(View view) {
