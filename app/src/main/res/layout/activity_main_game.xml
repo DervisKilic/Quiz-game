@@ -50,7 +50,7 @@
         android:text="Starts in 3.......2.......1"
         android:textColor="#c3ffffff"
         android:gravity="center"
-        android:textStyle="bold"
+        android:textStyle="italic"
         android:background="@drawable/historiaruta"
         android:textSize="18sp"/>
 

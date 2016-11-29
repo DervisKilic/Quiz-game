@@ -340,6 +340,10 @@ public class MainGameActivity extends AppCompatActivity {
             case "Natur":
                 questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.naturruta) );
                 break;
+
+            case "Alla kategroier":
+                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.blandat) );
+
         }
     }
 }
