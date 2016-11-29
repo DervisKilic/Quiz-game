@@ -9,9 +9,12 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 //Lagra skriva och läsa frågor, profiler och kategorier till och från databasen.
 //
 public class DbHelper extends SQLiteOpenHelper {
+
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "quiz_db";
@@ -31,12 +34,16 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_OPTD = "optd";
     private static final String KEY_CAT = "category";
     private static final String KEY_ANSWER = "answer";
+    private static final String KEY_HSCAT = "hscategory";
+    private static final String KEY_HSNAME = "hsname";
+    private static final String KEY_HSSCORE = "hsscore";
 
     private static final String KEY_NAME = "name";
     private static final String KEY_SCORE = "score";
 
     private static final String KEY_CATEGORY = "category";
-    private static final String TABLE_HIGHSCORE = "highscore" ;
+    private static final String TABLE_HIGHSCORE = "highscore";
+    private static final String TAG = "dbhelper.java";
 
     private SQLiteDatabase dbase;
     //private boolean close;
@@ -58,9 +65,7 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlQuestions += "category VARCHAR(255) NOT NULL,";
         sqlQuestions += "answer VARCHAR(255) NOT NULL";
         sqlQuestions += ");";
-
-        Log.d("bajs", "Database created");
-
+        Log.d("question", "Table created");
 
         db.execSQL(sqlQuestions);
 
@@ -70,8 +75,7 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlProfiles += "score INTEGER NOT NULL";
         //sqlProfiles += KEY_IMG+ "BLOB NOT NULL,";
         sqlProfiles += ");";
-
-        Log.d("profiles", "Database created");
+        Log.d("profiles", "Table created");
 
         db.execSQL(sqlProfiles);
 
@@ -79,24 +83,19 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlCategorys += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlCategorys += "category VARCHAR(255) NOT NULL";
         sqlCategorys += ");";
-
-        Log.d("categorys", "Database created");
-
+        Log.d("categorys", "Table created");
 
         db.execSQL(sqlCategorys);
 
         String sqlHighScores = "CREATE TABLE " + TABLE_HIGHSCORE + " (";
         sqlHighScores += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
-        sqlHighScores += "name VARCHAR(255) NOT NULL,";
-        sqlHighScores += "category VARCHAR(255) NOT NULL";
-        sqlHighScores += "score INTEGER NOT NULL,";
+        sqlHighScores += "hsname VARCHAR(255) NOT NULL,";
+        sqlHighScores += "hscategory VARCHAR(255) NOT NULL,";
+        sqlHighScores += "hsscore INTEGER NOT NULL";
         sqlHighScores += ");";
-
-        Log.d("categorys", "Database created");
-
+        Log.d("highscores", "Table created");
 
         db.execSQL(sqlHighScores);
-
 
     }
 
@@ -105,13 +104,10 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE);
         onCreate(db);
 
-
     }
 
     public void addQuestion(Question q) {
-
         SQLiteDatabase db = getWritableDatabase();
-
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_QUEST, q.getQUESTION());
         cvs.put(KEY_OPTA, q.getOPTA());
@@ -120,42 +116,73 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_OPTD, q.getOPTD());
         cvs.put(KEY_CAT, q.getCATEGORY());
         cvs.put(KEY_ANSWER, q.getANSWER());
-
         long id = db.insert(TABLE_QUESTION, null, cvs);
-
         Log.d("Hej", "row id: " + id);
-
         db.close();
 
     }
 
     public void addProfile(Profile p) {
-
         SQLiteDatabase db = getWritableDatabase();
-
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_NAME, p.getName());
         cvs.put(KEY_SCORE, p.getScore());
+
         //cvs.put(KEY_IMG, p.getProfileImg);
-
         long id = db.insert(TABLE_PROFILE, null, cvs);
-
-        Log.d("Hejprofile", "row id: " + id);
+        Log.d(TAG, " addProfile: row id: " + id);
 
         db.close();
     }
 
-    public void addCategorys(String category) {
-
+    public void addPlaceholderHSCategory(String cat) {
         SQLiteDatabase db = getWritableDatabase();
+        ContentValues cvs = new ContentValues();
+        List<Profile> profiles = getAllProfiles();
 
+
+            for (Profile p : profiles) {
+                cvs.put(KEY_HSNAME, p.getName());
+                cvs.put(KEY_HSCAT, cat);
+                cvs.put(KEY_HSSCORE, 0);
+                long id = db.insert(TABLE_HIGHSCORE, null, cvs);
+                Log.d(TAG, "addPlaceholderHS: row id: " + id);
+
+            }
+
+
+        db.close();
+    }
+
+    public void addPlaceholderHSProfile(String hsName) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cvs = new ContentValues();
+        List<String> categories = getAllCatagories();
+
+        for (int i = 0; i < categories.size(); i++) {
+            cvs.put(KEY_HSNAME, hsName);
+            cvs.put(KEY_HSCAT, categories.get(i));
+            cvs.put(KEY_HSSCORE, 0);
+            long id = db.insert(TABLE_HIGHSCORE, null, cvs);
+            Log.d(TAG, "addPlaceholderHSProfile: row id: " + id);
+        }
+
+
+
+        db.close();
+
+    }
+
+
+
+
+
+    public void addCategorys(String category) {
+        SQLiteDatabase db = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_CATEGORY, category);
-
         long id = db.insert(TABLE_CATEGORY, null, cvs);
-
         Log.d("Hejcategory", "row id: " + id);
-
         db.close();
     }
 
@@ -164,9 +191,9 @@ public class DbHelper extends SQLiteOpenHelper {
         // Select All Query
         dbase = getReadableDatabase();
         Cursor cursor;
-        if (category.equals("Alla kategorier")){
+        if (category.equals("Alla kategorier")) {
             cursor = dbase.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", "10");
-        }else {
+        } else {
             cursor = dbase.query(true, TABLE_QUESTION, null, KEY_CAT + "=?", new String[]{category}, null, null, "Random()", "10");
         }
         // looping through all rows and adding to list
@@ -181,7 +208,6 @@ public class DbHelper extends SQLiteOpenHelper {
                 quest.setOPTD(cursor.getString(5));
                 quest.setCATEGORY(cursor.getString(6));
                 quest.setANSWER(cursor.getString(7));
-
                 quesList.add(quest);
             } while (cursor.moveToNext());
         }
@@ -218,7 +244,6 @@ public class DbHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Profile p = new Profile(cursor.getString(1), (cursor.getInt(2)));
-
                 profList.add(p);
             } while (cursor.moveToNext());
         }
@@ -232,7 +257,7 @@ public class DbHelper extends SQLiteOpenHelper {
     // MainGameActivity.java (in onCreate)
     public void addStandardItemsSQL() {
         List<Question> quesList = getAllQuestions("Natur");
-        if(quesList.size() < 10) {
+        if (quesList.size() < 10) {
             addQuestion(StandardQuestions.q1);
             addQuestion(StandardQuestions.q2);
             addQuestion(StandardQuestions.q3);
@@ -284,10 +309,9 @@ public class DbHelper extends SQLiteOpenHelper {
             addQuestion(StandardQuestions.q49);
             addQuestion(StandardQuestions.q50);
 
-
         }
         List<String> catList = getAllCatagories();
-        if(catList.size() < 6) {
+        if (catList.size() < 6) {
             addCategorys("Sport");
             addCategorys("Natur");
             addCategorys("Kultur/Nöje");
@@ -295,30 +319,33 @@ public class DbHelper extends SQLiteOpenHelper {
             addCategorys("Samhälle");
             addCategorys("Alla kategorier");
         }
-
-        List<Profile> profileList= getAllProfiles();
-        if(profileList.size() < 4){
+        List<Profile> profileList = getAllProfiles();
+        if (profileList.size() < 4) {
             addProfile(new Profile("Dervis"));
             addProfile(new Profile("Fredrik"));
             addProfile(new Profile("Gualberto"));
             addProfile(new Profile("Simon"));
         }
-
-
         Log.d("Kiss", "Questions added yeah");
+
+        for (int i = 0; i < 3; i++) {
+            addPlaceholderHSProfile(profileList.get(i).getName());
+        }
+
+
     }
 
-    public List<String> getAllCatagories(){
+
+    public List<String> getAllCatagories() {
         List<String> catList = new ArrayList<String>();
         dbase = getReadableDatabase();
-        Cursor cursor = dbase.query(TABLE_CATEGORY, null, null, null, null, null ,null);
+        Cursor cursor = dbase.query(TABLE_CATEGORY, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
-
                 catList.add(cursor.getString(1));
             } while (cursor.moveToNext());
         }
-        // return quest list
+
         cursor.close();
         return catList;
     }

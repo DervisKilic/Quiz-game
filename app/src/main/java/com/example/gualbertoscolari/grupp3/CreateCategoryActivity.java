@@ -49,13 +49,14 @@ public class CreateCategoryActivity extends AppCompatActivity {
         }
         DbHelper db = new DbHelper(getApplicationContext());
 
+
         category = (EditText) findViewById(R.id.categorie_name);
         cat = category.getText().toString();
 
 
 
         db.addCategorys(cat);
-
+        db.addPlaceholderHSCategory(cat);
     }
 
     public String getCategory() {

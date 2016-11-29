@@ -41,7 +41,9 @@ public class CreateProfileActivity extends AppCompatActivity {
             inputName.setText("");
             inputName.setHint(this.getString(R.string.create_profile));
             db.addProfile(p);
+            db.addPlaceholderHSProfile(p.getName());
         }
+
 
 
     }
