@@ -38,6 +38,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
 
         DbHelper db = new DbHelper(getApplicationContext());
 
+
         category = (EditText) findViewById(R.id.categorie_name);
         cat = category.getText().toString();
 
@@ -46,7 +47,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
         category.setHint(this.getString(R.string.enter_category_name));
 
         db.addCategorys(cat);
-
+        db.addPlaceholderHSCategory(cat);
     }
 
     public String getCategory() {

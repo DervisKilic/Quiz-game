@@ -36,6 +36,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         inputName.setHint(this.getString(R.string.enter_category_name));
 
         db.addProfile(p);
+        db.addPlaceholderHSProfile(p.getName());
     }
 
     public void goToGameSettings(View view) {
