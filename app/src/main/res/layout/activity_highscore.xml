@@ -25,14 +25,18 @@
         android:layout_below="@+id/category_highscoore"
         android:layout_marginTop="35dp" />
 
-    <ListView
+    <GridView
         android:id="@+id/hs_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/spinner_highscore"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:numColumns="2"
+        >
 
 
-    </ListView>
+
+
+    </GridView>
 
 </RelativeLayout>

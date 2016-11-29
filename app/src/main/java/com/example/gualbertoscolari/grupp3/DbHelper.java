@@ -36,6 +36,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_SCORE = "score";
 
     private static final String KEY_CATEGORY = "category";
+    private static final String TABLE_HIGHSCORE = "highscore" ;
 
     private SQLiteDatabase dbase;
     //private boolean close;
@@ -83,6 +84,18 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(sqlCategorys);
+
+        String sqlHighScores = "CREATE TABLE " + TABLE_HIGHSCORE + " (";
+        sqlHighScores += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
+        sqlHighScores += "name VARCHAR(255) NOT NULL,";
+        sqlHighScores += "category VARCHAR(255) NOT NULL";
+        sqlHighScores += "score INTEGER NOT NULL,";
+        sqlHighScores += ");";
+
+        Log.d("categorys", "Database created");
+
+
+        db.execSQL(sqlHighScores);
 
 
     }
