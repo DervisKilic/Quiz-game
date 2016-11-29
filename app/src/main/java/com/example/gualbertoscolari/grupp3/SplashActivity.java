@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 public class SplashActivity extends Activity implements Animation.AnimationListener{
@@ -20,18 +21,23 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
         DbHelper db = new DbHelper(this);
         db.addStandardItemsSQL();
 
-        img1 = (ImageView) findViewById(R.id.imageView);
-        fadeout = AnimationUtils.loadAnimation(this,R.anim.fade_out);
-        img1.startAnimation(fadeout);
-
 
         final Thread timer= new Thread(){
             public void run(){
                 try{
+
+                    ImageView rotate_image =(ImageView) findViewById(R.id.imageView);
+                    RotateAnimation rotate = new RotateAnimation(30, 360, Animation.RELATIVE_TO_SELF, 0.5f,  Animation.RELATIVE_TO_SELF, 0.5f);
+                    rotate.setDuration(2500);
+                    rotate_image.startAnimation(rotate);
+
                     sleep (3000);
+
+
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{
+
                     Intent menuIntent = new Intent(SplashActivity.this,MenuActivity.class);
                     startActivity(menuIntent);
                     finish();
@@ -52,6 +58,8 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
 
     @Override
     public void onAnimationEnd(Animation animation) {
+
+
     }
 
     @Override
