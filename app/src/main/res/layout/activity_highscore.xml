@@ -11,7 +11,7 @@
     tools:context="com.example.gualbertoscolari.grupp3.HighscoreActivity">
 
     <TextView
-        android:id="@+id/category_highscoore"
+        android:id="@+id/category_highscore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Välj kategori"
@@ -22,21 +22,32 @@
         android:id="@+id/spinner_highscore"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_below="@+id/category_highscoore"
+        android:layout_below="@+id/category_highscore"
         android:layout_marginTop="35dp" />
 
-    <GridView
-        android:id="@+id/hs_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/spinner_highscore"
-        android:layout_marginTop="20dp"
-        android:numColumns="2"
-        >
+    <LinearLayout
+        android:id="@+id/grid_layout"
+        android:layout_below="@id/spinner_highscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <GridView
+            android:id="@+id/hs_gridv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/spinner_highscore"
+            android:layout_marginTop="20dp"
+            android:numColumns="3"
+            >
 
 
 
 
-    </GridView>
+        </GridView>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

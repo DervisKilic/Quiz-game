@@ -10,7 +10,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-
 //Lagra skriva och läsa frågor, profiler och kategorier till och från databasen.
 //
 public class DbHelper extends SQLiteOpenHelper {
@@ -128,6 +127,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_NAME, p.getName());
         cvs.put(KEY_SCORE, p.getScore());
 
+
         //cvs.put(KEY_IMG, p.getProfileImg);
         long id = db.insert(TABLE_PROFILE, null, cvs);
         Log.d(TAG, " addProfile: row id: " + id);
@@ -140,16 +140,14 @@ public class DbHelper extends SQLiteOpenHelper {
         ContentValues cvs = new ContentValues();
         List<Profile> profiles = getAllProfiles();
 
+        for (Profile p : profiles) {
+            cvs.put(KEY_HSNAME, p.getName());
+            cvs.put(KEY_HSCAT, cat);
+            cvs.put(KEY_HSSCORE, 0);
+            long id = db.insert(TABLE_HIGHSCORE, null, cvs);
+            Log.d(TAG, "addPlaceholderHS: row id: " + id);
 
-            for (Profile p : profiles) {
-                cvs.put(KEY_HSNAME, p.getName());
-                cvs.put(KEY_HSCAT, cat);
-                cvs.put(KEY_HSSCORE, 0);
-                long id = db.insert(TABLE_HIGHSCORE, null, cvs);
-                Log.d(TAG, "addPlaceholderHS: row id: " + id);
-
-            }
-
+        }
 
         db.close();
     }
@@ -167,15 +165,9 @@ public class DbHelper extends SQLiteOpenHelper {
             Log.d(TAG, "addPlaceholderHSProfile: row id: " + id);
         }
 
-
-
         db.close();
 
     }
-
-
-
-
 
     public void addCategorys(String category) {
         SQLiteDatabase db = getWritableDatabase();
@@ -216,10 +208,10 @@ public class DbHelper extends SQLiteOpenHelper {
         return quesList;
     }
 
-    public List<String> getCreatedQuestions(){
+    public List<String> getCreatedQuestions() {
         List<String> questionList = new ArrayList<>();
         dbase = getReadableDatabase();
-        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, KEY_ID+">?", new String[]{"50"}, null, null, null, null);
+        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, KEY_ID + ">?", new String[]{"50"}, null, null, null, null);
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -328,13 +320,12 @@ public class DbHelper extends SQLiteOpenHelper {
         }
         Log.d("Kiss", "Questions added yeah");
 
+
         for (int i = 0; i < 3; i++) {
             addPlaceholderHSProfile(profileList.get(i).getName());
         }
 
-
     }
-
 
     public List<String> getAllCatagories() {
         List<String> catList = new ArrayList<String>();
@@ -349,4 +340,35 @@ public class DbHelper extends SQLiteOpenHelper {
         cursor.close();
         return catList;
     }
+
+
+    public List<String> getHighScoredata() {
+        List<String> highScoreData = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM highscore WHERE hscategory = ?", new String[]{"Sport"});
+
+        if(c.moveToFirst()) {
+            do {
+                highScoreData.add(c.getString(1));
+                highScoreData.add(c.getString(2));
+                highScoreData.add(c.getString(3));
+
+
+
+            }while (c.moveToNext());
+
+
+
+        }
+
+        c.close();
+        return highScoreData;
+    }
+
+
+
+
+
+
 }
