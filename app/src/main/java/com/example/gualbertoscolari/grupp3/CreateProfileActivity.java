@@ -46,6 +46,7 @@ public class CreateProfileActivity extends AppCompatActivity {
 
 
 
+
     }
 
     public void goToGameSettings(View view) {
