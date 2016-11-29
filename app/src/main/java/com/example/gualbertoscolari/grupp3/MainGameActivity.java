@@ -335,11 +335,11 @@ public class MainGameActivity extends AppCompatActivity {
 
         switch (chosenCat) {
             case "Sport":
-                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.sportruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.bb1) );
                 break;
 
             case "Samhälle":
-                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.samhallruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.bb1) );
                 break;
 
             case "Kultur/Nöje":

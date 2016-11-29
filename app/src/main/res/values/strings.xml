@@ -17,11 +17,10 @@
     <string name="create_profile">Profile name</string>
     <string name="enter_category_name">Enter the name of the category</string>
     <string name="enter_q_hint">Enter your question here</string>
-    <string name="enter_opt_a_hint">Option A:</string>
+    <string name="correct_answer">Correct answer:</string>
     <string name="enter_opt_b_hint">Option B:</string>
     <string name="enter_opt_c_hint">Option C:</string>
     <string name="enter_opt_d_hint">Option D:</string>
-    <string name="enter_corr_answ_hint">Correct answer</string>
     <string name="add_category_button">Add category</string>
     <string name="add_question_button">Add question</string>
     <string name="create_back_button">Back</string>
