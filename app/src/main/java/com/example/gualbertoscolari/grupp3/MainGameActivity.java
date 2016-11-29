@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -44,6 +45,7 @@ public class MainGameActivity extends AppCompatActivity {
     private GameLogic g1;
     private Profile currentPlayer;
 
+    private ImageView questionFrame;
     private String answer;
     private TextView playerName;
     private TextView questiontv;
@@ -110,6 +112,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
+        questionFrame = (ImageView) findViewById(R.id.question_frame);
 
         loadQuestionFrame();
         startActivity(new Intent(this, PopUp.class));
@@ -332,27 +335,27 @@ public class MainGameActivity extends AppCompatActivity {
 
         switch (chosenCat) {
             case "Sport":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.sportruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.sportruta) );
                 break;
 
             case "Samhälle":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.samhallruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.samhallruta) );
                 break;
 
             case "Kultur/Nöje":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.kulturnojeruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.kulturnojeruta) );
                 break;
 
             case "Historia":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.historiaruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.historiaruta) );
                 break;
 
             case "Natur":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.naturruta) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.naturruta) );
                 break;
 
             case "Alla kategorier":
-                questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.blandat) );
+                questionFrame.setBackgroundDrawable( getResources().getDrawable(R.drawable.blandat) );
 
         }
     }
