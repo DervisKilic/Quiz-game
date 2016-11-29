@@ -35,8 +35,11 @@ public class CreateCategoryActivity extends AppCompatActivity {
     }
 
     public void addCategory(View v){
+        DbHelper db = new DbHelper(getApplicationContext());
+        category = (EditText) findViewById(R.id.categorie_name);
+        cat = category.getText().toString();
 
-        if(cat.length() > 12){
+        if(cat.length() > 12 || cat.length() < 1){
             Toast.makeText(this, "Max 12 letters", Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
@@ -45,18 +48,10 @@ public class CreateCategoryActivity extends AppCompatActivity {
             Toast.makeText(this, "You added a new category", Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
+            db.addCategorys(cat);
+            db.addPlaceholderHSCategory(cat);
 
         }
-        DbHelper db = new DbHelper(getApplicationContext());
-
-
-        category = (EditText) findViewById(R.id.categorie_name);
-        cat = category.getText().toString();
-
-
-
-        db.addCategorys(cat);
-        db.addPlaceholderHSCategory(cat);
     }
 
     public String getCategory() {
