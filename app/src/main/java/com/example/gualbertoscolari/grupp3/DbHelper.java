@@ -226,6 +226,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
+    public void deleteCreatedQuestion(String question){
+        dbase = getReadableDatabase();
+        dbase.delete(TABLE_QUESTION, KEY_QUEST+"="+question, null);
+    }
+
     public List<Profile> getAllProfiles() {
         List<Profile> profList = new ArrayList<Profile>();
         // Select All Query
