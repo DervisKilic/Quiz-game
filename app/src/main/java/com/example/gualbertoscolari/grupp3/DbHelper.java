@@ -151,7 +151,12 @@ public class DbHelper extends SQLiteOpenHelper {
         List<Question> quesList = new ArrayList<Question>();
         // Select All Query
         dbase = getReadableDatabase();
-        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, KEY_CAT+"=?", new String[]{category}, null, null, "Random()", "10");
+        Cursor cursor;
+        if (category.equals("Alla kategorier")){
+            cursor = dbase.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", "10");
+        }else {
+            cursor = dbase.query(true, TABLE_QUESTION, null, KEY_CAT + "=?", new String[]{category}, null, null, "Random()", "10");
+        }
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -259,7 +264,7 @@ public class DbHelper extends SQLiteOpenHelper {
             addCategorys("Kultur/Nöje");
             addCategorys("Historia");
             addCategorys("Samhälle");
-            addCategorys("All");
+            addCategorys("Alla kategorier");
         }
 
         List<Profile> profileList= getAllProfiles();
