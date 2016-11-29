@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/activity_highscore"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_highscore"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -11,26 +11,28 @@
     tools:context="com.example.gualbertoscolari.grupp3.HighscoreActivity">
 
     <TextView
-        android:text="Välj kategori"
-        android:textSize="30dp"
-        android:textAlignment="center"
         android:id="@+id/category_highscoore"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Välj kategori"
+        android:textAlignment="center"
+        android:textSize="30dp" />
 
     <Spinner
         android:id="@+id/spinner_highscore"
-        android:layout_marginTop="35dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_below="@+id/category_highscoore"/>
+        android:layout_below="@+id/category_highscoore"
+        android:layout_marginTop="35dp" />
 
-    <TextView
-        android:text="Här är en lista"
-        android:id="@+id/highscoore"
-        android:layout_marginTop="20dp"
+    <ListView
+        android:id="@+id/hs_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/spinner_highscore"/>
+        android:layout_below="@+id/spinner_highscore"
+        android:layout_marginTop="20dp">
+
+
+    </ListView>
 
 </RelativeLayout>
