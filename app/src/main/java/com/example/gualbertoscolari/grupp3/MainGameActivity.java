@@ -17,6 +17,12 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
 //
@@ -46,6 +52,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optBBtn;
     private Button optCBtn;
     private Button optDBtn;
+    private List<String> optionList;
     private TextView cat;
     private TextView timerTV;
     private CountDownTimer timer;
@@ -54,7 +61,7 @@ public class MainGameActivity extends AppCompatActivity {
     private boolean correctAnswer;
     private final Handler handler = new Handler();
 
-    private Button Close;
+    private Button close;
     private PopupWindow popup;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
@@ -126,10 +133,13 @@ public class MainGameActivity extends AppCompatActivity {
                 playerName.setText(currentPlayer.getName());
                 questiontv.setText(g1.getQuestions().get(numberOfAnsweredQ).getQUESTION());
                 cat.setText(g1.getQuestions().get(numberOfAnsweredQ).getCATEGORY());
-                optABtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
-                optBBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
-                optCBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
-                optDBtn.setText(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
+                //Randomize options
+                optionList = shuffleOptions();
+
+                optABtn.setText(optionList.get(0));
+                optBBtn.setText(optionList.get(1));
+                optCBtn.setText(optionList.get(2));
+                optDBtn.setText(optionList.get(3));
                 optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
@@ -293,7 +303,7 @@ public class MainGameActivity extends AppCompatActivity {
         double height = dm.heightPixels * 0.2;
         popup = new PopupWindow(layout, (int) width, (int) height, true);
         popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
-        Close = (Button) findViewById(R.id.close_popup);
+        close = (Button) findViewById(R.id.close_popup);
 
     }
 
@@ -345,5 +355,16 @@ public class MainGameActivity extends AppCompatActivity {
                 questiontv.setBackgroundDrawable( getResources().getDrawable(R.drawable.blandat) );
 
         }
+    }
+
+    public List<String> shuffleOptions(){
+        List<String> options = new ArrayList<>();
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTA());
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTB());
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTC());
+        options.add(g1.getQuestions().get(numberOfAnsweredQ).getOPTD());
+        Collections.shuffle(options);
+
+        return options;
     }
 }
