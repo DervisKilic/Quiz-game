@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,8 +22,9 @@ public class DeleteActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     ArrayList<String> listItems = new ArrayList<String>();
 
-
+    private DbHelper db;
     ListView quiestions;
+    String quest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class DeleteActivity extends AppCompatActivity {
 
         quiestions = (ListView) findViewById(R.id.question_list);
 
-        DbHelper db = new DbHelper(this);
+        db = new DbHelper(this);
 
         //db.open();
         List<String> all = db.getCreatedQuestions();
@@ -50,15 +52,17 @@ public class DeleteActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                AlertDialog diaBox = AskOption();
+                quest = arrayAdapter.getItem(position);
+                AlertDialog diaBox = AskOption(position);
                 diaBox.show();
             }
         });
     }
 
-    private AlertDialog AskOption()
+    private AlertDialog AskOption(final int postion)
     {
         AlertDialog myQuittingDialogBox =new AlertDialog.Builder(this)
+
                 //set message, title, and icon
                 .setTitle("Delete")
                 .setMessage("Do you want to Delete")
@@ -66,7 +70,13 @@ public class DeleteActivity extends AppCompatActivity {
                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        //your deleting code
+
+                        Log.d("ta bort", "tog bort" + quest);
+
+                        db.deleteCreatedQuestion(quest);
+                        arrayAdapter.remove(arrayAdapter.getItem(postion));
+                        arrayAdapter.notifyDataSetChanged();
+
                         dialog.dismiss();
                     }
                 })
@@ -78,4 +88,5 @@ public class DeleteActivity extends AppCompatActivity {
                 .create();
         return myQuittingDialogBox;
     }
+
 }

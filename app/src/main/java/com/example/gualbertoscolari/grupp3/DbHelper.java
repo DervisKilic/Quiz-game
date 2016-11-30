@@ -56,7 +56,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         String sqlQuestions = "CREATE TABLE " + TABLE_QUESTION + " (";
         sqlQuestions += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
-        sqlQuestions += "Question VARCHAR(255) NOT NULL,";
+        sqlQuestions += "question VARCHAR(255) NOT NULL,";
         sqlQuestions += "opta VARCHAR(255) NOT NULL,";
         sqlQuestions += "optb VARCHAR(255) NOT NULL,";
         sqlQuestions += "optc VARCHAR(255) NOT NULL,";
@@ -228,7 +228,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public void deleteCreatedQuestion(String question){
         dbase = getReadableDatabase();
-        dbase.delete(TABLE_QUESTION, KEY_QUEST+"="+question, null);
+        dbase.delete(TABLE_QUESTION, KEY_QUEST+"=?", new String[]{question});
     }
 
     public List<Profile> getAllProfiles() {
