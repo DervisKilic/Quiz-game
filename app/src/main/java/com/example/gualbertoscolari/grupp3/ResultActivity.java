@@ -71,14 +71,16 @@ public class ResultActivity extends AppCompatActivity {
         if(p1Name.equals("Dervis")){
             img1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
         }
-        if(p1Name.equals("Fredrik")){
+        else if(p1Name.equals("Fredrik")){
             img1.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
         }
-        if(p1Name.equals("Gualberto")){
+        else if(p1Name.equals("Gualberto")){
             img1.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
         }
-        if(p1Name.equals("Simon")){
+        else if(p1Name.equals("Simon")){
             img1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+        }else{
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
         }
 
         if(players.equals("2")) {
@@ -86,14 +88,16 @@ public class ResultActivity extends AppCompatActivity {
             if (p2Name.equals("Dervis")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
             }
-            if (p2Name.equals("Fredrik")) {
+           else if (p2Name.equals("Fredrik")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
             }
-            if (p2Name.equals("Gualberto")) {
+            else if (p2Name.equals("Gualberto")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
             }
-            if (p2Name.equals("Simon")) {
+            else if (p2Name.equals("Simon")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+            }else{
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
             }
         }
 
