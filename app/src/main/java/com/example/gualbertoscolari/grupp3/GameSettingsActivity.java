@@ -135,6 +135,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         DbHelper db = new DbHelper(this);
 
         category = db.getAllCatagories();
+        db.close();
         dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
@@ -145,6 +146,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     public void getStandardProfiles() {
         DbHelper db = new DbHelper(this);  // my profile bank class
         profList = db.getAllProfiles();  // this will fetch all quetonall questions
+        db.close();
         for (int i = 0; i < profList.size(); i++) {
             currentP = profList.get(i); // the current profile
             profile.add(currentP.getName());

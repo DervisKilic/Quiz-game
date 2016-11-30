@@ -94,6 +94,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
             Question q = new Question(question, correctAnswer, optb, optc, optd, cat, correctAnswer);
             DbHelper db = new DbHelper(getApplicationContext());
             db.addQuestion(q);
+            db.close();
         }
 
     }

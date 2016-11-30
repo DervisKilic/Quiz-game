@@ -22,6 +22,7 @@ public class GameLogic extends MainGameActivity {
         this.category = category;
         db = new DbHelper(context);
         tenQuestions = db.getAllQuestions(category);
+        db.close();
     }
 
 
