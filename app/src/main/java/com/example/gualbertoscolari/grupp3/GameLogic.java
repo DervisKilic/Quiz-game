@@ -40,8 +40,20 @@ public class GameLogic extends MainGameActivity {
 
     }
 
-    public void shuffleOptions(String a, String b, String c, String d){
-
-
+    /*public void updateHighscore(Profile profile1){
+        DbHelper db = new DbHelper(this);
+        if(profile1.getScore() > db.getHighScoredata(category)) {
+            db.updateHighScoredata(profile1.getName(), profile1.getScore(), category);
+        }
     }
+
+    public void updateHighscore(Profile profile1, Profile profile2){
+        DbHelper db = new DbHelper(this);
+        if(profile1.getScore() > db.getHighScoredata()) {
+            db.updateHighScoredata(profile1.getName(), profile1.getScore(), category);
+        }
+        else if(profile2.getScore() > db.getHighScoredata()){
+            db.updateHighScoredata(profile1.getName(), profile1.getScore(), category);
+        }
+    }*/
 }

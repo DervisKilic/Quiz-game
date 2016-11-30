@@ -351,7 +351,6 @@ public class DbHelper extends SQLiteOpenHelper {
         List<String> highScoreData = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
 
-
         Cursor c = db.rawQuery("SELECT * FROM highscore WHERE hscategory = ?", new String[]{category});
 
         if(c.moveToFirst()) {
@@ -361,18 +360,16 @@ public class DbHelper extends SQLiteOpenHelper {
                 highScoreData.add(c.getString(3));
 
             }while (c.moveToNext());
-
-
-
         }
-
         c.close();
         return highScoreData;
     }
+    public int updateHighScoredata(String name, int score, String category) {
+        ContentValues cvs = new ContentValues();
+        cvs.put(KEY_HSNAME, name);
+        cvs.put(KEY_HSCAT, category);
+        cvs.put(KEY_HSSCORE, score);
 
-
-
-
-
-
+        return dbase.update(TABLE_HIGHSCORE, cvs, "_id="+KEY_ID, null);
+    }
 }
