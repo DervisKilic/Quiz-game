@@ -80,7 +80,7 @@ public class ResultActivity extends AppCompatActivity {
         else if(p1Name.equals("Simon")){
             img1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
         }else{
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
         }
 
         if(players.equals("2")) {
@@ -97,7 +97,7 @@ public class ResultActivity extends AppCompatActivity {
             else if (p2Name.equals("Simon")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
             }else{
-                img1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
             }
         }
 

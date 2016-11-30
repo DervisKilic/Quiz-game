@@ -172,16 +172,18 @@ public class GameSettingsActivity extends AppCompatActivity {
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
                 }
 
-                if(name1.equals("Fredrik")){
+                else if(name1.equals("Fredrik")){
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
                 }
 
-                if(name1.equals("Gualberto")){
+                else if(name1.equals("Gualberto")){
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
                 }
 
-                if(name1.equals("Simon")){
+                else if(name1.equals("Simon")){
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+                }else{
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
                 }
             }
             @Override
@@ -201,16 +203,18 @@ public class GameSettingsActivity extends AppCompatActivity {
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
                 }
 
-                if(name2.equals("Fredrik")){
+                else if(name2.equals("Fredrik")){
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
                 }
 
-                if(name2.equals("Gualberto")){
+                else if(name2.equals("Gualberto")){
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
                 }
 
-                if(name2.equals("Simon")){
+                else if(name2.equals("Simon")){
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+                }else{
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
                 }
             }
 
