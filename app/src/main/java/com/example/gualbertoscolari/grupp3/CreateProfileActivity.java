@@ -43,9 +43,6 @@ public class CreateProfileActivity extends AppCompatActivity {
             db.addProfile(p);
             db.addPlaceholderHSProfile(p.getName());
         }
-
-        db.addProfile(p);
-        db.addPlaceholderHSProfile(p.getName());
         db.close();
     }
 

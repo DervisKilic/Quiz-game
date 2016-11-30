@@ -139,8 +139,6 @@ public class GameSettingsActivity extends AppCompatActivity {
         dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
-
-
     }
 
     public void getStandardProfiles() {
