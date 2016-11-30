@@ -322,13 +322,13 @@ public class DbHelper extends SQLiteOpenHelper {
             addProfile(new Profile("Fredrik"));
             addProfile(new Profile("Gualberto"));
             addProfile(new Profile("Simon"));
+
+            addPlaceholderHSProfile("Dervis");
+            addPlaceholderHSProfile("Fredrik");
+            addPlaceholderHSProfile("Gualberto");
+            addPlaceholderHSProfile("Simon");
         }
         Log.d("Kiss", "Questions added yeah");
-
-
-        for (int i = 0; i < 3; i++) {
-            addPlaceholderHSProfile(profileList.get(i).getName());
-        }
 
     }
 
@@ -347,19 +347,18 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<String> getHighScoredata() {
+    public List<String> getHighScoredata(String category) {
         List<String> highScoreData = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM highscore WHERE hscategory = ?", new String[]{"Sport"});
+
+        Cursor c = db.rawQuery("SELECT * FROM highscore WHERE hscategory = ?", new String[]{category});
 
         if(c.moveToFirst()) {
             do {
                 highScoreData.add(c.getString(1));
                 highScoreData.add(c.getString(2));
                 highScoreData.add(c.getString(3));
-
-
 
             }while (c.moveToNext());
 

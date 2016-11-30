@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
@@ -20,6 +19,7 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
 
         DbHelper db = new DbHelper(this);
         db.addStandardItemsSQL();
+        db.close();
 
 
         final Thread timer= new Thread(){
