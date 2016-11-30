@@ -221,6 +221,7 @@ public class MainGameActivity extends AppCompatActivity {
                     public void onFinish() {
                         progressbar.setProgress(0);
                         timerTV.setText("Done!");
+                        onButtonGuess("");
                     }
                 }.start();
                 Log.d(TAG, "resetTimer: Timer started");
