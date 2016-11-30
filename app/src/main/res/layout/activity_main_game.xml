@@ -16,7 +16,6 @@
         android:id="@+id/profile_name"
         android:textSize="35sp"
         android:gravity="center"
-        android:text="Lill-micke"
         android:textColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -169,7 +168,6 @@
         android:id="@+id/question_tv"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:text="Starts in 3.......2.......1"
         android:textColor="#c3ffffff"
         android:gravity="center"
         android:textStyle="italic"

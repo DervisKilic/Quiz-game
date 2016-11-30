@@ -16,6 +16,8 @@ public class PopUp extends Activity {
     CountDownTimer timer;
     TextView popUpTV;
     private static final int REQUEST_CODE =100;
+    protected static Boolean startG = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +41,8 @@ public class PopUp extends Activity {
             }
 
             public void onFinish() {
-
-
-
                 finish();
+                startG = true;
             }
         }.start();
         Log.d(TAG, "countdown: Timer started");

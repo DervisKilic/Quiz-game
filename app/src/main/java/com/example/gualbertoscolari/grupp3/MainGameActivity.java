@@ -81,9 +81,12 @@ public class MainGameActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        displayQuestion();
-        resetTimer();
-
+        progressbar.setProgress(0);
+        if(PopUp.startG) {
+            displayQuestion();
+            resetTimer();
+        }
+        PopUp.startG = false;
     }
 
     @Override
