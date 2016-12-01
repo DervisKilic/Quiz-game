@@ -19,10 +19,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
@@ -117,7 +115,7 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
         questionFrame = (ImageView) findViewById(R.id.question_frame);
-        qAnswered = (TextView) findViewById(R.id.questions_answered);
+        qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
         qAnswered.setText("Q " + numberOfAnsweredQ + "/10");
 
         loadQuestionFrame();
