@@ -44,6 +44,8 @@ public class MainGameActivity extends AppCompatActivity {
     private Profile currentPlayer;
     private TextView qAnswered;
 
+
+
     private ImageView questionFrame;
     private String answer;
     private TextView playerName;
@@ -69,6 +71,7 @@ public class MainGameActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 100;
 
     private int numberOfAnsweredQ = 0;
+    private int gameRound = 1;
 
     @Override
     protected void onPause() {
@@ -115,8 +118,8 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
         questionFrame = (ImageView) findViewById(R.id.question_frame);
-        qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
-        qAnswered.setText("Q " + numberOfAnsweredQ + "/10");
+
+
 
         loadQuestionFrame();
         startActivity(new Intent(this, PopUp.class));
@@ -152,7 +155,8 @@ public class MainGameActivity extends AppCompatActivity {
                 optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
             }
-        }, 1000); // 1000 milliseconds = 1 second
+        }, 1000);// 1000 milliseconds = 1 second
+        setRound();
 
     }
 
@@ -204,6 +208,7 @@ public class MainGameActivity extends AppCompatActivity {
                 }
             }, 1000); // 1000 milliseconds = 1 second
         }
+
     }
 
     public void resetTimer() {
@@ -258,6 +263,7 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
 
+
     }
 
     public void btn_b_pressed(View view) {
@@ -271,6 +277,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
+
 
     }
 
@@ -286,6 +293,7 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
 
+
     }
 
     public void btn_d_pressed(View view) {
@@ -299,6 +307,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
+
 
     }
 
@@ -375,5 +384,13 @@ public class MainGameActivity extends AppCompatActivity {
         Collections.shuffle(options);
 
         return options;
+    }
+
+    public void setRound(){
+
+        qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
+        qAnswered.setText("Q " + gameRound + "/10");
+        gameRound++;
+
     }
 }
