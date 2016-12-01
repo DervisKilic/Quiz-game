@@ -36,6 +36,8 @@
         android:layout_below="@id/progressbar"
         android:layout_marginTop="10dp"/>
 
+
+
     <LinearLayout
         android:id="@+id/timer_and_points"
         android:layout_width="match_parent"
@@ -49,21 +51,33 @@
             android:layout_height="wrap_content"
             android:id="@+id/chosen_category"
             android:layout_weight="1"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:text="Category"/>
 
-        <ImageView
-            android:id="@+id/timer_iv"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/question_tv"
-            android:layout_marginRight="80dp" />
+
+        <TextView
+            android:id="@+id/questions_answered"
+            android:layout_below="@+id/timer_and_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:text="Q 0 / 10"
+            android:layout_weight="2"
+
+            />
+
 
         <TextView
             android:id="@+id/timer_tv"
             android:textColor="#fff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Points: "
             />
+
 
     </LinearLayout>
 

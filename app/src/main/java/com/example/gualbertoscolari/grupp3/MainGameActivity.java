@@ -44,6 +44,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Profile p2;
     private GameLogic g1;
     private Profile currentPlayer;
+    private TextView qAnswered;
 
     private ImageView questionFrame;
     private String answer;
@@ -116,6 +117,8 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
         questionFrame = (ImageView) findViewById(R.id.question_frame);
+        qAnswered = (TextView) findViewById(R.id.questions_answered);
+        qAnswered.setText("Q " + numberOfAnsweredQ + "/10");
 
         loadQuestionFrame();
         startActivity(new Intent(this, PopUp.class));
@@ -334,6 +337,7 @@ public class MainGameActivity extends AppCompatActivity {
         optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
 
     }
+
 
     public void loadQuestionFrame(){
 
