@@ -2,8 +2,10 @@ package com.example.gualbertoscolari.grupp3;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -66,6 +68,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     private Button close;
     private PopupWindow popup;
+    private MediaPlayer mp;
 
     private static final String TAG = "MAINGAME_ACTIVITY";
     private static final int REQUEST_CODE = 100;
@@ -129,6 +132,8 @@ public class MainGameActivity extends AppCompatActivity {
     public void displayQuestion() {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
+        //mp = MediaPlayer.create(this, R.raw.timer);
+        //mp.start();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -154,9 +159,10 @@ public class MainGameActivity extends AppCompatActivity {
                 optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
+                setRound();
             }
         }, 1000);// 1000 milliseconds = 1 second
-        setRound();
+
 
     }
 
@@ -254,6 +260,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_a_pressed(View view) {
         onButtonGuess(optABtn.getText().toString());
+        mp.stop();
         if (correctAnswer) {
             optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
@@ -269,6 +276,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_b_pressed(View view) {
         onButtonGuess(optBBtn.getText().toString());
+        mp.stop();
         if (correctAnswer) {
             optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
@@ -284,6 +292,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_c_pressed(View view) {
         onButtonGuess(optCBtn.getText().toString());
+        mp.stop();
         if (correctAnswer) {
             optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
@@ -299,6 +308,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_d_pressed(View view) {
         onButtonGuess(optDBtn.getText().toString());
+        mp.stop();
         if (correctAnswer) {
             optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
@@ -389,7 +399,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void setRound() {
 
-       qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
+        qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
         qAnswered.setText("Q " + gameRound + "/10");
         gameRound++;
     }

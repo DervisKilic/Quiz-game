@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.gualbertoscolari.grupp3.MenuActivity.mp;
+
 //Inställningar för spelomgång antal spelare, val av profil, val av kategori.
 //Här kan man välja att skapa nya kategorier, profiler och frågor.
 //Valen sparas ner i ett intent som skickas vidare till Maingame där det skapas upp en instans av
@@ -53,6 +56,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_settings);
+
 
         c1 = (CheckBox) findViewById(R.id.one_player_cb);
         c2 = (CheckBox) findViewById(R.id.two_player_cb);
@@ -94,6 +98,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         getStandardCategorys();
         getStandardProfiles();
 
+
         profileSpinner2.setVisibility(View.GONE);
         profile2Tv.setVisibility(View.GONE);
         profileIv2.setVisibility(View.GONE);
@@ -111,6 +116,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE,p1);
         playIntent.putExtra(MainGameActivity.SECONDPROFILE,p2);
         startActivity(playIntent);
+        mp.stop();
         finish();
     }
 
@@ -118,11 +124,13 @@ public class GameSettingsActivity extends AppCompatActivity {
     public void goToCreateQuestion(View view) {
         Intent createQuestionIntent = new Intent(this, CreateQuestionActivity.class);
         startActivity(createQuestionIntent);
+        finish();
     }
 
     public void goToCreateCategory(View view) {
-            Intent createCategoryIntent = new Intent(this, CreateCategoryActivity.class);
-            startActivity(createCategoryIntent);
+        Intent createCategoryIntent = new Intent(this, CreateCategoryActivity.class);
+        startActivity(createCategoryIntent);
+        finish();
     }
 
     public void goToCreateProfile(View view) {
@@ -134,6 +142,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     public void gotToDeleteQuestion(View view) {
         Intent deleteIntent = new Intent(this, DeleteActivity.class);
         startActivity(deleteIntent);
+        finish();
     }
 
     public void getStandardCategorys(){
