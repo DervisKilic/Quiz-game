@@ -100,7 +100,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase dbase, int oldVersion, int newVersion) {
-        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE);
+        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE + TABLE_HIGHSCORE);
         onCreate(dbase);
 
     }
@@ -176,7 +176,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     public List<Question> getAllQuestions(String category) {
-        List<Question> quesList = new ArrayList<Question>();
+        List<Question> quesList = new ArrayList<>();
         // Select All Query
         dbase = getReadableDatabase();
         Cursor cursor;
@@ -369,13 +369,15 @@ public class DbHelper extends SQLiteOpenHelper {
         return highScoreData;
     }
 
-    public int updateHighScore(Profile player, String category) {
-         dbase = getWritableDatabase();
+    public boolean updateHighScore(Profile player, String category) {
+        dbase = getWritableDatabase();
         ContentValues cvs = new ContentValues();
-        cvs.put(KEY_HSNAME, player.getName());
-            cvs.put(KEY_HSCAT, category);
-            cvs.put(KEY_HSSCORE, player.getScore());
 
-        return dbase.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? AND " + KEY_HSSCORE + " = ? ",new String[]{player.getName(), category, String.valueOf(player.getScore())});
+        cvs.put(KEY_HSNAME, player.getName());
+        cvs.put(KEY_HSCAT, category);
+        cvs.put(KEY_HSSCORE, player.getScore());
+
+        dbase.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? AND " + KEY_HSSCORE + " = ? ",new String[]{player.getName(), category, String.valueOf(player.getScore())});
+        return true;
     }
 }

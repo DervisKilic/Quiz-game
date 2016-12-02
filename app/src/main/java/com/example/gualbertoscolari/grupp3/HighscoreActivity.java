@@ -17,15 +17,15 @@ import java.util.List;
 //
 public class HighscoreActivity extends AppCompatActivity {
 
-    GridView hsGridV;
-    String profileName = "Simon";
-    private List<String> highscore = new ArrayList<>();
-    ArrayAdapter<String> gridAdapter;
+    private GridView hsGridV;
+    private ArrayAdapter<String> gridAdapter;
     private Spinner dropdownCategory;
     private String cat;
     private ArrayAdapter<String> chosenCategory;
-    private List<String> category = new ArrayList<>();
-    List<String> allHighscores;
+    private List<String> category;
+    private List<String> allHighscores;
+    private DbHelper db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,37 +33,34 @@ public class HighscoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_highscore);
 
 
-        DbHelper db = new DbHelper(this);
+        db = new DbHelper(this);
         category = db.getAllCatagories();
 
         dropdownCategory = (Spinner) findViewById(R.id.spinner_highscore);
         chosenCategory = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
-        db.close();
         displayHighScore();
     }
 
     public void displayCategoriesInSpinner() {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
-        DbHelper db = new DbHelper(this);
         allHighscores = db.getHighScoredata(cat);
         hsGridV = (GridView) findViewById(R.id.hs_gridv);
         gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
         hsGridV.setAdapter(gridAdapter);
-        db.close();
     }
 
     public void displayHighScore() {
         // Tar in vald kategori från spinner som argument.
         //Hämtar sorterad high score-lista från DBhelper och skriver ut den i GridView
-        final DbHelper db = new DbHelper(this);
         dropdownCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
                 cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
                 displayCategoriesInSpinner();
+                db.close();
 
             }
 
