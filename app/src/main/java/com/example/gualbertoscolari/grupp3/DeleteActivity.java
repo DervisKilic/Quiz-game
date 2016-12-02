@@ -33,6 +33,7 @@ public class DeleteActivity extends AppCompatActivity {
     private Question quest;
     private DeleteCursorAdapter deleteAdapter;
     private int deleteId;
+    Question question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,18 +71,11 @@ public class DeleteActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
     }
 
     private AlertDialog AskOption(final int postion)
     {
-
         AlertDialog myQuittingDialogBox =new AlertDialog.Builder(this)
-
-
 
                 //set message, title, and icon
                 .setTitle("Delete")
@@ -91,9 +85,9 @@ public class DeleteActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
 
-                        Log.d("ta bort", "tog bort" + quest.getID());
+                        Log.d("ta bort", "tog bort" + question.getID());
 
-                        db.deleteCreatedQuestion(quest.getID());
+                        db.deleteCreatedQuestion(question.getID());
                         deleteAdapter.notifyDataSetChanged();
 
                         dialog.dismiss();
@@ -124,7 +118,7 @@ public class DeleteActivity extends AppCompatActivity {
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView listQuestion = (TextView) view.findViewById(R.id.list_item);
-            Question question = new Question();
+            question = new Question();
             // findViewById(R.id.list_item)
             question.setID(cursor.getInt(0));
             question.setQUESTION(cursor.getString(1));
@@ -132,13 +126,7 @@ public class DeleteActivity extends AppCompatActivity {
 
             listQuestion.setText(question.getQUESTION());
 
-
-
-
         }
 
     }
-
-
-
 }
