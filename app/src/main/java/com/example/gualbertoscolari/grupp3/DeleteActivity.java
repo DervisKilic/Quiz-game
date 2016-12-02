@@ -29,11 +29,12 @@ public class DeleteActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
 
     private DbHelper db;
-    ListView quiestions;
+    private ListView quiestions;
     private Question quest;
     private DeleteCursorAdapter deleteAdapter;
     private int deleteId;
-    Question question;
+    private Question question;
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +52,11 @@ public class DeleteActivity extends AppCompatActivity {
 
         DbHelper helper = new DbHelper(this);
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.query("quest", null, "_id>?", new String[]{"50"}, null, null, null);
+        cursor = db.query("quest", null, "_id>?", new String[]{"50"}, null, null, null);
         quiestions = (ListView) findViewById(R.id.question_list);
         deleteAdapter = new DeleteCursorAdapter(this, cursor);
         quiestions.setAdapter(deleteAdapter);
+
         if(deleteAdapter.isEmpty()) // check if list contains items.
         {
             Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
@@ -68,6 +70,7 @@ public class DeleteActivity extends AppCompatActivity {
                 Log.d("Hämtat id", "id: " + deleteId);
                 AlertDialog diaBox = AskOption(position);
                 diaBox.show();
+
             }
         });
 
@@ -80,7 +83,7 @@ public class DeleteActivity extends AppCompatActivity {
                 //set message, title, and icon
                 .setTitle("Delete")
                 .setMessage("Do you want to Delete")
-                .setIcon(R.drawable.natur)
+                .setIcon(R.drawable.warning)
                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -88,8 +91,6 @@ public class DeleteActivity extends AppCompatActivity {
                         Log.d("ta bort", "tog bort" + question.getID());
 
                         db.deleteCreatedQuestion(question.getID());
-                        deleteAdapter.notifyDataSetChanged();
-
                         dialog.dismiss();
                     }
                 })
@@ -111,7 +112,6 @@ public class DeleteActivity extends AppCompatActivity {
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
-
             return LayoutInflater.from(context).inflate(R.layout.layou_created_question, parent, false);
         }
 
@@ -125,6 +125,7 @@ public class DeleteActivity extends AppCompatActivity {
             Log.d("delete", "Strängen är hämtat: " + question.getQUESTION());
 
             listQuestion.setText(question.getQUESTION());
+
 
         }
 
