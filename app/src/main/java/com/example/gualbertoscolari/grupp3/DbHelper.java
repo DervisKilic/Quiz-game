@@ -52,7 +52,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase dbase) {
 
         String sqlQuestions = "CREATE TABLE " + TABLE_QUESTION + " (";
         sqlQuestions += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
@@ -66,7 +66,7 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlQuestions += ");";
         Log.d("question", "Table created");
 
-        db.execSQL(sqlQuestions);
+        dbase.execSQL(sqlQuestions);
 
         String sqlProfiles = "CREATE TABLE " + TABLE_PROFILE + " (";
         sqlProfiles += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
@@ -76,7 +76,7 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlProfiles += ");";
         Log.d("profiles", "Table created");
 
-        db.execSQL(sqlProfiles);
+        dbase.execSQL(sqlProfiles);
 
         String sqlCategorys = "CREATE TABLE " + TABLE_CATEGORY + " (";
         sqlCategorys += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
@@ -84,24 +84,24 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlCategorys += ");";
         Log.d("categorys", "Table created");
 
-        db.execSQL(sqlCategorys);
+        dbase.execSQL(sqlCategorys);
 
         String sqlHighScores = "CREATE TABLE " + TABLE_HIGHSCORE + " (";
         sqlHighScores += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlHighScores += "hsname VARCHAR(255) NOT NULL,";
         sqlHighScores += "hscategory VARCHAR(255) NOT NULL,";
-        sqlHighScores += "hsscore INTEGER NOT NULL";
+        sqlHighScores += "hsscore VARCHAR NOT NULL";
         sqlHighScores += ");";
         Log.d("highscores", "Table created");
 
-        db.execSQL(sqlHighScores);
+        dbase.execSQL(sqlHighScores);
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE);
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase dbase, int oldVersion, int newVersion) {
+        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE);
+        onCreate(dbase);
 
     }
 
@@ -115,28 +115,27 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_OPTD, q.getOPTD());
         cvs.put(KEY_CAT, q.getCATEGORY());
         cvs.put(KEY_ANSWER, q.getANSWER());
-        long id = db.insert(TABLE_QUESTION, null, cvs);
+        long id = dbase.insert(TABLE_QUESTION, null, cvs);
         Log.d("Hej", "row id: " + id);
-        db.close();
 
     }
 
     public void addProfile(Profile p) {
-        SQLiteDatabase db = getWritableDatabase();
+        dbase = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_NAME, p.getName());
         cvs.put(KEY_SCORE, p.getScore());
 
 
         //cvs.put(KEY_IMG, p.getProfileImg);
-        long id = db.insert(TABLE_PROFILE, null, cvs);
+        long id = dbase.insert(TABLE_PROFILE, null, cvs);
         Log.d(TAG, " addProfile: row id: " + id);
 
-        db.close();
+        dbase.close();
     }
 
     public void addPlaceholderHSCategory(String cat) {
-        SQLiteDatabase db = getWritableDatabase();
+        dbase = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         List<Profile> profiles = getAllProfiles();
 
@@ -144,16 +143,16 @@ public class DbHelper extends SQLiteOpenHelper {
             cvs.put(KEY_HSNAME, p.getName());
             cvs.put(KEY_HSCAT, cat);
             cvs.put(KEY_HSSCORE, 0);
-            long id = db.insert(TABLE_HIGHSCORE, null, cvs);
+            long id = dbase.insert(TABLE_HIGHSCORE, null, cvs);
             Log.d(TAG, "addPlaceholderHS: row id: " + id);
 
         }
 
-        db.close();
+        dbase.close();
     }
 
     public void addPlaceholderHSProfile(String hsName) {
-        SQLiteDatabase db = getWritableDatabase();
+        dbase = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         List<String> categories = getAllCatagories();
 
@@ -161,21 +160,19 @@ public class DbHelper extends SQLiteOpenHelper {
             cvs.put(KEY_HSNAME, hsName);
             cvs.put(KEY_HSCAT, categories.get(i));
             cvs.put(KEY_HSSCORE, 0);
-            long id = db.insert(TABLE_HIGHSCORE, null, cvs);
+            long id = dbase.insert(TABLE_HIGHSCORE, null, cvs);
             Log.d(TAG, "addPlaceholderHSProfile: row id: " + id);
         }
-
-        db.close();
-
+        dbase.close();
     }
 
     public void addCategorys(String category) {
-        SQLiteDatabase db = getWritableDatabase();
+        dbase = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_CATEGORY, category);
-        long id = db.insert(TABLE_CATEGORY, null, cvs);
+        long id = dbase.insert(TABLE_CATEGORY, null, cvs);
         Log.d("Hejcategory", "row id: " + id);
-        db.close();
+        dbase.close();
     }
 
     public List<Question> getAllQuestions(String category) {
@@ -226,9 +223,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteCreatedQuestion(String question){
+    public void deleteCreatedQuestion(String question) {
         dbase = getReadableDatabase();
-        dbase.delete(TABLE_QUESTION, KEY_QUEST+"=?", new String[]{question});
+        dbase.delete(TABLE_QUESTION, KEY_QUEST + "=?", new String[]{question});
     }
 
     public List<Profile> getAllProfiles() {
@@ -318,10 +315,10 @@ public class DbHelper extends SQLiteOpenHelper {
         }
         List<Profile> profileList = getAllProfiles();
         if (profileList.size() < 4) {
-            addProfile(new Profile("Dervis"));
-            addProfile(new Profile("Fredrik"));
-            addProfile(new Profile("Gualberto"));
-            addProfile(new Profile("Simon"));
+            addProfile(new Profile("Dervis", 0));
+            addProfile(new Profile("Fredrik", 0));
+            addProfile(new Profile("Gualberto", 0));
+            addProfile(new Profile("Simon", 0));
 
             for (int i = 0; i < 3; i++) {
                 addPlaceholderHSProfile(profileList.get(i).getName());
@@ -349,27 +346,29 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public List<String> getHighScoredata(String category) {
         List<String> highScoreData = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
+        dbase = getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM highscore WHERE hscategory = ?", new String[]{category});
+        Cursor c = dbase.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
 
-        if(c.moveToFirst()) {
+        if (c.moveToFirst()) {
             do {
                 highScoreData.add(c.getString(1));
                 highScoreData.add(c.getString(2));
                 highScoreData.add(c.getString(3));
 
-            }while (c.moveToNext());
+            } while (c.moveToNext());
         }
         c.close();
         return highScoreData;
     }
-    public int updateHighScoredata(String name, int score, String category) {
-        ContentValues cvs = new ContentValues();
-        cvs.put(KEY_HSNAME, name);
-        cvs.put(KEY_HSCAT, category);
-        cvs.put(KEY_HSSCORE, score);
 
-        return dbase.update(TABLE_HIGHSCORE, cvs, "_id="+KEY_ID, null);
+    public int updateHighScore(Profile player, String category) {
+         dbase = getWritableDatabase();
+        ContentValues cvs = new ContentValues();
+        cvs.put(KEY_HSNAME, player.getName());
+            cvs.put(KEY_HSCAT, category);
+            cvs.put(KEY_HSSCORE, player.getScore());
+
+        return dbase.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? AND " + KEY_HSSCORE + " = ? ",new String[]{player.getName(), category, String.valueOf(player.getScore())});
     }
 }
