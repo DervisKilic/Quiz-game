@@ -47,49 +47,6 @@
         android:shadowDy="0"
         android:shadowRadius="5"/>
 
-    <ImageView
-        style="@style/main_menu_icons"
-        app:srcCompat="@drawable/kulturnoje"
-        android:id="@+id/imageView2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageView
-        style="@style/main_menu_icons"
-        app:srcCompat="@drawable/histori"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        style="@style/main_menu_icons"
-        app:srcCompat="@drawable/natur"
-        android:id="@+id/imageView5"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        style="@style/main_menu_icons"
-        app:srcCompat="@drawable/sport"
-        android:id="@+id/imageView3"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/play_button"
-        android:layout_toStartOf="@+id/play_button"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp" />
-
-    <ImageView
-        style="@style/main_menu_icons"
-        app:srcCompat="@drawable/samhallkunskap"
-        android:id="@+id/imageView4"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/play_button"
-        android:layout_toEndOf="@+id/play_button"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
