@@ -320,9 +320,16 @@ public class DbHelper extends SQLiteOpenHelper {
             addProfile(new Profile("Gualberto", 0));
             addProfile(new Profile("Simon", 0));
 
-            for (int i = 0; i < 3; i++) {
-                addPlaceholderHSProfile(profileList.get(i).getName());
-            }
+
+            addPlaceholderHSProfile("Dervis");
+            addPlaceholderHSProfile("Fredrik");
+            addPlaceholderHSProfile("Gualberto");
+            addPlaceholderHSProfile("Simon");
+
+            // Får inte in namnet av någon annledning?
+           // for (int i = 0; i < 3; i++) {
+           //     addPlaceholderHSProfile(profileList.get(i).getName());
+           // }
 
         }
         Log.d("Kiss", "Questions added yeah");

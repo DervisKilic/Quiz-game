@@ -49,6 +49,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
             db.addCategorys(cat);
+            db.addPlaceholderHSCategory(cat);
             db.close();
 
         }
