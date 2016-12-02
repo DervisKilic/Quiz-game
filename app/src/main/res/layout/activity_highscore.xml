@@ -11,6 +11,8 @@
     android:background="#B2DFDB"
     tools:context="com.example.gualbertoscolari.grupp3.HighscoreActivity">
 
+
+    <!-->
     <TextView
         android:id="@+id/category_highscore"
         android:layout_width="match_parent"
@@ -22,9 +24,9 @@
     <Spinner
         android:id="@+id/spinner_highscore"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/category_highscore"
-        android:layout_marginTop="35dp" />
+        android:layout_marginTop="30dp" />
 
     <LinearLayout
         android:id="@+id/grid_layout"
@@ -61,6 +63,6 @@
 
     </LinearLayout>
 
-
+<-->
 
 </RelativeLayout>

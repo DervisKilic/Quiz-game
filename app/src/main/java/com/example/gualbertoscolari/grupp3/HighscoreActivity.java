@@ -60,6 +60,7 @@ public class HighscoreActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
                 cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
+
                 displayCategoriesInSpinner();
                 db.close();
 
