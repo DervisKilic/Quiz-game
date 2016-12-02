@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_create_profile"
     android:layout_width="match_parent"
@@ -15,13 +16,21 @@
         android:id="@+id/name"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/create_profile"
+            android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Choose Avatar"
             android:textSize="32sp" />
 
     </LinearLayout>
@@ -33,21 +42,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/name">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/anymous_profile" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/choose_img_txt"
-            android:textSize="32sp" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/playerdervis"
+            android:id="@+id/profile1" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/playerfredrik"
+            android:id="@+id/profile2" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/playergual"
+            android:id="@+id/profile3" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/playersimon"
+            android:id="@+id/profile4" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/otherplayers"
+            android:id="@+id/profile5" />
 
     </LinearLayout>
 
@@ -85,6 +104,4 @@
             android:shadowRadius="5"/>
 
     </LinearLayout>
-
-
 </RelativeLayout>

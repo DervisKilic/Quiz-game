@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 //Klassen låter användaren skapa en profil att spela med.
 //Klassen innehåller 2 knappar 1 för att spara sin profil och 1 för att gå tillbaka till GameSettings
@@ -15,6 +16,12 @@ public class CreateProfileActivity extends AppCompatActivity {
     private EditText inputName;
     private EditText profileName;
     private String name;
+    private ImageView avatar1;
+    private ImageView avatar2;
+    private ImageView avatar3;
+    private ImageView avatar4;
+    private ImageView avatar5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +59,5 @@ public class CreateProfileActivity extends AppCompatActivity {
 
         Intent playAgainIntent = new Intent(this, GameSettingsActivity.class);
         startActivity(playAgainIntent);
-
-
     }
 }
