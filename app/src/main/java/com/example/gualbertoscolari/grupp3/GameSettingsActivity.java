@@ -1,8 +1,6 @@
 package com.example.gualbertoscolari.grupp3;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +11,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -183,21 +180,21 @@ public class GameSettingsActivity extends AppCompatActivity {
                 name1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
 
                 if(name1.equals("Dervis")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
                 }
 
                 else if(name1.equals("Fredrik")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
                 }
 
                 else if(name1.equals("Gualberto")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
                 }
 
                 else if(name1.equals("Simon")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
                 }else{
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
+                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
                 }
             }
             @Override
@@ -214,21 +211,21 @@ public class GameSettingsActivity extends AppCompatActivity {
                 name2 = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
 
                 if(name2.equals("Dervis")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
                 }
 
                 else if(name2.equals("Fredrik")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
                 }
 
                 else if(name2.equals("Gualberto")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
                 }
 
                 else if(name2.equals("Simon")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
                 }else{
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
+                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
                 }
             }
 

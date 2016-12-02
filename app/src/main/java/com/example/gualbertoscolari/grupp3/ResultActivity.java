@@ -69,35 +69,35 @@ public class ResultActivity extends AppCompatActivity {
         category.setText(chosenCategory);
 
         if(p1Name.equals("Dervis")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
         }
         else if(p1Name.equals("Fredrik")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
         }
         else if(p1Name.equals("Gualberto")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
         }
         else if(p1Name.equals("Simon")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
         }else{
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
         }
 
         if(players.equals("2")) {
 
             if (p2Name.equals("Dervis")) {
-                img2.setImageDrawable(getResources().getDrawable(R.drawable.playerdervis));
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
             }
            else if (p2Name.equals("Fredrik")) {
-                img2.setImageDrawable(getResources().getDrawable(R.drawable.playerfredrik));
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
             }
             else if (p2Name.equals("Gualberto")) {
-                img2.setImageDrawable(getResources().getDrawable(R.drawable.playergual));
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
             }
             else if (p2Name.equals("Simon")) {
-                img2.setImageDrawable(getResources().getDrawable(R.drawable.playersimon));
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
             }else{
-                img2.setImageDrawable(getResources().getDrawable(R.drawable.otherplayers));
+                img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
             }
         }
 
