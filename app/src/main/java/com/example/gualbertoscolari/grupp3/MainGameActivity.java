@@ -398,4 +398,12 @@ public class MainGameActivity extends AppCompatActivity {
         DbHelper db = new DbHelper(this);
             db.updateHighScore(profile1, chosenCat);
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, GameSettingsActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
