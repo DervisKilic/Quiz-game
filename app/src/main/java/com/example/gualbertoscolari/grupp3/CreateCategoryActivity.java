@@ -1,14 +1,10 @@
 package com.example.gualbertoscolari.grupp3;
 
 import android.content.Intent;
-import android.icu.util.ULocale;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 //Klassen är till för att skapa egna kategorier.
 //Den tar emot en text sträng från användaren med valt kategori namn,
@@ -17,7 +13,7 @@ import android.widget.Toast;
 //Toasters och if satser för felhantering.
 
 public class CreateCategoryActivity extends AppCompatActivity {
-    
+
     private EditText category;
     private String cat;
 

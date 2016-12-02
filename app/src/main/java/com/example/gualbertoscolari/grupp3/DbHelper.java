@@ -44,7 +44,8 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String TABLE_HIGHSCORE = "highscore";
     private static final String TAG = "dbhelper.java";
 
-    private SQLiteDatabase dbase;
+    private SQLiteDatabase dbaseRead;
+    private SQLiteDatabase dbaseWrite;
     //private boolean close;
 
     public DbHelper(Context context) {
@@ -106,7 +107,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     public void addQuestion(Question q) {
-        SQLiteDatabase db = getWritableDatabase();
+        dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_QUEST, q.getQUESTION());
         cvs.put(KEY_OPTA, q.getOPTA());
@@ -115,27 +116,27 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_OPTD, q.getOPTD());
         cvs.put(KEY_CAT, q.getCATEGORY());
         cvs.put(KEY_ANSWER, q.getANSWER());
-        long id = dbase.insert(TABLE_QUESTION, null, cvs);
+        long id = dbaseWrite.insert(TABLE_QUESTION, null, cvs);
         Log.d("Hej", "row id: " + id);
 
     }
 
     public void addProfile(Profile p) {
-        dbase = getWritableDatabase();
+        dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_NAME, p.getName());
         cvs.put(KEY_SCORE, p.getScore());
 
 
         //cvs.put(KEY_IMG, p.getProfileImg);
-        long id = dbase.insert(TABLE_PROFILE, null, cvs);
+        long id = dbaseWrite.insert(TABLE_PROFILE, null, cvs);
         Log.d(TAG, " addProfile: row id: " + id);
 
-        dbase.close();
+        dbaseWrite.close();
     }
 
     public void addPlaceholderHSCategory(String cat) {
-        dbase = getWritableDatabase();
+        dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         List<Profile> profiles = getAllProfiles();
 
@@ -143,16 +144,16 @@ public class DbHelper extends SQLiteOpenHelper {
             cvs.put(KEY_HSNAME, p.getName());
             cvs.put(KEY_HSCAT, cat);
             cvs.put(KEY_HSSCORE, 0);
-            long id = dbase.insert(TABLE_HIGHSCORE, null, cvs);
+            long id = dbaseWrite.insert(TABLE_HIGHSCORE, null, cvs);
             Log.d(TAG, "addPlaceholderHS: row id: " + id);
 
         }
 
-        dbase.close();
+        dbaseWrite.close();
     }
 
     public void addPlaceholderHSProfile(String hsName) {
-        dbase = getWritableDatabase();
+        dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         List<String> categories = getAllCatagories();
 
@@ -160,30 +161,30 @@ public class DbHelper extends SQLiteOpenHelper {
             cvs.put(KEY_HSNAME, hsName);
             cvs.put(KEY_HSCAT, categories.get(i));
             cvs.put(KEY_HSSCORE, 0);
-            long id = dbase.insert(TABLE_HIGHSCORE, null, cvs);
+            long id = dbaseWrite.insert(TABLE_HIGHSCORE, null, cvs);
             Log.d(TAG, "addPlaceholderHSProfile: row id: " + id);
         }
-        dbase.close();
+        dbaseWrite.close();
     }
 
     public void addCategorys(String category) {
-        dbase = getWritableDatabase();
+        dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_CATEGORY, category);
-        long id = dbase.insert(TABLE_CATEGORY, null, cvs);
+        long id = dbaseWrite.insert(TABLE_CATEGORY, null, cvs);
         Log.d("Hejcategory", "row id: " + id);
-        dbase.close();
+        dbaseWrite.close();
     }
 
     public List<Question> getAllQuestions(String category) {
         List<Question> quesList = new ArrayList<>();
         // Select All Query
-        dbase = getReadableDatabase();
+        dbaseRead = getReadableDatabase();
         Cursor cursor;
         if (category.equals("Alla kategorier")) {
-            cursor = dbase.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", "10");
+            cursor = dbaseRead.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", "10");
         } else {
-            cursor = dbase.query(true, TABLE_QUESTION, null, KEY_CAT + "=?", new String[]{category}, null, null, "Random()", "10");
+            cursor = dbaseRead.query(true, TABLE_QUESTION, null, KEY_CAT + "=?", new String[]{category}, null, null, "Random()", "10");
         }
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -207,8 +208,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public List<String> getCreatedQuestions() {
         List<String> questionList = new ArrayList<>();
-        dbase = getReadableDatabase();
-        Cursor cursor = dbase.query(true, TABLE_QUESTION, null, KEY_ID + ">?", new String[]{"50"}, null, null, null, null);
+        dbaseRead = getReadableDatabase();
+        Cursor cursor = dbaseRead.query(true, TABLE_QUESTION, null, KEY_ID + ">?", new String[]{"50"}, null, null, null, null);
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -224,16 +225,16 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     public void deleteCreatedQuestion(String question) {
-        dbase = getReadableDatabase();
-        dbase.delete(TABLE_QUESTION, KEY_QUEST + "=?", new String[]{question});
+        dbaseRead = getReadableDatabase();
+        dbaseRead.delete(TABLE_QUESTION, KEY_QUEST + "=?", new String[]{question});
     }
 
     public List<Profile> getAllProfiles() {
         List<Profile> profList = new ArrayList<Profile>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_PROFILE;
-        dbase = getReadableDatabase();
-        Cursor cursor = dbase.rawQuery(selectQuery, null);
+        dbaseRead = getReadableDatabase();
+        Cursor cursor = dbaseRead.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
@@ -338,8 +339,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public List<String> getAllCatagories() {
         List<String> catList = new ArrayList<String>();
-        dbase = getReadableDatabase();
-        Cursor cursor = dbase.query(TABLE_CATEGORY, null, null, null, null, null, null);
+        dbaseRead = getReadableDatabase();
+        Cursor cursor = dbaseRead.query(TABLE_CATEGORY, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
                 catList.add(cursor.getString(1));
@@ -353,9 +354,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public List<String> getHighScoredata(String category) {
         List<String> highScoreData = new ArrayList<>();
-        dbase = getReadableDatabase();
+        dbaseRead = getReadableDatabase();
 
-        Cursor c = dbase.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
+        Cursor c = dbaseRead.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
 
         if (c.moveToFirst()) {
             do {
@@ -370,14 +371,14 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     public boolean updateHighScore(Profile player, String category) {
-        dbase = getWritableDatabase();
+        dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
 
         cvs.put(KEY_HSNAME, player.getName());
         cvs.put(KEY_HSCAT, category);
         cvs.put(KEY_HSSCORE, player.getScore());
 
-        dbase.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? AND " + KEY_HSSCORE + " = ? ",new String[]{player.getName(), category, String.valueOf(player.getScore())});
+        dbaseWrite.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? AND " + KEY_HSSCORE + " = ? ",new String[]{player.getName(), category, String.valueOf(player.getScore())});
         return true;
     }
 }
