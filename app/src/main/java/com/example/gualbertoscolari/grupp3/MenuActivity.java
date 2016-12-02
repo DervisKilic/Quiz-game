@@ -29,10 +29,4 @@ public class MenuActivity extends AppCompatActivity {
         Intent highScoreIntent = new Intent(this, HighscoreActivity.class);
         startActivity(highScoreIntent);
     }
-
-    public void delete_button(View view) {
-        Intent deleteIntent = new Intent(this, DeleteActivity.class);
-        startActivity(deleteIntent);
-    }
-
 }
