@@ -135,6 +135,8 @@ public class DbHelper extends SQLiteOpenHelper {
         dbaseWrite.close();
     }
 
+
+
     public void addPlaceholderHSCategory(String cat) {
         dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
@@ -224,9 +226,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteCreatedQuestion(String question) {
-        dbaseRead = getReadableDatabase();
-        dbaseRead.delete(TABLE_QUESTION, KEY_QUEST + "=?", new String[]{question});
+
+    public void deleteCreatedQuestion(int id){
+        dbaseWrite = getReadableDatabase();
+        dbaseWrite.delete(TABLE_QUESTION, KEY_ID+"=?", new String[]{""+id});
+
     }
 
     public List<Profile> getAllProfiles() {
