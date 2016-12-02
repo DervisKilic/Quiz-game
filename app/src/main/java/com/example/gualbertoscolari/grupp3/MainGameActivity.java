@@ -389,7 +389,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void setRound() {
 
-       // qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
+       qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
         qAnswered.setText("Q " + gameRound + "/10");
         gameRound++;
     }

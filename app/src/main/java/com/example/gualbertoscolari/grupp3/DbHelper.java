@@ -382,7 +382,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_HSCAT, category);
         cvs.put(KEY_HSSCORE, player.getScore());
 
-        dbaseWrite.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? AND " + KEY_HSSCORE + " = ? ",new String[]{player.getName(), category, String.valueOf(player.getScore())});
+        dbaseWrite.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? ",new String[]{player.getName(), category});
         return true;
     }
 }
