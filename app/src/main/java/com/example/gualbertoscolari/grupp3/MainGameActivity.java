@@ -180,7 +180,7 @@ public class MainGameActivity extends AppCompatActivity {
         } else {
             currentPlayer = p1;
         }
-        if (numberOfAnsweredQ == 10) {
+        if (numberOfAnsweredQ == 3) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             handler.postDelayed(new Runnable() {
                 @Override
@@ -241,6 +241,7 @@ public class MainGameActivity extends AppCompatActivity {
             intent.putExtra(SECONDPROFILE, p2.getName());
             intent.putExtra(SCOREPLAYER2, String.valueOf(p2.getScore()));
         }
+        updateHighscore(currentPlayer);
         startActivity(intent);
         finish();
     }
@@ -373,5 +374,10 @@ public class MainGameActivity extends AppCompatActivity {
         Collections.shuffle(options);
 
         return options;
+    }
+
+    public void updateHighscore(Profile profile1){
+        DbHelper db = new DbHelper(this);
+            db.updateHighScore(profile1, chosenCat);
     }
 }

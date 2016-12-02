@@ -19,12 +19,13 @@ public class HighscoreActivity extends AppCompatActivity {
 
     GridView hsGridV;
     String profileName = "Simon";
-    int highscore = 10;
+    private List<String> highscore = new ArrayList<>();
     ArrayAdapter<String> gridAdapter;
     private Spinner dropdownCategory;
     private String cat;
     private ArrayAdapter<String> chosenCategory;
     private List<String> category = new ArrayList<>();
+    List<String> allHighscores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +41,15 @@ public class HighscoreActivity extends AppCompatActivity {
         dropdownCategory.setAdapter(chosenCategory);
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
         db.close();
-
         displayHighScore();
     }
 
     public void displayCategoriesInSpinner() {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         DbHelper db = new DbHelper(this);
-        List<String> allHighscores = db.getHighScoredata(cat);
+        allHighscores = db.getHighScoredata(cat);
         hsGridV = (GridView) findViewById(R.id.hs_gridv);
-        gridAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allHighscores);
+        gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
         hsGridV.setAdapter(gridAdapter);
         db.close();
     }
@@ -57,13 +57,14 @@ public class HighscoreActivity extends AppCompatActivity {
     public void displayHighScore() {
         // Tar in vald kategori från spinner som argument.
         //Hämtar sorterad high score-lista från DBhelper och skriver ut den i GridView
-
+        final DbHelper db = new DbHelper(this);
         dropdownCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
                 cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
                 displayCategoriesInSpinner();
+
             }
 
             @Override
