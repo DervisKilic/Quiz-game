@@ -113,7 +113,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE,p1);
         playIntent.putExtra(MainGameActivity.SECONDPROFILE,p2);
         startActivity(playIntent);
-        mp.stop();
+        //mp.stop();
         finish();
     }
 

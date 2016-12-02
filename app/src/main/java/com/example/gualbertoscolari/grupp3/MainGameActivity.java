@@ -260,7 +260,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_a_pressed(View view) {
         onButtonGuess(optABtn.getText().toString());
-        mp.stop();
+        //mp.stop();
         if (correctAnswer) {
             optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
@@ -276,7 +276,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_b_pressed(View view) {
         onButtonGuess(optBBtn.getText().toString());
-        mp.stop();
+        //mp.stop();
         if (correctAnswer) {
             optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
@@ -292,7 +292,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_c_pressed(View view) {
         onButtonGuess(optCBtn.getText().toString());
-        mp.stop();
+        //mp.stop();
         if (correctAnswer) {
             optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
@@ -308,7 +308,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void btn_d_pressed(View view) {
         onButtonGuess(optDBtn.getText().toString());
-        mp.stop();
+        //mp.stop();
         if (correctAnswer) {
             optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
         } else {
