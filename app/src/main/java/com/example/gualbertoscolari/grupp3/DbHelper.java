@@ -365,7 +365,6 @@ public class DbHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()) {
             do {
                 highScoreData.add(c.getString(1));
-                highScoreData.add(c.getString(2));
                 highScoreData.add(c.getString(3));
 
             } while (c.moveToNext());
