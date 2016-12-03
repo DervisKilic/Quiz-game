@@ -254,15 +254,24 @@ public class MainGameActivity extends AppCompatActivity {
     // Gets called when game is finished. Sends info about second player if numberOfPlayers == 2
     public void goToResult() {
         Intent intent = new Intent(this, ResultActivity.class);
-        intent.putExtra(CATEGORY, chosenCat);
-        intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
-        intent.putExtra(FIRSTPROFILE, p1.getName());
-        intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
-        if (numberOfPlayers == 2) {
+
+        if (numberOfPlayers == 1) {
+            intent.putExtra(CATEGORY, chosenCat);
+            intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
+            intent.putExtra(FIRSTPROFILE, p1.getName());
+            intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
+            updateHighscore(p1);
+
+        } else if (numberOfPlayers == 2){
+            intent.putExtra(CATEGORY, chosenCat);
+            intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
+            intent.putExtra(FIRSTPROFILE, p1.getName());
+            intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
             intent.putExtra(SECONDPROFILE, p2.getName());
             intent.putExtra(SCOREPLAYER2, String.valueOf(p2.getScore()));
+            updateHighscore2(p1, p2);
+
         }
-        updateHighscore(currentPlayer);
         startActivity(intent);
         finish();
     }
@@ -416,6 +425,18 @@ public class MainGameActivity extends AppCompatActivity {
     public void updateHighscore(Profile profile1){
         DbHelper db = new DbHelper(this);
             db.updateHighScore(profile1, chosenCat);
+    }
+
+    public void updateHighscore2(Profile profile1, Profile profile2){
+        DbHelper db = new DbHelper(this);
+
+        if (numberOfPlayers == 1){
+            db.updateHighScore(profile1, chosenCat);
+
+        } else if (numberOfPlayers == 2){
+            db.updateHighScore(profile1, chosenCat);
+            db.updateHighScore(profile2, chosenCat);
+        }
     }
 
     @Override
