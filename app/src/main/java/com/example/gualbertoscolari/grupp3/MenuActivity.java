@@ -15,9 +15,9 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        //mp = MediaPlayer.create(this, R.raw.themesong);
-        //mp.setLooping(true);
-        //mp.start();
+        mp = MediaPlayer.create(this, R.raw.themesong);
+        mp.setLooping(true);
+        mp.start();
 
 
     }
