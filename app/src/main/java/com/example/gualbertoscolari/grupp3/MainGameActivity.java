@@ -75,6 +75,8 @@ public class MainGameActivity extends AppCompatActivity {
 
     private int numberOfAnsweredQ = 0;
     private int gameRound = 1;
+    private MediaPlayer mp2;
+    private MediaPlayer mp3;
 
     @Override
     protected void onPause() {
@@ -133,6 +135,9 @@ public class MainGameActivity extends AppCompatActivity {
         //Hämtar fråga från GameLogic och skriver ut den i TextView:n
         //och skriver ut svaren på knapparna.
         mp = MediaPlayer.create(this, R.raw.timer);
+        mp2 = MediaPlayer.create(this, R.raw.correct_answer);
+        mp3 = MediaPlayer.create(this, R.raw.fail);
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -172,12 +177,16 @@ public class MainGameActivity extends AppCompatActivity {
         timer.cancel();
         correctAnswer = g1.checkCorrectAnswer(optString, g1.getQuestions().get(numberOfAnsweredQ).getANSWER());
         if (g1.checkCorrectAnswer(optString, g1.getQuestions().get(numberOfAnsweredQ).getANSWER())) {
+            mp.stop();
+            mp2.start();
             //Ifall man svarar rätt händer detta
             Log.d(TAG, "Answer gotten from database:  " + answer + " The string on the button :  " + optString + " The Question was answered correctly ");
             currentPlayer.setScore(currentPlayer.getScore() + scoreValue);
 
         } else {
             //Ifall man svarar fel händer detta
+            mp.stop();
+            mp3.start();
             Log.d(TAG, "Answer: " + answer + "optstring:  " + optString + " The Question was answered wrongly");
         }
         // Adds to numberOfAnsweredQ depending on number of players.
