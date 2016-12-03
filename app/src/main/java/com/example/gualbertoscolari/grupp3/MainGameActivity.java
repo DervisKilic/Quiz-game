@@ -416,7 +416,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void setRound() {
-
         qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
         qAnswered.setText("Q " + gameRound + "/10");
         gameRound++;
@@ -424,24 +423,19 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void updateHighscore(Profile profile1){
         DbHelper db = new DbHelper(this);
-            db.updateHighScore(profile1, chosenCat);
+        db.updateHighScore(profile1, chosenCat);
+
     }
 
     public void updateHighscore2(Profile profile1, Profile profile2){
         DbHelper db = new DbHelper(this);
+        db.updateHighScore(profile1, chosenCat);
+        db.updateHighScore(profile2, chosenCat);
 
-        if (numberOfPlayers == 1){
-            db.updateHighScore(profile1, chosenCat);
-
-        } else if (numberOfPlayers == 2){
-            db.updateHighScore(profile1, chosenCat);
-            db.updateHighScore(profile2, chosenCat);
-        }
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent intent = new Intent(this, GameSettingsActivity.class);
         startActivity(intent);
         finish();
