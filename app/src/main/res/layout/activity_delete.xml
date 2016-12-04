@@ -6,13 +6,31 @@
     android:layout_height="fill_parent"
     android:background="#B2DFDB">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_height="461dp"
         android:layout_marginTop="15dp"
         android:id="@+id/question_list" />
+
+    <Button
+        android:text="Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_game_settings"
+        android:onClick="back"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/standardcustombutton"
+        android:shadowColor="#FFEAE6"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"/>
+
+</LinearLayout>
+
 </RelativeLayout>

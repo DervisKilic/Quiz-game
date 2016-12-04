@@ -30,21 +30,34 @@
         android:id="@+id/grid_layout"
         android:layout_below="@id/spinner_highscore"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
 
 
         <GridView
             android:id="@+id/hs_gridv"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="256dp"
             android:layout_below="@+id/spinner_highscore"
             android:layout_marginTop="20dp"
             android:numColumns="2">
 
-
-
-
         </GridView>
+
+        <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back_menu"
+            android:onClick="back"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/standardcustombutton"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
     </LinearLayout>
 

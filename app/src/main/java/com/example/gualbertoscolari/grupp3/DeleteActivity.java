@@ -2,6 +2,7 @@ package com.example.gualbertoscolari.grupp3;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -129,5 +130,12 @@ public class DeleteActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    public void back(View view) {
+
+        Intent intent = new Intent(this, GameSettingsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
