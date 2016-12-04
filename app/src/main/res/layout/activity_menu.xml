@@ -11,6 +11,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gualbertoscolari.grupp3.MenuActivity">
 
+    <ImageView
+        android:id="@+id/menu_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_logo2"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/imageView3"
+        android:layout_marginBottom="25dp"/>
 
     <Button
         android:text="@string/highscore"

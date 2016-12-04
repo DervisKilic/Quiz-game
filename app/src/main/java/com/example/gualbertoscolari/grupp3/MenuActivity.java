@@ -46,6 +46,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Sport");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
+        mp.stop();
         startActivity(playIntent);
 
     }
@@ -56,6 +57,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Historia");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
+        mp.stop();
         startActivity(playIntent);
     }
 
@@ -66,6 +68,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Kultur/Nöje");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
+        mp.stop();
         startActivity(playIntent);
     }
 
@@ -75,6 +78,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Natur");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
+        mp.stop();
         startActivity(playIntent);
     }
 
@@ -84,6 +88,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Samhälle");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
+        mp.stop();
         startActivity(playIntent);
     }
 }

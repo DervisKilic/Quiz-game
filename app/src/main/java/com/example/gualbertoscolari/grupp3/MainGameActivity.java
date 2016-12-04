@@ -138,6 +138,7 @@ public class MainGameActivity extends AppCompatActivity {
         mp2 = MediaPlayer.create(this, R.raw.correct_answer);
         mp3 = MediaPlayer.create(this, R.raw.fail);
 
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
