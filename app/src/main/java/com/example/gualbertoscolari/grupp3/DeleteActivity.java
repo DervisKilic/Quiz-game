@@ -42,14 +42,7 @@ public class DeleteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
 
-        //quiestions = (ListView) findViewById(R.id.question_list);
-
         db = new DbHelper(this);
-
-        //db.open();
-        //List<String> all = db.getCreatedQuestions();
-
-
 
         DbHelper helper = new DbHelper(this);
         SQLiteDatabase db = helper.getReadableDatabase();

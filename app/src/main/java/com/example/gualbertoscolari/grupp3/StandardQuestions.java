@@ -53,7 +53,7 @@ public class StandardQuestions {
         public static Question q40 = new Question("Vilket år tillträde John F Kennedy som USA's president ?", "1960", "1961", "1959", "1963", "Historia", "1961");
 
         //Samhälle
-        public static Question q41 = new Question("Vad betyder ordet  demokrati ? ", "Rättvisa", "Orättvisa", "Folkstyre", "Folkbildning", "Samhälle", "Folkbildning");
+        public static Question q41 = new Question("Vad betyder ordet  demokrati ? ", "Rättvisa", "Orättvisa", "Folkstyre", "Folkbildning", "Samhälle", "Folkstyre");
         public static Question q42 = new Question("Vilket av följande partier anses inte vara en borgerligt sådant ?", "Kd", "Centerpartiet", "Moderaterna", "Socialdemokraterna", "Samhälle", "Socialdemokraterna");
         public static Question q43 = new Question("Vad betyder ordet federation ?", "Tillbedjan", "Överskott", "Förbund", "Samling", "Samhälle", "Förbund");
         public static Question q44 = new Question("Vilket av följande områden är inte en uppgift för riksdagen ? ", "Sedelutgivning", "Bestämma statens budget", "Stifta lagar", "Utse statsminister", "Samhälle", "Sedelutgivning");
