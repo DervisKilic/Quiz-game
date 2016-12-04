@@ -24,7 +24,6 @@ public class CreateQuestionActivity extends AppCompatActivity {
     private int ID;
 
     private EditText inputQuestion;
-    private EditText inputOpta;
     private EditText inputOptb;
     private EditText inputOptc;
     private EditText inputOptd;
@@ -64,28 +63,28 @@ public class CreateQuestionActivity extends AppCompatActivity {
         chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
         String cat = chosenCat.getSelectedItem().toString();
 
-        if (question.length() > 20 || question.length() < 1){
+        if (question.length() > 150 || question.length() < 1){
             Toast.makeText(this, "Max 150 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputQuestion.setText("");
             inputQuestion.setHint(R.string.enter_q_hint);
 
-        } else if (correctAnswer.length() > 15 || correctAnswer.length() < 1){
-            Toast.makeText(this, "Max 15 letters or at least 1", Toast.LENGTH_SHORT).show();
+        } else if (correctAnswer.length() > 20 || correctAnswer.length() < 1){
+            Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputcorrectAnswer.setText("");
             inputcorrectAnswer.setHint(R.string.correct_answer);
 
-        } else if (optb.length() > 15 || optb.length() < 1){
-            Toast.makeText(this, "Max 15 letters or at least 1", Toast.LENGTH_SHORT).show();
+        } else if (optb.length() > 20 || optb.length() < 1){
+            Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptb.setText("");
             inputOptb.setHint(R.string.enter_opt_b_hint);
 
-        } else if (optc.length() > 15 || optc.length() < 1){
-            Toast.makeText(this, "Max 15 letters or at least 1", Toast.LENGTH_SHORT).show();
+        } else if (optc.length() > 20 || optc.length() < 1){
+            Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptc.setText("");
             inputOptc.setHint(R.string.enter_opt_c_hint);
 
-        } else if (optd.length() > 15 || optd.length() < 1){
-            Toast.makeText(this, "Max 15 letters or at least 1", Toast.LENGTH_SHORT).show();
+        } else if (optd.length() > 20 || optd.length() < 1){
+            Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptd.setText("");
             inputOptd.setHint(R.string.enter_opt_d_hint);
 
