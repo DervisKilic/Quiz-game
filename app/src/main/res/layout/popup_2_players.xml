@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="10sp"
-    android:background="@android:color/holo_blue_dark">
+    android:background="#B2DFDB">
 
     <TextView
         android:id="@+id/popup_text"
@@ -14,14 +14,14 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:text="Hej"
-        />
+        android:text="Nästa spelare"/>
 
     <Button
         android:id="@+id/close_popup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textAllCaps="false"
         android:text="Kör!"
         android:onClick="closePopup"/>
 

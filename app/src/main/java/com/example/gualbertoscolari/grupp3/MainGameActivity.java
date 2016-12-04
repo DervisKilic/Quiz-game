@@ -110,6 +110,7 @@ public class MainGameActivity extends AppCompatActivity {
         cat = (TextView) findViewById(R.id.chosen_category);
         timerTV = (TextView) findViewById(R.id.timer_tv);
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
+        progressbar.setScaleY(4f);
         g1 = new GameLogic(chosenCat, this);
         currentPlayer = p1;
         playerName = (TextView) findViewById(R.id.profile_name);
@@ -242,7 +243,7 @@ public class MainGameActivity extends AppCompatActivity {
 
                     public void onFinish() {
                         progressbar.setProgress(0);
-                        timerTV.setText("Done!");
+                        timerTV.setText("0");
                         onButtonGuess("");
                     }
                 }.start();

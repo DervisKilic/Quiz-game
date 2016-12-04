@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gualbertoscolari.grupp3.CreateCategoryActivity"
-    android:background="#87d40808">
+    android:background="#B2DFDB">
 
     <TextView
         android:id="@+id/create_category_title"

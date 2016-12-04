@@ -9,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#B2DFDB"
     tools:context="com.example.gualbertoscolari.grupp3.CreateProfileActivity">
 
 
@@ -33,114 +34,6 @@
             android:layout_height="wrap_content"
             android:hint="Choose Avatar"
             android:textSize="32sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/avatars1"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/name">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar1"
-            android:id="@+id/profile1" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar2"
-            android:id="@+id/profile2" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar3"
-            android:id="@+id/profile3" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar4"
-            android:id="@+id/profile4" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar5"
-            android:id="@+id/profile5" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/avatars2"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/avatars1"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar1update1"
-            android:id="@+id/profile11" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar2update1"
-            android:id="@+id/profile12" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar3update1"
-            android:id="@+id/profile13" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar4update1"
-            android:id="@+id/profile14" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar5update1"
-            android:id="@+id/profile15" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/avatars3"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/avatars2"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar1update2"
-            android:id="@+id/profile21" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar2update2"
-            android:id="@+id/profile22" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar3update2"
-            android:id="@+id/profile23" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar4update2"
-            android:id="@+id/profile24" />
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/avatar5update2"
-            android:id="@+id/profile25" />
 
     </LinearLayout>
 
