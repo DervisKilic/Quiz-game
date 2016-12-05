@@ -32,7 +32,7 @@
             android:id="@+id/profile_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Choose Avatar"
+            android:hint="@string/choose_avatar_hint"
             android:textSize="32sp" />
 
     </LinearLayout>
@@ -47,7 +47,7 @@
             style="@style/create_activity_button"
             android:id="@+id/create_categorie_button"
             android:layout_weight="1"
-            android:text="@string/create_back_button"
+            android:text="@string/back_btn"
             android:onClick="goToGameSettings"
 
             android:textColor="#FFFFFF"

@@ -91,7 +91,7 @@
         android:layout_alignStart="@+id/profile_spinner" />
 
     <TextView
-        android:text="Category"
+        android:text="@string/category_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/choose_category_tv"
@@ -110,7 +110,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Player 1"
+        android:text="@string/player1_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/current_profile1_tv"
@@ -129,7 +129,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
+        android:text="@string/number1_cb"
         android:id="@+id/one_player_cb"
         android:textSize="22sp"
         android:layout_toLeftOf="@+id/two_player_cb"
@@ -138,14 +138,14 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
+        android:text="@string/number2_cb"
         android:id="@+id/two_player_cb"
         android:textSize="22sp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Number of players"
+        android:text="@string/nr_players_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/numer_of_players_tv"
@@ -171,7 +171,7 @@
         android:layout_alignStart="@+id/current_profile2_tv" />
 
     <TextView
-        android:text="Player 2"
+        android:text="@string/player2_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/current_profile2_tv"
@@ -182,7 +182,7 @@
         android:layout_toStartOf="@+id/two_player_cb" />
 
     <Button
-        android:text="Delete Question"
+        android:text="@string/delete_question_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/delete_button"

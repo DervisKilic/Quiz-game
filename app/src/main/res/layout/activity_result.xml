@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Category"
+            android:text="@string/category_tv"
             android:textSize="24sp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_weight="0"
-            android:text="Player 1"
+            android:text="@string/player1_tv"
             android:textSize="24sp" />
 
         <ImageView
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_weight="0"
-            android:text="Score"
+            android:text="@string/score_tv"
             android:textSize="24sp" />
 
 
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_weight="0"
-            android:text="Player 2"
+            android:text="@string/player2_tv"
             android:textSize="24sp" />
 
         <ImageView
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_weight="0"
-            android:text="Score"
+            android:text="@string/score_tv"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:text="Main Menu"
+            android:text="@string/main_menu_btn"
             android:onClick="goToMenu"
             android:textColor="#FFFFFF"
             android:background="@drawable/standardcustombutton"
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:text="High Score"
+            android:text="@string/high_score_btn"
             android:onClick="goToHighScore"
             android:textColor="#FFFFFF"
             android:background="@drawable/standardcustombutton"
@@ -124,7 +124,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Play Again"
+            android:text="@string/play_again_btn"
             android:textAllCaps="false"
             android:onClick="goToMainGame"
             android:textColor="#FFFFFF"

@@ -13,12 +13,12 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="461dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="461sp"
+        android:layout_marginTop="15sp"
         android:id="@+id/question_list" />
 
     <Button
-        android:text="Back"
+        android:text="@string/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/back_game_settings"

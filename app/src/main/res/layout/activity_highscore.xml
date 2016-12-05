@@ -12,12 +12,12 @@
     tools:context="com.example.gualbertoscolari.grupp3.HighscoreActivity">
 
 
-    <!-->
+
     <TextView
         android:id="@+id/category_highscore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Välj kategori"
+        android:text="@string/choose_category_tv"
         android:textAlignment="center"
         android:textSize="30dp" />
 
@@ -48,7 +48,7 @@
         </GridView>
 
         <Button
-            android:text="Back"
+            android:text="@string/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/back_menu"
@@ -63,6 +63,6 @@
 
     </LinearLayout>
 
-<-->
+
 
 </RelativeLayout>

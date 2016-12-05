@@ -71,7 +71,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
         } else if (correctAnswer.length() > 20 || correctAnswer.length() < 1){
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputcorrectAnswer.setText("");
-            inputcorrectAnswer.setHint(R.string.correct_answer);
+            inputcorrectAnswer.setHint(R.string.correct_answer_et);
 
         } else if (optb.length() > 20 || optb.length() < 1){
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();

@@ -17,11 +17,11 @@
     <string name="create_profile">Profile name</string>
     <string name="enter_category_name">Enter the name of the category</string>
     <string name="enter_q_hint">Enter your question here</string>
-    <string name="correct_answer">Correct answer:</string>
+    <string name="correct_answer_et">Correct answer:</string>
     <string name="enter_opt_b_hint">Option B:</string>
     <string name="enter_opt_c_hint">Option C:</string>
     <string name="enter_opt_d_hint">Option D:</string>
-    <string name="add_category_button">Add category</string>
+    <string name="add_category_btn">Add category</string>
     <string name="add_question_button">Add question</string>
     <string name="create_back_button">Back</string>
     <string name="add_question">Add Question</string>
@@ -31,5 +31,28 @@
     <string name="tack_f_r_att_du_spelat">Tack för att du spelat!</string>
     <string name="skapare">Dervis\n Fredrik\n Gualberto\n Simon </string>
     <string name="add_your_category">Add your category</string>
+    <string name="back_btn">Back</string>
+    <string name="choose_avatar_hint">Choose Avatar</string>
+    <string name="add_question_tv">Add your question</string>
+    <string name="category_tv">Category</string>
+    <string name="player1_tv">Player 1</string>
+    <string name="number1_cb">1</string>
+    <string name="number2_cb">2</string>
+    <string name="nr_players_tv">Number of players</string>
+    <string name="player2_tv">Player 2</string>
+    <string name="delete_question_btn">Delete Question</string>
+    <string name="choose_category_tv">Välj kategori</string>
+    <string name="answer_a_btn">answer_a</string>
+    <string name="answer_b_btn">answer_b</string>
+    <string name="answer_c_btn">answer_c</string>
+    <string name="answer_d_btn">answer_d</string>
+    <string name="about_btn">About</string>
+    <string name="get_ready_tv">Gör dig redo!</string>
+    <string name="score_tv">Score</string>
+    <string name="main_menu_btn">Main Menu</string>
+    <string name="high_score_btn">High Score</string>
+    <string name="play_again_btn">Play Again</string>
+    <string name="next_player_tv">Nästa spelare</string>
+    <string name="go_btn">Kör!</string>
 
 </resources>
