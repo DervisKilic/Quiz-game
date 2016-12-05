@@ -1,90 +1,101 @@
 package com.example.gualbertoscolari.grupp3;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CursorAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.database.Cursor;
+        import android.support.v7.app.AlertDialog;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.ListView;
+        import android.widget.Spinner;
+        import android.widget.Toast;
+        import java.util.ArrayList;
 
 public class DeleteActivity extends AppCompatActivity {
 
-    ArrayAdapter<String> arrayAdapter;
-
-    private DbHelper db;
-    private ListView quiestions;
-    private Question quest;
-    private DeleteCursorAdapter deleteAdapter;
-    private int deleteId;
-    private Question question;
+    private ArrayAdapter<String> arrayAdapterQuest;
+    private ArrayAdapter<Integer> arrayAdapterQuestID;
     private Cursor cursor;
+    private DbHelper db;
+    private ListView list;
+    private ArrayList<String> allStrings;
+    private ArrayList<Integer> allints;
+    private Spinner options;
+    private ArrayAdapter optAdapter;
+    private ArrayList<String> quesProfCat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
 
+        list = (ListView) findViewById(R.id.question_list);
+        options = (Spinner) findViewById(R.id.option_spinner);
+        list = (ListView)findViewById(R.id.question_list);
+        quesProfCat = new ArrayList<>();
+
+        quesProfCat.add("Questions");
+        quesProfCat.add("Profiles");
+        quesProfCat.add("Categories");
+
+        optAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, quesProfCat);
+
+        options.setAdapter(optAdapter);
+
         db = new DbHelper(this);
+        cursor = db.getCreatedQuestions();
 
-        DbHelper helper = new DbHelper(this);
-        SQLiteDatabase db = helper.getReadableDatabase();
-        cursor = db.query("quest", null, "_id>?", new String[]{"50"}, null, null, null);
-        quiestions = (ListView) findViewById(R.id.question_list);
-        deleteAdapter = new DeleteCursorAdapter(this, cursor);
-        quiestions.setAdapter(deleteAdapter);
+        allStrings = new ArrayList<>();
+        allints = new ArrayList<>();
 
-        if(deleteAdapter.isEmpty()) // check if list contains items.
+        //istället för en cursoradapter använder vi en vanlig adapter, då dettta är mindre kod och fungerar.
+        for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            allints.add(cursor.getInt(0));
+            allStrings.add(cursor.getString(1));
+        }
+
+        if(allStrings.size()>0) // check if list contains items.
         {
+            arrayAdapterQuest = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,allStrings);
+            arrayAdapterQuestID = new ArrayAdapter<Integer>(this,android.R.layout.simple_list_item_1,allints);
+            list.setAdapter(arrayAdapterQuest);
+        }else{
             Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
         }
 
-
-        quiestions.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //quest = deleteAdapter.getItem(position);
-                Log.d("Hämtat id", "id: " + deleteId);
+
                 AlertDialog diaBox = AskOption(position);
                 diaBox.show();
-
             }
         });
-
     }
 
-    private AlertDialog AskOption(final int postion)
+    private AlertDialog AskOption(final int position)
     {
         AlertDialog myQuittingDialogBox =new AlertDialog.Builder(this)
 
                 //set message, title, and icon
                 .setTitle("Delete")
                 .setMessage("Do you want to Delete")
-                .setIcon(R.drawable.warning)
+                .setIcon(R.drawable.natur)
                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
 
-                        Log.d("ta bort", "tog bort" + question.getID());
+                        Log.d("ta bort", "tog bort" + arrayAdapterQuestID.getItem(position));
 
-                        db.deleteCreatedQuestion(question.getID());
+                        db.deleteCreatedQuestion(arrayAdapterQuestID.getItem(position));
+                        arrayAdapterQuest.remove(arrayAdapterQuest.getItem(position));
+                        arrayAdapterQuest.notifyDataSetChanged();
+
                         dialog.dismiss();
                     }
                 })
@@ -94,41 +105,13 @@ public class DeleteActivity extends AppCompatActivity {
                     }
                 })
                 .create();
-
         return myQuittingDialogBox;
     }
 
-    private class DeleteCursorAdapter extends CursorAdapter{
-
-        public DeleteCursorAdapter(Context context, Cursor cursor){
-            super(context, cursor, 0);
-        }
-
-        @Override
-        public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            return LayoutInflater.from(context).inflate(R.layout.layou_created_question, parent, false);
-        }
-
-        @Override
-        public void bindView(View view, Context context, Cursor cursor) {
-            TextView listQuestion = (TextView) view.findViewById(R.id.list_item);
-            question = new Question();
-            // findViewById(R.id.list_item)
-            question.setID(cursor.getInt(0));
-            question.setQUESTION(cursor.getString(1));
-            Log.d("delete", "Strängen är hämtat: " + question.getQUESTION());
-
-            listQuestion.setText(question.getQUESTION());
-
-
-        }
-
-    }
-
-    public void back(View view) {
-
-        Intent intent = new Intent(this, GameSettingsActivity.class);
+    public void goToMenu(View view) {
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
         finish();
     }
+
 }

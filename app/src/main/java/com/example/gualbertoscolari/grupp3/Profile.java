@@ -3,14 +3,15 @@ package com.example.gualbertoscolari.grupp3;
 
 public class Profile {
 
+    private int ID;
     private String name;
     private int score;
 
 
     //For creating new profile
-    public Profile(String nAme){
-        name = nAme;
-        score = 0;
+    public Profile(){
+        ID = 0;
+        name = "";
     }
 
     //For creating profile from databas
@@ -33,5 +34,13 @@ public class Profile {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }

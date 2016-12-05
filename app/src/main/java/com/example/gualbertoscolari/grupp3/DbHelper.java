@@ -25,7 +25,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String TABLE_CATEGORY = "categorys";
 
     // tasks Table Columns names for questions
-    private static final String KEY_ID = "_id";
+    public static final String KEY_ID = "_id";
     private static final String KEY_QUEST = "question";
     private static final String KEY_OPTA = "opta";
     private static final String KEY_OPTB = "optb";
@@ -210,22 +210,36 @@ public class DbHelper extends SQLiteOpenHelper {
         return quesList;
     }
 
-    public List<String> getCreatedQuestions() {
-        List<String> questionList = new ArrayList<>();
+    public Cursor getCreatedQuestions() {
         dbaseRead = getReadableDatabase();
         Cursor cursor = dbaseRead.query(true, TABLE_QUESTION, null, KEY_ID + ">?", new String[]{"50"}, null, null, null, null);
 
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-
-                questionList.add(cursor.getString(1));
+                Question quest = new Question();
+                quest.setID(cursor.getInt(0));
+                quest.setQUESTION(cursor.getString(1));
             } while (cursor.moveToNext());
         }
         // return quest list
-        cursor.close();
-        return questionList;
+        return cursor;
+    }
 
+    public Cursor getCreatedProfiles() {
+        dbaseRead = getReadableDatabase();
+        Cursor cursor = dbaseRead.query(true, TABLE_PROFILE, null, KEY_ID + ">?", new String[]{"4"}, null, null, null, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Profile prof = new Profile();
+                prof.setID(cursor.getInt(0));
+                prof.setName(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+        // return quest list
+        return cursor;
     }
 
 
