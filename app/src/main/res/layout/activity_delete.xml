@@ -1,60 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#B2DFDB">
 
     <LinearLayout
+        android:id="@+id/option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/option"
-        android:layout_margin="20sp">
+        android:layout_margin="20sp"
+        android:orientation="vertical">
 
-
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="What do you want to delete?"
-           android:textSize="22sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What do you want to delete?"
+            android:textSize="22sp" />
 
         <Spinner
+            android:id="@+id/option_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/option_spinner"
             android:layout_gravity="left"
-            android:spinnerMode="dialog"/>
+            android:spinnerMode="dialog" />
 
     </LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_below="@+id/option">
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="461sp"
-        android:layout_marginTop="15sp"
-        android:id="@+id/question_list" />
-
-    <Button
-        android:text="@string/back_btn"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/back_game_settings"
-        android:onClick="goToMenu"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/standardcustombutton"
-        android:shadowColor="#FFEAE6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
+        android:layout_below="@id/option"
 
-</LinearLayout>
+        >
+
+        <ListView
+            android:id="@+id/question_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="100sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/option"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="back"
+            android:text="@string/back_btn"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="bottom"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>

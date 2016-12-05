@@ -52,10 +52,8 @@
 
             android:textColor="#FFFFFF"
             android:background="@drawable/standardcustombutton"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:layout_margin="5sp"
+          />
 
         <Button
             style="@style/create_activity_button"
@@ -65,10 +63,9 @@
             android:onClick="saveProfile"
             android:textColor="#FFFFFF"
             android:background="@drawable/standardcustombutton"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"/>
+
+            android:layout_margin="5sp"
+         />
 
     </LinearLayout>
 </RelativeLayout>

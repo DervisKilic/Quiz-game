@@ -45,6 +45,7 @@
     </LinearLayout>
 
     <Button
+
         android:text="@string/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,10 +54,6 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:background="@drawable/standardcustombutton"
-        android:shadowColor="#FFEAE6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/activity_game_settings"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_game_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B2DFDB"
@@ -12,190 +12,193 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gualbertoscolari.grupp3.GameSettingsActivity">
 
-    <Button
-        android:text="@string/add_question"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/create_question_button"
-        android:onClick="goToCreateQuestion"
-        android:textAllCaps="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/standardcustombutton"
-        android:shadowColor="#FFEAE6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
-
-    <Button
-        android:text="@string/add_category"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/create_category_button"
-        android:onClick="goToCreateCategory"
-        android:textAllCaps="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/standardcustombutton"
-        android:shadowColor="#FFEAE6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
-
-    <Button
-        android:text="@string/add_profile"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/add_profile_button"
-        android:textAllCaps="false"
-        android:onClick="goToCreateProfile"
-        android:layout_alignTop="@+id/create_question_button"
-        android:layout_alignLeft="@+id/play_button"
-        android:layout_alignStart="@+id/play_button"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/standardcustombutton"
-        android:shadowColor="#FFEAE6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
-
-
-    <Button
-        android:text="@string/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/play_button"
-        android:onClick="goToMainGame"
-        android:textAllCaps="false"
-        android:layout_above="@+id/add_profile_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp"
-        android:textColor="#000000"
-        android:background="@drawable/standardcustombutton"
-        android:shadowColor="#FFEAE6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
 
     <Spinner
         android:id="@+id/category_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:spinnerMode="dialog"
-        android:layout_below="@+id/choose_category_tv"
         android:layout_alignLeft="@+id/profile_spinner"
-        android:layout_alignStart="@+id/profile_spinner" />
+        android:layout_alignStart="@+id/profile_spinner"
+        android:layout_below="@+id/choose_category_tv"
+        android:spinnerMode="dialog" />
 
     <TextView
-        android:text="@string/category_tv"
+        android:id="@+id/choose_category_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/choose_category_tv"
-        android:textSize="22sp"
-        android:layout_marginTop="21dp"
-        android:layout_below="@+id/one_player_cb"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/one_player_cb"
+        android:layout_marginTop="21dp"
+        android:text="@string/category_tv"
+        android:textSize="22sp" />
 
     <ImageView
+        android:id="@+id/profile_img_iv1"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:id="@+id/profile_img_iv1"
-        android:layout_below="@+id/profile_spinner"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/profile_spinner" />
 
     <TextView
-        android:text="@string/player1_tv"
+        android:id="@+id/current_profile1_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/current_profile1_tv"
-        android:textSize="22sp"
-        android:layout_below="@+id/category_spinner" />
+        android:layout_below="@+id/category_spinner"
+        android:text="@string/player1_tv"
+        android:textSize="22sp" />
 
     <Spinner
         android:id="@+id/profile_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:spinnerMode="dialog"
-        android:layout_below="@+id/current_profile1_tv"
         android:layout_alignLeft="@+id/current_profile1_tv"
-        android:layout_alignStart="@+id/current_profile1_tv" />
+        android:layout_alignStart="@+id/current_profile1_tv"
+        android:layout_below="@+id/current_profile1_tv"
+        android:spinnerMode="dialog" />
 
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/number1_cb"
         android:id="@+id/one_player_cb"
-        android:textSize="22sp"
-        android:layout_toLeftOf="@+id/two_player_cb"
-        android:layout_toStartOf="@+id/two_player_cb" />
-
-    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/number2_cb"
+        android:layout_toLeftOf="@+id/two_player_cb"
+        android:layout_toStartOf="@+id/two_player_cb"
+        android:text="@string/number1_cb"
+        android:textSize="22sp" />
+
+    <CheckBox
         android:id="@+id/two_player_cb"
-        android:textSize="22sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:text="@string/number2_cb"
+        android:textSize="22sp" />
 
     <TextView
-        android:text="@string/nr_players_tv"
+        android:id="@+id/numer_of_players_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numer_of_players_tv"
-        android:textSize="22sp"
-        android:layout_alignTop="@+id/one_player_cb"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/one_player_cb"
+        android:text="@string/nr_players_tv"
+        android:textSize="22sp" />
 
     <Spinner
         android:id="@+id/profile_spinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:spinnerMode="dialog"
-        android:layout_below="@+id/current_profile2_tv" />
+        android:layout_below="@+id/current_profile2_tv"
+        android:spinnerMode="dialog" />
 
     <ImageView
+        android:id="@+id/profile_img_iv2"
         android:layout_width="80sp"
         android:layout_height="50sp"
-        android:id="@+id/profile_img_iv2"
-        android:layout_below="@+id/profile_spinner2"
         android:layout_alignLeft="@+id/current_profile2_tv"
-        android:layout_alignStart="@+id/current_profile2_tv" />
+        android:layout_alignStart="@+id/current_profile2_tv"
+        android:layout_below="@+id/profile_spinner2" />
 
     <TextView
-        android:text="@string/player2_tv"
+        android:id="@+id/current_profile2_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/current_profile2_tv"
-        android:textSize="22sp"
         android:layout_alignBaseline="@+id/current_profile1_tv"
         android:layout_alignBottom="@+id/current_profile1_tv"
         android:layout_toLeftOf="@+id/two_player_cb"
-        android:layout_toStartOf="@+id/two_player_cb" />
+        android:layout_toStartOf="@+id/two_player_cb"
+        android:text="@string/player2_tv"
+        android:textSize="22sp" />
 
-    <Button
-        android:text="@string/delete_question_btn"
-        android:layout_width="wrap_content"
+
+
+    <LinearLayout
+        android:id="@id/bottom_btn_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/delete_button"
-        android:onClick="gotToDeleteQuestion"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/standardcustombutton"
-        android:shadowColor="#FFEAE6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
-        android:layout_alignTop="@+id/play_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+
+
+        >
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="gotToDeleteQuestion"
+            android:text="@string/delete_question_btn"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5sp"
+            />
+
+        <Button
+            android:id="@+id/create_question_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="goToCreateQuestion"
+            android:text="@string/add_question"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5sp"
+
+            />
+        <Button
+            android:id="@+id/play_button"
+            android:textAlignment="gravity"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="goToMainGame"
+            android:text="@string/play"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5sp"
+
+
+
+            />
+
+
+        <Button
+            android:id="@+id/add_profile_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="goToCreateProfile"
+            android:text="@string/add_profile"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5sp"
+            android:textAlignment="gravity"
+
+            />
+
+        <Button
+            android:id="@+id/create_category_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="goToCreateCategory"
+            android:text="@string/add_category"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5sp"
+
+            />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
