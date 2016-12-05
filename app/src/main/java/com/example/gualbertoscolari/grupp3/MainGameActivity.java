@@ -418,9 +418,18 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void setRound() {
-        qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
-        qAnswered.setText("Q " + gameRound + "/10");
-        gameRound++;
+
+        if (numberOfPlayers == 1){
+            qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
+            qAnswered.setText("Q " + gameRound + "/10");
+            gameRound++;
+
+        } else if (numberOfPlayers == 2){
+            qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
+            qAnswered.setText("Q " + gameRound + "/20");
+            gameRound++;
+        }
+
     }
 
     public void updateHighscore(Profile profile1){
