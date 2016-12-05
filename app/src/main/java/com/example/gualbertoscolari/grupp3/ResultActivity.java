@@ -68,22 +68,37 @@ public class ResultActivity extends AppCompatActivity {
         scorep2.setText(P2Score);
         category.setText(chosenCategory);
 
-        if(p1Name.equals("Dervis")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
-        }
-        else if(p1Name.equals("Fredrik")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
-        }
-        else if(p1Name.equals("Gualberto")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
-        }
-        else if(p1Name.equals("Simon")){
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
-        }else{
-            img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
+        if (players.equals("1")) {
+
+            if (p1Name.equals("Dervis")) {
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
+            } else if (p1Name.equals("Fredrik")) {
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
+            } else if (p1Name.equals("Gualberto")) {
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
+            } else if (p1Name.equals("Simon")) {
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
+            } else {
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
+            }
         }
 
         if(players.equals("2")) {
+
+            if(p1Name.equals("Dervis")){
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
+            }
+            else if(p1Name.equals("Fredrik")){
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
+            }
+            else if(p1Name.equals("Gualberto")){
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
+            }
+            else if(p1Name.equals("Simon")){
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
+            }else{
+                img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
+            }
 
             if (p2Name.equals("Dervis")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));

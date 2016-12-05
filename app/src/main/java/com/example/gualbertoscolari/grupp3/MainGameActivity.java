@@ -256,23 +256,19 @@ public class MainGameActivity extends AppCompatActivity {
     // Gets called when game is finished. Sends info about second player if numberOfPlayers == 2
     public void goToResult() {
         Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra(CATEGORY, chosenCat);
+        intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
 
-        if (numberOfPlayers == 1) {
-            intent.putExtra(CATEGORY, chosenCat);
-            intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
+        if (numberOfPlayers == 1){
             intent.putExtra(FIRSTPROFILE, p1.getName());
             intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
             updateHighscore(p1);
 
         } else if (numberOfPlayers == 2){
-            intent.putExtra(CATEGORY, chosenCat);
-            intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
-            intent.putExtra(FIRSTPROFILE, p1.getName());
-            intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
             intent.putExtra(SECONDPROFILE, p2.getName());
             intent.putExtra(SCOREPLAYER2, String.valueOf(p2.getScore()));
-            updateHighscore2(p1, p2);
-
+            updateHighscore(p1);
+            updateHighscore(p2);
         }
         startActivity(intent);
         finish();

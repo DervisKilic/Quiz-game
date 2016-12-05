@@ -46,8 +46,8 @@ public class GameSettingsActivity extends AppCompatActivity {
 
     private Profile currentP;
 
-    String name1;
-    String name2;
+    String p1name;
+    String p2name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,21 +177,21 @@ public class GameSettingsActivity extends AppCompatActivity {
         profileSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                name1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
+                p1name = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
 
-                if(name1.equals("Dervis")){
+                if(p1name.equals("Dervis")){
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
                 }
 
-                else if(name1.equals("Fredrik")){
+                else if(p1name.equals("Fredrik")){
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
                 }
 
-                else if(name1.equals("Gualberto")){
+                else if(p1name.equals("Gualberto")){
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
                 }
 
-                else if(name1.equals("Simon")){
+                else if(p1name.equals("Simon")){
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
                 }else{
                     profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
@@ -208,21 +208,21 @@ public class GameSettingsActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                name2 = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
+                p2name = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
 
-                if(name2.equals("Dervis")){
+                if(p2name.equals("Dervis")){
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
                 }
 
-                else if(name2.equals("Fredrik")){
+                else if(p2name.equals("Fredrik")){
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
                 }
 
-                else if(name2.equals("Gualberto")){
+                else if(p2name.equals("Gualberto")){
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
                 }
 
-                else if(name2.equals("Simon")){
+                else if(p2name.equals("Simon")){
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
                 }else{
                     profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
