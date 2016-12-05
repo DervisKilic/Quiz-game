@@ -46,6 +46,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase dbaseRead;
     private SQLiteDatabase dbaseWrite;
+
+    private int topTen = 0;
     //private boolean close;
 
     public DbHelper(Context context) {
@@ -366,8 +368,9 @@ public class DbHelper extends SQLiteOpenHelper {
             do {
                 highScoreData.add(c.getString(1));
                 highScoreData.add(c.getString(3));
+                topTen++;
 
-            } while (c.moveToNext());
+            } while (c.moveToNext() && topTen < 10);
         }
         c.close();
         return highScoreData;
