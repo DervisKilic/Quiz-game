@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">Grupp3</string>
-    <string name="about">Created by vårt härliga team</string>
+    <string name="about">Created by:</string>
     <string name="play">Play</string>
     <string name="highscore">Highscore</string>
     <string name="Quiz">Quiz</string>
-    <string name="create_profile_title">Ny Profil:</string>
-    <string name="create_profile_activity_lbl">Ny Profil</string>
-    <string name="name_hint">Namn:</string>
-    <string name="profile_name_hint">Välj namn:</string>
+    <string name="create_profile_title">New Profile:</string>
+    <string name="create_profile_activity_lbl">New Profile</string>
+    <string name="name_hint">Name:</string>
+    <string name="profile_name_hint">Type your name:</string>
     <string name="cancel_txt_btn">Back</string>
     <string name="save_profile_txt_btn">Add profile</string>
-    <string name="choose_img_txt">Välj bild</string>
+    <string name="choose_img_txt">Choose image</string>
     <string name="about_activity_lbl">Om</string>
     <string name="category_name">Enter the name of the category</string>
     <string name="about_activity_ic_title">Om</string>
@@ -28,7 +28,7 @@
     <string name="add_category">Add Category</string>
     <string name="add_profile">Add Profile</string>
     <string name="create_profile_button">Add profile</string>
-    <string name="tack_f_r_att_du_spelat">Tack för att du spelat!</string>
+    <string name="tack_f_r_att_du_spelat">Thank you for playing</string>
     <string name="skapare">Dervis\n Fredrik\n Gualberto\n Simon </string>
     <string name="add_your_category">Add your category</string>
     <string name="back_btn">Back</string>
@@ -41,18 +41,18 @@
     <string name="nr_players_tv">Number of players</string>
     <string name="player2_tv">Player 2</string>
     <string name="delete_question_btn">Delete Question</string>
-    <string name="choose_category_tv">Välj kategori</string>
+    <string name="choose_category_tv">Choose Category</string>
     <string name="answer_a_btn">answer_a</string>
     <string name="answer_b_btn">answer_b</string>
     <string name="answer_c_btn">answer_c</string>
     <string name="answer_d_btn">answer_d</string>
     <string name="about_btn">About</string>
-    <string name="get_ready_tv">Gör dig redo!</string>
+    <string name="get_ready_tv">Get ready</string>
     <string name="score_tv">Score</string>
     <string name="main_menu_btn">Main Menu</string>
     <string name="high_score_btn">High Score</string>
     <string name="play_again_btn">Play Again</string>
-    <string name="next_player_tv">Nästa spelare</string>
-    <string name="go_btn">Kör!</string>
+    <string name="next_player_tv">Next player!</string>
+    <string name="go_btn">Go!</string>
 
 </resources>
