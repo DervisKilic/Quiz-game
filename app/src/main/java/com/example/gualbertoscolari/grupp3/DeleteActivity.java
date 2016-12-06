@@ -86,9 +86,10 @@ public class DeleteActivity extends AppCompatActivity {
                 if(allStrings.size()>0) // check if list contains items.
                 {
                     arrayAdapterStrings = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,allStrings);
-                    arrayAdapterID = new ArrayAdapter<Integer>(getApplicationContext(),android.R.layout.simple_list_item_1,allints);
                     list.setAdapter(arrayAdapterStrings);
                 }else{
+                    arrayAdapterStrings = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,allStrings);
+                    list.setAdapter(arrayAdapterStrings);
                     Toast.makeText(getApplicationContext(), "No items to display", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -121,28 +122,31 @@ public class DeleteActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                         if(quest) {
-                            Log.d("ta bort", "tog bort" + arrayAdapterID.getItem(position));
-                            db.deleteCreatedQuestion(arrayAdapterID.getItem(position));
+                            Log.d("ta bort", "tog bort quest" + allints.get(position));
+                            db.deleteCreatedQuestion(allints.get(position));
+                            allints.remove(position);
                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                             prof = false;
-                            arrayAdapterID.notifyDataSetChanged();
-
+                            cat = false;
 
                         }else if(prof){
-                            Log.d("ta bort", "tog bort" + arrayAdapterID.getItem(position));
-                            db.deleteCreatedProfiles(arrayAdapterID.getItem(position));
+                            list.setAdapter(arrayAdapterStrings);
+                            Log.d("ta bort", "tog bort prof" + allints.get(position));
+                            db.deleteCreatedProfiles(allints.get(position));
+                            allints.remove(position);
                             db.deleteCreatedHSProfiles(arrayAdapterStrings.getItem(position));
                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                             quest = false;
-                            arrayAdapterID.notifyDataSetChanged();
+                            cat = false;
 
                         }else if(cat){
-                            db.deleteCreatedCategory(arrayAdapterStrings.getItem(position));
+                            Log.d("ta bort", "tog bort cat " + allints.get(position));
+                            db.deleteCreatedCategory(allints.get(position));
+                            allints.remove(position);
                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                             quest = false;
-                            arrayAdapterID.notifyDataSetChanged();
+                            prof = false;
                         }
-
                         dialog.dismiss();
                     }
                 })
