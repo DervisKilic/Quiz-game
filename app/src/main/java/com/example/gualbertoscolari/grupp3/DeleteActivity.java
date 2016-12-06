@@ -144,7 +144,7 @@ public class DeleteActivity extends AppCompatActivity {
     }
 
     public void goToMenu(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent(this, GameSettingsActivity.class);
         startActivity(intent);
         finish();
     }
