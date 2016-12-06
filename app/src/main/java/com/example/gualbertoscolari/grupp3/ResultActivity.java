@@ -29,8 +29,6 @@ public class ResultActivity extends AppCompatActivity {
     private String players;
     private String P2Score;
     private String chosenCategory;
-    //private int correctNrAnsweredP1;
-    //private int correctNrAnsweredP2;
 
     private Timer timer = new Timer();
     private int timePlayed = 0;
@@ -43,13 +41,10 @@ public class ResultActivity extends AppCompatActivity {
     private ImageView img1;
     private ImageView img2;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
 
         player2 = (TextView) findViewById(R.id.player2_name);
         scorep2 = (TextView) findViewById(R.id.player2_score);
@@ -66,7 +61,6 @@ public class ResultActivity extends AppCompatActivity {
         players = extras.getString(PLAYERS);
         p2Name = extras.getString(SECONDPROFILE);
         P2Score = extras.getString(SCOREPLAYER2);
-
 
         player1.setText(p1Name);
         scorep1.setText(P1Score);
@@ -134,9 +128,7 @@ public class ResultActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.general_toolbar, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -147,7 +139,6 @@ public class ResultActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 return true;
-
         }
 
         return super.onOptionsItemSelected(item);

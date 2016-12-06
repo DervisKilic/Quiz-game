@@ -18,8 +18,6 @@ public class MenuActivity extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.themesong);
         mp.setLooping(true);
         mp.start();
-
-
     }
 
     public void about_button(View view) {
@@ -40,9 +38,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void gameSp(View view){
-
         Intent playIntent = new Intent(this, MainGameActivity.class);
-
         playIntent.putExtra(MainGameActivity.CATEGORY, "Sport");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
@@ -53,7 +49,6 @@ public class MenuActivity extends AppCompatActivity {
 
     public void gameHi(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
-
         playIntent.putExtra(MainGameActivity.CATEGORY, "Historia");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
@@ -62,9 +57,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void gameKn(View view) {
-
         Intent playIntent = new Intent(this, MainGameActivity.class);
-
         playIntent.putExtra(MainGameActivity.CATEGORY, "Kultur/Nöje");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
@@ -74,7 +67,6 @@ public class MenuActivity extends AppCompatActivity {
 
     public void gameNa(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
-
         playIntent.putExtra(MainGameActivity.CATEGORY, "Natur");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
@@ -84,7 +76,6 @@ public class MenuActivity extends AppCompatActivity {
 
     public void gameSk(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
-
         playIntent.putExtra(MainGameActivity.CATEGORY, "Samhälle");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");

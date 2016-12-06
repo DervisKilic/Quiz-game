@@ -7,7 +7,6 @@ public class Profile {
     private String name;
     private int score;
 
-
     //For creating new profile
     public Profile(){
         ID = 0;

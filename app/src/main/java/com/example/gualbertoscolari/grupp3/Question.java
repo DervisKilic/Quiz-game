@@ -10,9 +10,7 @@ public class Question{
     private String OPTB;
     private String OPTC;
     private String OPTD;
-
     private String CATEGORY;
-
     private String ANSWER;
 
     public Question(){
@@ -22,9 +20,7 @@ public class Question{
         OPTB = "";
         OPTC = "";
         OPTD = "";
-
         CATEGORY = "";
-
         ANSWER = "";
     }
     public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String oPTD, String cATEGORY, String aNSWER){
@@ -33,9 +29,7 @@ public class Question{
         OPTB = oPTB;
         OPTC = oPTC;
         OPTD = oPTD;
-
         CATEGORY = cATEGORY;
-
         ANSWER = aNSWER;
     }
 

@@ -7,14 +7,11 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.TextView;
 
-/**
- * Created by Siniom on 27/11/16.
- */
 public class PopUp extends Activity {
 
     private static final String TAG = "POPUP_ACTIVITY";
-    CountDownTimer timer;
-    TextView popUpTV;
+    private CountDownTimer timer;
+    private TextView popUpTV;
     protected static Boolean startG = false;
 
 
@@ -46,6 +43,5 @@ public class PopUp extends Activity {
             }
         }.start();
         Log.d(TAG, "countdown: Timer started");
-
     }
 }
