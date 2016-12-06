@@ -118,14 +118,17 @@ public class DeleteActivity extends AppCompatActivity {
                             db.deleteCreatedQuestion(arrayAdapterID.getItem(position));
                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                             prof = false;
-                            quest = false;
+                            arrayAdapterID.notifyDataSetChanged();
+
 
                         }else if(prof){
                             Log.d("ta bort", "tog bort" + arrayAdapterID.getItem(position));
                             db.deleteCreatedProfiles(arrayAdapterID.getItem(position));
+                            db.deleteCreatedHSProfiles(arrayAdapterStrings.getItem(position));
                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                             quest = false;
-                            prof = false;
+                            arrayAdapterID.notifyDataSetChanged();
+
                         }
 
                         dialog.dismiss();
