@@ -259,9 +259,9 @@ public class MainGameActivity extends AppCompatActivity {
         intent.putExtra(CATEGORY, chosenCat);
         intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
 
-            intent.putExtra(FIRSTPROFILE, p1.getName());
-            intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
-            updateHighscore(p1);
+        intent.putExtra(FIRSTPROFILE, p1.getName());
+        intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
+        updateHighscore(p1);
 
         if (numberOfPlayers == 2){
             intent.putExtra(SECONDPROFILE, p2.getName());

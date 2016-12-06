@@ -33,7 +33,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
         category = (EditText) findViewById(R.id.categorie_name);
         cat = category.getText().toString();
 
-        if(cat.length() > 12 || cat.length() < 1){
+        if(!cat.matches("^[a-zåäöA-ZÅÄÖ]{3,12}$")){
             Toast.makeText(this, "Max 12 letters", Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));

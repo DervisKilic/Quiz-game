@@ -37,7 +37,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         Profile p = new Profile(name, 0);
         DbHelper db = new DbHelper(getApplicationContext());
 
-        if(name.length() > 12){
+        if(!name.matches("^[a-zåäöA-ZÅÄÖ]{3,12}$")){
             Toast.makeText(this, "Max 12 letters", Toast.LENGTH_SHORT).show();
             inputName.setText("");
             inputName.setHint(this.getString(R.string.create_profile));

@@ -63,27 +63,27 @@ public class CreateQuestionActivity extends AppCompatActivity {
         chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
         String cat = chosenCat.getSelectedItem().toString();
 
-        if (question.length() > 150 || question.length() < 1){
-            Toast.makeText(this, "Max 150 letters or at least 1", Toast.LENGTH_SHORT).show();
+        if (!question.matches(("^[a-zåäöA-ZÅÄÖ ]{3,150}$"))){
+            Toast.makeText(this, "Max 150 letters or at least 3", Toast.LENGTH_SHORT).show();
             inputQuestion.setText("");
             inputQuestion.setHint(R.string.enter_q_hint);
 
-        } else if (correctAnswer.length() > 20 || correctAnswer.length() < 1){
+        } else if (!correctAnswer.matches(("^[a-zåäöA-ZÅÄÖ ]{1,20}$"))){
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputcorrectAnswer.setText("");
             inputcorrectAnswer.setHint(R.string.correct_answer_et);
 
-        } else if (optb.length() > 20 || optb.length() < 1){
+        } else if (!optb.matches("^[a-zåäöA-ZÅÄÖ ]{1,20}$")){
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptb.setText("");
             inputOptb.setHint(R.string.enter_opt_b_hint);
 
-        } else if (optc.length() > 20 || optc.length() < 1){
+        } else if (!optc.matches(("^[a-zåäöA-ZÅÄÖ ]{1,20}$"))){
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptc.setText("");
             inputOptc.setHint(R.string.enter_opt_c_hint);
 
-        } else if (optd.length() > 20 || optd.length() < 1){
+        } else if (!optd.matches(("^[a-zåäöA-ZÅÄÖ ]{1,20}$"))){
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptd.setText("");
             inputOptd.setHint(R.string.enter_opt_d_hint);
