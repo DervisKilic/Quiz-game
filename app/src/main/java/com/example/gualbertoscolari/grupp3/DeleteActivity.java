@@ -1,24 +1,24 @@
 package com.example.gualbertoscolari.grupp3;
 
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.database.Cursor;
-        import android.support.v7.app.AlertDialog;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.ListView;
-        import android.widget.Spinner;
-        import android.widget.Toast;
-        import java.util.ArrayList;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.Toast;
+import java.util.ArrayList;
 
 public class DeleteActivity extends AppCompatActivity {
 
-    private ArrayAdapter<String> arrayAdapterQuest;
-    private ArrayAdapter<Integer> arrayAdapterQuestID;
+    private ArrayAdapter<String> arrayAdapterStrings;
+    private ArrayAdapter<Integer> arrayAdapterID;
     private Cursor cursor;
     private DbHelper db;
     private ListView list;
@@ -27,6 +27,9 @@ public class DeleteActivity extends AppCompatActivity {
     private Spinner options;
     private ArrayAdapter optAdapter;
     private ArrayList<String> quesProfCat;
+    private String chosenopt;
+    private boolean quest;
+    private boolean prof;
 
 
     @Override
@@ -48,26 +51,46 @@ public class DeleteActivity extends AppCompatActivity {
         options.setAdapter(optAdapter);
 
         db = new DbHelper(this);
-        cursor = db.getCreatedQuestions();
 
-        allStrings = new ArrayList<>();
-        allints = new ArrayList<>();
+        options.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if(optAdapter.getItem(position).equals("Questions")) {
+                    cursor = db.getCreatedQuestions();
+                    quest = true;
+                    prof = false;
+                }else if(optAdapter.getItem(position).equals("Profiles")){
+                    cursor = db.getCreatedProfiles();
+                    prof = true;
+                    quest = false;
+                }else{
+                    Toast.makeText(getApplicationContext(), "No items to display", Toast.LENGTH_SHORT).show();
+                }
 
-        //istället för en cursoradapter använder vi en vanlig adapter, då dettta är mindre kod och fungerar.
-        for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-            allints.add(cursor.getInt(0));
-            allStrings.add(cursor.getString(1));
-        }
+                allStrings = new ArrayList<>();
+                allints = new ArrayList<>();
 
-        if(allStrings.size()>0) // check if list contains items.
-        {
-            arrayAdapterQuest = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,allStrings);
-            arrayAdapterQuestID = new ArrayAdapter<Integer>(this,android.R.layout.simple_list_item_1,allints);
-            list.setAdapter(arrayAdapterQuest);
-        }else{
-            Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
-        }
+                //istället för en cursoradapter använder vi en vanlig adapter, då dettta är mindre kod och fungerar.
+                for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                    allints.add(cursor.getInt(0));
+                    allStrings.add(cursor.getString(1));
+                }
 
+                if(allStrings.size()>0) // check if list contains items.
+                {
+                    arrayAdapterStrings = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,allStrings);
+                    arrayAdapterID = new ArrayAdapter<Integer>(getApplicationContext(),android.R.layout.simple_list_item_1,allints);
+                    list.setAdapter(arrayAdapterStrings);
+                }else{
+                    Toast.makeText(getApplicationContext(), "No items to display", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
         list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -90,11 +113,20 @@ public class DeleteActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
 
-                        Log.d("ta bort", "tog bort" + arrayAdapterQuestID.getItem(position));
+                        if(quest) {
+                            Log.d("ta bort", "tog bort" + arrayAdapterID.getItem(position));
+                            db.deleteCreatedQuestion(arrayAdapterID.getItem(position));
+                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                            prof = false;
+                            quest = false;
 
-                        db.deleteCreatedQuestion(arrayAdapterQuestID.getItem(position));
-                        arrayAdapterQuest.remove(arrayAdapterQuest.getItem(position));
-                        arrayAdapterQuest.notifyDataSetChanged();
+                        }else if(prof){
+                            Log.d("ta bort", "tog bort" + arrayAdapterID.getItem(position));
+                            db.deleteCreatedProfiles(arrayAdapterID.getItem(position));
+                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                            quest = false;
+                            prof = false;
+                        }
 
                         dialog.dismiss();
                     }
@@ -113,5 +145,4 @@ public class DeleteActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }

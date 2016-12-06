@@ -249,6 +249,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
+    public void deleteCreatedProfiles(int id){
+        dbaseWrite = getReadableDatabase();
+        dbaseWrite.delete(TABLE_PROFILE, KEY_ID+"=?", new String[]{""+id});
+
+    }
+
     public List<Profile> getAllProfiles() {
         List<Profile> profList = new ArrayList<Profile>();
         // Select All Query

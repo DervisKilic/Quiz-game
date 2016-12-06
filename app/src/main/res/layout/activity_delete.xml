@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
             android:background="@drawable/standardcustombutton"
-            android:onClick="back"
+            android:onClick="goToMenu"
             android:text="@string/back_btn"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
