@@ -29,6 +29,7 @@ public class DeleteActivity extends AppCompatActivity {
     private ArrayList<String> quesProfCat;
     private boolean quest;
     private boolean prof;
+    private boolean cat;
 
 
     @Override
@@ -58,9 +59,16 @@ public class DeleteActivity extends AppCompatActivity {
                     cursor = db.getCreatedQuestions();
                     quest = true;
                     prof = false;
+                    cat = false;
                 }else if(optAdapter.getItem(position).equals("Profiles")){
                     cursor = db.getCreatedProfiles();
                     prof = true;
+                    quest = false;
+                    cat = false;
+                }else if(optAdapter.getItem(position).equals("Categories")){
+                    cursor = db.getCreatedCategories();
+                    cat = true;
+                    prof = false;
                     quest = false;
                 }else{
                     Toast.makeText(getApplicationContext(), "No items to display", Toast.LENGTH_SHORT).show();
@@ -128,6 +136,11 @@ public class DeleteActivity extends AppCompatActivity {
                             quest = false;
                             arrayAdapterID.notifyDataSetChanged();
 
+                        }else if(cat){
+                            db.deleteCreatedCategory(arrayAdapterStrings.getItem(position));
+                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                            quest = false;
+                            arrayAdapterID.notifyDataSetChanged();
                         }
 
                         dialog.dismiss();

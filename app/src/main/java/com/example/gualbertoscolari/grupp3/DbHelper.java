@@ -240,6 +240,22 @@ public class DbHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getCreatedCategories() {
+        dbaseRead = getReadableDatabase();
+        Cursor cursor = dbaseRead.query(true, TABLE_CATEGORY, null, KEY_ID + ">?", new String[]{"6"}, null, null, null, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Profile prof = new Profile();
+                prof.setID(cursor.getInt(0));
+                prof.setName(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+        // return quest list
+        return cursor;
+    }
+
 
     public void deleteCreatedQuestion(int id){
         dbaseWrite = getReadableDatabase();
@@ -255,6 +271,12 @@ public class DbHelper extends SQLiteOpenHelper {
         dbaseWrite = getReadableDatabase();
         dbaseWrite.delete(TABLE_HIGHSCORE , KEY_HSNAME+"=?", new String[]{name});
         Log.d("Hejcategory", "tog bort: " + name);
+    }
+
+    public void deleteCreatedCategory(String cat){
+        dbaseWrite = getReadableDatabase();
+        dbaseWrite.delete(TABLE_CATEGORY , KEY_CAT+"=?", new String[]{cat});
+        Log.d("Hejcategory", "tog bort: " + cat);
     }
 
     public List<Profile> getAllProfiles() {
