@@ -3,11 +3,14 @@ package com.example.gualbertoscolari.grupp3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Timer;
 
 //Skriver ut resultatet. Har 3 knappar.
 //Uppdaterar highscore listan.
@@ -28,6 +31,9 @@ public class ResultActivity extends AppCompatActivity {
     private String chosenCategory;
     //private int correctNrAnsweredP1;
     //private int correctNrAnsweredP2;
+
+    private Timer timer = new Timer();
+    private int timePlayed = 0;
 
     private TextView category;
     private TextView player1;
@@ -67,6 +73,12 @@ public class ResultActivity extends AppCompatActivity {
         player2.setText(p2Name);
         scorep2.setText(P2Score);
         category.setText(chosenCategory);
+
+        Log.d("Players nr: ", players);
+        Log.d("aaa", player1.getText().toString());
+        Log.d("player 1: ", p1Name);
+        Log.d("Player 2: ", p2Name);
+
 
         if (players.equals("1")) {
 
@@ -140,6 +152,8 @@ public class ResultActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     public void goToMenu(View view) {
         Intent menu = new Intent(this, MenuActivity.class);

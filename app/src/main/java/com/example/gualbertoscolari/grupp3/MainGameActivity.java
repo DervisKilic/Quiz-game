@@ -259,15 +259,13 @@ public class MainGameActivity extends AppCompatActivity {
         intent.putExtra(CATEGORY, chosenCat);
         intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
 
-        if (numberOfPlayers == 1){
             intent.putExtra(FIRSTPROFILE, p1.getName());
             intent.putExtra(SCOREPLAYER1, String.valueOf(p1.getScore()));
             updateHighscore(p1);
 
-        } else if (numberOfPlayers == 2){
+        if (numberOfPlayers == 2){
             intent.putExtra(SECONDPROFILE, p2.getName());
             intent.putExtra(SCOREPLAYER2, String.valueOf(p2.getScore()));
-            updateHighscore(p1);
             updateHighscore(p2);
         }
         startActivity(intent);
@@ -434,12 +432,6 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
-    public void updateHighscore2(Profile profile1, Profile profile2){
-        DbHelper db = new DbHelper(this);
-        db.updateHighScore(profile1, chosenCat);
-        db.updateHighScore(profile2, chosenCat);
-
-    }
 
     @Override
     public void onBackPressed() {
