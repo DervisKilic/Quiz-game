@@ -27,12 +27,10 @@ public class HighscoreActivity extends AppCompatActivity {
     private List<String> allHighscores;
     private DbHelper db;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
-
 
         db = new DbHelper(this);
         category = db.getAllCatagories();
@@ -63,7 +61,6 @@ public class HighscoreActivity extends AppCompatActivity {
 
                 displayCategoriesInSpinner();
                 db.close();
-
             }
 
             @Override

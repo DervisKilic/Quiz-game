@@ -98,14 +98,12 @@ public class DbHelper extends SQLiteOpenHelper {
         Log.d("highscores", "Table created");
 
         dbase.execSQL(sqlHighScores);
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase dbase, int oldVersion, int newVersion) {
         dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE + TABLE_HIGHSCORE);
         onCreate(dbase);
-
     }
 
     public void addQuestion(Question q) {
@@ -376,7 +374,6 @@ public class DbHelper extends SQLiteOpenHelper {
                 catList.add(cursor.getString(1));
             } while (cursor.moveToNext());
         }
-
         cursor.close();
         return catList;
     }

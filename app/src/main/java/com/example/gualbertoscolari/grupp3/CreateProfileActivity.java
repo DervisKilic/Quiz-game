@@ -29,7 +29,6 @@ public class CreateProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_profile);
     }
 
-
     public void saveProfile(View view) {
 
         inputName = (EditText) findViewById(R.id.profile_name);

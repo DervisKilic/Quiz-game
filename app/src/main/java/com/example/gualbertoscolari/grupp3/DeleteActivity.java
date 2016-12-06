@@ -27,7 +27,6 @@ public class DeleteActivity extends AppCompatActivity {
     private Spinner options;
     private ArrayAdapter optAdapter;
     private ArrayList<String> quesProfCat;
-    private String chosenopt;
     private boolean quest;
     private boolean prof;
 

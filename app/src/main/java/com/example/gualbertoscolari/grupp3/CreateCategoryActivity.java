@@ -21,8 +21,6 @@ public class CreateCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_category);
-
-
     }
 
     public void goToGameSettings(View v){
@@ -47,13 +45,11 @@ public class CreateCategoryActivity extends AppCompatActivity {
             db.addCategorys(cat);
             db.addPlaceholderHSCategory(cat);
             db.close();
-
         }
     }
 
     public String getCategory() {
         return cat;
-
     }
 }
 

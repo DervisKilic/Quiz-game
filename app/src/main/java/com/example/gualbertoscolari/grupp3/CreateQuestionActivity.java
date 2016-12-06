@@ -95,7 +95,6 @@ public class CreateQuestionActivity extends AppCompatActivity {
             db.addQuestion(q);
             db.close();
         }
-
     }
 
     public void backToMain(View view){

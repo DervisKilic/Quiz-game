@@ -17,14 +17,12 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.general_toolbar, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -35,12 +33,9 @@ public class AboutActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 return true;
-
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 
     public void back(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
