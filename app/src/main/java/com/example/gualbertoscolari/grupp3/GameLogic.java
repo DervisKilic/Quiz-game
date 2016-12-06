@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 //Standard frågor profiler och kategorier ska skapas upp i Gamelogic vid anrop och skickar en lista
@@ -16,29 +17,122 @@ public class GameLogic extends MainGameActivity {
     private DbHelper db;
     private String category;
     private List<Question> tenQuestions;
+    private Profile p1;
+    private Profile p2;
+    private Profile currentPlayer;
+    private int numberOfAnsweredQ = 0;
+    private int numberOfPlayers;
 
-    public GameLogic(String category, Context context) {
+    public GameLogic(String profile, String category, int players, Context context) {
 
+        p1 = new Profile(profile, 0);
+        numberOfPlayers = players;
         this.category = category;
         db = new DbHelper(context);
-        tenQuestions = db.getAllQuestions(category);
+        getQuestions();
+        currentPlayer = p1;
+        db.close();
+    }
+
+    public GameLogic(String profile1, String profile2, String category, int players,  Context context) {
+
+        p1 = new Profile(profile1, 0);
+        p2 = new Profile(profile2, 0);
+        numberOfPlayers = players;
+        currentPlayer = p1;
+        this.category = category;
+        db = new DbHelper(context);
+        getQuestions();
         db.close();
     }
 
 
-    public List<Question> getQuestions() {
-        return tenQuestions;
-    }
 
-    public boolean checkCorrectAnswer(String option, String answer){
+    public void getQuestions() {
 
-        if(option.endsWith(answer)){
-            return true;
-        } else {
-            return false;
+        tenQuestions = db.getAllQuestions(category);
+
+        List<String> answerList = new ArrayList<>();
+
+
+        Collections.shuffle(answerList);
+
+        for (int i = 0; i < 10; i++) {
+
+            Question temp = tenQuestions.get(i);
+            answerList.add(temp.getOPTA());
+            answerList.add(temp.getOPTB());
+            answerList.add(temp.getOPTC());
+            answerList.add(temp.getOPTD());
+
+            tenQuestions.get(i).setOPTA(answerList.get(0));
+            tenQuestions.get(i).setOPTB(answerList.get(1));
+            tenQuestions.get(i).setOPTC(answerList.get(2));
+            tenQuestions.get(i).setOPTD(answerList.get(3));
+
+            answerList.clear();
         }
 
     }
+
+    public boolean checkCorrectAnswer(String option){
+        Boolean bool;
+
+
+        if(option.equals(tenQuestions.get(numberOfAnsweredQ).getANSWER())){
+            bool = true;
+            return bool;
+
+        } else {
+            bool = false;
+            return bool;
+        }
+
+
+
+    }
+
+    public Question getQuestion(){
+        return tenQuestions.get(numberOfAnsweredQ);
+    }
+
+    public void increaseScore(int score){
+        currentPlayer.setScore(currentPlayer.getScore() + score);
+    }
+
+    public void changePlayer(){
+
+        if (currentPlayer == p1 && numberOfPlayers == 2) {
+            currentPlayer = p2;
+        } else {
+            currentPlayer = p1;
+        }
+    }
+
+    public int getNumberOfAnsweredQ(){
+        return numberOfAnsweredQ;
+    }
+
+    public void increaseNrOfAnsweredQuestion(){
+        if (numberOfPlayers == 2 && currentPlayer == p1){
+
+        } else {
+            numberOfAnsweredQ++;
+        }
+    }
+
+    public Profile getCurrentPlayer(){
+        return currentPlayer;
+    }
+
+    public Profile getP1(){
+        return p1;
+    }
+    public Profile getP2(){
+        return p2;
+    }
+
+
 
 
 /*

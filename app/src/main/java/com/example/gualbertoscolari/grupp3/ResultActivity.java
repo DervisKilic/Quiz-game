@@ -68,10 +68,7 @@ public class ResultActivity extends AppCompatActivity {
         scorep2.setText(P2Score);
         category.setText(chosenCategory);
 
-        Log.d("Players nr: ", players);
-        Log.d("aaa", player1.getText().toString());
-        Log.d("player 1: ", p1Name);
-        Log.d("Player 2: ", p2Name);
+
 
 
         if (players.equals("1")) {
