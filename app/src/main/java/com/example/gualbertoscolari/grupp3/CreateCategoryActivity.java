@@ -38,7 +38,9 @@ public class CreateCategoryActivity extends AppCompatActivity {
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
 
-        } else {
+        } else if(!db.checkIfCatExists(cat)) {
+            Toast.makeText(this, "Category already exists!", Toast.LENGTH_SHORT).show();
+        }else {
             Toast.makeText(this, "You added a new category", Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));

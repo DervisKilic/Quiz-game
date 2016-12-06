@@ -135,7 +135,33 @@ public class DbHelper extends SQLiteOpenHelper {
         dbaseWrite.close();
     }
 
+    public boolean checkIfNameExists(String profile){
+        dbaseRead = getReadableDatabase();
 
+        Cursor cursor = dbaseRead.query(true, TABLE_PROFILE, null, KEY_NAME + "=?", new String[]{profile}, null, null, null, null);
+        cursor.moveToFirst();
+        if (cursor.isNull(1)){
+            return true;
+        }else{
+            return false;
+        }
+
+
+
+    }
+
+    public boolean checkIfCatExists(String category){
+        dbaseRead = getReadableDatabase();
+
+        Cursor cursor = dbaseRead.query(true, TABLE_CATEGORY, null, KEY_CATEGORY + "=?", new String[]{category}, null, null, null, null);
+        cursor.moveToFirst();
+        if (cursor.isNull(1)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
     public void addPlaceholderHSCategory(String cat) {
         dbaseWrite = getWritableDatabase();

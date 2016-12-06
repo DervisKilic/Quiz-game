@@ -42,7 +42,9 @@ public class CreateProfileActivity extends AppCompatActivity {
             inputName.setText("");
             inputName.setHint(this.getString(R.string.create_profile));
 
-        } else {
+        } else if(!db.checkIfNameExists(name)) {
+            Toast.makeText(this, "Username already exists!", Toast.LENGTH_SHORT).show();
+        }else {
             Toast.makeText(this, "You added a new profile", Toast.LENGTH_SHORT).show();
             inputName.setText("");
             inputName.setHint(this.getString(R.string.create_profile));
