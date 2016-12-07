@@ -37,6 +37,9 @@ public class AboutActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+    takes the player back to main menu.
+     */
     public void back(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);

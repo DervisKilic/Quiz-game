@@ -18,10 +18,8 @@ import java.util.List;
 
 public class CreateQuestionActivity extends AppCompatActivity {
 
-    List<String> category = new ArrayList<>();
-    ArrayAdapter<String> chosenCategory;
-
-    private int ID;
+    private List<String> category = new ArrayList<>();
+    private ArrayAdapter<String> chosenCategory;
 
     private EditText inputQuestion;
     private EditText inputOptb;
@@ -44,6 +42,9 @@ public class CreateQuestionActivity extends AppCompatActivity {
 
     }
 
+    /*
+        adds the input questions if conditions are met.
+     */
     public void saveQuestion(View v){
         inputQuestion = (EditText) findViewById(R.id.question_tv);
         String question = inputQuestion.getText().toString();
@@ -97,6 +98,9 @@ public class CreateQuestionActivity extends AppCompatActivity {
         }
     }
 
+    /*
+    takes the player back to game settings
+     */
     public void backToMain(View view){
         Intent GameStettingsActivity = new Intent(this, GameSettingsActivity.class);
         startActivity(GameStettingsActivity);

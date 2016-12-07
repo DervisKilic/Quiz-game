@@ -16,12 +16,6 @@ public class CreateProfileActivity extends AppCompatActivity {
     private EditText inputName;
     private EditText profileName;
     private String name;
-    private ImageView avatar1;
-    private ImageView avatar2;
-    private ImageView avatar3;
-    private ImageView avatar4;
-    private ImageView avatar5;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +23,10 @@ public class CreateProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_profile);
     }
 
+    /*
+        adds the input profile if conditions are met.
+
+     */
     public void saveProfile(View view) {
 
         inputName = (EditText) findViewById(R.id.profile_name);
@@ -54,9 +52,10 @@ public class CreateProfileActivity extends AppCompatActivity {
         db.close();
     }
 
+    /*
+    takes the player back to game settings
+     */
     public void goToGameSettings(View view) {
-        profileName = (EditText) findViewById(R.id.profile_name);
-        name = profileName.getText().toString();
 
         Intent playAgainIntent = new Intent(this, GameSettingsActivity.class);
         startActivity(playAgainIntent);
