@@ -38,12 +38,11 @@ public class CreateQuestionActivity extends AppCompatActivity {
         Spinner dropdownCategory = (Spinner) findViewById(R.id.spinner_create_question);
         chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
-
-
     }
 
-    /*
-        adds the input questions if conditions are met.
+    /**
+     *
+     * @param v         adds the input questions if conditions are met.
      */
     public void saveQuestion(View v){
         inputQuestion = (EditText) findViewById(R.id.question_tv);
@@ -98,8 +97,9 @@ public class CreateQuestionActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    takes the player back to game settings
+    /**
+     *
+     * @param view     takes the player back to game settings
      */
     public void backToMain(View view){
         Intent GameStettingsActivity = new Intent(this, GameSettingsActivity.class);

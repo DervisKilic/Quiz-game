@@ -23,16 +23,18 @@ public class CreateCategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_category);
     }
 
-    /*
-    takes the player back to game settings
+    /**
+     *
+     * @param v takes the player back to game settings
      */
     public void goToGameSettings(View v){
         Intent gameSettings = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettings);
     }
 
-    /*
-    adds the input category if conditions are met.
+    /**
+     *
+     * @param v  adds the input category if conditions are met.
      */
     public void addCategory(View v){
         DbHelper db = new DbHelper(getApplicationContext());
@@ -56,8 +58,9 @@ public class CreateCategoryActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    returns category
+    /**
+     *
+     * @return returns category
      */
     public String getCategory() {
         return cat;

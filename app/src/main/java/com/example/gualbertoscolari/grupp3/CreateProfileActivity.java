@@ -23,9 +23,9 @@ public class CreateProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_profile);
     }
 
-    /*
-        adds the input profile if conditions are met.
-
+    /**
+     *
+     * @param view         adds the input profile if conditions are met.
      */
     public void saveProfile(View view) {
 
