@@ -47,6 +47,20 @@
 
         </GridView>
 
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/grid_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom"
+
+        >
+
         <Button
             android:text="@string/back_btn"
             android:layout_width="wrap_content"
@@ -59,7 +73,9 @@
             android:shadowColor="#FFEAE6"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:shadowRadius="5"
+
+            />
 
     </LinearLayout>
 

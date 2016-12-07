@@ -1,28 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/pop_up"
-    android:orientation="vertical"
+<RelativeLayout android:id="@+id/pop_up"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="10sp"
-    android:background="#B2DFDB">
+    android:background="#B2DFDB"
+    android:padding="10sp">
 
     <TextView
         android:id="@+id/popup_text"
-        android:layout_marginTop="5sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:text="@string/next_player_tv"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:text="@string/next_player_tv"/>
+        android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/close_popup"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textAllCaps="false"
-        android:text="@string/go_btn"
-        android:onClick="closePopup"/>
+        android:layout_below="@id/popup_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16sp">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/back_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="closePopup"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="@string/back_btn"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
