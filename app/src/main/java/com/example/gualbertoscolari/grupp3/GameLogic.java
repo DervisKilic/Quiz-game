@@ -1,6 +1,7 @@
 package com.example.gualbertoscolari.grupp3;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -98,14 +99,20 @@ public class GameLogic extends MainGameActivity {
 
     public void increaseScore(int score){
         currentPlayer.setScore(currentPlayer.getScore() + score);
+        Log.d("aaa", "" + currentPlayer.getScore());
     }
 
     public void changePlayer(){
 
         if (currentPlayer == p1 && numberOfPlayers == 2) {
+            p1 = currentPlayer;
             currentPlayer = p2;
-        } else {
+        }else if(currentPlayer == p2 && numberOfPlayers == 2){
+            p2 = currentPlayer;
             currentPlayer = p1;
+        }
+        else {
+            p1 = currentPlayer;
         }
     }
 

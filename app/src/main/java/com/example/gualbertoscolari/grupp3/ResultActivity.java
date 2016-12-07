@@ -142,17 +142,28 @@ public class ResultActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     *
+     * @param view takes the player to main menu
+     */
     public void goToMenu(View view) {
         Intent menu = new Intent(this, MenuActivity.class);
         startActivity(menu);
     }
 
+    /**
+     *
+     * @param view takes the player to high score
+     */
     public void goToHighScore(View view){
         Intent HighScore = new Intent(this, HighscoreActivity.class);
         startActivity(HighScore);
     }
 
+    /**
+     *
+     * @param view takes the player to game settings
+     */
     public void goToMainGame(View view){
         Intent gameSettings = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettings);

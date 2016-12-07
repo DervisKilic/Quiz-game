@@ -7,6 +7,9 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
+/**
+ * the intro screen
+ */
 public class SplashActivity extends Activity implements Animation.AnimationListener{
     private DbHelper db;
 

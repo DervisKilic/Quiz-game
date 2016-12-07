@@ -2,6 +2,9 @@ package com.example.gualbertoscolari.grupp3;
 
 //Innehåller alla standard frågor.
 
+/**
+ * Contains all standard questions
+ */
 public class StandardQuestions {
 
         //Natur

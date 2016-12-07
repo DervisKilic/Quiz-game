@@ -33,11 +33,6 @@ public class Question{
         ANSWER = aNSWER;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-
     public String getQUESTION() {
         return QUESTION;
     }

@@ -1,6 +1,5 @@
 package com.example.gualbertoscolari.grupp3;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -235,7 +234,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
-        onButtonGuess(optABtn.getText().toString());
+        onButtonGuess(optBBtn.getText().toString());
 
     }
 
@@ -249,7 +248,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
-        onButtonGuess(optABtn.getText().toString());
+        onButtonGuess(optCBtn.getText().toString());
 
 
     }
@@ -264,7 +263,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
-        onButtonGuess(optABtn.getText().toString());
+        onButtonGuess(optDBtn.getText().toString());
 
     }
 
