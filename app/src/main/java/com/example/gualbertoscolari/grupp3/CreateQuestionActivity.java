@@ -9,8 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 import java.util.List;
 //Skapar upp en fråga med 4 alternativ och 1 rätt svar.
 //Man väljer även vilken kategori frågan skall läggas til i som hämtas från databasen.
@@ -18,25 +16,14 @@ import java.util.List;
 
 public class CreateQuestionActivity extends AppCompatActivity {
 
-    private List<String> category = new ArrayList<>();
-    private ArrayAdapter<String> chosenCategory;
-
-    private EditText inputQuestion;
-    private EditText inputOptb;
-    private EditText inputOptc;
-    private EditText inputOptd;
-    private EditText inputcorrectAnswer;
-    private Spinner chosenCat;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_question);
         DbHelper db = new DbHelper(this);
-        category = db.getAllCatagories();
+        List<String> category = db.getAllCatagories();
         Spinner dropdownCategory = (Spinner) findViewById(R.id.spinner_create_question);
-        chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
+        ArrayAdapter<String> chosenCategory = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
     }
 
@@ -45,22 +32,22 @@ public class CreateQuestionActivity extends AppCompatActivity {
      * @param v         adds the input questions if conditions are met.
      */
     public void saveQuestion(View v){
-        inputQuestion = (EditText) findViewById(R.id.question_tv);
+        EditText inputQuestion = (EditText) findViewById(R.id.question_tv);
         String question = inputQuestion.getText().toString();
 
-        inputcorrectAnswer = (EditText) findViewById(R.id.opt_a);
+        EditText inputcorrectAnswer = (EditText) findViewById(R.id.opt_a);
         String correctAnswer = inputcorrectAnswer.getText().toString();
 
-        inputOptb = (EditText) findViewById(R.id.opt_b);
+        EditText inputOptb = (EditText) findViewById(R.id.opt_b);
         String optb = inputOptb.getText().toString();
 
-        inputOptc = (EditText) findViewById(R.id.opt_c);
+        EditText inputOptc = (EditText) findViewById(R.id.opt_c);
         String optc = inputOptc.getText().toString();
 
-        inputOptd = (EditText) findViewById(R.id.opt_d);
+        EditText inputOptd = (EditText) findViewById(R.id.opt_d);
         String optd = inputOptd.getText().toString();
 
-        chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
+        Spinner chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
         String cat = chosenCat.getSelectedItem().toString();
 
         if (!question.matches(("^[a-zåäöA-ZÅÄÖ ]{3,150}$"))){

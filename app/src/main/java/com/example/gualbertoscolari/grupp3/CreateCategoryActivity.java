@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class CreateCategoryActivity extends AppCompatActivity {
 
-    private EditText category;
     private String cat;
 
     @Override
@@ -38,7 +37,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
      */
     public void addCategory(View v){
         DbHelper db = new DbHelper(getApplicationContext());
-        category = (EditText) findViewById(R.id.categorie_name);
+        EditText category = (EditText) findViewById(R.id.categorie_name);
         cat = category.getText().toString();
 
         if(!cat.matches("^[a-zåäöA-ZÅÄÖ]{3,12}$")){

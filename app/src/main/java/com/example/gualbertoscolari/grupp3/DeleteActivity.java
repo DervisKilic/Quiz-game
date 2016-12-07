@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class DeleteActivity extends AppCompatActivity {
 
     private ArrayAdapter<String> arrayAdapterStrings;
-    private ArrayAdapter<Integer> arrayAdapterID;
     private Cursor cursor;
     private DbHelper db;
     private ListView list;

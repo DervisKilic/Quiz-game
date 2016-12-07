@@ -25,7 +25,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String TABLE_CATEGORY = "categorys";
 
     // tasks Table Columns names for questions
-    public static final String KEY_ID = "_id";
+    private static final String KEY_ID = "_id";
     private static final String KEY_QUEST = "question";
     private static final String KEY_OPTA = "opta";
     private static final String KEY_OPTB = "optb";
@@ -223,7 +223,6 @@ public class DbHelper extends SQLiteOpenHelper {
     /**
      *
      * @param category         adds new category data to category table database
-
      */
     public void addCategorys(String category) {
         dbaseWrite = getWritableDatabase();
