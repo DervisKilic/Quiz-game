@@ -56,7 +56,7 @@ public class GameLogic extends MainGameActivity {
         List<String> answerList = new ArrayList<>();
 
 
-        Collections.shuffle(answerList);
+
 
         for (int i = 0; i < 10; i++) {
 
@@ -65,6 +65,8 @@ public class GameLogic extends MainGameActivity {
             answerList.add(temp.getOPTB());
             answerList.add(temp.getOPTC());
             answerList.add(temp.getOPTD());
+
+            Collections.shuffle(answerList);
 
             tenQuestions.get(i).setOPTA(answerList.get(0));
             tenQuestions.get(i).setOPTB(answerList.get(1));
@@ -99,7 +101,7 @@ public class GameLogic extends MainGameActivity {
 
     public void increaseScore(int score){
         currentPlayer.setScore(currentPlayer.getScore() + score);
-        Log.d("aaa", "" + currentPlayer.getScore());
+        Log.d("current player score ", "" + currentPlayer.getScore());
     }
 
     public void changePlayer(){

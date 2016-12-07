@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,6 +44,8 @@ public class MainGameActivity extends AppCompatActivity {
     private GameLogic g1;
     private TextView qAnswered;
 
+    private boolean backpressed = false;
+
 
     private ImageView questionFrame;
     private TextView playerName;
@@ -75,11 +78,17 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         progressbar.setProgress(0);
+        if(backpressed){
+            finish();
+        }
 
     }
 
     @Override
     protected void onResume() {
+        if (backpressed){
+            finish();
+        }
         super.onResume();
         progressbar.setProgress(0);
         if (PopUp.startG) {
@@ -124,6 +133,7 @@ public class MainGameActivity extends AppCompatActivity {
         loadQuestionFrame();
         startActivity(new Intent(this, PopUp.class));
 
+
     }
 
     public void onButtonGuess(String optString) {
@@ -131,10 +141,11 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
 
+        Log.d("Nummer av frågs", "" + g1.getNumberOfAnsweredQ());
+
         if (g1.checkCorrectAnswer(optString)) {
             //Ifall man svarar rätt händer detta
             g1.increaseScore(scoreValue);
-
         }
             g1.increaseNrOfAnsweredQuestion();
             g1.changePlayer();
@@ -148,18 +159,17 @@ public class MainGameActivity extends AppCompatActivity {
                     finish();
                 }
             }, 1000); // 1000 milliseconds = 1 second
-
         }
-
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (numberOfPlayers == 2) {
+                    if (backpressed) {       //If the backbutton is pressed (true) then we want to
+                        return;              // end the loop between timer and guesbutton methods.
+                    } else if (numberOfPlayers == 2) {
                         resetQuestion();
                         AlertDialog diabox = AskOption();
                         diabox.show();
-
-                    } else {
+                    }else {
                         displayQuestion();
                         resetTimer();
                     }
@@ -184,6 +194,7 @@ public class MainGameActivity extends AppCompatActivity {
                         progressbar.setProgress(0);
                         timerTV.setText("0");
                         onButtonGuess("");
+                        Log.d("I timer, on finished", "Hej");
                     }
                 }.start();
 
@@ -338,7 +349,9 @@ public class MainGameActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this, GameSettingsActivity.class);
         startActivity(intent);
+        timer.cancel();
         finish();
+
     }
 
     private AlertDialog AskOption() {
@@ -387,9 +400,5 @@ public class MainGameActivity extends AppCompatActivity {
                 setRound();
             }
         }, 1000);// 1000 milliseconds = 1 second
-
-
     }
-
-
 }
