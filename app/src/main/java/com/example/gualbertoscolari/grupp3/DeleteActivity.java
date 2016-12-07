@@ -1,11 +1,13 @@
 package com.example.gualbertoscolari.grupp3;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
 
-public class DeleteActivity extends AppCompatActivity {
+public class DeleteActivity extends Activity {
 
     private ArrayAdapter<String> arrayAdapterStrings;
     private Cursor cursor;
@@ -35,6 +37,9 @@ public class DeleteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
+
+
+
 
         list = (ListView) findViewById(R.id.question_list);
         options = (Spinner) findViewById(R.id.option_spinner);

@@ -9,12 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What do you want to delete?"
+            android:text="@string/what_to_delete_tv"
             android:textSize="22sp" />
 
         <Spinner
@@ -44,23 +45,50 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/option"
         android:layout_alignParentBottom="true"
-        android:gravity="center">
+        android:gravity="bottom">
 
-        <Button
-            android:id="@+id/back_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:background="@drawable/standardcustombutton"
-            android:onClick="goToMenu"
-            android:text="@string/back_btn"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="bottom"
-            />
+
+
+            <Button
+                android:id="@+id/add_question_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                android:background="@drawable/standardcustombutton"
+                android:onClick="gotToDeleteQuestion"
+                android:text="@string/add_question"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/delete_question_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                android:background="@drawable/standardcustombutton"
+                android:onClick="gotToDeleteQuestion"
+                android:text="@string/delete_question_btn"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/add_category_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                android:background="@drawable/standardcustombutton"
+                android:onClick="gotToDeleteQuestion"
+                android:text="@string/add_category_btn"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+
+
 
     </LinearLayout>
 

@@ -117,6 +117,10 @@ public class GameSettingsActivity extends AppCompatActivity {
         finish();
     }
 
+    public void goToManageContent(View view) {
+        startActivity(new Intent(this, ManageContentActivity.class));
+    }
+
 
     public void goToCreateQuestion(View view) {
         Intent createQuestionIntent = new Intent(this, CreateQuestionActivity.class);
@@ -235,4 +239,5 @@ public class GameSettingsActivity extends AppCompatActivity {
             }
         });
     }
+
 }

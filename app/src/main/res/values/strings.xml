@@ -54,5 +54,6 @@
     <string name="play_again_btn">Play Again</string>
     <string name="next_player_tv">Next player!</string>
     <string name="go_btn">Go!</string>
+    <string name="what_to_delete_tv">What do you want to delete?</string>
 
 </resources>

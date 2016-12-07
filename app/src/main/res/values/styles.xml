@@ -23,8 +23,14 @@
         <item name="android:layout_width">50dp</item>
     </style>
 
-    <style name="AppTheme.PopUpBackgroundTheme">
+    <style name="AppTheme.TransparentBackgroundTheme">
         <item name="android:windowIsTranslucent">true</item>
+
+    </style>
+
+    <style name="noAnimTheme" parent="android:Theme">
+        <item name="android:windowAnimationStyle">@null</item>
+
 
     </style>
 

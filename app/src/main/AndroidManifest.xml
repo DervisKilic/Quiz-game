@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ResultActivity" />
         <activity android:name=".HighscoreActivity" />
         <activity android:name=".MainGameActivity" />
         <activity android:name=".GameSettingsActivity" />
@@ -28,8 +28,14 @@
         <activity android:name=".MenuActivity" />
         <activity
             android:name=".PopUp"
-            android:theme="@style/AppTheme.PopUpBackgroundTheme" />
-        <activity android:name=".DeleteActivity"></activity>
+            android:theme="@style/AppTheme.TransparentBackgroundTheme" />
+
+        <activity android:name=".DeleteActivity"
+
+            />
+
+
+        <activity android:name=".ManageContentActivity"></activity>
     </application>
 
 </manifest>
