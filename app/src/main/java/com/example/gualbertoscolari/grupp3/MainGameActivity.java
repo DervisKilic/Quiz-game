@@ -136,19 +136,20 @@ public class MainGameActivity extends AppCompatActivity {
             g1.increaseScore(scoreValue);
 
         }
+            g1.increaseNrOfAnsweredQuestion();
+            g1.changePlayer();
 
-        if (g1.getNumberOfAnsweredQ() == 2) {
+        if (g1.getNumberOfAnsweredQ() == 3) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     goToResult();
+                    finish();
                 }
             }, 1000); // 1000 milliseconds = 1 second
 
-        } else {
-            g1.increaseNrOfAnsweredQuestion();
-            g1.changePlayer();
+        }
 
             handler.postDelayed(new Runnable() {
                 @Override
@@ -165,8 +166,6 @@ public class MainGameActivity extends AppCompatActivity {
                 }
             }, 1000); // 1000 milliseconds = 1 second
         }
-
-    }
 
     public void resetTimer() {
         handler.postDelayed(new Runnable() {
@@ -206,6 +205,7 @@ public class MainGameActivity extends AppCompatActivity {
             intent.putExtra(SECONDPROFILE, g1.getP2().getName());
             intent.putExtra(SCOREPLAYER2, String.valueOf(g1.getP2().getScore()));
             updateHighscore(g1.getP2());
+            updateHighscore(g1.getP1());
         }
         startActivity(intent);
         finish();
@@ -286,11 +286,11 @@ public class MainGameActivity extends AppCompatActivity {
 
         switch (chosenCat) {
             case "Sport":
-                questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.bb1));
+                questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.sportruta));
                 break;
 
             case "Samhälle":
-                questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.bb1));
+                questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.samhallruta));
                 break;
 
             case "Kultur/Nöje":
