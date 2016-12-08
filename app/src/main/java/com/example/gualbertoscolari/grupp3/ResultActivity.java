@@ -73,6 +73,11 @@ public class ResultActivity extends AppCompatActivity {
         Log.d("Result time played", ""+currentTime);
        // playedTime = playedTime / 100;
 
+        if(players.equals("1")){
+            scorep2.setVisibility(View.GONE);
+            player2.setVisibility(View.GONE);
+            timePlayed2.setVisibility(View.GONE);
+        }
         player1.setText(p1Name);
         scorep1.setText("Poäng: " + P1Score);
         player2.setText(p2Name);
