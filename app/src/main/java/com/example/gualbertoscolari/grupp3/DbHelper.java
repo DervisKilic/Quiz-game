@@ -155,7 +155,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         Cursor cursor = dbaseRead.query(true, TABLE_PROFILE, null, KEY_NAME + "=?", new String[]{profile}, null, null, null, null);
         cursor.moveToFirst();
-        if (cursor.isNull(1)){
+        if (cursor.getCount() == 0){
             return true;
         }else{
             return false;
@@ -172,7 +172,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         Cursor cursor = dbaseRead.query(true, TABLE_CATEGORY, null, KEY_CATEGORY + "=?", new String[]{category}, null, null, null, null);
         cursor.moveToFirst();
-        if (cursor.isNull(1)){
+        if (cursor.getCount() == 0){
             return true;
         }else{
             return false;
@@ -513,5 +513,11 @@ public class DbHelper extends SQLiteOpenHelper {
     public void deleteFromHighscore(int id){
         dbaseWrite = getWritableDatabase();
         dbaseWrite.delete(TABLE_HIGHSCORE, KEY_ID + "=?", new String[]{""+id});
+    }
+
+    public void addQFromTxtFile(){
+        dbaseWrite = getWritableDatabase();
+        String s = "insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik');";
+        dbaseWrite.execSQL(s);
     }
 }
