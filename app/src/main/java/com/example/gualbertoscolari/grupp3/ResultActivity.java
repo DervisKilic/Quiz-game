@@ -16,14 +16,16 @@ import java.util.Timer;
 //Uppdaterar highscore listan.
 public class ResultActivity extends AppCompatActivity {
 
-    private final String CATEGORY = "chosen category";
-    private final String SCOREPLAYER1 = "score of player 1";
-    private final String PLAYERS = "number of players";
-    private final String FIRSTPROFILE = "name of the player 1";
-    private final String SECONDPROFILE = "name of the player 2";
-    private final String SCOREPLAYER2 = "score of player 2";
-    private final String TIME_PLAYED_PLAYER1 = "time played of player 1";
-    private final String TIME_PLAYED_PLAYER2 = "time played of player 2";
+    public static final String CATEGORY = "chosen category";
+    public static final String SCORE_PLAYER1 = "score of player 1";
+    public static final String PLAYERS = "number of players";
+    public static final String FIRST_PROFILE = "name of the player 1";
+    public static final String SECOND_PROFILE = "name of the player 2";
+    public static final String SCORE_PLAYER2 = "score of player 2";
+    public static final String TIME_PLAYED_PLAYER1 = "time played of player 1";
+    public static final String TIME_PLAYED_PLAYER2 = "time played of player 2";
+    public static final String CORRECT_ANS_P1= "correct answers player 1";
+    public static final String CORRECT_ANS_P2= "correct answers player 2";
 
     private String p1Name;
     private String p2Name;
@@ -35,6 +37,8 @@ public class ResultActivity extends AppCompatActivity {
     private Timer timer = new Timer();
     private int currentTime;
     private int currentTime2;
+    private int correctAnsP1;
+    private int correctAnsP2;
 
     private TextView timePlayed;
     private TextView timePlayed2;
@@ -43,6 +47,8 @@ public class ResultActivity extends AppCompatActivity {
     private TextView scorep1;
     private TextView player2;
     private TextView scorep2;
+    private TextView correctAnsP1Tv;
+    private TextView correctAnsP2Tv;
     private ImageView img1;
     private ImageView img2;
 
@@ -60,16 +66,21 @@ public class ResultActivity extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.profile_img2);
         timePlayed = (TextView) findViewById(R.id.time_played);
         timePlayed2 = (TextView) findViewById(R.id.time_played2);
+        correctAnsP1Tv = (TextView) findViewById(R.id.correct_answers_P1);
+        correctAnsP2Tv = (TextView) findViewById(R.id.correct_answers_P2);
+
 
         Bundle extras = getIntent().getExtras();
         chosenCategory = extras.getString(CATEGORY);
-        P1Score = extras.getString(SCOREPLAYER1);
-        p1Name = extras.getString(FIRSTPROFILE);
+        P1Score = extras.getString(SCORE_PLAYER1);
+        p1Name = extras.getString(FIRST_PROFILE);
         players = extras.getString(PLAYERS);
-        p2Name = extras.getString(SECONDPROFILE);
-        P2Score = extras.getString(SCOREPLAYER2);
+        p2Name = extras.getString(SECOND_PROFILE);
+        P2Score = extras.getString(SCORE_PLAYER2);
         currentTime = extras.getInt(TIME_PLAYED_PLAYER1);
         currentTime2 = extras.getInt(TIME_PLAYED_PLAYER2);
+        correctAnsP1 = extras.getInt(CORRECT_ANS_P1);
+        correctAnsP2 = extras.getInt(CORRECT_ANS_P2);
         Log.d("Result time played", ""+currentTime);
        // playedTime = playedTime / 100;
 
@@ -77,12 +88,15 @@ public class ResultActivity extends AppCompatActivity {
             scorep2.setVisibility(View.GONE);
             player2.setVisibility(View.GONE);
             timePlayed2.setVisibility(View.GONE);
+            correctAnsP2Tv.setVisibility(View.GONE);
         }
         player1.setText(p1Name);
         scorep1.setText("Poäng: " + P1Score);
         player2.setText(p2Name);
         scorep2.setText("Poäng: " + P2Score);
         category.setText("Kategori: " + chosenCategory);
+        correctAnsP1Tv.setText("Rätta svar " + correctAnsP1);
+        correctAnsP2Tv.setText("Rätta svar " + correctAnsP2);
 
         timePlayed.setText(String.valueOf("Tid: " + currentTime + " sekunder"));
         timePlayed2.setText(String.valueOf("Tid: " +currentTime2 + " sekunder"));

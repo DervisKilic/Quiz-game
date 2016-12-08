@@ -15,6 +15,15 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P1;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P2;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.FIRST_PROFILE;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER1;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER2;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.SECOND_PROFILE;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER1;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER2;
+
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
 //
@@ -24,14 +33,13 @@ public class MainGameActivity extends AppCompatActivity {
     public final static String PLAYERS = "number of players";
     public final static String FIRSTPROFILE = "name of the player 1";
     public final static String SECONDPROFILE = "name of the player 2";
-    public final static String SCOREPLAYER1 = "score of player 1";
-    public final static String SCOREPLAYER2 = "score of player 2";
-    public final static String TIME_PLAYED_PLAYER1 = "time played of player 1";
-    public final static String TIME_PLAYED_PLAYER2 = "time played of player 2";
+
 
     private int numberOfPlayers;
     private String p1Name;
     private String p2Name;
+    private int correctAnsP1 = 0;
+    private int correctAnsP2 = 0;
 
     private GameLogic g1;
     private TextView qAnswered;
@@ -112,6 +120,12 @@ public class MainGameActivity extends AppCompatActivity {
         if (g1.checkCorrectAnswer(optString)) {
             //Ifall man svarar rätt händer detta
             g1.increaseScore(scoreValue);
+
+            if(g1.getCurrentPlayer() == g1.getP1()){
+                correctAnsP1++;
+            }else {
+                correctAnsP2++;
+            }
         }
 
         g1.increaseNrOfAnsweredQuestion();
@@ -184,14 +198,16 @@ public class MainGameActivity extends AppCompatActivity {
         intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
         intent.putExtra(TIME_PLAYED_PLAYER1, currentTime);
         Log.d("Main game", "time " + currentTime);
-        intent.putExtra(FIRSTPROFILE, g1.getP1().getName());
-        intent.putExtra(SCOREPLAYER1, String.valueOf(g1.getP1().getScore()));
+        intent.putExtra(FIRST_PROFILE, g1.getP1().getName());
+        intent.putExtra(SCORE_PLAYER1, String.valueOf(g1.getP1().getScore()));
+        intent.putExtra(CORRECT_ANS_P1, correctAnsP1);
         updateHighscore(g1.getP1());
 
         if (numberOfPlayers == 2) {
-            intent.putExtra(SECONDPROFILE, g1.getP2().getName());
-            intent.putExtra(SCOREPLAYER2, String.valueOf(g1.getP2().getScore()));
+            intent.putExtra(SECOND_PROFILE, g1.getP2().getName());
+            intent.putExtra(SCORE_PLAYER2, String.valueOf(g1.getP2().getScore()));
             intent.putExtra(TIME_PLAYED_PLAYER2, currentTime2);
+            intent.putExtra(CORRECT_ANS_P2, correctAnsP2);
             updateHighscore(g1.getP2());
         }
         startActivity(intent);

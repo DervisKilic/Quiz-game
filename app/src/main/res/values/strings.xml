@@ -57,5 +57,6 @@
     <string name="what_to_delete_tv">What do you want to delete?</string>
     <string name="time_played">Time played</string>
     <string name="manage_content">Manage Content</string>
+    <string name="correct_answers">Correct Answers</string>
 
 </resources>
