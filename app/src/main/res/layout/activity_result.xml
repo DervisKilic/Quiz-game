@@ -49,6 +49,15 @@
             android:text="@string/score_tv"
             android:textSize="24sp" />
 
+        <TextView
+            android:id="@+id/time_played"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_weight="0"
+            android:text="@string/time_played"
+            android:textSize="24sp" />
+
 
         <TextView
             android:id="@+id/player2_name"
@@ -72,7 +81,17 @@
             android:textAlignment="center"
             android:layout_weight="0"
             android:text="@string/score_tv"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/time_played2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_weight="0"
+            android:text="@string/time_played"
             android:textSize="24sp" />
+
     </LinearLayout>
 
     <LinearLayout

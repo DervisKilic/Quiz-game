@@ -22,6 +22,7 @@ public class ResultActivity extends AppCompatActivity {
     private final String FIRSTPROFILE = "name of the player 1";
     private final String SECONDPROFILE = "name of the player 2";
     private final String SCOREPLAYER2 = "score of player 2";
+    private final String TIME_PLAYED_PLAYER1 = "time played of player 1";
 
     private String p1Name;
     private String p2Name;
@@ -31,8 +32,9 @@ public class ResultActivity extends AppCompatActivity {
     private String chosenCategory;
 
     private Timer timer = new Timer();
-    private int timePlayed = 0;
+    private int currentTime;
 
+    private TextView timePlayed;
     private TextView category;
     private TextView player1;
     private TextView scorep1;
@@ -53,6 +55,7 @@ public class ResultActivity extends AppCompatActivity {
         scorep1 = (TextView) findViewById(R.id.player1_score);
         img1 = (ImageView) findViewById(R.id.profile_img1);
         img2 = (ImageView) findViewById(R.id.profile_img2);
+        timePlayed = (TextView) findViewById(R.id.time_played);
 
         Bundle extras = getIntent().getExtras();
         chosenCategory = extras.getString(CATEGORY);
@@ -61,12 +64,17 @@ public class ResultActivity extends AppCompatActivity {
         players = extras.getString(PLAYERS);
         p2Name = extras.getString(SECONDPROFILE);
         P2Score = extras.getString(SCOREPLAYER2);
+        currentTime = extras.getInt(TIME_PLAYED_PLAYER1);
+        Log.d("Result time played", ""+currentTime);
+       // playedTime = playedTime / 100;
 
         player1.setText(p1Name);
         scorep1.setText(P1Score);
         player2.setText(p2Name);
         scorep2.setText(P2Score);
         category.setText(chosenCategory);
+
+        timePlayed.setText(String.valueOf(currentTime));
 
 
 

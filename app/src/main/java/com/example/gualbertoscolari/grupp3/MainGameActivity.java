@@ -26,6 +26,8 @@ public class MainGameActivity extends AppCompatActivity {
     public final static String SECONDPROFILE = "name of the player 2";
     public final static String SCOREPLAYER1 = "score of player 1";
     public final static String SCOREPLAYER2 = "score of player 2";
+    public final static String TIME_PLAYED_PLAYER1 = "time played of player 1";
+    public final static String TIME_PLAYED_PLAYER2 = "time played of player 2";
 
     private int numberOfPlayers;
     private String p1Name;
@@ -52,7 +54,9 @@ public class MainGameActivity extends AppCompatActivity {
     private CountDownTimer timer;
     private ProgressBar progressbar;
     private int scoreValue;
+    private int currentTime = 0;
     private final Handler handler = new Handler();
+    private int timePlayed = 0;
 
     private int gameRound = 1;
 
@@ -100,6 +104,8 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
+        currentTime += timePlayed;
+        Log.d("Current time", ""+ currentTime);
 
         Log.d("Nummer av frågs", "" + g1.getNumberOfAnsweredQ());
 
@@ -111,7 +117,7 @@ public class MainGameActivity extends AppCompatActivity {
         g1.increaseNrOfAnsweredQuestion();
         g1.changePlayer();
 
-        if (g1.getNumberOfAnsweredQ() == 3) {
+        if (g1.getNumberOfAnsweredQ() == 4) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             handler.postDelayed(new Runnable() {
                 @Override
@@ -149,11 +155,16 @@ public class MainGameActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         timerTV.setText("Points " + (millisUntilFinished / 100));
                         scoreValue = (int) (millisUntilFinished / 100);
+                        timePlayed =  10 - ((int) (millisUntilFinished / 1000));
+
+
                         int progress = (int) (millisUntilFinished / 100);
                         progressbar.setProgress(progress);
                     }
 
+
                     public void onFinish() {
+
                         progressbar.setProgress(0);
                         timerTV.setText("0");
                         onButtonGuess("");
@@ -169,7 +180,8 @@ public class MainGameActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra(CATEGORY, chosenCat);
         intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
-
+        intent.putExtra(TIME_PLAYED_PLAYER1, currentTime);
+        Log.d("Main game", "time " + currentTime);
         intent.putExtra(FIRSTPROFILE, g1.getP1().getName());
         intent.putExtra(SCOREPLAYER1, String.valueOf(g1.getP1().getScore()));
         updateHighscore(g1.getP1());
@@ -381,4 +393,6 @@ public class MainGameActivity extends AppCompatActivity {
             }
         }, 1000);// 1000 milliseconds = 1 second
     }
+
+
 }
