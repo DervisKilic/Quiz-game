@@ -7,6 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -355,8 +361,8 @@ public class DbHelper extends SQLiteOpenHelper {
     public void addStandardItemsSQL() {
         List<Question> quesList = getAllQuestions("Natur");
         if (quesList.size() < 10) {
-            addQuestion(StandardQuestions.q1);
-            addQuestion(StandardQuestions.q2);
+            //addQuestion(StandardQuestions.q1);
+            //addQuestion(StandardQuestions.q2);
             addQuestion(StandardQuestions.q3);
             addQuestion(StandardQuestions.q4);
             addQuestion(StandardQuestions.q5);
@@ -426,6 +432,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
         }
         Log.d("Standard content added", "OMG!");
+
+
 
     }
 
@@ -515,9 +523,23 @@ public class DbHelper extends SQLiteOpenHelper {
         dbaseWrite.delete(TABLE_HIGHSCORE, KEY_ID + "=?", new String[]{""+id});
     }
 
-    public void addQFromTxtFile(){
+    public void addQFromTxtFile(Context context){
         dbaseWrite = getWritableDatabase();
-        String s = "insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik');";
-        dbaseWrite.execSQL(s);
+        String questionTxt = "";
+
+        try {
+                InputStream fis = context.getResources().openRawResource(R.raw.quetions);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+
+                while(questionTxt != null){
+                    questionTxt = reader.readLine();
+                    dbaseWrite.execSQL(questionTxt);
+                    Log.d("Read txt-file: ", questionTxt);
+            }
+        }catch (Exception e){
+            Log.d("Read questions failed ", "blä");
+        }
+        Log.d("Outside exeption", "jajjemän");
+
     }
 }

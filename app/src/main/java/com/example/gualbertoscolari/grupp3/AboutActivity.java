@@ -32,4 +32,9 @@ public class AboutActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void addTxtQuestions(View v){
+        DbHelper db = new DbHelper(this);
+        db.addQFromTxtFile(this);
+    }
 }

@@ -1,0 +1,2 @@
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
