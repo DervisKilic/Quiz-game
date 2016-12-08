@@ -140,11 +140,6 @@ public class GameSettingsActivity extends AppCompatActivity {
         finish();
     }
 
-    public void gotToDeleteQuestion(View view) {
-        Intent deleteIntent = new Intent(this, DeleteActivity.class);
-        startActivity(deleteIntent);
-        finish();
-    }
 
     public void getStandardCategorys(){
         DbHelper db = new DbHelper(this);
