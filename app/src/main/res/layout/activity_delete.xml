@@ -43,53 +43,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/option"
-        android:layout_alignParentBottom="true"
-        android:gravity="bottom">
 
-
-
-            <Button
-                android:id="@+id/add_question_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5sp"
-                android:layout_weight="1"
-                android:background="@drawable/standardcustombutton"
-                android:onClick="gotToDeleteQuestion"
-                android:text="@string/add_question"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
-
-            <Button
-                android:id="@+id/delete_question_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5sp"
-                android:layout_weight="1"
-                android:background="@drawable/standardcustombutton"
-                android:onClick="gotToDeleteQuestion"
-                android:text="@string/delete_question_btn"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
-
-            <Button
-                android:id="@+id/add_category_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5sp"
-                android:layout_weight="1"
-                android:background="@drawable/standardcustombutton"
-                android:onClick="gotToDeleteQuestion"
-                android:text="@string/add_category_btn"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
-
-
-
-    </LinearLayout>
 
 </RelativeLayout>

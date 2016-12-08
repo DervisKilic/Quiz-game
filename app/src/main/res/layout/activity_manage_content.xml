@@ -1,72 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/activity_manage_content"
+<android.support.design.widget.CoordinatorLayout android:id="@+id/activity_manage_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B2DFDB"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:fitsSystemWindows="true"
     tools:context="com.example.gualbertoscolari.grupp3.ManageContentActivity">
 
-    <LinearLayout
+
+
+    <include layout="@layout/test_content_main" />
+
+    <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
+        android:id="@+id/bottom_nav_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_gravity="bottom"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What would you like to do?"
-            android:textAlignment="center"
-            android:textSize="26sp" />
 
-    </LinearLayout>
+        />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+</android.support.design.widget.CoordinatorLayout>
 
-        <Button
-            android:id="@+id/add_question_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:layout_weight="1"
-            android:background="@drawable/standardcustombutton"
-            android:onClick="gotToDeleteQuestion"
-            android:text="@string/add_question"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/delete_question_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:layout_weight="1"
-            android:background="@drawable/standardcustombutton"
-            android:onClick="gotToDeleteQuestion"
-            android:text="@string/delete_question_btn"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/add_category_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:layout_weight="1"
-            android:background="@drawable/standardcustombutton"
-            android:onClick="gotToDeleteQuestion"
-            android:text="@string/add_category_btn"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-</RelativeLayout>
