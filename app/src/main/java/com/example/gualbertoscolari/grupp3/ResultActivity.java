@@ -137,10 +137,8 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 
     /**
      *
@@ -149,6 +147,7 @@ public class ResultActivity extends AppCompatActivity {
     public void goToMenu(View view) {
         Intent menu = new Intent(this, MenuActivity.class);
         startActivity(menu);
+        finish();
     }
 
     /**
@@ -158,6 +157,7 @@ public class ResultActivity extends AppCompatActivity {
     public void goToHighScore(View view){
         Intent HighScore = new Intent(this, HighscoreActivity.class);
         startActivity(HighScore);
+        finish();
     }
 
     /**
@@ -167,5 +167,6 @@ public class ResultActivity extends AppCompatActivity {
     public void goToMainGame(View view){
         Intent gameSettings = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettings);
+        finish();
     }
 }

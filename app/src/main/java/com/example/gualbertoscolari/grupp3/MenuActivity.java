@@ -23,18 +23,21 @@ public class MenuActivity extends AppCompatActivity {
     public void about_button(View view) {
         Intent aboutIntent = new Intent(this, AboutActivity.class);
         startActivity(aboutIntent);
+        finish();
 
     }
 
     public void high_score_button(View view) {
         Intent highScoreIntent = new Intent(this, HighscoreActivity.class);
         startActivity(highScoreIntent);
+        finish();
 
     }
 
     public void goToGameSettings(View view) {
         Intent gameSettingsIntent = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettingsIntent);
+        finish();
     }
 
     public void gameSp(View view){
@@ -44,6 +47,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
         mp.stop();
         startActivity(playIntent);
+        finish();
 
     }
 
@@ -54,6 +58,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
         mp.stop();
         startActivity(playIntent);
+        finish();
     }
 
     public void gameKn(View view) {
@@ -63,6 +68,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
         mp.stop();
         startActivity(playIntent);
+        finish();
     }
 
     public void gameNa(View view) {
@@ -72,6 +78,7 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
         mp.stop();
         startActivity(playIntent);
+        finish();
     }
 
     public void gameSk(View view) {
@@ -81,5 +88,6 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
         mp.stop();
         startActivity(playIntent);
+        finish();
     }
 }

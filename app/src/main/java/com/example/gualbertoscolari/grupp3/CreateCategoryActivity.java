@@ -29,6 +29,7 @@ public class CreateCategoryActivity extends AppCompatActivity {
     public void goToGameSettings(View v){
         Intent gameSettings = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettings);
+        finish();
     }
 
     /**

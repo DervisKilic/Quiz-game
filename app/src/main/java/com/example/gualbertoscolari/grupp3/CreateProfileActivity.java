@@ -47,12 +47,14 @@ public class CreateProfileActivity extends AppCompatActivity {
         db.close();
     }
 
-    /*
-    takes the player back to game settings
+    /**
+     *
+     * @param view     takes the player back to game settings
      */
     public void goToGameSettings(View view) {
 
         Intent playAgainIntent = new Intent(this, GameSettingsActivity.class);
         startActivity(playAgainIntent);
+        finish();
     }
 }
