@@ -12,15 +12,6 @@
     android:background="#B2DFDB"
     tools:context="com.example.gualbertoscolari.grupp3.MenuActivity">
 
-    <ImageView
-        android:id="@+id/menu_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/gamelogo"
-        android:layout_centerInParent="true"
-        android:layout_above="@+id/imageView3"
-        android:layout_marginBottom="25dp"/>
-
     <Button
         android:text="@string/highscore"
         android:layout_width="wrap_content"
@@ -66,58 +57,66 @@
         android:id="@+id/imageView2" />
 
     <ImageView
+        android:id="@+id/menu_logo"
+        android:layout_width="300sp"
+        android:layout_height="100sp"
+        android:src="@drawable/gamelogo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:srcCompat="@drawable/samhallkunskap"
-        android:layout_marginBottom="25dp"
         android:id="@+id/imageView3"
+        android:onClick="gameSk"
         android:layout_above="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:onClick="gameSk"/>
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/histori"
-        android:id="@+id/imageView4"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_marginLeft="43dp"
-        android:layout_marginStart="43dp"
-        android:onClick="gameHi"/>
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/kulturnoje"
-        android:id="@+id/imageView5"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_alignTop="@+id/imageView4"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2"
-        android:onClick="gameKn"/>
+        android:layout_marginBottom="17dp" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:srcCompat="@drawable/sport"
         android:id="@+id/imageView7"
+        android:onClick="gameSp"
         android:layout_alignBottom="@+id/imageView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="gameSp"/>
+        android:layout_toLeftOf="@+id/imageView3"
+        android:layout_toStartOf="@+id/imageView3" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:srcCompat="@drawable/natur"
         android:id="@+id/imageView8"
-        android:layout_above="@+id/imageView4"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="gameNa"/>
+        android:onClick="gameNa"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_toRightOf="@+id/imageView3"
+        android:layout_toEndOf="@+id/imageView3" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/kulturnoje"
+        android:id="@+id/imageView5"
+        android:onClick="gameKn"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_alignStart="@+id/imageView7" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/histori"
+        android:id="@+id/imageView4"
+        android:onClick="gameHi"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignRight="@+id/imageView8"
+        android:layout_alignEnd="@+id/imageView8"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp" />
 
 </RelativeLayout>

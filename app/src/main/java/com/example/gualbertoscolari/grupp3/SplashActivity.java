@@ -44,19 +44,6 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
         growAndShrink.addAnimation(shrink);
         test.startAnimation(growAndShrink);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         final Thread timer= new Thread(){
             public void run(){
                 try{
