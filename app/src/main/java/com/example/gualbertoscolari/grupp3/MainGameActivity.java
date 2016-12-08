@@ -33,12 +33,8 @@ public class MainGameActivity extends AppCompatActivity {
     private String p1Name;
     private String p2Name;
 
-
     private GameLogic g1;
     private TextView qAnswered;
-
-    private boolean backpressed = false;
-
 
     private ImageView questionFrame;
     private TextView playerName;
@@ -130,10 +126,7 @@ public class MainGameActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (backpressed) {
-                        timer.cancel();       //If the backbutton is pressed (true) then we want to
-                        return;              // end the loop between timer and guesbutton methods.
-                    } else if (numberOfPlayers == 2) {
+                    if (numberOfPlayers == 2) {
                         resetQuestion();
                         AlertDialog diabox = AskOption();
                         diabox.show();

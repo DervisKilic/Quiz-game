@@ -13,7 +13,6 @@
             android:label="@string/Quiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,15 +25,7 @@
         <activity android:name=".CreateQuestionActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".MenuActivity" />
-        <activity
-            android:name=".PopUp"
-            android:theme="@style/AppTheme.TransparentBackgroundTheme" />
-
-        <activity android:name=".DeleteActivity"
-
-            />
-
-
+        <activity android:name=".DeleteActivity" />
         <activity android:name=".ManageContentActivity"></activity>
     </application>
 
