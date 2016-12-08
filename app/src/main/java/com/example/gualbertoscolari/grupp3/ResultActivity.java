@@ -34,7 +34,6 @@ public class ResultActivity extends AppCompatActivity {
     private String P2Score;
     private String chosenCategory;
 
-    private Timer timer = new Timer();
     private int currentTime;
     private int currentTime2;
     private int correctAnsP1;
@@ -200,6 +199,13 @@ public class ResultActivity extends AppCompatActivity {
     public void goToMainGame(View view){
         Intent gameSettings = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettings);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, GameSettingsActivity.class);
+        startActivity(intent);
         finish();
     }
 }

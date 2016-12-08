@@ -1,7 +1,6 @@
 package com.example.gualbertoscolari.grupp3.mFragments;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,13 +15,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.example.gualbertoscolari.grupp3.CreateCategoryActivity;
 import com.example.gualbertoscolari.grupp3.DbHelper;
 import com.example.gualbertoscolari.grupp3.R;
-
 import java.util.ArrayList;
-
 
 public class DeleteQuestionFragment extends Fragment {
 
@@ -43,8 +38,6 @@ public class DeleteQuestionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_delete,container,false);
-
-
 
         list = (ListView) rootView.findViewById(R.id.question_list);
         options = (Spinner) rootView.findViewById(R.id.option_spinner);

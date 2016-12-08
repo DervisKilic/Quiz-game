@@ -37,4 +37,11 @@ public class AboutActivity extends AppCompatActivity {
         DbHelper db = new DbHelper(this);
         db.addQFromTxtFile(this);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

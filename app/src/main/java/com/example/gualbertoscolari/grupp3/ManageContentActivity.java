@@ -1,11 +1,9 @@
 package com.example.gualbertoscolari.grupp3;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.gualbertoscolari.grupp3.mFragments.AddCategoryFragment;
@@ -64,7 +62,19 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             Log.d(TAG, "onTabSelected: Position: " + position);
             getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new DeleteQuestionFragment()).commit();
         }
-
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        int count = getFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            //additional code
+        } else {
+            getFragmentManager().popBackStack();
+        }
     }
 }

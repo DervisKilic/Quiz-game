@@ -28,13 +28,6 @@
             android:hint="@string/create_profile"
             android:textSize="32sp" />
 
-        <TextView
-            android:id="@+id/profile_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/choose_avatar_hint"
-            android:textSize="32sp" />
-
     </LinearLayout>
 
 
@@ -63,7 +56,6 @@
             android:onClick="saveProfile"
             android:textColor="#FFFFFF"
             android:background="@drawable/standardcustombutton"
-
             android:layout_margin="5sp"
          />
 
