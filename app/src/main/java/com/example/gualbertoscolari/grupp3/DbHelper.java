@@ -97,7 +97,7 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlHighScores += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlHighScores += "hsname VARCHAR(255) NOT NULL,";
         sqlHighScores += "hscategory VARCHAR(255) NOT NULL,";
-        sqlHighScores += "hsscore VARCHAR NOT NULL";
+        sqlHighScores += "hsscore INTEGER NOT NULL";
         sqlHighScores += ");";
         Log.d("highscores", "Table created");
 
@@ -180,45 +180,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    /**
-     *
-     * @param cat     adds input category to the high score table i database
-     */
-    public void addPlaceholderHSCategory(String cat) {
-        dbaseWrite = getWritableDatabase();
-        ContentValues cvs = new ContentValues();
-        List<Profile> profiles = getAllProfiles();
-
-        for (Profile p : profiles) {
-            cvs.put(KEY_HSNAME, p.getName());
-            cvs.put(KEY_HSCAT, cat);
-            cvs.put(KEY_HSSCORE, 0);
-            long id = dbaseWrite.insert(TABLE_HIGHSCORE, null, cvs);
-            Log.d(TAG, "addPlaceholderHS: row id: " + id);
-
-        }
-
-        dbaseWrite.close();
-    }
-
-    /**
-     *
-     * @param hsName     adds input profile to the high score table i database
-     */
-    public void addPlaceholderHSProfile(String hsName) {
-        dbaseWrite = getWritableDatabase();
-        ContentValues cvs = new ContentValues();
-        List<String> categories = getAllCatagories();
-
-        for (int i = 0; i < categories.size(); i++) {
-            cvs.put(KEY_HSNAME, hsName);
-            cvs.put(KEY_HSCAT, categories.get(i));
-            cvs.put(KEY_HSSCORE, 0);
-            long id = dbaseWrite.insert(TABLE_HIGHSCORE, null, cvs);
-            Log.d(TAG, "addPlaceholderHSProfile: row id: " + id);
-        }
-        dbaseWrite.close();
-    }
 
     /**
      *
@@ -455,6 +416,7 @@ public class DbHelper extends SQLiteOpenHelper {
             addCategorys("Samhälle");
             addCategorys("Alla kategorier");
         }
+
         List<Profile> profileList = getAllProfiles();
         if (profileList.size() < 4) {
             addProfile(new Profile("Dervis", 0));
@@ -462,13 +424,8 @@ public class DbHelper extends SQLiteOpenHelper {
             addProfile(new Profile("Gualberto", 0));
             addProfile(new Profile("Simon", 0));
 
-
-            addPlaceholderHSProfile("Dervis");
-            addPlaceholderHSProfile("Fredrik");
-            addPlaceholderHSProfile("Gualberto");
-            addPlaceholderHSProfile("Simon");
         }
-        Log.d("Kiss", "Questions added yeah");
+        Log.d("Standard content added", "OMG!");
 
     }
 
@@ -487,6 +444,7 @@ public class DbHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return catList;
+
     }
 
 
@@ -519,7 +477,40 @@ public class DbHelper extends SQLiteOpenHelper {
      * @param category
      * @return
      */
-    public boolean updateHighScore(Profile player, String category) {
+    public void updateHighScore(Profile player, String category) {
+
+        dbaseRead = getReadableDatabase();
+
+        Cursor cursor = dbaseRead.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
+        int[] scoreArray = new int[cursor.getCount()];
+        cursor.moveToFirst();
+        int length = 0;
+        while(cursor.moveToNext()) {
+            scoreArray[length] = cursor.getInt(2);
+            length++;
+        }
+        Log.d("Curser check :", ""+ cursor.getCount());
+        if(cursor.getCount() == 0){
+            addNewHighscore(player, category);
+        }else{
+            for (int i = 0; i < scoreArray.length; i++){
+                if(player.getScore() > scoreArray[i]){
+                    addNewHighscore(player, category);
+                    break;
+                }
+            }
+            cursor.moveToLast();
+            if(cursor.getCount() == 5){
+                deleteFromHighscore(cursor.getInt(0));
+            }
+        }
+
+
+
+    }
+
+    public void addNewHighscore(Profile player, String category){
+        Log.d("Inside addNewHighScore", "Hej");
         dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
 
@@ -527,7 +518,12 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_HSCAT, category);
         cvs.put(KEY_HSSCORE, player.getScore());
 
-        dbaseWrite.update(TABLE_HIGHSCORE, cvs, KEY_HSNAME + " = ? AND " + KEY_HSCAT + " = ? ",new String[]{player.getName(), category});
-        return true;
+        dbaseWrite.insert(TABLE_HIGHSCORE, null, cvs);
+
+    }
+
+    public void deleteFromHighscore(int id){
+        dbaseWrite = getWritableDatabase();
+        dbaseWrite.delete(TABLE_HIGHSCORE, KEY_ID + "=?", new String[]{""+id});
     }
 }

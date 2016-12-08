@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,9 @@ public class HighscoreActivity extends AppCompatActivity {
     public void displayCategoriesInSpinner() {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         allHighscores = db.getHighScoredata(cat);
+        if(allHighscores.size() == 0){
+            Toast.makeText(this, "There are no highscores to display!", Toast.LENGTH_SHORT).show();
+        }
         hsGridV = (GridView) findViewById(R.id.hs_gridv);
         gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
         hsGridV.setAdapter(gridAdapter);
