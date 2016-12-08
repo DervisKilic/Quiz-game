@@ -23,6 +23,7 @@ public class ResultActivity extends AppCompatActivity {
     private final String SECONDPROFILE = "name of the player 2";
     private final String SCOREPLAYER2 = "score of player 2";
     private final String TIME_PLAYED_PLAYER1 = "time played of player 1";
+    private final String TIME_PLAYED_PLAYER2 = "time played of player 2";
 
     private String p1Name;
     private String p2Name;
@@ -33,8 +34,10 @@ public class ResultActivity extends AppCompatActivity {
 
     private Timer timer = new Timer();
     private int currentTime;
+    private int currentTime2;
 
     private TextView timePlayed;
+    private TextView timePlayed2;
     private TextView category;
     private TextView player1;
     private TextView scorep1;
@@ -56,6 +59,7 @@ public class ResultActivity extends AppCompatActivity {
         img1 = (ImageView) findViewById(R.id.profile_img1);
         img2 = (ImageView) findViewById(R.id.profile_img2);
         timePlayed = (TextView) findViewById(R.id.time_played);
+        timePlayed2 = (TextView) findViewById(R.id.time_played2);
 
         Bundle extras = getIntent().getExtras();
         chosenCategory = extras.getString(CATEGORY);
@@ -65,16 +69,18 @@ public class ResultActivity extends AppCompatActivity {
         p2Name = extras.getString(SECONDPROFILE);
         P2Score = extras.getString(SCOREPLAYER2);
         currentTime = extras.getInt(TIME_PLAYED_PLAYER1);
+        currentTime2 = extras.getInt(TIME_PLAYED_PLAYER2);
         Log.d("Result time played", ""+currentTime);
        // playedTime = playedTime / 100;
 
         player1.setText(p1Name);
-        scorep1.setText(P1Score);
+        scorep1.setText("Poäng: " + P1Score);
         player2.setText(p2Name);
-        scorep2.setText(P2Score);
-        category.setText(chosenCategory);
+        scorep2.setText("Poäng: " + P2Score);
+        category.setText("Kategori: " + chosenCategory);
 
-        timePlayed.setText(String.valueOf(currentTime));
+        timePlayed.setText(String.valueOf("Tid: " + currentTime + " sekunder"));
+        timePlayed2.setText(String.valueOf("Tid: " +currentTime2 + " sekunder"));
 
 
 

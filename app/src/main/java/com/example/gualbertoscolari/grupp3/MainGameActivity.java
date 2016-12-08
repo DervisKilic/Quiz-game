@@ -51,8 +51,10 @@ public class MainGameActivity extends AppCompatActivity {
     private ProgressBar progressbar;
     private int scoreValue;
     private int currentTime = 0;
+    private int currentTime2 = 0;
     private final Handler handler = new Handler();
     private int timePlayed = 0;
+    private int timePlayed2 = 0;
     private boolean quit;
 
     private int gameRound = 1;
@@ -102,6 +104,7 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
         currentTime += timePlayed;
+        currentTime2 += timePlayed2;
         Log.d("Current time", ""+ currentTime);
 
         Log.d("Nummer av frågs", "" + g1.getNumberOfAnsweredQ());
@@ -152,6 +155,9 @@ public class MainGameActivity extends AppCompatActivity {
                         timerTV.setText("Points " + (millisUntilFinished / 100));
                         scoreValue = (int) (millisUntilFinished / 100);
                         timePlayed =  10 - ((int) (millisUntilFinished / 1000));
+                        if(g1.getCurrentPlayer() == g1.getP2()){
+                            timePlayed2 =  10 - ((int) (millisUntilFinished / 1000));
+                        }
 
 
                         int progress = (int) (millisUntilFinished / 100);
@@ -185,6 +191,7 @@ public class MainGameActivity extends AppCompatActivity {
         if (numberOfPlayers == 2) {
             intent.putExtra(SECONDPROFILE, g1.getP2().getName());
             intent.putExtra(SCOREPLAYER2, String.valueOf(g1.getP2().getScore()));
+            intent.putExtra(TIME_PLAYED_PLAYER2, currentTime2);
             updateHighscore(g1.getP2());
             updateHighscore(g1.getP1());
         }
