@@ -9,8 +9,14 @@ import android.view.View;
 //Skriver ut info om utvecklarna och en företagslogga.
 //Är klar men väntar på slutgiltiga designen.
 
+
 public class AboutActivity extends AppCompatActivity {
 
+    /**
+     * This method is used called when user enters this activity
+     * Sets the corresponding layout for this activity.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +24,7 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Creates an Intent and starts MenuActivity.
      * @param view     takes the player back to main menu.
      */
     public void back(View view) {

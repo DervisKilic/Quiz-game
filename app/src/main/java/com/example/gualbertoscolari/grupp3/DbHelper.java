@@ -480,33 +480,21 @@ public class DbHelper extends SQLiteOpenHelper {
     public void updateHighScore(Profile player, String category) {
 
         dbaseRead = getReadableDatabase();
-
+        //Skirv om detta. Cursor behöver bara kolla om scoren är högre än sista. Listan är sorterad.
         Cursor cursor = dbaseRead.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
-        int[] scoreArray = new int[cursor.getCount()];
         cursor.moveToFirst();
-        int length = 0;
-        while(cursor.moveToNext()) {
-            scoreArray[length] = cursor.getInt(2);
-            length++;
-        }
         Log.d("Curser check :", ""+ cursor.getCount());
         if(cursor.getCount() == 0){
             addNewHighscore(player, category);
         }else{
-            for (int i = 0; i < scoreArray.length; i++){
-                if(player.getScore() > scoreArray[i]){
-                    addNewHighscore(player, category);
-                    break;
-                }
-            }
             cursor.moveToLast();
-            if(cursor.getCount() == 5){
-                deleteFromHighscore(cursor.getInt(0));
+            if(player.getScore() > cursor.getInt(2)){
+                addNewHighscore(player, category);
             }
         }
-
-
-
+        if(cursor.getCount() == 5){
+                deleteFromHighscore(cursor.getInt(0));
+        }
     }
 
     public void addNewHighscore(Profile player, String category){
