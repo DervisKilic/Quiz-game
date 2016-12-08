@@ -117,7 +117,7 @@ public class MainGameActivity extends AppCompatActivity {
         g1.increaseNrOfAnsweredQuestion();
         g1.changePlayer();
 
-        if (g1.getNumberOfAnsweredQ() == 4) {
+        if (g1.getNumberOfAnsweredQ() == 2) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
             handler.postDelayed(new Runnable() {
                 @Override
@@ -193,7 +193,6 @@ public class MainGameActivity extends AppCompatActivity {
             intent.putExtra(SCOREPLAYER2, String.valueOf(g1.getP2().getScore()));
             intent.putExtra(TIME_PLAYED_PLAYER2, currentTime2);
             updateHighscore(g1.getP2());
-            updateHighscore(g1.getP1());
         }
         startActivity(intent);
         finish();
