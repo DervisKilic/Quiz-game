@@ -53,6 +53,7 @@ public class MainGameActivity extends AppCompatActivity {
     private int currentTime = 0;
     private final Handler handler = new Handler();
     private int timePlayed = 0;
+    private boolean quit;
 
     private int gameRound = 1;
 
@@ -132,7 +133,9 @@ public class MainGameActivity extends AppCompatActivity {
                         diabox.show();
                     } else {
                         displayQuestion();
-                        resetTimer();
+                        if(!quit) {
+                            resetTimer();
+                        }
                     }
                 }
             }, 1000); // 1000 milliseconds = 1 second
@@ -310,10 +313,10 @@ public class MainGameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        quit = true;
         Intent intent = new Intent(this, GameSettingsActivity.class);
         startActivity(intent);
         finish();
-        timer.cancel();
     }
     private AlertDialog AskOption() {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
@@ -326,7 +329,9 @@ public class MainGameActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                         displayQuestion();
-                        resetTimer();
+                        if(!quit) {
+                            resetTimer();
+                        }
                         dialog.dismiss();
                     }
                 })
@@ -352,7 +357,9 @@ public class MainGameActivity extends AppCompatActivity {
                 alertDialog.dismiss();
                 progressbar.setProgress(0);
                 displayQuestion();
-                resetTimer();
+                if(!quit) {
+                    resetTimer();
+                }
             }
         }.start();
         return alertDialog;
