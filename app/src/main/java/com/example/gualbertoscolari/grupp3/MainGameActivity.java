@@ -5,24 +5,15 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.List;
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
@@ -63,40 +54,11 @@ public class MainGameActivity extends AppCompatActivity {
     private int scoreValue;
     private final Handler handler = new Handler();
 
-    private Button close;
-    private PopupWindow popup;
-
-
-    private static final String TAG = "MAINGAME_ACTIVITY";
     private int gameRound = 1;
 
     private MediaPlayer mp;
     private MediaPlayer mp2;
     private MediaPlayer mp3;
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        progressbar.setProgress(0);
-        if(backpressed){
-            finish();
-        }
-
-    }
-
-    @Override
-    protected void onResume() {
-        if (backpressed){
-            finish();
-        }
-        super.onResume();
-        progressbar.setProgress(0);
-        if (PopUp.startG) {
-            displayQuestion();
-            resetTimer();
-        }
-        PopUp.startG = false;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,9 +93,7 @@ public class MainGameActivity extends AppCompatActivity {
         questionFrame = (ImageView) findViewById(R.id.question_frame);
 
         loadQuestionFrame();
-        startActivity(new Intent(this, PopUp.class));
-
-
+        getReadyDialog();
     }
 
     public void onButtonGuess(String optString) {
@@ -147,8 +107,9 @@ public class MainGameActivity extends AppCompatActivity {
             //Ifall man svarar rätt händer detta
             g1.increaseScore(scoreValue);
         }
-            g1.increaseNrOfAnsweredQuestion();
-            g1.changePlayer();
+
+        g1.increaseNrOfAnsweredQuestion();
+        g1.changePlayer();
 
         if (g1.getNumberOfAnsweredQ() == 3) {
             //Du har svarat på alla frågor , du tas till resultskärmen.
@@ -159,23 +120,25 @@ public class MainGameActivity extends AppCompatActivity {
                     finish();
                 }
             }, 1000); // 1000 milliseconds = 1 second
-        }
+        } else {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (backpressed) {       //If the backbutton is pressed (true) then we want to
+                    if (backpressed) {
+                        timer.cancel();       //If the backbutton is pressed (true) then we want to
                         return;              // end the loop between timer and guesbutton methods.
                     } else if (numberOfPlayers == 2) {
                         resetQuestion();
                         AlertDialog diabox = AskOption();
                         diabox.show();
-                    }else {
+                    } else {
                         displayQuestion();
                         resetTimer();
                     }
                 }
             }, 1000); // 1000 milliseconds = 1 second
         }
+    }
 
     public void resetTimer() {
         handler.postDelayed(new Runnable() {
@@ -197,7 +160,6 @@ public class MainGameActivity extends AppCompatActivity {
                         Log.d("I timer, on finished", "Hej");
                     }
                 }.start();
-
             }
         }, 1000); // 1000 milliseconds = 1 second
 
@@ -318,7 +280,6 @@ public class MainGameActivity extends AppCompatActivity {
 
             case "Alla kategorier":
                 questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.blandat));
-
         }
     }
 
@@ -340,20 +301,15 @@ public class MainGameActivity extends AppCompatActivity {
     public void updateHighscore(Profile profile1) {
         DbHelper db = new DbHelper(this);
         db.updateHighScore(profile1, chosenCat);
-
-
     }
-
 
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, GameSettingsActivity.class);
         startActivity(intent);
-        timer.cancel();
         finish();
-
+        timer.cancel();
     }
-
     private AlertDialog AskOption() {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
 
@@ -371,6 +327,30 @@ public class MainGameActivity extends AppCompatActivity {
                 })
                 .create();
         return myQuittingDialogBox;
+    }
+
+    private AlertDialog getReadyDialog() {
+        final AlertDialog alertDialog  = new AlertDialog.Builder(this).create();
+
+        alertDialog.setTitle("Get ready");
+        alertDialog.setMessage("4");
+        alertDialog.show();
+
+        new CountDownTimer(4000, 1) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                alertDialog.setMessage(""+ (millisUntilFinished/1000));
+            }
+
+            @Override
+            public void onFinish() {
+                alertDialog.dismiss();
+                progressbar.setProgress(0);
+                displayQuestion();
+                resetTimer();
+            }
+        }.start();
+        return alertDialog;
     }
 
     public void displayQuestion() {

@@ -291,7 +291,6 @@ public class DbHelper extends SQLiteOpenHelper {
     /**
      *
      * @return         gets all created profiles from table and returns them
-
      */
     public Cursor getCreatedProfiles() {
         dbaseRead = getReadableDatabase();
