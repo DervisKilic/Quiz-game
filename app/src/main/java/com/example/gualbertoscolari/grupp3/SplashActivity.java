@@ -15,7 +15,7 @@ import android.widget.ImageView;
  */
 public class SplashActivity extends Activity implements Animation.AnimationListener{
     private DbHelper db;
-    final float growTo = 1.2f;
+    final float growTo = 1.1f;
     final long duration = 3000;
 
     @Override
