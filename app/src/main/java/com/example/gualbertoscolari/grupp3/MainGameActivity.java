@@ -84,6 +84,9 @@ public class MainGameActivity extends AppCompatActivity {
         timerTV = (TextView) findViewById(R.id.timer_tv);
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
         progressbar.setScaleY(4f);
+        mp = MediaPlayer.create(this, R.raw.fail);
+        mp2 = MediaPlayer.create(this, R.raw.correct_answer);
+        mp3 = MediaPlayer.create(this, R.raw.timer);
 
         if (numberOfPlayers == 1) {
             g1 = new GameLogic(p1Name, chosenCat, numberOfPlayers, this);
@@ -127,7 +130,6 @@ public class MainGameActivity extends AppCompatActivity {
                 correctAnsP2++;
             }
         }
-
         g1.increaseNrOfAnsweredQuestion();
         g1.changePlayer();
 
@@ -217,8 +219,12 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_a_pressed(View view) {
         if (g1.checkCorrectAnswer(optABtn.getText().toString())) {
             optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+            mp2.start();
+            mp3.stop();
         } else {
             optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+            mp.start();
+            mp3.stop();
         }
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
@@ -230,8 +236,12 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_b_pressed(View view) {
         if (g1.checkCorrectAnswer(optBBtn.getText().toString())) {
             optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+            mp2.start();
+            mp3.stop();
         } else {
             optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+            mp.start();
+            mp3.stop();
         }
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
@@ -244,8 +254,12 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_c_pressed(View view) {
         if (g1.checkCorrectAnswer(optCBtn.getText().toString())) {
             optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+            mp2.start();
+            mp3.stop();
         } else {
             optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+            mp.start();
+            mp3.stop();
         }
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
@@ -259,8 +273,10 @@ public class MainGameActivity extends AppCompatActivity {
     public void btn_d_pressed(View view) {
         if (g1.checkCorrectAnswer(optDBtn.getText().toString())) {
             optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+            mp2.start();
         } else {
             optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+            mp.start();
         }
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);

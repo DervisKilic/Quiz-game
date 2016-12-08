@@ -9,15 +9,13 @@ import android.view.View;
 //Första menyn man kommer till, finns 3 knappar som tar spelaren vidare till olika aktiviteter.
 public class MenuActivity extends AppCompatActivity {
 
-    public static MediaPlayer mp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        mp = MediaPlayer.create(this, R.raw.themesong);
-        mp.setLooping(true);
-        mp.start();
+
     }
 
     public void about_button(View view) {
@@ -45,7 +43,6 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Sport");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
-        mp.stop();
         startActivity(playIntent);
         finish();
 
@@ -56,7 +53,6 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Historia");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
-        mp.stop();
         startActivity(playIntent);
         finish();
     }
@@ -66,7 +62,6 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Kultur/Nöje");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
-        mp.stop();
         startActivity(playIntent);
         finish();
     }
@@ -76,7 +71,6 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Natur");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
-        mp.stop();
         startActivity(playIntent);
         finish();
     }
@@ -86,7 +80,6 @@ public class MenuActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.CATEGORY, "Samhälle");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE, "anonymous");
-        mp.stop();
         startActivity(playIntent);
         finish();
     }

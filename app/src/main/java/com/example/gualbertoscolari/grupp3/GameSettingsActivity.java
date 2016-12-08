@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.gualbertoscolari.grupp3.MenuActivity.mp;
+
 
 //Inställningar för spelomgång antal spelare, val av profil, val av kategori.
 //Här kan man välja att skapa nya kategorier, profiler och frågor.
@@ -113,7 +113,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         playIntent.putExtra(MainGameActivity.FIRSTPROFILE,p1);
         playIntent.putExtra(MainGameActivity.SECONDPROFILE,p2);
         startActivity(playIntent);
-        mp.stop();
+
         finish();
     }
 
