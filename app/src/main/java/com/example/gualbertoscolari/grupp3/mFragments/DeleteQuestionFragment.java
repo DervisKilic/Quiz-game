@@ -158,7 +158,7 @@ public class DeleteQuestionFragment extends Fragment {
                         dialog.dismiss();
                     }
                 })
-                .create();
+                 .create();
         return myQuittingDialogBox;
     }
 }
