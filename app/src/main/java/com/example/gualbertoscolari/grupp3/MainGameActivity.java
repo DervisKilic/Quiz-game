@@ -216,74 +216,24 @@ public class MainGameActivity extends AppCompatActivity {
         finish();
     }
 
-    public void btn_a_pressed(View view) {
-        if (g1.checkCorrectAnswer(optABtn.getText().toString())) {
-            optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+    public void btnPressed(View view){
+        String buttonText = ((Button)view).getText().toString();
+        Button button = (Button) findViewById(view.getId());
+        if (g1.checkCorrectAnswer(buttonText)) {
+            button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
             mp2.start();
             mp3.stop();
         } else {
-            optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+            button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
             mp.start();
             mp3.stop();
         }
+
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
         onButtonGuess(optABtn.getText().toString());
-    }
-
-    public void btn_b_pressed(View view) {
-        if (g1.checkCorrectAnswer(optBBtn.getText().toString())) {
-            optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
-            mp2.start();
-            mp3.stop();
-        } else {
-            optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
-            mp.start();
-            mp3.stop();
-        }
-        optABtn.setEnabled(false);
-        optBBtn.setEnabled(false);
-        optCBtn.setEnabled(false);
-        optDBtn.setEnabled(false);
-        onButtonGuess(optBBtn.getText().toString());
-
-    }
-
-    public void btn_c_pressed(View view) {
-        if (g1.checkCorrectAnswer(optCBtn.getText().toString())) {
-            optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
-            mp2.start();
-            mp3.stop();
-        } else {
-            optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
-            mp.start();
-            mp3.stop();
-        }
-        optABtn.setEnabled(false);
-        optBBtn.setEnabled(false);
-        optCBtn.setEnabled(false);
-        optDBtn.setEnabled(false);
-        onButtonGuess(optCBtn.getText().toString());
-
-
-    }
-
-    public void btn_d_pressed(View view) {
-        if (g1.checkCorrectAnswer(optDBtn.getText().toString())) {
-            optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
-            mp2.start();
-        } else {
-            optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
-            mp.start();
-        }
-        optABtn.setEnabled(false);
-        optBBtn.setEnabled(false);
-        optCBtn.setEnabled(false);
-        optDBtn.setEnabled(false);
-        onButtonGuess(optDBtn.getText().toString());
-
     }
 
     public void resetQuestion() {
