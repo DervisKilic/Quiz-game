@@ -58,7 +58,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         bottomNavigation.setCurrentItem(0);
 
         // Change colors
-        bottomNavigation.setAccentColor(Color.parseColor("#B2DFDBg"));
+        bottomNavigation.setAccentColor(Color.parseColor("#B2DFDB"));
         bottomNavigation.setInactiveColor(Color.parseColor("#000000"));
 
         // Manage titles
