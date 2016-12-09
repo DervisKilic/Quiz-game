@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 import com.example.gualbertoscolari.grupp3.Logic.GameLogic;
 import com.example.gualbertoscolari.grupp3.Logic.Profile;
@@ -32,17 +31,6 @@ import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.SCORE_
 import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.SECOND_PROFILE;
 import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.TIME_PLAYED_PLAYER1;
 import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.TIME_PLAYED_PLAYER2;
-=======
-import static com.example.gualbertoscolari.grupp3.R.id.counter;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P1;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P2;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.FIRST_PROFILE;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER1;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER2;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.SECOND_PROFILE;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER1;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER2;
->>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
@@ -196,46 +184,31 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
-    public void resetTimer() {
-
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                clock.start();
-                timer = new CountDownTimer(10000, 10) {
-=======
     public void resetTimer(final long time) {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                clock.start();
                 timer = new CountDownTimer(time, 10) {
->>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
                     public void onTick(long millisUntilFinished) {
                         timerTV.setText("Points " + (millisUntilFinished / 100));
                         scoreValue = (int) (millisUntilFinished / 100);
-                        timePlayed =  10 - ((int) (millisUntilFinished / 1000));
+                        timePlayed = 10 - ((int) (millisUntilFinished / 1000));
 
-                        if(g1.getCurrentPlayer() == g1.getP2()){
-                            timePlayed2 =  10 - ((int) (millisUntilFinished / 1000));
+                        if (g1.getCurrentPlayer() == g1.getP2()) {
+                            timePlayed2 = 10 - ((int) (millisUntilFinished / 1000));
                         }
-<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
 
                         int progress = (int) (millisUntilFinished / 100);
                         progressbar.setProgress(progress);
+                        pausTime=millisUntilFinished;
                     }
 
-=======
-                            progress = (int) (millisUntilFinished / 100);
-                            progressbar.setProgress(progress);
-                            pausTime = millisUntilFinished;
-                        }
->>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
                     public void onFinish() {
                         clock.pause();
                         progressbar.setProgress(0);
                         timerTV.setText("0");
-                        if(!resume) {
+                        if (!resume) {
                             onButtonGuess("");
                         }
                         Log.d("I timer, on finished", "Hej");
@@ -439,6 +412,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void smsSend(View view) {
         timer.cancel();
+        clock.pause();
         resume = false;
         smsBtn.setEnabled(false);
 
@@ -468,6 +442,7 @@ public class MainGameActivity extends AppCompatActivity {
                 dialog.dismiss();
                 resume = true;
                 timerResume();
+                clock.start();
             }
         });
         builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {
@@ -476,15 +451,13 @@ public class MainGameActivity extends AppCompatActivity {
                 dialog.cancel();
                 resume = true;
                 timerResume();
+                clock.start();
             }
         });
 
         builder.show();
     }
 
-<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
-
-=======
     private void timerResume() {
         if(resume && !quit) {
             resetTimer(pausTime);
@@ -492,5 +465,4 @@ public class MainGameActivity extends AppCompatActivity {
             finish();
         }
     }
->>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
 }
