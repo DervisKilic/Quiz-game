@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_create_profile"
+<RelativeLayout android:id="@+id/activity_create_profile"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#B2DFDB"
+    android:paddingBottom="72dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#B2DFDB"
-    tools:context="com.example.gualbertoscolari.grupp3.CreateProfileActivity">
 
+    >
+
+    <LinearLayout
+        android:id="@+id/profile_title_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/create_category_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_profile"
+            android:textAlignment="center"
+            android:textColor="#030303"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/name"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="20dp">
+        android:layout_below="@id/profile_title_lo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/create_profile"
-            android:textSize="32sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,27 +53,14 @@
         android:layout_alignParentBottom="true">
 
         <Button
-            style="@style/create_activity_button"
-            android:id="@+id/create_categorie_button"
-            android:layout_weight="1"
-            android:text="@string/back_btn"
-            android:onClick="goToGameSettings"
-
-            android:textColor="#FFFFFF"
-            android:background="@drawable/standardcustombutton"
-            android:layout_margin="5sp"
-          />
-
-        <Button
-            style="@style/create_activity_button"
             android:id="@+id/create_category_back_button"
-            android:layout_weight="1"
-            android:text="@string/create_profile_button"
-            android:onClick="saveProfile"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/standardcustombutton"
+            style="@style/create_activity_button"
             android:layout_margin="5sp"
-         />
+            android:layout_weight="1"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="saveProfile"
+            android:text="@string/save_profile_button"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 </RelativeLayout>
