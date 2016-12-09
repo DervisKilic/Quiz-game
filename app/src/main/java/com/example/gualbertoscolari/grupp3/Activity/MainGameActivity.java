@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 import com.example.gualbertoscolari.grupp3.Logic.GameLogic;
 import com.example.gualbertoscolari.grupp3.Logic.Profile;
@@ -31,6 +32,17 @@ import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.SCORE_
 import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.SECOND_PROFILE;
 import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.TIME_PLAYED_PLAYER1;
 import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.TIME_PLAYED_PLAYER2;
+=======
+import static com.example.gualbertoscolari.grupp3.R.id.counter;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P1;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P2;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.FIRST_PROFILE;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER1;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER2;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.SECOND_PROFILE;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER1;
+import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER2;
+>>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.
@@ -54,6 +66,9 @@ public class MainGameActivity extends AppCompatActivity {
     private String optC;
     private String optD;
     private String phoneNr;
+    private long pausTime;
+    private boolean resume;
+    private int progress;
 
     private GameLogic g1;
     private TextView qAnswered;
@@ -67,6 +82,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optBBtn;
     private Button optCBtn;
     private Button optDBtn;
+    private Button smsBtn;
 
     private TextView cat;
     private TextView timerTV;
@@ -115,11 +131,14 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn = (Button) findViewById(R.id.answer_btn_b);
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
+        smsBtn = (Button) findViewById(R.id.send_question);
         optABtn.setVisibility(View.GONE);
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
+        smsBtn.setVisibility(View.GONE);
         questionFrame = (ImageView) findViewById(R.id.question_frame);
+        smsBtn.setEnabled(true);
 
         loadQuestionFrame();
         getReadyDialog();
@@ -169,7 +188,7 @@ public class MainGameActivity extends AppCompatActivity {
                     } else {
                         displayQuestion();
                         if(!quit) {
-                            resetTimer();
+                            resetTimer(10000);
                         }
                     }
                 }
@@ -177,6 +196,7 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
+<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
     public void resetTimer() {
 
         handler.postDelayed(new Runnable() {
@@ -184,29 +204,45 @@ public class MainGameActivity extends AppCompatActivity {
             public void run() {
                 clock.start();
                 timer = new CountDownTimer(10000, 10) {
+=======
+    public void resetTimer(final long time) {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                timer = new CountDownTimer(time, 10) {
+>>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
                     public void onTick(long millisUntilFinished) {
                         timerTV.setText("Points " + (millisUntilFinished / 100));
                         scoreValue = (int) (millisUntilFinished / 100);
                         timePlayed =  10 - ((int) (millisUntilFinished / 1000));
+
                         if(g1.getCurrentPlayer() == g1.getP2()){
                             timePlayed2 =  10 - ((int) (millisUntilFinished / 1000));
                         }
+<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
 
                         int progress = (int) (millisUntilFinished / 100);
                         progressbar.setProgress(progress);
                     }
 
+=======
+                            progress = (int) (millisUntilFinished / 100);
+                            progressbar.setProgress(progress);
+                            pausTime = millisUntilFinished;
+                        }
+>>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
                     public void onFinish() {
                         clock.pause();
                         progressbar.setProgress(0);
                         timerTV.setText("0");
-                        onButtonGuess("");
+                        if(!resume) {
+                            onButtonGuess("");
+                        }
                         Log.d("I timer, on finished", "Hej");
                     }
                 }.start();
             }
         }, 1000); // 1000 milliseconds = 1 second
-
     }
 
     public void goToResult() {
@@ -235,6 +271,7 @@ public class MainGameActivity extends AppCompatActivity {
     public void btnPressed(View view){
         String buttonText = ((Button)view).getText().toString();
         Button button = (Button) findViewById(view.getId());
+        smsBtn.setVisibility(View.GONE);
         if (g1.checkCorrectAnswer(buttonText)) {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
             mp2.start();
@@ -246,7 +283,7 @@ public class MainGameActivity extends AppCompatActivity {
             clock.pause();
 
         }
-
+        smsBtn.setEnabled(false);
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
@@ -270,7 +307,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void loadQuestionFrame() {
-
         switch (chosenCat) {
             case "Sport":
                 questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.sportruta));
@@ -298,7 +334,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void setRound() {
-
         if (numberOfPlayers == 1) {
             qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
             qAnswered.setText("Q " + gameRound + "/10");
@@ -336,7 +371,7 @@ public class MainGameActivity extends AppCompatActivity {
 
                         displayQuestion();
                         if(!quit) {
-                            resetTimer();
+                            resetTimer(10000);
                         }
                         dialog.dismiss();
                     }
@@ -351,6 +386,7 @@ public class MainGameActivity extends AppCompatActivity {
         alertDialog.setTitle("Gör dig redo " + g1.getCurrentPlayer().getName());
         alertDialog.setMessage("4");
         alertDialog.show();
+        smsBtn.setVisibility(View.VISIBLE);
 
         new CountDownTimer(4000, 1) {
             @Override
@@ -364,7 +400,7 @@ public class MainGameActivity extends AppCompatActivity {
                 progressbar.setProgress(0);
                 displayQuestion();
                 if(!quit) {
-                    resetTimer();
+                    resetTimer(10000);
                 }
             }
         }.start();
@@ -379,6 +415,7 @@ public class MainGameActivity extends AppCompatActivity {
                 optBBtn.setVisibility(View.VISIBLE);
                 optCBtn.setVisibility(View.VISIBLE);
                 optDBtn.setVisibility(View.VISIBLE);
+
                 optABtn.setEnabled(true);
                 optBBtn.setEnabled(true);
                 optCBtn.setEnabled(true);
@@ -401,6 +438,9 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void smsSend(View view) {
+        timer.cancel();
+        resume = false;
+        smsBtn.setEnabled(false);
 
         questiontv.setText(g1.getQuestion().getQUESTION());
         smsQ = questiontv.getText().toString();
@@ -414,7 +454,7 @@ public class MainGameActivity extends AppCompatActivity {
         builder.setTitle("Skriv in nummret");
 
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_PHONE | InputType.TYPE_NUMBER_VARIATION_NORMAL);
+        input.setInputType(InputType.TYPE_CLASS_PHONE);
         builder.setView(input);
 
 
@@ -426,18 +466,31 @@ public class MainGameActivity extends AppCompatActivity {
                 smsManager.sendTextMessage("+46" + phoneNr, null, " Fråga: " + smsQ + " A : " + optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
 
                 dialog.dismiss();
-
+                resume = true;
+                timerResume();
             }
         });
         builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
+                resume = true;
+                timerResume();
             }
         });
 
         builder.show();
     }
 
+<<<<<<< a0d33b40153851eb1e66df09aea449417720ba0b:app/src/main/java/com/example/gualbertoscolari/grupp3/Activity/MainGameActivity.java
 
+=======
+    private void timerResume() {
+        if(resume && !quit) {
+            resetTimer(pausTime);
+        }else{
+            finish();
+        }
+    }
+>>>>>>> time pauses now when clicked on sms and you can only use the button once:app/src/main/java/com/example/gualbertoscolari/grupp3/MainGameActivity.java
 }
