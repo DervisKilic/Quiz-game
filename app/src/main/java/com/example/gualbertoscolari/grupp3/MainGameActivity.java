@@ -274,7 +274,7 @@ public class MainGameActivity extends AppCompatActivity {
                 questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.naturruta));
                 break;
 
-            case "Alla kategorier":
+            default:
                 questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.blandat));
         }
     }

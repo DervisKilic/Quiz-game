@@ -25,7 +25,7 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
         setContentView(R.layout.activity_splash);
 
         db = new DbHelper(this);
-        db.addStandardItemsSQL();
+        db.addStandardItemsSQL(this);
         db.close();
 
         ImageView test = (ImageView) findViewById(R.id.splash_logo);

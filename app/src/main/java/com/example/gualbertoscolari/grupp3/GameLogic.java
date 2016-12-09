@@ -50,13 +50,8 @@ public class GameLogic extends MainGameActivity {
 
 
     public void getQuestions() {
-
         tenQuestions = db.getAllQuestions(category);
-
         List<String> answerList = new ArrayList<>();
-
-
-
 
         for (int i = 0; i < 10; i++) {
 
@@ -75,7 +70,6 @@ public class GameLogic extends MainGameActivity {
 
             answerList.clear();
         }
-
     }
 
     public boolean checkCorrectAnswer(String option){

@@ -45,12 +45,6 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test"
-        android:onClick="addTxtQuestions"/>
-
-    <Button
 
         android:text="@string/back_btn"
         android:layout_width="wrap_content"

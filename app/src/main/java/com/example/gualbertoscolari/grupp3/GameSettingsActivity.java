@@ -11,6 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,19 +103,25 @@ public class GameSettingsActivity extends AppCompatActivity {
     }
 
     public void goToMainGame(View view) {
-        Intent playIntent = new Intent(this, MainGameActivity.class);
+        DbHelper db = new DbHelper(this);
 
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
         p1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
         p2 = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
 
-        playIntent.putExtra(MainGameActivity.CATEGORY, cat);
-        playIntent.putExtra(MainGameActivity.PLAYERS, players);
-        playIntent.putExtra(MainGameActivity.FIRSTPROFILE,p1);
-        playIntent.putExtra(MainGameActivity.SECONDPROFILE,p2);
-        startActivity(playIntent);
+        if(db.getAllQuestions(cat).size() == 10) {
+            Intent playIntent = new Intent(this, MainGameActivity.class);
+            playIntent.putExtra(MainGameActivity.CATEGORY, cat);
+            playIntent.putExtra(MainGameActivity.PLAYERS, players);
+            playIntent.putExtra(MainGameActivity.FIRSTPROFILE, p1);
+            playIntent.putExtra(MainGameActivity.SECONDPROFILE, p2);
+            startActivity(playIntent);
 
-        finish();
+            finish();
+        } else {
+            Toast.makeText(this, "En kategori måste innehålla 10 frågor", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void goToManageContent(View view) {

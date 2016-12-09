@@ -358,60 +358,10 @@ public class DbHelper extends SQLiteOpenHelper {
     /**
      *     adds all standard questions, categories and profiles to the game
      */
-    public void addStandardItemsSQL() {
+    public void addStandardItemsSQL(Context context) {
         List<Question> quesList = getAllQuestions("Natur");
         if (quesList.size() < 10) {
-            //addQuestion(StandardQuestions.q1);
-            //addQuestion(StandardQuestions.q2);
-            addQuestion(StandardQuestions.q3);
-            addQuestion(StandardQuestions.q4);
-            addQuestion(StandardQuestions.q5);
-            addQuestion(StandardQuestions.q6);
-            addQuestion(StandardQuestions.q7);
-            addQuestion(StandardQuestions.q8);
-            addQuestion(StandardQuestions.q9);
-            addQuestion(StandardQuestions.q10);
-            addQuestion(StandardQuestions.q11);
-            addQuestion(StandardQuestions.q12);
-            addQuestion(StandardQuestions.q13);
-            addQuestion(StandardQuestions.q14);
-            addQuestion(StandardQuestions.q15);
-            addQuestion(StandardQuestions.q16);
-            addQuestion(StandardQuestions.q17);
-            addQuestion(StandardQuestions.q18);
-            addQuestion(StandardQuestions.q19);
-            addQuestion(StandardQuestions.q20);
-            addQuestion(StandardQuestions.q21);
-            addQuestion(StandardQuestions.q22);
-            addQuestion(StandardQuestions.q23);
-            addQuestion(StandardQuestions.q24);
-            addQuestion(StandardQuestions.q25);
-            addQuestion(StandardQuestions.q26);
-            addQuestion(StandardQuestions.q27);
-            addQuestion(StandardQuestions.q28);
-            addQuestion(StandardQuestions.q29);
-            addQuestion(StandardQuestions.q30);
-            addQuestion(StandardQuestions.q31);
-            addQuestion(StandardQuestions.q32);
-            addQuestion(StandardQuestions.q33);
-            addQuestion(StandardQuestions.q34);
-            addQuestion(StandardQuestions.q35);
-            addQuestion(StandardQuestions.q36);
-            addQuestion(StandardQuestions.q37);
-            addQuestion(StandardQuestions.q38);
-            addQuestion(StandardQuestions.q39);
-            addQuestion(StandardQuestions.q40);
-            addQuestion(StandardQuestions.q41);
-            addQuestion(StandardQuestions.q42);
-            addQuestion(StandardQuestions.q43);
-            addQuestion(StandardQuestions.q44);
-            addQuestion(StandardQuestions.q45);
-            addQuestion(StandardQuestions.q46);
-            addQuestion(StandardQuestions.q47);
-            addQuestion(StandardQuestions.q48);
-            addQuestion(StandardQuestions.q49);
-            addQuestion(StandardQuestions.q50);
-
+            addQFromTxtFile(context);
         }
         List<String> catList = getAllCatagories();
         if (catList.size() < 6) {
@@ -488,7 +438,6 @@ public class DbHelper extends SQLiteOpenHelper {
     public void updateHighScore(Profile player, String category) {
 
         dbaseRead = getReadableDatabase();
-        //Skirv om detta. Cursor behöver bara kolla om scoren är högre än sista. Listan är sorterad.
         Cursor cursor = dbaseRead.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
         cursor.moveToFirst();
         Log.d("Curser check :", ""+ cursor.getCount());
@@ -537,7 +486,7 @@ public class DbHelper extends SQLiteOpenHelper {
                     Log.d("Read txt-file: ", questionTxt);
             }
         }catch (Exception e){
-            Log.d("Read questions failed ", "blä");
+            Log.d("Loading questions", "Read questions failed or list-file ended");
         }
         Log.d("Outside exeption", "jajjemän");
 

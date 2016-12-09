@@ -33,10 +33,7 @@ public class AboutActivity extends AppCompatActivity {
         finish();
     }
 
-    public void addTxtQuestions(View v){
-        DbHelper db = new DbHelper(this);
-        db.addQFromTxtFile(this);
-    }
+
 
     @Override
     public void onBackPressed() {
