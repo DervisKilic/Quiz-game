@@ -37,7 +37,7 @@
 
         <Button
             android:id="@+id/create_category_back_button"
-            style="@style/create_activity_button"
+            style="@style/standard_button_style"
             android:layout_margin="5sp"
             android:layout_weight="1"
             android:background="@drawable/standardcustombutton"
