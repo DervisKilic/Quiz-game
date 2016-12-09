@@ -163,7 +163,7 @@ public class MainGameActivity extends AppCompatActivity {
         g1.increaseNrOfAnsweredQuestion();
         g1.changePlayer();
 
-        if (g1.getNumberOfAnsweredQ() == 2) {
+        if (g1.getNumberOfAnsweredQ() == 10) {
             clock.stop();
 
             //Du har svarat på alla frågor , du tas till resultskärmen.
@@ -255,7 +255,6 @@ public class MainGameActivity extends AppCompatActivity {
     public void btnPressed(View view){
         String buttonText = ((Button)view).getText().toString();
         Button button = (Button) findViewById(view.getId());
-        smsBtn.setVisibility(View.GONE);
         if (g1.checkCorrectAnswer(buttonText)) {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
             mp2.start();
@@ -267,7 +266,6 @@ public class MainGameActivity extends AppCompatActivity {
             clock.pause();
 
         }
-        smsBtn.setEnabled(false);
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
@@ -427,7 +425,6 @@ public class MainGameActivity extends AppCompatActivity {
         timer.cancel();
         clock.pause();
         resume = false;
-        smsBtn.setEnabled(false);
 
         questiontv.setText(g1.getQuestion().getQUESTION());
         smsQ = questiontv.getText().toString();
@@ -456,6 +453,8 @@ public class MainGameActivity extends AppCompatActivity {
                 resume = true;
                 timerResume();
                 clock.start();
+                smsBtn.setEnabled(false);
+                smsBtn.setVisibility(View.GONE);
             }
         });
         builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {
