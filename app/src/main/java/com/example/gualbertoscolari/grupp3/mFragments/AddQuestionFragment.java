@@ -18,15 +18,12 @@ import com.example.gualbertoscolari.grupp3.R;
 
 import java.util.List;
 
-public class AddQuestionFragment extends Fragment{
-
-    public View rootView;
+public class AddQuestionFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_create_question,container,false);
-
+        View rootView = inflater.inflate(R.layout.activity_create_question, container, false);
 
         DbHelper db = new DbHelper(getActivity());
         List<String> category = db.getAllCatagories();
@@ -36,14 +33,12 @@ public class AddQuestionFragment extends Fragment{
 
         return rootView;
 
-
     }
 
     /**
      *
      * @param v         adds the input questions if conditions are met.
      */
-
 
     /**
      *

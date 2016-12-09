@@ -129,23 +129,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     }
 
 
-    public void goToCreateQuestion(View view) {
-        Intent createQuestionIntent = new Intent(this, CreateQuestionActivity.class);
-        startActivity(createQuestionIntent);
-        finish();
-    }
 
-    public void goToCreateCategory(View view) {
-        Intent createCategoryIntent = new Intent(this, CreateCategoryActivity.class);
-        startActivity(createCategoryIntent);
-        finish();
-    }
-
-    public void goToCreateProfile(View view) {
-        Intent createProfileIntent = new Intent(this, CreateProfileActivity.class);
-        startActivity(createProfileIntent);
-        finish();
-    }
 
 
     public void getStandardCategorys(){

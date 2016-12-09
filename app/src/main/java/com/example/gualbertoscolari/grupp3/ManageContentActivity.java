@@ -20,6 +20,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
 
     private static final String TAG = "MANAGECONTENTACTIVTY";
     AHBottomNavigation bottomNavigation;
+    private String cat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,6 +171,35 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             db.addProfile(p);
         }
         db.close();
+    }
+
+    public void addCategory(View v){
+        DbHelper db = new DbHelper(getApplicationContext());
+        EditText category = (EditText) findViewById(R.id.categorie_name);
+        cat = category.getText().toString();
+
+        if(!cat.matches("^[a-zåäöA-ZÅÄÖ]{3,12}$")){
+            Toast.makeText(this, "Max 12 letters or at least 1", Toast.LENGTH_SHORT).show();
+            category.setText("");
+            category.setHint(this.getString(R.string.enter_category_name));
+
+        } else if(!db.checkIfCatExists(cat)) {
+            Toast.makeText(this, "Category already exists!", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "You added a new category", Toast.LENGTH_SHORT).show();
+            category.setText("");
+            category.setHint(this.getString(R.string.enter_category_name));
+            db.addCategorys(cat);
+            db.close();
+        }
+    }
+
+    /**
+     *
+     * @return returns category
+     */
+    public String getCategory() {
+        return cat;
     }
 
     public void backToMain(View view) {
