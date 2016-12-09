@@ -49,7 +49,7 @@ public class CreateQuestionActivity extends AppCompatActivity {
         Spinner chosenCat = (Spinner) findViewById(R.id.spinner_create_question);
         String cat = chosenCat.getSelectedItem().toString();
 
-        if (!question.matches(("^[a-zåäöA-ZÅÄÖ ]{3,150}$"))){
+        if (!question.matches(("^[a-zåäöA-ZÅÄÖ -? ]{3,150}$"))){
             Toast.makeText(this, "Max 150 letters or at least 3", Toast.LENGTH_SHORT).show();
             inputQuestion.setText("");
             inputQuestion.setHint(R.string.enter_q_hint);
