@@ -8,9 +8,12 @@ import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -40,6 +43,12 @@ public class MainGameActivity extends AppCompatActivity {
     private String p2Name;
     private int correctAnsP1 = 0;
     private int correctAnsP2 = 0;
+    private String smsQ;
+    private String optA;
+    private String optB;
+    private String optC;
+    private String optD;
+    private String phoneNr;
 
     private GameLogic g1;
     private TextView qAnswered;
@@ -47,6 +56,7 @@ public class MainGameActivity extends AppCompatActivity {
     private ImageView questionFrame;
     private TextView playerName;
     private TextView questiontv;
+
     private String chosenCat;
     private Button optABtn;
     private Button optBBtn;
@@ -382,5 +392,42 @@ public class MainGameActivity extends AppCompatActivity {
         }, 1000);// 1000 milliseconds = 1 second
     }
 
+    public void smsSend(View view) {
 
+        questiontv.setText(g1.getQuestion().getQUESTION());
+        smsQ = questiontv.getText().toString();
+        optA = optABtn.getText().toString();
+        optB= optBBtn.getText().toString();
+        optC = optCBtn.getText().toString();
+        optD = optDBtn.getText().toString();
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Skriv in nummret");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_PHONE | InputType.TYPE_NUMBER_VARIATION_NORMAL);
+        builder.setView(input);
+
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                phoneNr = input.getText().toString();
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage("+46" + phoneNr, null, " Fråga: " + smsQ + " A : " + optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
+
+                dialog.dismiss();
+
+            }
+        });
+        builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
 }

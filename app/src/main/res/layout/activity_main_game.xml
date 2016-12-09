@@ -33,6 +33,7 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+
     <LinearLayout
         android:id="@+id/top_buttons"
         android:layout_width="match_parent"
@@ -171,6 +172,22 @@
                 android:gravity="right"
                 android:textColor="#fff" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/send_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="smsSend"
+            android:shadowColor="#FFEAE6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="Sms:a frågan"
+            android:textAllCaps="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp" />
 
     </RelativeLayout>
 

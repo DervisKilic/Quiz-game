@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gualbertoscolari.grupp3">
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +26,6 @@
         <activity android:name=".CreateQuestionActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".DeleteActivity" />
         <activity android:name=".ManageContentActivity"></activity>
     </application>
 
