@@ -23,18 +23,12 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
     }
 
+
     /**
-     * Creates an Intent and starts MenuActivity.
-     * @param view     takes the player back to main menu.
+     * Method that overides the phones backbutton.
+     * Creates an Intent and starts MenuActivity. Finishes this activity.
+     * @param
      */
-    public void back(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-
-
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MenuActivity.class);

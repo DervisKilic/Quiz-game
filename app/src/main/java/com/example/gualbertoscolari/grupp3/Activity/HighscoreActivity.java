@@ -37,10 +37,14 @@ public class HighscoreActivity extends AppCompatActivity {
         chosenCategory = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
-        displayHighScore();
+        displayCategoriesInSpinner();
     }
 
-    public void displayCategoriesInSpinner() {
+    /**
+     * Method for displaying highscore List<> in gridview.
+     * Gets highscore from database depending on the chosen category in spinner.
+     */
+    private void displayHighscore() {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         List<String> allHighscores = db.getHighScoredata(cat);
         if(allHighscores.size() == 0){
@@ -51,7 +55,12 @@ public class HighscoreActivity extends AppCompatActivity {
         hsGridV.setAdapter(gridAdapter);
     }
 
-    public void displayHighScore() {
+    /**
+     * Method for displaying existing categories in spinner.
+     * Gets List<> from getHighScoredata with the correponding category chosen
+     * in spinner.
+     */
+    private void displayCategoriesInSpinner() {
         // Tar in vald kategori från spinner som argument.
         //Hämtar sorterad high score-lista från DBhelper och skriver ut den i GridView
         dropdownCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -60,7 +69,7 @@ public class HighscoreActivity extends AppCompatActivity {
 
                 cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
 
-                displayCategoriesInSpinner();
+                displayHighscore();
                 db.close();
             }
 
@@ -71,12 +80,10 @@ public class HighscoreActivity extends AppCompatActivity {
         });
     }
 
-    public void back(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
+    /**
+     * Method that overides the phones backbutton.
+     * Creates an Intent and starts MenuActivity. Finishes this activity.
+     */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MenuActivity.class);
