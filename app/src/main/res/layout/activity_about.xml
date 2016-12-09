@@ -44,18 +44,7 @@
 
     </LinearLayout>
 
-    <Button
 
-        android:text="@string/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/back_game_settings"
-        android:onClick="back"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/standardcustombutton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

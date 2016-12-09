@@ -133,7 +133,14 @@ public class MainGameActivity extends AppCompatActivity {
         getReadyDialog();
     }
 
-    public void onButtonGuess(String optString) {
+    /**
+     * Method for increasing score, numberOfAnsweredQ.
+     * Takes a string and increases score if the guess is correct.
+     *
+     * @param optString
+     */
+
+    private void onButtonGuess(String optString) {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
@@ -156,8 +163,9 @@ public class MainGameActivity extends AppCompatActivity {
         g1.increaseNrOfAnsweredQuestion();
         g1.changePlayer();
 
-        if (g1.getNumberOfAnsweredQ() == 2) {
+        if (g1.getNumberOfAnsweredQ() == 10) {
             clock.stop();
+
             //Du har svarat på alla frågor , du tas till resultskärmen.
             handler.postDelayed(new Runnable() {
                 @Override
@@ -186,6 +194,7 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void resetTimer(final long time) {
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -221,6 +230,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void goToResult() {
 
+
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra(CATEGORY, chosenCat);
         intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
@@ -229,14 +239,14 @@ public class MainGameActivity extends AppCompatActivity {
         intent.putExtra(FIRST_PROFILE, g1.getP1().getName());
         intent.putExtra(SCORE_PLAYER1, String.valueOf(g1.getP1().getScore()));
         intent.putExtra(CORRECT_ANS_P1, correctAnsP1);
-        updateHighscore(g1.getP1());
+        checkHighscore(g1.getP1());
 
         if (numberOfPlayers == 2) {
             intent.putExtra(SECOND_PROFILE, g1.getP2().getName());
             intent.putExtra(SCORE_PLAYER2, String.valueOf(g1.getP2().getScore()));
             intent.putExtra(TIME_PLAYED_PLAYER2, currentTime2);
             intent.putExtra(CORRECT_ANS_P2, correctAnsP2);
-            updateHighscore(g1.getP2());
+            checkHighscore(g1.getP2());
         }
         startActivity(intent);
         finish();
@@ -245,7 +255,6 @@ public class MainGameActivity extends AppCompatActivity {
     public void btnPressed(View view){
         String buttonText = ((Button)view).getText().toString();
         Button button = (Button) findViewById(view.getId());
-        smsBtn.setVisibility(View.GONE);
         if (g1.checkCorrectAnswer(buttonText)) {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
             mp2.start();
@@ -257,7 +266,6 @@ public class MainGameActivity extends AppCompatActivity {
             clock.pause();
 
         }
-        smsBtn.setEnabled(false);
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
@@ -265,7 +273,7 @@ public class MainGameActivity extends AppCompatActivity {
         onButtonGuess(buttonText);
     }
 
-    public void resetQuestion() {
+    private void resetQuestion() {
         playerName.setText("");
         questiontv.setText("");
         cat.setText("");
@@ -280,7 +288,9 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
+
     public void loadQuestionFrame() {
+
         switch (chosenCat) {
             case "Sport":
                 questionFrame.setBackgroundDrawable(getResources().getDrawable(R.drawable.sportruta));
@@ -309,6 +319,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void setRound() {
         TextView qAnswered;
+
         if (numberOfPlayers == 1) {
             qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
             qAnswered.setText("Q " + gameRound + "/10");
@@ -322,7 +333,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
-    public void updateHighscore(Profile profile1) {
+    public void checkHighscore(Profile profile1) {
         DbHelper db = new DbHelper(this);
         db.updateHighScore(profile1, chosenCat);
     }
@@ -414,7 +425,6 @@ public class MainGameActivity extends AppCompatActivity {
         timer.cancel();
         clock.pause();
         resume = false;
-        smsBtn.setEnabled(false);
 
         questiontv.setText(g1.getQuestion().getQUESTION());
         smsQ = questiontv.getText().toString();
@@ -443,6 +453,8 @@ public class MainGameActivity extends AppCompatActivity {
                 resume = true;
                 timerResume();
                 clock.start();
+                smsBtn.setEnabled(false);
+                smsBtn.setVisibility(View.GONE);
             }
         });
         builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {

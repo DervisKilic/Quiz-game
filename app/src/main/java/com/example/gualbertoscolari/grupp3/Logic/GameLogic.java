@@ -25,6 +25,14 @@ public class GameLogic extends MainGameActivity {
     private int numberOfAnsweredQ = 0;
     private int numberOfPlayers;
 
+    /**
+     *  Constructor of the class. Used for one player.
+     * @param profile
+     * @param category
+     * @param players
+     * @param context
+     */
+
     public GameLogic(String profile, String category, int players, Context context) {
 
         p1 = new Profile(profile, 0);
@@ -35,6 +43,15 @@ public class GameLogic extends MainGameActivity {
         currentPlayer = p1;
         db.close();
     }
+
+    /**
+     * Constructor of the class. Used for two players.
+     * @param profile1
+     * @param profile2
+     * @param category
+     * @param players
+     * @param context
+     */
 
     public GameLogic(String profile1, String profile2, String category, int players,  Context context) {
 
@@ -48,7 +65,10 @@ public class GameLogic extends MainGameActivity {
         db.close();
     }
 
-
+    /**
+     * Method for getting 10 questions from the corresponding category set in constructor.
+     * Sets the 10 questions to tenQuestions List<>
+     */
 
     public void getQuestions() {
         tenQuestions = db.getAllQuestions(category);
@@ -73,15 +93,23 @@ public class GameLogic extends MainGameActivity {
         }
     }
 
+    /**
+     * Method for checking if a String is the same as currentQuestion.
+     * @param option
+     * @return
+     */
     public boolean checkCorrectAnswer(String option){
 
 
         return option.equals(tenQuestions.get(numberOfAnsweredQ).getANSWER());
 
-
-
     }
 
+    /**
+     * Method for getting current question in tenQuestion List<>.
+     * Question changes depending on numberOfAnsweredQ.
+     * @return
+     */
     public Question getQuestion(){
         return tenQuestions.get(numberOfAnsweredQ);
     }
@@ -91,6 +119,14 @@ public class GameLogic extends MainGameActivity {
         Log.d("current player score ", "" + currentPlayer.getScore());
     }
 
+    /**
+     * Method for changing player.
+     * If only one player is currently playing sets currentPlayer to player one.
+     * If two players are playing and currentPlayer is player one set currentPlayer to
+     * player two.
+     * If two players are playing and currentPlayer is player two set currentPlayer to
+     * player one.
+     */
     public void changePlayer(){
 
         if (currentPlayer == p1 && numberOfPlayers == 2) {
@@ -105,23 +141,47 @@ public class GameLogic extends MainGameActivity {
         }
     }
 
+    /**
+     * Method for getting numberOfAnsweredQ.
+     * @return
+     */
     public int getNumberOfAnsweredQ(){
         return numberOfAnsweredQ;
     }
 
+    /**
+     * Method for increasing numberOfAnsweredQ.
+     * If one player is playing the method increases numberOfAnsweredQ.
+     * If two players are playing the method increases numberOfAnsweredQ
+     * when player 2 is currentPlaying.
+     */
     public void increaseNrOfAnsweredQuestion(){
         if (!(numberOfPlayers == 2 && currentPlayer == p1)) {
             numberOfAnsweredQ++;
         }
     }
 
+    /**
+     * Method for getting the currentPlayer.
+     * @return
+     */
     public Profile getCurrentPlayer(){
         return currentPlayer;
     }
 
+    /**
+     * Method for getting player one's Profile instance.
+     * @return
+     */
     public Profile getP1(){
         return p1;
     }
+
+
+    /**
+     * Method for getting player two's Profile instance.
+     * @return
+     */
     public Profile getP2(){
         return p2;
     }
