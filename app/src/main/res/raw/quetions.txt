@@ -1,2 +1,56 @@
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vilket trädslag är det i glasspinnen ?', 'Bok', 'Alm', 'Björk', 'Al', 'Natur', 'Bok'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vilken uggla är sveriges största ?', 'Berguv', 'Kattuggla', 'Hornuggla', 'Minervauggla', 'Natur', 'Berguv'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad är mossor för något ?', 'Växter', 'Insekter', 'Vattenlevande djur', 'Molekyler', 'Natur', 'Växter'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vilket djur får ungar som kallas platar ?', 'Haren', 'Tjädern', 'Vargen', 'Räven', 'Natur', 'Haren'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad betyder ordet biologi, läran om ?', 'Djuren', 'Naturen', 'Livet', 'Blommorna', 'Natur', 'Livet'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Varför luktar bajs', 'skit', 'godis', 'hallon', 'fredrik', 'Natur', 'fredrik'); \n
+
+
