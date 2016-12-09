@@ -163,11 +163,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         Cursor cursor = dbaseRead.query(true, TABLE_PROFILE, null, KEY_NAME + "=?", new String[]{profile}, null, null, null, null);
         cursor.moveToFirst();
-        if (cursor.getCount() == 0){
-            return true;
-        }else{
-            return false;
-        }
+        return cursor.getCount() == 0;
     }
 
     /**
@@ -339,7 +335,7 @@ public class DbHelper extends SQLiteOpenHelper {
      * @return     gets all profiles from table and returns them
      */
     public List<Profile> getAllProfiles() {
-        List<Profile> profList = new ArrayList<Profile>();
+        List<Profile> profList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_PROFILE;
         dbaseRead = getReadableDatabase();
@@ -432,10 +428,10 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *     updates the highscore data
-     * @param player
-     * @param category
-     * @return
+     *
+     * @param player updates the highscore data
+     * @param category updates the highscore data
+     * @return a new high score list
      */
     public void updateHighScore(Profile player, String category) {
 
@@ -456,7 +452,7 @@ public class DbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void addNewHighscore(Profile player, String category){
+    private void addNewHighscore(Profile player, String category){
         Log.d("Inside addNewHighScore", "Hej");
         dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
@@ -469,12 +465,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteFromHighscore(int id){
+    private void deleteFromHighscore(int id){
         dbaseWrite = getWritableDatabase();
         dbaseWrite.delete(TABLE_HIGHSCORE, KEY_ID + "=?", new String[]{""+id});
     }
 
-    public void addQFromTxtFile(Context context){
+    private void addQFromTxtFile(Context context){
         dbaseWrite = getWritableDatabase();
         String questionTxt = "";
 

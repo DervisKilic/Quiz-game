@@ -17,7 +17,6 @@ import com.example.gualbertoscolari.grupp3.R;
  * the intro screen
  */
 public class SplashActivity extends Activity implements Animation.AnimationListener{
-    private DbHelper db;
     final float growTo = 1.1f;
     final long duration = 3000;
 
@@ -27,7 +26,7 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        db = new DbHelper(this);
+        DbHelper db = new DbHelper(this);
         db.addStandardItemsSQL(this);
         db.close();
 

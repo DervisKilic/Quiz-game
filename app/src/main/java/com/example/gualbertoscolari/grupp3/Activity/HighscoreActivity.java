@@ -20,13 +20,9 @@ import java.util.List;
 //
 public class HighscoreActivity extends AppCompatActivity {
 
-    private GridView hsGridV;
-    private ArrayAdapter<String> gridAdapter;
     private Spinner dropdownCategory;
     private String cat;
     private ArrayAdapter<String> chosenCategory;
-    private List<String> category;
-    private List<String> allHighscores;
     private DbHelper db;
 
     @Override
@@ -35,10 +31,10 @@ public class HighscoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_highscore);
 
         db = new DbHelper(this);
-        category = db.getAllCatagories();
+        List<String> category = db.getAllCatagories();
 
         dropdownCategory = (Spinner) findViewById(R.id.spinner_highscore);
-        chosenCategory = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, category);
+        chosenCategory = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
         displayHighScore();
@@ -46,12 +42,12 @@ public class HighscoreActivity extends AppCompatActivity {
 
     public void displayCategoriesInSpinner() {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
-        allHighscores = db.getHighScoredata(cat);
+        List<String> allHighscores = db.getHighScoredata(cat);
         if(allHighscores.size() == 0){
             Toast.makeText(this, "There are no highscores to display!", Toast.LENGTH_SHORT).show();
         }
-        hsGridV = (GridView) findViewById(R.id.hs_gridv);
-        gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
+        GridView hsGridV = (GridView) findViewById(R.id.hs_gridv);
+        ArrayAdapter<String> gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
         hsGridV.setAdapter(gridAdapter);
     }
 

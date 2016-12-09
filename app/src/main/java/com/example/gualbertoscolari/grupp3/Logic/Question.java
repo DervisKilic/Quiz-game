@@ -13,7 +13,7 @@ public class Question{
     private String CATEGORY;
     private String ANSWER;
 
-    public Question(){
+    Question(){
         ID = 0;
         QUESTION = "";
         OPTA = "";
@@ -53,43 +53,47 @@ public class Question{
         return OPTD;
     }
 
-    public String getCATEGORY() {
+    String getCATEGORY() {
         return CATEGORY;
     }
 
-    public String getANSWER() {
+    String getANSWER() {
         return ANSWER;
     }
 
-    public void setID(int id) {
-        ID = id;
-    }
-
-    public void setQUESTION(String QUESTION) {
+    void setQUESTION(String QUESTION) {
         this.QUESTION = QUESTION;
     }
 
-    public void setOPTA(String OPTA) {
+    void setOPTA(String OPTA) {
         this.OPTA = OPTA;
     }
 
-    public void setOPTB(String OPTB) {
+    void setOPTB(String OPTB) {
         this.OPTB = OPTB;
     }
 
-    public void setOPTC(String OPTC) {
+    void setOPTC(String OPTC) {
         this.OPTC = OPTC;
     }
 
-    public void setOPTD(String OPTD) {
+    void setOPTD(String OPTD) {
         this.OPTD = OPTD;
     }
 
-    public void setCATEGORY(String CATEGORY) {
+    void setCATEGORY(String CATEGORY) {
         this.CATEGORY = CATEGORY;
     }
 
-    public void setANSWER(String ANSWER) {
+    void setANSWER(String ANSWER) {
         this.ANSWER = ANSWER;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }

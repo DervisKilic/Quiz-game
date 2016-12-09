@@ -31,8 +31,12 @@ public class Profile {
         return score;
     }
 
-    public void setScore(int score) {
+    void setScore(int score) {
         this.score = score;
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public void setID(int ID) {

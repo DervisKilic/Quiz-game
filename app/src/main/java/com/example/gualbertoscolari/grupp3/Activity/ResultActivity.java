@@ -32,61 +32,36 @@ public class ResultActivity extends AppCompatActivity {
     public static final String CORRECT_ANS_P1= "correct answers player 1";
     public static final String CORRECT_ANS_P2= "correct answers player 2";
 
-    private String p1Name;
-    private String p2Name;
-    private String P1Score;
-    private String players;
-    private String P2Score;
-    private String chosenCategory;
-
-    private int currentTime;
-    private int currentTime2;
-    private int correctAnsP1;
-    private int correctAnsP2;
-
-    private TextView timePlayed;
-    private TextView timePlayed2;
-    private TextView category;
-    private TextView player1;
-    private TextView scorep1;
-    private TextView player2;
-    private TextView scorep2;
-    private TextView correctAnsP1Tv;
-    private TextView correctAnsP2Tv;
-    private ImageView img1;
-    private ImageView img2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        player2 = (TextView) findViewById(R.id.player2_name);
-        scorep2 = (TextView) findViewById(R.id.player2_score);
-        category = (TextView) findViewById(R.id.category);
-        player1 = (TextView) findViewById(R.id.player1_name);
-        scorep1 = (TextView) findViewById(R.id.player1_score);
-        img1 = (ImageView) findViewById(R.id.profile_img1);
-        img2 = (ImageView) findViewById(R.id.profile_img2);
-        timePlayed = (TextView) findViewById(R.id.time_played);
-        timePlayed2 = (TextView) findViewById(R.id.time_played2);
-        correctAnsP1Tv = (TextView) findViewById(R.id.correct_answers_P1);
-        correctAnsP2Tv = (TextView) findViewById(R.id.correct_answers_P2);
+        TextView player2 = (TextView) findViewById(R.id.player2_name);
+        TextView scorep2 = (TextView) findViewById(R.id.player2_score);
+        TextView category = (TextView) findViewById(R.id.category);
+        TextView player1 = (TextView) findViewById(R.id.player1_name);
+        TextView scorep1 = (TextView) findViewById(R.id.player1_score);
+        ImageView img1 = (ImageView) findViewById(R.id.profile_img1);
+        ImageView img2 = (ImageView) findViewById(R.id.profile_img2);
+        TextView timePlayed = (TextView) findViewById(R.id.time_played);
+        TextView timePlayed2 = (TextView) findViewById(R.id.time_played2);
+        TextView correctAnsP1Tv = (TextView) findViewById(R.id.correct_answers_P1);
+        TextView correctAnsP2Tv = (TextView) findViewById(R.id.correct_answers_P2);
 
 
         Bundle extras = getIntent().getExtras();
-        chosenCategory = extras.getString(CATEGORY);
-        P1Score = extras.getString(SCORE_PLAYER1);
-        p1Name = extras.getString(FIRST_PROFILE);
-        players = extras.getString(PLAYERS);
-        p2Name = extras.getString(SECOND_PROFILE);
-        P2Score = extras.getString(SCORE_PLAYER2);
-        currentTime = extras.getInt(TIME_PLAYED_PLAYER1);
-        currentTime2 = extras.getInt(TIME_PLAYED_PLAYER2);
-        correctAnsP1 = extras.getInt(CORRECT_ANS_P1);
-        correctAnsP2 = extras.getInt(CORRECT_ANS_P2);
-        Log.d("Result time played", ""+currentTime);
-       // playedTime = playedTime / 100;
+        String chosenCategory = extras.getString(CATEGORY);
+        String p1Score = extras.getString(SCORE_PLAYER1);
+        String p1Name = extras.getString(FIRST_PROFILE);
+        String players = extras.getString(PLAYERS);
+        String p2Name = extras.getString(SECOND_PROFILE);
+        String p2Score = extras.getString(SCORE_PLAYER2);
+        int currentTime = extras.getInt(TIME_PLAYED_PLAYER1);
+        int currentTime2 = extras.getInt(TIME_PLAYED_PLAYER2);
+        int correctAnsP1 = extras.getInt(CORRECT_ANS_P1);
+        int correctAnsP2 = extras.getInt(CORRECT_ANS_P2);
+        Log.d("Result time played", ""+ currentTime);
 
         if(players.equals("1")){
             scorep2.setVisibility(View.GONE);
@@ -96,15 +71,15 @@ public class ResultActivity extends AppCompatActivity {
         }
 
         player1.setText(p1Name);
-        scorep1.setText("Poäng: " + P1Score);
+        scorep1.setText("Poäng: " + p1Score);
         player2.setText(p2Name);
-        scorep2.setText("Poäng: " + P2Score);
+        scorep2.setText("Poäng: " + p2Score);
         category.setText("Kategori: " + chosenCategory);
         correctAnsP1Tv.setText("Rätta svar " + correctAnsP1);
         correctAnsP2Tv.setText("Rätta svar " + correctAnsP2);
 
         timePlayed.setText(String.valueOf("Tid: " + currentTime + " sekunder"));
-        timePlayed2.setText(String.valueOf("Tid: " +currentTime2 + " sekunder"));
+        timePlayed2.setText(String.valueOf("Tid: " + currentTime2 + " sekunder"));
 
 
 

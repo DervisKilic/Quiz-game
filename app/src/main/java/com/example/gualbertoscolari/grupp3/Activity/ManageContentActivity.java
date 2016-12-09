@@ -24,9 +24,6 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
     private static final String TAG = "MANAGECONTENTACTIVTY";
     AHBottomNavigation bottomNavigation;
 
-    //String for addCategory
-    private String cat;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,7 +184,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
     public void addCategory(View v){
         DbHelper db = new DbHelper(getApplicationContext());
         EditText category = (EditText) findViewById(R.id.categorie_name);
-        cat = category.getText().toString();
+        String cat = category.getText().toString();
 
         if(!cat.matches("^[a-zåäöA-ZÅÄÖ]{3,12}$")){
             Toast.makeText(this, "Max 12 letters or at least 1", Toast.LENGTH_SHORT).show();

@@ -44,8 +44,6 @@ public class MainGameActivity extends AppCompatActivity {
 
 
     private int numberOfPlayers;
-    private String p1Name;
-    private String p2Name;
     private int correctAnsP1 = 0;
     private int correctAnsP2 = 0;
     private String smsQ;
@@ -56,10 +54,8 @@ public class MainGameActivity extends AppCompatActivity {
     private String phoneNr;
     private long pausTime;
     private boolean resume;
-    private int progress;
 
     private GameLogic g1;
-    private TextView qAnswered;
 
     private ImageView questionFrame;
     private TextView playerName;
@@ -71,6 +67,7 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optCBtn;
     private Button optDBtn;
     private Button smsBtn;
+    AlertDialog myQuittingDialogBox;
 
     private TextView cat;
     private TextView timerTV;
@@ -96,8 +93,8 @@ public class MainGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_game);
         Bundle extras = getIntent().getExtras();
         chosenCat = extras.getString(CATEGORY);
-        p1Name = extras.getString(FIRSTPROFILE);
-        p2Name = extras.getString(SECONDPROFILE);
+        String p1Name = extras.getString(FIRSTPROFILE);
+        String p2Name = extras.getString(SECONDPROFILE);
         numberOfPlayers = extras.getInt(String.valueOf(PLAYERS));
         cat = (TextView) findViewById(R.id.chosen_category);
         timerTV = (TextView) findViewById(R.id.timer_tv);
@@ -124,10 +121,14 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
-        smsBtn.setVisibility(View.GONE);
+        smsBtn.setVisibility(View.VISIBLE);
         questionFrame = (ImageView) findViewById(R.id.question_frame);
         smsBtn.setEnabled(true);
 
+        if(numberOfPlayers == 2){
+            smsBtn.setVisibility(View.GONE);
+            smsBtn.setEnabled(false);
+        }
         loadQuestionFrame();
         getReadyDialog();
     }
@@ -191,7 +192,7 @@ public class MainGameActivity extends AppCompatActivity {
                 clock.start();
                 timer = new CountDownTimer(time, 10) {
                     public void onTick(long millisUntilFinished) {
-                        timerTV.setText("Points " + (millisUntilFinished / 100));
+                        timerTV.setText("Poäng " + millisUntilFinished / 100);
                         scoreValue = (int) (millisUntilFinished / 100);
                         timePlayed = 10 - ((int) (millisUntilFinished / 1000));
 
@@ -307,6 +308,7 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void setRound() {
+        TextView qAnswered;
         if (numberOfPlayers == 1) {
             qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
             qAnswered.setText("Q " + gameRound + "/10");
@@ -328,14 +330,13 @@ public class MainGameActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         quit = true;
+        clock.pause();
         Intent intent = new Intent(this, GameSettingsActivity.class);
         startActivity(intent);
         finish();
     }
     private AlertDialog AskOption() {
-        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
-
-                //set message, title, and icon
+        myQuittingDialogBox = new AlertDialog.Builder(this)
                 .setTitle("Nästa spelare " + g1.getCurrentPlayer().getName())
                 .setMessage("Tryck ok för att köra")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -359,7 +360,6 @@ public class MainGameActivity extends AppCompatActivity {
         alertDialog.setTitle("Gör dig redo " + g1.getCurrentPlayer().getName());
         alertDialog.setMessage("4");
         alertDialog.show();
-        smsBtn.setVisibility(View.VISIBLE);
 
         new CountDownTimer(4000, 1) {
             @Override
