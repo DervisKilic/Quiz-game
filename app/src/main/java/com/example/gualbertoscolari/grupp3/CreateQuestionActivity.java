@@ -24,6 +24,8 @@ public class CreateQuestionActivity extends AppCompatActivity {
         Spinner dropdownCategory = (Spinner) findViewById(R.id.spinner_create_question);
         ArrayAdapter<String> chosenCategory = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
+
+
     }
 
     /**
