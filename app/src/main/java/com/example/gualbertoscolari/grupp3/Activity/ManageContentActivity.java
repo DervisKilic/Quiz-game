@@ -52,13 +52,13 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         bottomNavigation.addItem(deleteQuestionItem);
 
         //Set properties of navigationbar
-        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
+        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#007991"));
 
         //Set default item
         bottomNavigation.setCurrentItem(0);
 
         // Change colors
-        bottomNavigation.setAccentColor(Color.parseColor("#F63D2B"));
+        bottomNavigation.setAccentColor(Color.parseColor("#B2DFDBg"));
         bottomNavigation.setInactiveColor(Color.parseColor("#000000"));
 
         // Manage titles
