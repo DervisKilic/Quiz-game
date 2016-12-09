@@ -2,6 +2,7 @@ package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.text.InputType;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -368,16 +370,20 @@ public class MainGameActivity extends AppCompatActivity {
 
     private AlertDialog getReadyDialog() {
         final AlertDialog alertDialog  = new AlertDialog.Builder(this).create();
-
-        alertDialog.setTitle("Gör dig redo " + g1.getCurrentPlayer().getName());
-        alertDialog.setMessage("4");
+        final TextView dialogView = new TextView(this);
+        dialogView.setGravity(Gravity.CENTER_HORIZONTAL);
+        dialogView.setTextSize(25);
+        dialogView.setBackgroundColor(Color.parseColor("#A9E6A9"));
+        dialogView.setPadding(30, 30, 30, 30);
+        alertDialog.setView(dialogView);
         alertDialog.show();
+
         alertDialog.setCancelable(false);
 
-        new CountDownTimer(4000, 1) {
+        new CountDownTimer(5000, 1) {
             @Override
             public void onTick(long millisUntilFinished) {
-                alertDialog.setMessage(""+ (millisUntilFinished/1000));
+                dialogView.setText("Gör dig redo!\n"+ (millisUntilFinished/1000));
             }
 
             @Override
