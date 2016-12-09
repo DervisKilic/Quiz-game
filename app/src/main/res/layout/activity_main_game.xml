@@ -51,12 +51,9 @@
             android:background="@drawable/standardcustombutton"
             android:onClick="btnPressed"
             android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
             android:text="@string/answer_a_btn"
             android:textAllCaps="false"
-            android:textColor="#eb030303" />
+            android:textColor="#fdfafafa" />
 
         <Button
             android:id="@+id/answer_btn_b"
@@ -66,13 +63,9 @@
             android:layout_weight="1"
             android:background="@drawable/standardcustombutton"
             android:onClick="btnPressed"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
             android:text="@string/answer_b_btn"
             android:textAllCaps="false"
-            android:textColor="#eb030303" />
+            android:textColor="#fdfafafa" />
     </LinearLayout>
 
     <LinearLayout
@@ -90,12 +83,9 @@
             android:background="@drawable/standardcustombutton"
             android:onClick="btnPressed"
             android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
             android:text="@string/answer_c_btn"
             android:textAllCaps="false"
-            android:textColor="#eb030303" />
+            android:textColor="#fdfafafa" />
 
         <Button
             android:id="@+id/answer_btn_d"
@@ -106,12 +96,9 @@
             android:background="@drawable/standardcustombutton"
             android:onClick="btnPressed"
             android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
             android:text="@string/answer_d_btn"
             android:textAllCaps="false"
-            android:textColor="#eb030303" />
+            android:textColor="#fdfafafa" />
 
     </LinearLayout>
 
@@ -127,7 +114,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:id="@+id/questions_answered_tv"
@@ -136,7 +124,7 @@
                 android:layout_weight="2"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="25sp"
+                android:textSize="20sp"
 
                 />
 
@@ -147,7 +135,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_toRightOf="@id/questions_answered_lo">
+            android:layout_toRightOf="@id/questions_answered_lo"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:id="@+id/chosen_category"
@@ -155,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="#fff"
-                android:textSize="25sp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
 
@@ -165,7 +154,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_toRightOf="@id/questions_answered_lo"
-            android:gravity="right">
+            android:gravity="right"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:id="@+id/timer_tv"
@@ -173,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:textColor="#fff"
-                android:textSize="25sp"/>
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <Button
@@ -183,14 +173,12 @@
             android:background="@drawable/standardcustombutton"
             android:onClick="smsSend"
             android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
+            android:textColor="#fdfafafa"
             android:text="Sms:a frågan"
             android:textAllCaps="false"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="37dp" />
+            android:layout_marginTop="30dp" />
 
     </RelativeLayout>
 
