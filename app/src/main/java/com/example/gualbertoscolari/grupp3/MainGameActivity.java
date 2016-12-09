@@ -96,7 +96,7 @@ public class MainGameActivity extends AppCompatActivity {
         progressbar.setScaleY(4f);
         mp = MediaPlayer.create(this, R.raw.fail);
         mp2 = MediaPlayer.create(this, R.raw.correct_answer);
-        mp3 = MediaPlayer.create(this, R.raw.timer);
+        mp3 = MediaPlayer.create(this, R.raw.clock);
 
         if (numberOfPlayers == 1) {
             g1 = new GameLogic(p1Name, chosenCat, numberOfPlayers, this);
