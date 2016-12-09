@@ -1,4 +1,4 @@
-package com.example.gualbertoscolari.grupp3;
+package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Timer;
+import com.example.gualbertoscolari.grupp3.Activity.AboutActivity;
+import com.example.gualbertoscolari.grupp3.Activity.GameSettingsActivity;
+import com.example.gualbertoscolari.grupp3.Activity.HighscoreActivity;
+import com.example.gualbertoscolari.grupp3.Activity.MenuActivity;
+import com.example.gualbertoscolari.grupp3.R;
 
 //Skriver ut resultatet. Har 3 knappar.
 //Uppdaterar highscore listan.

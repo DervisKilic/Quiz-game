@@ -1,4 +1,4 @@
-package com.example.gualbertoscolari.grupp3;
+package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
+import com.example.gualbertoscolari.grupp3.Logic.Profile;
+import com.example.gualbertoscolari.grupp3.Logic.Question;
+import com.example.gualbertoscolari.grupp3.R;
 import com.example.gualbertoscolari.grupp3.mFragments.AddCategoryFragment;
 import com.example.gualbertoscolari.grupp3.mFragments.AddProfileFragment;
 import com.example.gualbertoscolari.grupp3.mFragments.AddQuestionFragment;

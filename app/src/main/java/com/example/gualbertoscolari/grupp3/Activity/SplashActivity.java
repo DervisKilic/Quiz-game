@@ -1,4 +1,4 @@
-package com.example.gualbertoscolari.grupp3;
+package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+
+import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
+import com.example.gualbertoscolari.grupp3.R;
 
 /**
  * the intro screen

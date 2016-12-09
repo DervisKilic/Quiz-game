@@ -1,4 +1,4 @@
-package com.example.gualbertoscolari.grupp3;
+package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,14 +18,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P1;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.CORRECT_ANS_P2;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.FIRST_PROFILE;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER1;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.SCORE_PLAYER2;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.SECOND_PROFILE;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER1;
-import static com.example.gualbertoscolari.grupp3.ResultActivity.TIME_PLAYED_PLAYER2;
+import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
+import com.example.gualbertoscolari.grupp3.Logic.GameLogic;
+import com.example.gualbertoscolari.grupp3.Logic.Profile;
+import com.example.gualbertoscolari.grupp3.R;
+
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.CORRECT_ANS_P1;
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.CORRECT_ANS_P2;
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.FIRST_PROFILE;
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.SCORE_PLAYER1;
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.SCORE_PLAYER2;
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.SECOND_PROFILE;
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.TIME_PLAYED_PLAYER1;
+import static com.example.gualbertoscolari.grupp3.Activity.ResultActivity.TIME_PLAYED_PLAYER2;
 
 //Metoden skall skapa upp ett gamelogic objekt som innehåller 10 frågor.
 //Skall visa upp 1 fråga och 4 svar. Skall visa en timer från gamelogic.

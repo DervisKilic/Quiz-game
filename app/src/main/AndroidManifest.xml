@@ -10,23 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activity.SplashActivity"
             android:label="@string/Quiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultActivity" />
-        <activity android:name=".HighscoreActivity" />
-        <activity android:name=".MainGameActivity" />
-        <activity android:name=".GameSettingsActivity" />
+        <activity android:name=".Activity.ResultActivity" />
+        <activity android:name=".Activity.HighscoreActivity" />
+        <activity android:name=".Activity.MainGameActivity" />
+        <activity android:name=".Activity.GameSettingsActivity" />
         <activity android:name=".CreateProfileActivity" />
         <activity android:name=".CreateCategoryActivity" />
         <activity android:name=".CreateQuestionActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".ManageContentActivity"></activity>
+        <activity android:name=".Activity.AboutActivity" />
+        <activity android:name=".Activity.MenuActivity" />
+        <activity android:name=".Activity.ManageContentActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.gualbertoscolari.grupp3;
+package com.example.gualbertoscolari.grupp3.Logic;
 //setters behövs inte då värdena sätts i konstruktorn.
 
 public class Profile {

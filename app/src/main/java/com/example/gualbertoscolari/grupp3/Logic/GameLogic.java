@@ -1,8 +1,9 @@
-package com.example.gualbertoscolari.grupp3;
+package com.example.gualbertoscolari.grupp3.Logic;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
+
+import com.example.gualbertoscolari.grupp3.Activity.MainGameActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;

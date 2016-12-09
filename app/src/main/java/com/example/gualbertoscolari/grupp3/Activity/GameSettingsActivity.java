@@ -1,4 +1,4 @@
-package com.example.gualbertoscolari.grupp3;
+package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
+import com.example.gualbertoscolari.grupp3.Logic.Profile;
+import com.example.gualbertoscolari.grupp3.R;
 
 import java.util.ArrayList;
 import java.util.List;
