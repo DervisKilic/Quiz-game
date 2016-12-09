@@ -117,6 +117,7 @@ public class DeleteContentFragment extends Fragment {
                  //set message, title, and icon
                  .setTitle("Delete")
                  .setMessage("Do you want to Delete")
+                 .setCancelable(false)
                  .setIcon(R.drawable.natur)
                  .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 

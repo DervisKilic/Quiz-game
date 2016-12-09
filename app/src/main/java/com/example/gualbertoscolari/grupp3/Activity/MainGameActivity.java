@@ -350,6 +350,7 @@ public class MainGameActivity extends AppCompatActivity {
         myQuittingDialogBox = new AlertDialog.Builder(this)
                 .setTitle("Nästa spelare " + g1.getCurrentPlayer().getName())
                 .setMessage("Tryck ok för att köra")
+                .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -371,6 +372,7 @@ public class MainGameActivity extends AppCompatActivity {
         alertDialog.setTitle("Gör dig redo " + g1.getCurrentPlayer().getName());
         alertDialog.setMessage("4");
         alertDialog.show();
+        alertDialog.setCancelable(false);
 
         new CountDownTimer(4000, 1) {
             @Override
