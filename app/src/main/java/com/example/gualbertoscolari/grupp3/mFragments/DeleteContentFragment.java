@@ -19,7 +19,7 @@ import com.example.gualbertoscolari.grupp3.DbHelper;
 import com.example.gualbertoscolari.grupp3.R;
 import java.util.ArrayList;
 
-public class DeleteQuestionFragment extends Fragment {
+public class DeleteContentFragment extends Fragment {
 
     private ArrayAdapter<String> arrayAdapterStrings;
     private Cursor cursor;

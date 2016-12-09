@@ -1,6 +1,5 @@
 package com.example.gualbertoscolari.grupp3;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,12 +13,14 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.gualbertoscolari.grupp3.mFragments.AddCategoryFragment;
 import com.example.gualbertoscolari.grupp3.mFragments.AddProfileFragment;
 import com.example.gualbertoscolari.grupp3.mFragments.AddQuestionFragment;
-import com.example.gualbertoscolari.grupp3.mFragments.DeleteQuestionFragment;
+import com.example.gualbertoscolari.grupp3.mFragments.DeleteContentFragment;
 
 public class ManageContentActivity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener {
 
     private static final String TAG = "MANAGECONTENTACTIVTY";
     AHBottomNavigation bottomNavigation;
+
+    //String for addCategory
     private String cat;
 
     @Override
@@ -76,7 +77,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new AddProfileFragment()).commit();
         } else if (position == 3) {
             Log.d(TAG, "onTabSelected: Position: " + position);
-            getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new DeleteQuestionFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new DeleteContentFragment()).commit();
 
         }
 
@@ -194,25 +195,6 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         }
     }
 
-    /**
-     *
-     * @return returns category
-     */
-    public String getCategory() {
-        return cat;
-    }
 
-    public void backToMain(View view) {
-        Intent GameStettingsActivity = new Intent(this, GameSettingsActivity.class);
-        startActivity(GameStettingsActivity);
-        finish();
-    }
-
-    public void goToGameSettings(View view) {
-
-        Intent playAgainIntent = new Intent(this, GameSettingsActivity.class);
-        startActivity(playAgainIntent);
-        finish();
-    }
 
 }
