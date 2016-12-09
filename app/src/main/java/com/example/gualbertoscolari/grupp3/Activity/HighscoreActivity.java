@@ -40,15 +40,11 @@ public class HighscoreActivity extends AppCompatActivity {
         displayCategoriesInSpinner();
     }
 
-<<<<<<< HEAD
-    private void displayCategoriesInSpinner() {
-=======
     /**
      * Method for displaying highscore List<> in gridview.
      * Gets highscore from database depending on the chosen category in spinner.
      */
     private void displayHighscore() {
->>>>>>> 1bb09cbfc8c1f9dba4729589e96f11529d463ff2
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         List<String> allHighscores = db.getHighScoredata(cat);
         if(allHighscores.size() == 0){
@@ -58,17 +54,12 @@ public class HighscoreActivity extends AppCompatActivity {
         ArrayAdapter<String> gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
         hsGridV.setAdapter(gridAdapter);
     }
-
-<<<<<<< HEAD
-    private void displayHighScore() {
-=======
     /**
      * Method for displaying existing categories in spinner.
      * Gets List<> from getHighScoredata with the correponding category chosen
      * in spinner.
      */
     private void displayCategoriesInSpinner() {
->>>>>>> 1bb09cbfc8c1f9dba4729589e96f11529d463ff2
         // Tar in vald kategori från spinner som argument.
         //Hämtar sorterad high score-lista från DBhelper och skriver ut den i GridView
         dropdownCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -88,13 +79,10 @@ public class HighscoreActivity extends AppCompatActivity {
         });
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Method that overides the phones backbutton.
      * Creates an Intent and starts MenuActivity. Finishes this activity.
      */
->>>>>>> 1bb09cbfc8c1f9dba4729589e96f11529d463ff2
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MenuActivity.class);
