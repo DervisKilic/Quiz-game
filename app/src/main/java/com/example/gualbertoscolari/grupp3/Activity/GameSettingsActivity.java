@@ -21,11 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-//Inställningar för spelomgång antal spelare, val av profil, val av kategori.
-//Här kan man välja att skapa nya kategorier, profiler och frågor.
-//Valen sparas ner i ett intent som skickas vidare till Maingame där det skapas upp en instans av
-//GameLogic
+/**
+ *The class that takes care of the Gamesettings, lets the player choose category, number of players,
+ * and profile.
+ */
 public class GameSettingsActivity extends AppCompatActivity {
     private List<String> category = new ArrayList<>();
     private ArrayList<String> profile = new ArrayList<>();
@@ -128,6 +127,11 @@ public class GameSettingsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Takes the player to the ManageContent activity.
+     * @param view the view that was clicked
+     */
+
     public void goToManageContent(View view) {
         startActivity(new Intent(this, ManageContentActivity.class));
     }
@@ -135,8 +139,7 @@ public class GameSettingsActivity extends AppCompatActivity {
 
 
 
-
-    public void getStandardCategorys(){
+    private void getStandardCategorys(){
         DbHelper db = new DbHelper(this);
 
         category = db.getAllCatagories();
@@ -146,7 +149,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         dropdownCategory.setAdapter(chosenCategory);
     }
 
-    public void getStandardProfiles() {
+    private void getStandardProfiles() {
         DbHelper db = new DbHelper(this);  // my profile bank class
         profList = db.getAllProfiles();  // this will fetch all quetonall questions
         db.close();

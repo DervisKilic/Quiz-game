@@ -15,9 +15,9 @@ import com.example.gualbertoscolari.grupp3.R;
 
 import java.util.List;
 
-//Ska låta användaren lista highscoren efter specifik kategori eller alla.
-//Spinner funktion skall finnas för att välja mellan kategorierna.
-//
+/**
+ * Class that shows the highscore.
+ */
 public class HighscoreActivity extends AppCompatActivity {
 
     private GridView hsGridV;
@@ -44,7 +44,7 @@ public class HighscoreActivity extends AppCompatActivity {
         displayHighScore();
     }
 
-    public void displayCategoriesInSpinner() {
+    private void displayCategoriesInSpinner() {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         allHighscores = db.getHighScoredata(cat);
         if(allHighscores.size() == 0){
@@ -55,7 +55,7 @@ public class HighscoreActivity extends AppCompatActivity {
         hsGridV.setAdapter(gridAdapter);
     }
 
-    public void displayHighScore() {
+    private void displayHighScore() {
         // Tar in vald kategori från spinner som argument.
         //Hämtar sorterad high score-lista från DBhelper och skriver ut den i GridView
         dropdownCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,12 +73,6 @@ public class HighscoreActivity extends AppCompatActivity {
                 // your code here
             }
         });
-    }
-
-    public void back(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     @Override
