@@ -8,6 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.gualbertoscolari.grupp3.Activity.GameSettingsActivity;
+import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
+import com.example.gualbertoscolari.grupp3.Logic.Question;
+
 import java.util.List;
 //Skapar upp en fråga med 4 alternativ och 1 rätt svar.
 //Man väljer även vilken kategori frågan skall läggas til i som hämtas från databasen.

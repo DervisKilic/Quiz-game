@@ -135,7 +135,6 @@ public class DeleteContentFragment extends Fragment {
                              Log.d("ta bort", "tog bort prof" + allints.get(position));
                              db.deleteCreatedProfiles(allints.get(position));
                              allints.remove(position);
-                             db.deleteCreatedHSProfiles(arrayAdapterStrings.getItem(position));
                              arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                              quest = false;
                              cat = false;

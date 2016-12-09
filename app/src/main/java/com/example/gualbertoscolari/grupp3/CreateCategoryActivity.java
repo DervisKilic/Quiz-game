@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.gualbertoscolari.grupp3.Activity.GameSettingsActivity;
+import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 //Klassen är till för att skapa egna kategorier.
 //Den tar emot en text sträng från användaren med valt kategori namn,
 //och skickar in det till databasen.

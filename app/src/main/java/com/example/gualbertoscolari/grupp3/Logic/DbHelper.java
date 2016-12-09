@@ -490,7 +490,7 @@ public class DbHelper extends SQLiteOpenHelper {
      * Takes an id and deletes the corresponding row in table highscore in database.
      * @param id
      */
-    private void deleteFromHighscore(int id){
+    public void deleteFromHighscore(int id){
         dbaseWrite = getWritableDatabase();
         dbaseWrite.delete(TABLE_HIGHSCORE, KEY_ID + "=?", new String[]{""+id});
     }

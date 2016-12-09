@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.gualbertoscolari.grupp3.Activity.GameSettingsActivity;
+import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
+import com.example.gualbertoscolari.grupp3.Logic.Profile;
+
 //Klassen låter användaren skapa en profil att spela med.
 //Klassen innehåller 2 knappar 1 för att spara sin profil och 1 för att gå tillbaka till GameSettings
 //Save knappen sparar ner profilnamnet i en variabel och skickar till databasen.
