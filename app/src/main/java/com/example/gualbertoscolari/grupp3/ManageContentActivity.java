@@ -143,6 +143,11 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
 
         } else {
             Toast.makeText(this, "You added a new question", Toast.LENGTH_SHORT).show();
+            inputQuestion.setText("");
+            inputcorrectAnswer.setText("");
+            inputOptb.setText("");
+            inputOptc.setText("");
+            inputOptd.setText("");
             Question q = new Question(question, correctAnswer, optb, optc, optd, cat, correctAnswer);
             DbHelper db = new DbHelper(getApplicationContext());
             db.addQuestion(q);
