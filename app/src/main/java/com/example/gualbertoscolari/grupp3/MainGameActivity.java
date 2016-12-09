@@ -79,7 +79,7 @@ public class MainGameActivity extends AppCompatActivity {
 
     private MediaPlayer mp;
     private MediaPlayer mp2;
-    private MediaPlayer mp3;
+    private MediaPlayer clock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,7 @@ public class MainGameActivity extends AppCompatActivity {
         progressbar.setScaleY(4f);
         mp = MediaPlayer.create(this, R.raw.fail);
         mp2 = MediaPlayer.create(this, R.raw.correct_answer);
-        mp3 = MediaPlayer.create(this, R.raw.clock);
+        clock = MediaPlayer.create(this, R.raw.clock);
 
         if (numberOfPlayers == 1) {
             g1 = new GameLogic(p1Name, chosenCat, numberOfPlayers, this);
@@ -144,6 +144,7 @@ public class MainGameActivity extends AppCompatActivity {
         g1.changePlayer();
 
         if (g1.getNumberOfAnsweredQ() == 2) {
+            clock.stop();
             //Du har svarat på alla frågor , du tas till resultskärmen.
             handler.postDelayed(new Runnable() {
                 @Override
@@ -172,10 +173,11 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void resetTimer() {
-        handler.postDelayed(new Runnable() {
 
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                clock.start();
                 timer = new CountDownTimer(10000, 10) {
                     public void onTick(long millisUntilFinished) {
                         timerTV.setText("Points " + (millisUntilFinished / 100));
@@ -185,14 +187,12 @@ public class MainGameActivity extends AppCompatActivity {
                             timePlayed2 =  10 - ((int) (millisUntilFinished / 1000));
                         }
 
-
                         int progress = (int) (millisUntilFinished / 100);
                         progressbar.setProgress(progress);
                     }
 
-
                     public void onFinish() {
-
+                        clock.pause();
                         progressbar.setProgress(0);
                         timerTV.setText("0");
                         onButtonGuess("");
@@ -205,6 +205,7 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void goToResult() {
+
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra(CATEGORY, chosenCat);
         intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
@@ -232,11 +233,13 @@ public class MainGameActivity extends AppCompatActivity {
         if (g1.checkCorrectAnswer(buttonText)) {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
             mp2.start();
-            mp3.stop();
+            clock.pause();
+
         } else {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
             mp.start();
-            mp3.stop();
+            clock.pause();
+
         }
 
         optABtn.setEnabled(false);
@@ -430,4 +433,6 @@ public class MainGameActivity extends AppCompatActivity {
 
         builder.show();
     }
+
+
 }
