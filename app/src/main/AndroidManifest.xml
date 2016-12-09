@@ -11,22 +11,27 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activity.SplashActivity"
-            android:label="@string/Quiz">
+            android:label="@string/Quiz"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.ResultActivity" />
-        <activity android:name=".Activity.HighscoreActivity" />
-        <activity android:name=".Activity.MainGameActivity" />
-        <activity android:name=".Activity.GameSettingsActivity" />
-        <activity android:name=".CreateProfileActivity" />
-        <activity android:name=".CreateCategoryActivity" />
-        <activity android:name=".CreateQuestionActivity" />
-        <activity android:name=".Activity.AboutActivity" />
-        <activity android:name=".Activity.MenuActivity" />
-        <activity android:name=".Activity.ManageContentActivity"></activity>
+        <activity android:name=".Activity.ResultActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.HighscoreActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.MainGameActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.GameSettingsActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.AboutActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.MenuActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.ManageContentActivity"
+                  android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

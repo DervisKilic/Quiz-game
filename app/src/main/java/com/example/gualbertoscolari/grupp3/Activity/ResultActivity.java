@@ -1,6 +1,7 @@
 package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -93,6 +94,7 @@ public class ResultActivity extends AppCompatActivity {
             timePlayed2.setVisibility(View.GONE);
             correctAnsP2Tv.setVisibility(View.GONE);
         }
+
         player1.setText(p1Name);
         scorep1.setText("Poäng: " + P1Score);
         player2.setText(p2Name);
