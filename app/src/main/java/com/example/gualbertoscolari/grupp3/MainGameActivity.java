@@ -243,7 +243,7 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
         optDBtn.setEnabled(false);
-        onButtonGuess(optABtn.getText().toString());
+        onButtonGuess(buttonText);
     }
 
     public void resetQuestion() {

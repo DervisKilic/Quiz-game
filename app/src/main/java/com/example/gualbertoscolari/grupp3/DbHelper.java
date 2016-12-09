@@ -20,7 +20,7 @@ import java.util.List;
 //
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     // Database Name
     private static final String DATABASE_NAME = "quiz_db";
     // tasks table name for questions
@@ -112,7 +112,10 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase dbase, int oldVersion, int newVersion) {
-        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + TABLE_CATEGORY + TABLE_PROFILE + TABLE_HIGHSCORE);
+        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION);
+        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORY);
+        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILE);
+        dbase.execSQL("DROP TABLE IF EXISTS " + TABLE_HIGHSCORE);
         onCreate(dbase);
     }
 

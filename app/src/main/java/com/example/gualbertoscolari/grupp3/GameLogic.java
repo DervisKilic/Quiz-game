@@ -73,16 +73,14 @@ public class GameLogic extends MainGameActivity {
     }
 
     public boolean checkCorrectAnswer(String option){
-        Boolean bool;
 
 
         if(option.equals(tenQuestions.get(numberOfAnsweredQ).getANSWER())){
-            bool = true;
-            return bool;
+            return true;
 
         } else {
-            bool = false;
-            return bool;
+
+            return false;
         }
 
 
