@@ -8,23 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.gualbertoscolari.grupp3.R;
 
-/**
- * Created by Siniom on 09/12/16.
- */
-
 public class AddProfileFragment extends Fragment {
-
-
-        public View rootView;
 
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_create_profile, container, false);
-
-
-
-            return rootView;
-
+            return inflater.inflate(R.layout.activity_create_profile, container, false);
         }
 }

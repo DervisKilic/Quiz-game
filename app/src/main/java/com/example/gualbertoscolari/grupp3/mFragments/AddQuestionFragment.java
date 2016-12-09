@@ -30,22 +30,4 @@ public class AddQuestionFragment extends Fragment {
         return rootView;
 
     }
-
-    /**
-     *
-     * @param v         adds the input questions if conditions are met.
-     */
-
-    /**
-     *
-     * @param view     takes the player back to game settings
-     */
-
-    /*
-    public void backToMain(View view){
-        Intent GameStettingsActivity = new Intent(this, GameSettingsActivity.class);
-        startActivity(GameStettingsActivity);
-        finish();
-    }*/
-
 }

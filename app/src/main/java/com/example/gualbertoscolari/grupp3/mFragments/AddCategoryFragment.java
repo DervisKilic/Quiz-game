@@ -13,9 +13,8 @@ public class AddCategoryFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_create_category,container,false);
 
-        return rootView;
+        return inflater.inflate(R.layout.activity_create_category,container,false);
     }
 
 

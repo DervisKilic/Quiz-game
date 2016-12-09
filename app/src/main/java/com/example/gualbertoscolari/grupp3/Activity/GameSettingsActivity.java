@@ -26,14 +26,12 @@ import java.util.List;
  * and profile.
  */
 public class GameSettingsActivity extends AppCompatActivity {
-    private List<String> category = new ArrayList<>();
     private ArrayList<String> profile = new ArrayList<>();
     private ArrayAdapter<String> chosenCategory;
     private ArrayAdapter<String> chosenProfileP1;
     private ArrayAdapter<String> chosenProfileP2;
-    String p1;
-    String p2;
-    private String cat;
+    private String p1;
+    private String p2;
     private CheckBox c1;
     private CheckBox c2;
 
@@ -45,10 +43,6 @@ public class GameSettingsActivity extends AppCompatActivity {
     private ImageView profileIv1;
     private ImageView profileIv2;
     private Spinner dropdownCategory;
-
-    private List<Profile> profList;
-
-    private Profile currentP;
 
     String p1name;
     String p2name;
@@ -108,7 +102,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     public void goToMainGame(View view) {
         DbHelper db = new DbHelper(this);
 
-        cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
+        String cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
         p1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
         p2 = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
 
@@ -142,19 +136,19 @@ public class GameSettingsActivity extends AppCompatActivity {
     private void getStandardCategorys(){
         DbHelper db = new DbHelper(this);
 
-        category = db.getAllCatagories();
+        List<String> category = db.getAllCatagories();
         db.close();
         dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
-        chosenCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, category);
+        chosenCategory = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
     }
 
     private void getStandardProfiles() {
         DbHelper db = new DbHelper(this);  // my profile bank class
-        profList = db.getAllProfiles();  // this will fetch all quetonall questions
+        List<Profile> profList = db.getAllProfiles();
         db.close();
         for (int i = 0; i < profList.size(); i++) {
-            currentP = profList.get(i); // the current profile
+            Profile currentP = profList.get(i);
             profile.add(currentP.getName());
         }
 
@@ -164,8 +158,8 @@ public class GameSettingsActivity extends AppCompatActivity {
         profileIv1 = (ImageView) findViewById(R.id.profile_img_iv1);
         profileIv2 = (ImageView) findViewById(R.id.profile_img_iv2);
 
-        chosenProfileP1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
-        chosenProfileP2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, profile);
+        chosenProfileP1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, profile);
+        chosenProfileP2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, profile);
         profileSpinner1.setAdapter(chosenProfileP1);
         profileSpinner2.setAdapter(chosenProfileP2);
         p1 = profileSpinner1.getAdapter().toString();
@@ -176,22 +170,22 @@ public class GameSettingsActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 p1name = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
 
-                if(p1name.equals("Dervis")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
-                }
-
-                else if(p1name.equals("Fredrik")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
-                }
-
-                else if(p1name.equals("Gualberto")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
-                }
-
-                else if(p1name.equals("Simon")){
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
-                }else{
-                    profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
+                switch (p1name) {
+                    case "Dervis":
+                        profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
+                        break;
+                    case "Fredrik":
+                        profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
+                        break;
+                    case "Gualberto":
+                        profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
+                        break;
+                    case "Simon":
+                        profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
+                        break;
+                    default:
+                        profileIv1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
+                        break;
                 }
             }
             @Override
@@ -207,22 +201,22 @@ public class GameSettingsActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 p2name = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
 
-                if(p2name.equals("Dervis")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
-                }
-
-                else if(p2name.equals("Fredrik")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
-                }
-
-                else if(p2name.equals("Gualberto")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
-                }
-
-                else if(p2name.equals("Simon")){
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
-                }else{
-                    profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
+                switch (p2name) {
+                    case "Dervis":
+                        profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
+                        break;
+                    case "Fredrik":
+                        profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
+                        break;
+                    case "Gualberto":
+                        profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
+                        break;
+                    case "Simon":
+                        profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
+                        break;
+                    default:
+                        profileIv2.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
+                        break;
                 }
             }
 

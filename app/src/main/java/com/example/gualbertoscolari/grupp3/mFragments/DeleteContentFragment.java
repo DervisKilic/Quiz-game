@@ -27,9 +27,7 @@ public class DeleteContentFragment extends Fragment {
     private ListView list;
     private ArrayList<String> allStrings;
     private ArrayList<Integer> allints;
-    private Spinner options;
     private ArrayAdapter optAdapter;
-    private ArrayList<String> quesProfCat;
     private boolean quest;
     private boolean prof;
     private boolean cat;
@@ -40,15 +38,15 @@ public class DeleteContentFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_delete,container,false);
 
         list = (ListView) rootView.findViewById(R.id.question_list);
-        options = (Spinner) rootView.findViewById(R.id.option_spinner);
+        Spinner options = (Spinner) rootView.findViewById(R.id.option_spinner);
         list = (ListView) rootView.findViewById(R.id.question_list);
-        quesProfCat = new ArrayList<>();
+        ArrayList<String> quesProfCat = new ArrayList<>();
 
         quesProfCat.add("Questions");
         quesProfCat.add("Profiles");
         quesProfCat.add("Categories");
 
-        optAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, quesProfCat);
+        optAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, quesProfCat);
 
         options.setAdapter(optAdapter);
 
@@ -87,10 +85,10 @@ public class DeleteContentFragment extends Fragment {
 
                 if(allStrings.size()>0) // check if list contains items.
                 {
-                    arrayAdapterStrings = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,allStrings);
+                    arrayAdapterStrings = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,allStrings);
                     list.setAdapter(arrayAdapterStrings);
                 }else{
-                    arrayAdapterStrings = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,allStrings);
+                    arrayAdapterStrings = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,allStrings);
                     list.setAdapter(arrayAdapterStrings);
                     Toast.makeText(getActivity(), "No items to display", Toast.LENGTH_SHORT).show();
                 }
@@ -114,51 +112,50 @@ public class DeleteContentFragment extends Fragment {
 
     private AlertDialog AskOption(final int position)
     {
-        AlertDialog myQuittingDialogBox =new AlertDialog.Builder(getActivity())
+        return new AlertDialog.Builder(getActivity())
 
-                //set message, title, and icon
-                .setTitle("Delete")
-                .setMessage("Do you want to Delete")
-                .setIcon(R.drawable.natur)
-                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                 //set message, title, and icon
+                 .setTitle("Delete")
+                 .setMessage("Do you want to Delete")
+                 .setIcon(R.drawable.natur)
+                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
-                    public void onClick(DialogInterface dialog, int whichButton) {
+                     public void onClick(DialogInterface dialog, int whichButton) {
 
-                        if(quest) {
-                            Log.d("ta bort", "tog bort quest" + allints.get(position));
-                            db.deleteCreatedQuestion(allints.get(position));
-                            allints.remove(position);
-                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
-                            prof = false;
-                            cat = false;
+                         if (quest) {
+                             Log.d("ta bort", "tog bort quest" + allints.get(position));
+                             db.deleteCreatedQuestion(allints.get(position));
+                             allints.remove(position);
+                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                             prof = false;
+                             cat = false;
 
-                        }else if(prof){
-                            list.setAdapter(arrayAdapterStrings);
-                            Log.d("ta bort", "tog bort prof" + allints.get(position));
-                            db.deleteCreatedProfiles(allints.get(position));
-                            allints.remove(position);
-                            db.deleteCreatedHSProfiles(arrayAdapterStrings.getItem(position));
-                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
-                            quest = false;
-                            cat = false;
+                         } else if (prof) {
+                             list.setAdapter(arrayAdapterStrings);
+                             Log.d("ta bort", "tog bort prof" + allints.get(position));
+                             db.deleteCreatedProfiles(allints.get(position));
+                             allints.remove(position);
+                             db.deleteCreatedHSProfiles(arrayAdapterStrings.getItem(position));
+                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                             quest = false;
+                             cat = false;
 
-                        }else if(cat){
-                            Log.d("ta bort", "tog bort cat " + allints.get(position));
-                            db.deleteCreatedCategory(allints.get(position));
-                            allints.remove(position);
-                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
-                            quest = false;
-                            prof = false;
-                        }
-                        dialog.dismiss();
-                    }
-                })
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
+                         } else if (cat) {
+                             Log.d("ta bort", "tog bort cat " + allints.get(position));
+                             db.deleteCreatedCategory(allints.get(position));
+                             allints.remove(position);
+                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                             quest = false;
+                             prof = false;
+                         }
+                         dialog.dismiss();
+                     }
+                 })
+                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                     public void onClick(DialogInterface dialog, int which) {
+                         dialog.dismiss();
+                     }
+                 })
                  .create();
-        return myQuittingDialogBox;
     }
 }

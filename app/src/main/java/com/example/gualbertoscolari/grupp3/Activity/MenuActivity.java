@@ -4,11 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-
-import com.example.gualbertoscolari.grupp3.Activity.AboutActivity;
-import com.example.gualbertoscolari.grupp3.Activity.GameSettingsActivity;
-import com.example.gualbertoscolari.grupp3.Activity.HighscoreActivity;
-import com.example.gualbertoscolari.grupp3.Activity.MainGameActivity;
 import com.example.gualbertoscolari.grupp3.R;
 
 //Första menyn man kommer till, finns 3 knappar som tar spelaren vidare till olika aktiviteter.

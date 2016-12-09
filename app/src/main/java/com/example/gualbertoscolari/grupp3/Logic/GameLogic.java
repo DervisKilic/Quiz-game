@@ -76,13 +76,7 @@ public class GameLogic extends MainGameActivity {
     public boolean checkCorrectAnswer(String option){
 
 
-        if(option.equals(tenQuestions.get(numberOfAnsweredQ).getANSWER())){
-            return true;
-
-        } else {
-
-            return false;
-        }
+        return option.equals(tenQuestions.get(numberOfAnsweredQ).getANSWER());
 
 
 
@@ -116,9 +110,7 @@ public class GameLogic extends MainGameActivity {
     }
 
     public void increaseNrOfAnsweredQuestion(){
-        if (numberOfPlayers == 2 && currentPlayer == p1){
-
-        } else {
+        if (!(numberOfPlayers == 2 && currentPlayer == p1)) {
             numberOfAnsweredQ++;
         }
     }
