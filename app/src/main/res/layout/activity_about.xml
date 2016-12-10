@@ -23,15 +23,20 @@
         android:text="@string/tack_f_r_att_du_spelat"
         android:textAlignment="center"
         android:textSize="32sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"
         />
 </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/creators"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginTop="25dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,10 +45,18 @@
             android:text="@string/skapare"
             android:textAlignment="center"
             android:textSize="32sp"
+            android:textColor="#FFFFFF"
+
             />
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/fragmanament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/production"
+        android:layout_below="@id/creators"/>
 
 
 
