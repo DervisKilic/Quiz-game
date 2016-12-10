@@ -28,6 +28,5 @@ public class AddQuestionFragment extends Fragment {
         dropdownCategory.setAdapter(chosenCategory);
 
         return rootView;
-
     }
 }
