@@ -1,5 +1,6 @@
 package com.example.gualbertoscolari.grupp3.Activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -91,8 +92,9 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         int count = getFragmentManager().getBackStackEntryCount();
 
         if (count == 0) {
+            startActivity(new Intent(this, GameSettingsActivity.class));
             super.onBackPressed();
-            //additional code
+            finish();
         } else {
             getFragmentManager().popBackStack();
         }

@@ -128,6 +128,7 @@ public class GameSettingsActivity extends AppCompatActivity {
 
     public void goToManageContent(View view) {
         startActivity(new Intent(this, ManageContentActivity.class));
+        finish();
     }
 
 
