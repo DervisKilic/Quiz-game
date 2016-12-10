@@ -94,6 +94,7 @@ public class MainGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
         Bundle extras = getIntent().getExtras();
+
         chosenCat = extras.getString(CATEGORY);
         String p1Name = extras.getString(FIRSTPROFILE);
         String p2Name = extras.getString(SECONDPROFILE);
@@ -123,9 +124,9 @@ public class MainGameActivity extends AppCompatActivity {
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
         optDBtn.setVisibility(View.GONE);
-        smsBtn.setVisibility(View.VISIBLE);
+        smsBtn.setVisibility(View.GONE);
         questionFrame = (ImageView) findViewById(R.id.question_frame);
-        smsBtn.setEnabled(true);
+        optABtn.setEnabled(false);
 
         if(numberOfPlayers == 2){
             smsBtn.setVisibility(View.GONE);
@@ -220,9 +221,8 @@ public class MainGameActivity extends AppCompatActivity {
                         clock.pause();
                         progressbar.setProgress(0);
                         timerTV.setText("0");
-                        if (!resume) {
-                            onButtonGuess("");
-                        }
+                        onButtonGuess("");
+
                         Log.d("I timer, on finished", "Hej");
                     }
                 }.start();
@@ -257,6 +257,15 @@ public class MainGameActivity extends AppCompatActivity {
     public void btnPressed(View view){
         String buttonText = ((Button)view).getText().toString();
         Button button = (Button) findViewById(view.getId());
+        smsBtn.setEnabled(false);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                smsBtn.setEnabled(true);
+            }
+        }, 2000);
+
+
         if (g1.checkCorrectAnswer(buttonText)) {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
             mp2.start();
@@ -407,7 +416,6 @@ public class MainGameActivity extends AppCompatActivity {
                 optBBtn.setVisibility(View.VISIBLE);
                 optCBtn.setVisibility(View.VISIBLE);
                 optDBtn.setVisibility(View.VISIBLE);
-
                 optABtn.setEnabled(true);
                 optBBtn.setEnabled(true);
                 optCBtn.setEnabled(true);
@@ -425,6 +433,7 @@ public class MainGameActivity extends AppCompatActivity {
                 optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 setRound();
+                smsBtn.setVisibility(View.VISIBLE);
             }
         }, 1000);// 1000 milliseconds = 1 second
     }
@@ -433,6 +442,12 @@ public class MainGameActivity extends AppCompatActivity {
         timer.cancel();
         clock.pause();
         resume = false;
+
+        optABtn.setEnabled(false);
+        optBBtn.setEnabled(false);
+        optCBtn.setEnabled(false);
+        optDBtn.setEnabled(false);
+        smsBtn.setEnabled(false);
 
         questiontv.setText(g1.getQuestion().getQUESTION());
         smsQ = questiontv.getText().toString();
@@ -461,17 +476,40 @@ public class MainGameActivity extends AppCompatActivity {
                 resume = true;
                 timerResume();
                 clock.start();
-                smsBtn.setEnabled(false);
                 smsBtn.setVisibility(View.GONE);
+
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        optABtn.setEnabled(true);
+                        optBBtn.setEnabled(true);
+                        optCBtn.setEnabled(true);
+                        optDBtn.setEnabled(true);
+                    }
+                }, 1000);
+
             }
         });
         builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
+                dialog.dismiss();
                 resume = true;
                 timerResume();
                 clock.start();
+
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        optABtn.setEnabled(true);
+                        optBBtn.setEnabled(true);
+                        optCBtn.setEnabled(true);
+                        optDBtn.setEnabled(true);
+                        smsBtn.setEnabled(true);
+                    }
+                }, 1000);
             }
         });
 
