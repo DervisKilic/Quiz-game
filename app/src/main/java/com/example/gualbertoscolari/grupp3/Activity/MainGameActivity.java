@@ -389,10 +389,10 @@ public class MainGameActivity extends AppCompatActivity {
 
         alertDialog.setCancelable(false);
 
-        new CountDownTimer(5000, 1) {
+        new CountDownTimer(4000, 1) {
             @Override
             public void onTick(long millisUntilFinished) {
-                dialogView.setText("Gör dig redo!\n"+ (millisUntilFinished/1000));
+                dialogView.setText("Gör dig redo " + g1.getCurrentPlayer().getName() +"!"+ "\n"+ (millisUntilFinished/1000));
             }
 
             @Override
