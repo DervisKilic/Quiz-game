@@ -147,89 +147,91 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
-        currentTime += timePlayed;
-        currentTime2 += timePlayed2;
-        Log.d("Current time", ""+ currentTime);
+        if(!quit) {
+            currentTime += timePlayed;
+            currentTime2 += timePlayed2;
+            Log.d("Current time", "" + currentTime);
 
-        Log.d("Nummer av frågs", "" + g1.getNumberOfAnsweredQ());
+            Log.d("Nummer av frågs", "" + g1.getNumberOfAnsweredQ());
 
-        if (g1.checkCorrectAnswer(optString)) {
-            //Ifall man svarar rätt händer detta
-            g1.increaseScore(scoreValue);
+            if (g1.checkCorrectAnswer(optString)) {
+                //Ifall man svarar rätt händer detta
+                g1.increaseScore(scoreValue);
 
-            if(g1.getCurrentPlayer() == g1.getP1()){
-                correctAnsP1++;
-            }else {
-                correctAnsP2++;
-            }
-        }
-        g1.increaseNrOfAnsweredQuestion();
-        g1.changePlayer();
-
-        if (g1.getNumberOfAnsweredQ() == 10) {
-            clock.stop();
-
-            //Du har svarat på alla frågor , du tas till resultskärmen.
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    goToResult();
-                    finish();
+                if (g1.getCurrentPlayer() == g1.getP1()) {
+                    correctAnsP1++;
+                } else {
+                    correctAnsP2++;
                 }
-            }, 1000); // 1000 milliseconds = 1 second
-        } else {
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (numberOfPlayers == 2) {
-                        resetQuestion();
-                        AlertDialog diabox = AskOption();
-                        diabox.show();
-                    } else {
-                        displayQuestion();
-                        if(!quit) {
-                            resetTimer(10000);
+            }
+            g1.increaseNrOfAnsweredQuestion();
+            g1.changePlayer();
+
+            if (g1.getNumberOfAnsweredQ() == 10) {
+                clock.stop();
+
+                //Du har svarat på alla frågor , du tas till resultskärmen.
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        goToResult();
+                        finish();
+                    }
+                }, 1000); // 1000 milliseconds = 1 second
+            } else {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (numberOfPlayers == 2) {
+                            resetQuestion();
+                            AlertDialog diabox = AskOption();
+                            diabox.show();
+                        } else {
+                            displayQuestion();
+                            if (!quit) {
+                                resetTimer(10000);
+                            }
                         }
                     }
-                }
-            }, 1000); // 1000 milliseconds = 1 second
+                }, 1000); // 1000 milliseconds = 1 second
+            }
         }
     }
 
     public void resetTimer(final long time) {
         clock = MediaPlayer.create(this, R.raw.clock);
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
 
-                clock.setLooping(true);
-                clock.start();
-                timer = new CountDownTimer(time, 10) {
-                    public void onTick(long millisUntilFinished) {
-                        timerTV.setText("Poäng " + millisUntilFinished / 100);
-                        scoreValue = (int) (millisUntilFinished / 100);
-                        timePlayed = 10 - ((int) (millisUntilFinished / 1000));
+                    clock.setLooping(true);
+                    clock.start();
+                    timer = new CountDownTimer(time, 10) {
+                        public void onTick(long millisUntilFinished) {
+                            timerTV.setText("Poäng " + millisUntilFinished / 100);
+                            scoreValue = (int) (millisUntilFinished / 100);
+                            timePlayed = 10 - ((int) (millisUntilFinished / 1000));
 
-                        if (g1.getCurrentPlayer() == g1.getP2()) {
-                            timePlayed2 = 10 - ((int) (millisUntilFinished / 1000));
+                            if (g1.getCurrentPlayer() == g1.getP2()) {
+                                timePlayed2 = 10 - ((int) (millisUntilFinished / 1000));
+                            }
+
+                            int progress = (int) (millisUntilFinished / 100);
+                            progressbar.setProgress(progress);
+                            pausTime = millisUntilFinished;
                         }
 
-                        int progress = (int) (millisUntilFinished / 100);
-                        progressbar.setProgress(progress);
-                        pausTime=millisUntilFinished;
-                    }
+                        public void onFinish() {
+                            clock.reset();
+                            progressbar.setProgress(0);
+                            timerTV.setText("0");
+                            onButtonGuess("");
 
-                    public void onFinish() {
-                        clock.reset();
-                        progressbar.setProgress(0);
-                        timerTV.setText("0");
-                        onButtonGuess("");
-
-                        Log.d("I timer, on finished", "Hej");
-                    }
-                }.start();
-            }
-        }, 1000); // 1000 milliseconds = 1 second
+                            Log.d("I timer, on finished", "Hej");
+                        }
+                    }.start();
+                }
+            }, 1000); // 1000 milliseconds = 1 second
     }
 
     public void goToResult() {
@@ -257,33 +259,34 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void btnPressed(View view){
-        String buttonText = ((Button)view).getText().toString();
-        Button button = (Button) findViewById(view.getId());
-        smsBtn.setEnabled(false);
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                smsBtn.setEnabled(true);
+            String buttonText = ((Button) view).getText().toString();
+            Button button = (Button) findViewById(view.getId());
+            smsBtn.setEnabled(false);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    smsBtn.setEnabled(true);
+                }
+            }, 2000);
+
+
+            if (g1.checkCorrectAnswer(buttonText)) {
+                button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+                mp2.start();
+                clock.reset();
+
+            } else {
+                button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+                mp.start();
+                clock.reset();
+
+
             }
-        }, 2000);
-
-
-        if (g1.checkCorrectAnswer(buttonText)) {
-            button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
-            mp2.start();
-            clock.reset();
-
-        } else {
-            button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
-            mp.start();
-            clock.reset();
-
-        }
-        optABtn.setEnabled(false);
-        optBBtn.setEnabled(false);
-        optCBtn.setEnabled(false);
-        optDBtn.setEnabled(false);
-        onButtonGuess(buttonText);
+            optABtn.setEnabled(false);
+            optBBtn.setEnabled(false);
+            optCBtn.setEnabled(false);
+            optDBtn.setEnabled(false);
+            onButtonGuess(buttonText);
     }
 
     private void resetQuestion() {
