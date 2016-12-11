@@ -12,7 +12,7 @@ insert into quest (question, opta, optb, optc, optd, category, answer) values ('
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vid vilket OS avgjorde Peter Forsberg med en spektakulär straff ?', 'Nagano 98', 'Lillehammer 94', 'Turin 06', 'Salt Lake City 02', 'Sport', 'Lillehammer 94'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vilken klubb var Zlatan Ibrahimovic första utländska proffsklubb ?', 'AC Milan', 'Ajax', 'FC Köpenhamn', 'Manchester United', 'Sport', 'Ajax'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Hur många spelare är det på planen när en fotbollsmatch startar ?', '20', '22', '24', '18', 'Sport', '22'); \n
-insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vilken sport spelas inte med en klubba ?', 'Ishhockey', 'Tennis', 'Bandy', 'Lacrosse', 'Sport', 'Tennis'); \n
+insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vilken sport spelas inte med en klubba ?', 'Ishockey', 'Tennis', 'Bandy', 'Lacrosse', 'Sport', 'Tennis'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vem innehar världsrekordet i höjdhopp ?', 'Javier Sotomayor', 'Patrik Sjöberg', 'Pat Matzdorf', 'Igor Palkin', 'Sport', 'Javier Sotomayor'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad heter den nuvarande svenske Formel 1 föraren ?', 'Marcus Ericsson', 'Kenneth Hansen', 'Robin Lund', 'Pontus Tideman', 'Sport', 'Marcus Ericsson'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Hur lång är en halvlek i handboll ?', '30 min', '25 min', '20 min', '40 min', 'Sport', '30 min'); \n

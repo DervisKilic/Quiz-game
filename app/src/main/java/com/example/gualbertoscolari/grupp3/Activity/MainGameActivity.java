@@ -105,7 +105,7 @@ public class MainGameActivity extends AppCompatActivity {
         progressbar.setScaleY(4f);
         mp = MediaPlayer.create(this, R.raw.fail);
         mp2 = MediaPlayer.create(this, R.raw.correct_answer);
-        clock = MediaPlayer.create(this, R.raw.clock);
+
 
         if (numberOfPlayers == 1) {
             g1 = new GameLogic(p1Name, chosenCat, numberOfPlayers, this);
@@ -197,10 +197,12 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void resetTimer(final long time) {
-
+        clock = MediaPlayer.create(this, R.raw.clock);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                clock.setLooping(true);
                 clock.start();
                 timer = new CountDownTimer(time, 10) {
                     public void onTick(long millisUntilFinished) {
@@ -218,7 +220,7 @@ public class MainGameActivity extends AppCompatActivity {
                     }
 
                     public void onFinish() {
-                        clock.pause();
+                        clock.reset();
                         progressbar.setProgress(0);
                         timerTV.setText("0");
                         onButtonGuess("");
@@ -269,12 +271,12 @@ public class MainGameActivity extends AppCompatActivity {
         if (g1.checkCorrectAnswer(buttonText)) {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
             mp2.start();
-            clock.pause();
+            clock.reset();
 
         } else {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
             mp.start();
-            clock.pause();
+            clock.reset();
 
         }
         optABtn.setEnabled(false);
@@ -300,7 +302,7 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
 
-    public void loadQuestionFrame() {
+    private void loadQuestionFrame() {
 
         switch (chosenCat) {
             case "Sport":
@@ -328,17 +330,17 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
-    public void setRound() {
+    private void setRound() {
         TextView qAnswered;
 
         if (numberOfPlayers == 1) {
             qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
-            qAnswered.setText("Q " + gameRound + "/10");
+            qAnswered.setText("Runda " + gameRound + "/10");
             gameRound++;
 
         } else if (numberOfPlayers == 2) {
             qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
-            qAnswered.setText("Q " + gameRound + "/20");
+            qAnswered.setText("Runda " + gameRound + "/20");
             gameRound++;
         }
 
@@ -352,7 +354,7 @@ public class MainGameActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         quit = true;
-        clock.pause();
+        clock.reset();
         Intent intent = new Intent(this, GameSettingsActivity.class);
         startActivity(intent);
         finish();

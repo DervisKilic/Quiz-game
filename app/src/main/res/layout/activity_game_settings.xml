@@ -19,7 +19,7 @@
         android:layout_alignLeft="@+id/profile_spinner"
         android:layout_alignStart="@+id/profile_spinner"
         android:layout_below="@+id/choose_category_tv"
-        android:spinnerMode="dialog" />
+        android:spinnerMode="dialog"/>
 
     <TextView
         android:id="@+id/choose_category_tv"
@@ -30,7 +30,8 @@
         android:layout_below="@+id/one_player_cb"
         android:layout_marginTop="21dp"
         android:text="@string/category_tv"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textColor="#fff"/>
 
     <ImageView
         android:id="@+id/profile_img_iv1"
@@ -46,7 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/category_spinner"
         android:text="@string/player1_tv"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textColor="#fff"/>
 
     <Spinner
         android:id="@+id/profile_spinner"
@@ -64,7 +66,8 @@
         android:layout_toLeftOf="@+id/two_player_cb"
         android:layout_toStartOf="@+id/two_player_cb"
         android:text="@string/number1_cb"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:theme="@style/MyCheckBox"/>
 
     <CheckBox
         android:id="@+id/two_player_cb"
@@ -73,7 +76,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:text="@string/number2_cb"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:theme="@style/MyCheckBox"
+        />
 
     <TextView
         android:id="@+id/numer_of_players_tv"
@@ -83,7 +88,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/one_player_cb"
         android:text="@string/nr_players_tv"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textColor="#ffff"/>
 
     <Spinner
         android:id="@+id/profile_spinner2"
@@ -110,7 +116,8 @@
         android:layout_toLeftOf="@+id/two_player_cb"
         android:layout_toStartOf="@+id/two_player_cb"
         android:text="@string/player2_tv"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textColor="#fff"/>
 
     <LinearLayout
         android:id="@+id/bottom_btn_layout"

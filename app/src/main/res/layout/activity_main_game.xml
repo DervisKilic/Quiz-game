@@ -124,7 +124,7 @@
                 android:layout_weight="2"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="20sp"
+                android:textSize="18sp"
 
                 />
 
@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="#fff"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
 
         </LinearLayout>
 
@@ -163,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:textColor="#fff"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <Button

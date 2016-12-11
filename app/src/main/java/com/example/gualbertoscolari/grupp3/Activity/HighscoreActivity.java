@@ -48,7 +48,7 @@ public class HighscoreActivity extends AppCompatActivity {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         List<String> allHighscores = db.getHighScoredata(cat);
         if(allHighscores.size() == 0){
-            Toast.makeText(this, "There are no highscores to display!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Topplistan är tom för tillfället!", Toast.LENGTH_SHORT).show();
         }
         GridView hsGridV = (GridView) findViewById(R.id.hs_gridv);
         ArrayAdapter<String> gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
