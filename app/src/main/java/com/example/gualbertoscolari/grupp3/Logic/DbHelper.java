@@ -486,20 +486,27 @@ public class DbHelper extends SQLiteOpenHelper {
      * Is called when app starts and adds questions from a txt file in project.
      * @param context
      */
-    public void addQFromTxtFile(Context context){
+    public void addQFromTxtFile(Context context) {
         dbaseWrite = getWritableDatabase();
         String questionTxt = "";
 
         try {
-                InputStream fis = context.getResources().openRawResource(R.raw.quetions);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            InputStream fis = context.getResources().openRawResource(R.raw.quetions);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-                while(questionTxt != null){
-                    questionTxt = reader.readLine();
-                    dbaseWrite.execSQL(questionTxt);
-                }
-        }catch (Exception ignored){
+            while (questionTxt != null) {
+                questionTxt = reader.readLine();
+                dbaseWrite.execSQL(questionTxt);
+            }
+        } catch (Exception ignored) {
+
         }
+    }
+    /*
+    public void deleteQuestionsToActivity(String category){
+            dbaseWrite = getReadableDatabase();
+            dbaseWrite.delete(TABLE_QUESTION, KEY_CATEGORY+"=?", new String[]{category});
 
     }
+    */
 }
