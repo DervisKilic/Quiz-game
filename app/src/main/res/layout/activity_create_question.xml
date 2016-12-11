@@ -62,7 +62,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/opt_b"
         android:layout_marginTop="5dp"
-        android:hint="@string/enter_opt_c_hint" />
+        android:hint="@string/enter_opt_c_hint"
+        android:textSize="20dp"/>
 
     <EditText
         android:id="@+id/opt_d"
