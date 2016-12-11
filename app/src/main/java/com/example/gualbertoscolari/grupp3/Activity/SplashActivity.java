@@ -30,7 +30,7 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
         db.addStandardItemsSQL(this);
         db.close();
 
-        ImageView test = (ImageView) findViewById(R.id.splash_logo);
+        ImageView logo = (ImageView) findViewById(R.id.splash_logo);
         ScaleAnimation grow = new ScaleAnimation(1, growTo, 1, growTo,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
@@ -44,7 +44,7 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
         growAndShrink.setInterpolator(new LinearInterpolator());
         growAndShrink.addAnimation(grow);
         growAndShrink.addAnimation(shrink);
-        test.startAnimation(growAndShrink);
+        logo.startAnimation(growAndShrink);
 
         final Thread timer= new Thread(){
             public void run(){

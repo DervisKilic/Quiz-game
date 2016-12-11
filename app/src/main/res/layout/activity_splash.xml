@@ -10,7 +10,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="300sp"
         android:layout_height="100sp"
-        android:src="@drawable/gamelogolarge"
+        android:src="@drawable/gamelogo"
         android:layout_gravity="center_horizontal"/>
 
     <ImageView
