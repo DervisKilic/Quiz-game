@@ -3,8 +3,6 @@ package com.example.gualbertoscolari.grupp3.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-
 import com.example.gualbertoscolari.grupp3.R;
 //Skriver ut info om utvecklarna och en företagslogga.
 //Är klar men väntar på slutgiltiga designen.

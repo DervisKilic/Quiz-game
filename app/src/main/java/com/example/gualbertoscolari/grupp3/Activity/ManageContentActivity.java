@@ -23,7 +23,8 @@ import com.example.gualbertoscolari.grupp3.mFragments.DeleteContentFragment;
 public class ManageContentActivity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener {
 
     private static final String TAG = "MANAGECONTENTACTIVTY";
-    AHBottomNavigation bottomNavigation;
+    private AHBottomNavigation bottomNavigation;
+    private DbHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,6 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_nav_bar);
         bottomNavigation.setOnTabSelectedListener(this);
         this.createNavItems();
-
     }
 
     private void createNavItems() {
@@ -153,7 +153,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             inputOptd.setText("");
 
             Question q = new Question(question, correctAnswer, optb, optc, optd, cat, correctAnswer);
-            DbHelper db = new DbHelper(getApplicationContext());
+            db = new DbHelper(getApplicationContext());
             db.addQuestion(q);
             db.close();
         }
@@ -165,7 +165,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         String name = inputName.getText().toString();
 
         Profile p = new Profile(name, 0);
-        DbHelper db = new DbHelper(getApplicationContext());
+        db = new DbHelper(getApplicationContext());
 
         if (!name.matches("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{3,12}$")) {
             Toast.makeText(this, "Max 12 letters", Toast.LENGTH_SHORT).show();
@@ -184,7 +184,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
     }
 
     public void addCategory(View v){
-        DbHelper db = new DbHelper(getApplicationContext());
+        db = new DbHelper(getApplicationContext());
         EditText category = (EditText) findViewById(R.id.categorie_name);
         String cat = category.getText().toString();
 

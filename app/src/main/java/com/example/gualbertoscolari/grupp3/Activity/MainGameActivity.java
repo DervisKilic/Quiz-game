@@ -2,7 +2,6 @@ package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -19,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 import com.example.gualbertoscolari.grupp3.Logic.GameLogic;
 import com.example.gualbertoscolari.grupp3.Logic.Profile;
@@ -352,6 +350,7 @@ public class MainGameActivity extends AppCompatActivity {
     public void checkHighscore(Profile profile1) {
         DbHelper db = new DbHelper(this);
         db.updateHighScore(profile1, chosenCat);
+        db.close();
     }
 
     @Override

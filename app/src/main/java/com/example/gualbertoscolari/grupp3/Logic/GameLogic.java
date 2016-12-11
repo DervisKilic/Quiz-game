@@ -2,9 +2,7 @@ package com.example.gualbertoscolari.grupp3.Logic;
 
 import android.content.Context;
 import android.util.Log;
-
 import com.example.gualbertoscolari.grupp3.Activity.MainGameActivity;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -90,6 +88,7 @@ public class GameLogic extends MainGameActivity {
             tenQuestions.get(i).setOPTD(answerList.get(3));
 
             answerList.clear();
+            db.close();
         }
     }
 

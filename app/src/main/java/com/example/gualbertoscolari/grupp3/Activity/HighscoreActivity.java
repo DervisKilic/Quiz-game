@@ -8,12 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 import com.example.gualbertoscolari.grupp3.R;
-
 import java.util.List;
 
 /**
@@ -40,6 +37,7 @@ public class HighscoreActivity extends AppCompatActivity {
         dropdownCategory.setAdapter(chosenCategory);
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
         displayCategoriesInSpinner();
+        db.close();
     }
 
     /**
@@ -55,6 +53,7 @@ public class HighscoreActivity extends AppCompatActivity {
         GridView hsGridV = (GridView) findViewById(R.id.hs_gridv);
         ArrayAdapter<String> gridAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, allHighscores);
         hsGridV.setAdapter(gridAdapter);
+        db.close();
     }
     /**
      * Method for displaying existing categories in spinner.

@@ -12,11 +12,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 import com.example.gualbertoscolari.grupp3.Logic.Profile;
 import com.example.gualbertoscolari.grupp3.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +32,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     private String p2;
     private CheckBox c1;
     private CheckBox c2;
+    DbHelper db;
 
     private int players = 1;
 
@@ -100,7 +99,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     }
 
     public void goToMainGame(View view) {
-        DbHelper db = new DbHelper(this);
+        db = new DbHelper(this);
 
         String cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
         p1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
@@ -135,7 +134,7 @@ public class GameSettingsActivity extends AppCompatActivity {
 
 
     private void getStandardCategorys(){
-        DbHelper db = new DbHelper(this);
+        db = new DbHelper(this);
 
         List<String> category = db.getAllCatagories();
         db.close();
@@ -145,7 +144,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     }
 
     private void getStandardProfiles() {
-        DbHelper db = new DbHelper(this);  // my profile bank class
+        db = new DbHelper(this);  // my profile bank class
         List<Profile> profList = db.getAllProfiles();
         db.close();
         for (int i = 0; i < profList.size(); i++) {

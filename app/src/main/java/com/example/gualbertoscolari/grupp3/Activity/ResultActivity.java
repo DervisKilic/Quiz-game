@@ -1,7 +1,6 @@
 package com.example.gualbertoscolari.grupp3.Activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,11 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.gualbertoscolari.grupp3.Activity.AboutActivity;
-import com.example.gualbertoscolari.grupp3.Activity.GameSettingsActivity;
-import com.example.gualbertoscolari.grupp3.Activity.HighscoreActivity;
-import com.example.gualbertoscolari.grupp3.Activity.MenuActivity;
 import com.example.gualbertoscolari.grupp3.R;
 
 //Skriver ut resultatet. Har 3 knappar.

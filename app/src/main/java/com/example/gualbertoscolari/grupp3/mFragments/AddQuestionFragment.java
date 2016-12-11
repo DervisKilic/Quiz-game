@@ -8,10 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 import com.example.gualbertoscolari.grupp3.R;
-
 import java.util.List;
 
 public class AddQuestionFragment extends Fragment {
@@ -26,6 +24,7 @@ public class AddQuestionFragment extends Fragment {
         Spinner dropdownCategory = (Spinner) rootView.findViewById(R.id.spinner_create_question);
         ArrayAdapter<String> chosenCategory = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
+        db.close();
 
         return rootView;
     }

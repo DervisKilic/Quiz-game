@@ -107,6 +107,7 @@ public class DeleteContentFragment extends Fragment {
                 diaBox.show();
             }
         });
+        db.close();
         return rootView;
     }
 
@@ -130,6 +131,7 @@ public class DeleteContentFragment extends Fragment {
                              arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                              prof = false;
                              cat = false;
+                             db.close();
 
                          } else if (prof) {
                              list.setAdapter(arrayAdapterStrings);
@@ -139,6 +141,7 @@ public class DeleteContentFragment extends Fragment {
                              arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                              quest = false;
                              cat = false;
+                             db.close();
 
                          } else if (cat) {
                              Log.d("ta bort", "tog bort cat " + allints.get(position));
@@ -147,6 +150,7 @@ public class DeleteContentFragment extends Fragment {
                              arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
                              quest = false;
                              prof = false;
+                             db.close();
                          }
                          dialog.dismiss();
                      }
