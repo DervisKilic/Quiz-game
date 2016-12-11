@@ -124,22 +124,22 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             inputQuestion.setText("");
             inputQuestion.setHint(R.string.enter_q_hint);
 
-        } else if (!correctAnswer.matches(("^[a-zåäöA-ZÅÄÖ ]{1,20}$"))) {
+        } else if (!correctAnswer.matches(("^[a-zåäöA-ZÅÄÖ -1-9 ]{1,20}$"))) {
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputcorrectAnswer.setText("");
             inputcorrectAnswer.setHint(R.string.correct_answer_et);
 
-        } else if (!optb.matches("^[a-zåäöA-ZÅÄÖ ]{1,20}$")) {
+        } else if (!optb.matches("^[a-zåäöA-ZÅÄÖ -1-9 ]{1,20}$")) {
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptb.setText("");
             inputOptb.setHint(R.string.enter_opt_b_hint);
 
-        } else if (!optc.matches(("^[a-zåäöA-ZÅÄÖ ]{1,20}$"))) {
+        } else if (!optc.matches(("^[a-zåäöA-ZÅÄÖ -1-9 ]{1,20}$"))) {
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptc.setText("");
             inputOptc.setHint(R.string.enter_opt_c_hint);
 
-        } else if (!optd.matches(("^[a-zåäöA-ZÅÄÖ ]{1,20}$"))) {
+        } else if (!optd.matches(("^[a-zåäöA-ZÅÄÖ -1-9 ]{1,20}$"))) {
             Toast.makeText(this, "Max 20 letters or at least 1", Toast.LENGTH_SHORT).show();
             inputOptd.setText("");
             inputOptd.setHint(R.string.enter_opt_d_hint);
@@ -167,7 +167,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         Profile p = new Profile(name, 0);
         DbHelper db = new DbHelper(getApplicationContext());
 
-        if (!name.matches("^[a-zåäöA-ZÅÄÖ]{3,12}$")) {
+        if (!name.matches("^[a-zåäöA-ZÅÄÖ -1-9 ]{3,12}$")) {
             Toast.makeText(this, "Max 12 letters", Toast.LENGTH_SHORT).show();
             inputName.setText("");
             inputName.setHint(this.getString(R.string.create_profile));
@@ -188,7 +188,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         EditText category = (EditText) findViewById(R.id.categorie_name);
         String cat = category.getText().toString();
 
-        if(!cat.matches("^[a-zåäöA-ZÅÄÖ]{3,12}$")){
+        if(!cat.matches("^[a-zåäöA-ZÅÄÖ -1-9 ]{3,12}$")){
             Toast.makeText(this, "Max 12 letters or at least 1", Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
