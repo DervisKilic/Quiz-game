@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.text.InputType;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -67,7 +66,6 @@ public class MainGameActivity extends AppCompatActivity {
     private Button optCBtn;
     private Button optDBtn;
     private Button smsBtn;
-    AlertDialog myQuittingDialogBox;
 
     private TextView cat;
     private TextView timerTV;
@@ -148,9 +146,6 @@ public class MainGameActivity extends AppCompatActivity {
         if(!quit) {
             currentTime += timePlayed;
             currentTime2 += timePlayed2;
-            Log.d("Current time", "" + currentTime);
-
-            Log.d("Nummer av frågs", "" + g1.getNumberOfAnsweredQ());
 
             if (g1.checkCorrectAnswer(optString)) {
                 //Ifall man svarar rätt händer detta
@@ -224,8 +219,6 @@ public class MainGameActivity extends AppCompatActivity {
                             progressbar.setProgress(0);
                             timerTV.setText("0");
                             onButtonGuess("");
-
-                            Log.d("I timer, on finished", "Hej");
                         }
                     }.start();
                 }
@@ -239,7 +232,6 @@ public class MainGameActivity extends AppCompatActivity {
         intent.putExtra(CATEGORY, chosenCat);
         intent.putExtra(PLAYERS, String.valueOf(numberOfPlayers));
         intent.putExtra(TIME_PLAYED_PLAYER1, currentTime);
-        Log.d("Main game", "time " + currentTime);
         intent.putExtra(FIRST_PROFILE, g1.getP1().getName());
         intent.putExtra(SCORE_PLAYER1, String.valueOf(g1.getP1().getScore()));
         intent.putExtra(CORRECT_ANS_P1, correctAnsP1);
@@ -362,14 +354,14 @@ public class MainGameActivity extends AppCompatActivity {
         finish();
     }
     private AlertDialog AskOption() {
-        myQuittingDialogBox = new AlertDialog.Builder(this, R.style.dialogTheme)
+        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this, R.style.dialogTheme)
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                         displayQuestion();
-                        if(!quit) {
+                        if (!quit) {
                             resetTimer(10000);
                         }
                         dialog.dismiss();

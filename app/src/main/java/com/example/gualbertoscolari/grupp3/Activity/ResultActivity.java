@@ -3,7 +3,6 @@ package com.example.gualbertoscolari.grupp3.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,7 +54,6 @@ public class ResultActivity extends AppCompatActivity {
         int currentTime2 = extras.getInt(TIME_PLAYED_PLAYER2);
         int correctAnsP1 = extras.getInt(CORRECT_ANS_P1);
         int correctAnsP2 = extras.getInt(CORRECT_ANS_P2);
-        Log.d("Result time played", ""+ currentTime);
 
         if(players.equals("1")){
             scorep2.setVisibility(View.GONE);

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -22,7 +21,6 @@ import com.example.gualbertoscolari.grupp3.mFragments.DeleteContentFragment;
 
 public class ManageContentActivity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener {
 
-    private static final String TAG = "MANAGECONTENTACTIVTY";
     private AHBottomNavigation bottomNavigation;
     private DbHelper db;
 
@@ -69,16 +67,12 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
 
         //Show fragments
         if (position == 0) {
-            Log.d(TAG, "onTabSelected: Position: " + position);
             getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new AddQuestionFragment()).commit();
         } else if (position == 1) {
-            Log.d(TAG, "onTabSelected: Position: " + position);
             getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new AddCategoryFragment()).commit();
         } else if (position == 2) {
-            Log.d(TAG, "onTabSelected: Position: " + position);
             getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new AddProfileFragment()).commit();
         } else if (position == 3) {
-            Log.d(TAG, "onTabSelected: Position: " + position);
             getSupportFragmentManager().beginTransaction().replace(R.id.activity_manage_content, new DeleteContentFragment()).commit();
 
         }

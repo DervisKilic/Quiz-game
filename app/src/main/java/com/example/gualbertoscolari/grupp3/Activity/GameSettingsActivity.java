@@ -51,12 +51,10 @@ public class GameSettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_settings);
 
-
         c1 = (CheckBox) findViewById(R.id.one_player_cb);
         c2 = (CheckBox) findViewById(R.id.two_player_cb);
 
         c1.setChecked(true);
-
         c1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -92,7 +90,6 @@ public class GameSettingsActivity extends AppCompatActivity {
         getStandardCategorys();
         getStandardProfiles();
 
-
         profileSpinner2.setVisibility(View.GONE);
         profile2Tv.setVisibility(View.GONE);
         profileIv2.setVisibility(View.GONE);
@@ -117,7 +114,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "En kategori måste innehålla 10 frågor", Toast.LENGTH_SHORT).show();
         }
-
+        db.close();
     }
 
     /**
@@ -137,16 +134,15 @@ public class GameSettingsActivity extends AppCompatActivity {
         db = new DbHelper(this);
 
         List<String> category = db.getAllCatagories();
-        db.close();
         dropdownCategory = (Spinner) findViewById(R.id.category_spinner);
         chosenCategory = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, category);
         dropdownCategory.setAdapter(chosenCategory);
+        db.close();
     }
 
     private void getStandardProfiles() {
         db = new DbHelper(this);  // my profile bank class
         List<Profile> profList = db.getAllProfiles();
-        db.close();
         for (int i = 0; i < profList.size(); i++) {
             Profile currentP = profList.get(i);
             profile.add(currentP.getName());
@@ -224,6 +220,7 @@ public class GameSettingsActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        db.close();
     }
 
     @Override
@@ -232,5 +229,4 @@ public class GameSettingsActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 }

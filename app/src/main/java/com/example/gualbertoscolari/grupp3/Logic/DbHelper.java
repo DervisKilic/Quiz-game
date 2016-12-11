@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import com.example.gualbertoscolari.grupp3.R;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -78,7 +77,6 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlQuestions += "category VARCHAR(255) NOT NULL,";
         sqlQuestions += "answer VARCHAR(255) NOT NULL";
         sqlQuestions += ");";
-        Log.d("question", "Table created");
 
         dbase.execSQL(sqlQuestions);
 
@@ -88,7 +86,6 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlProfiles += "score INTEGER NOT NULL";
         //sqlProfiles += KEY_IMG+ "BLOB NOT NULL,";
         sqlProfiles += ");";
-        Log.d("profiles", "Table created");
 
         dbase.execSQL(sqlProfiles);
 
@@ -96,7 +93,6 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlCategorys += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlCategorys += "category VARCHAR(255) NOT NULL";
         sqlCategorys += ");";
-        Log.d("categorys", "Table created");
 
         dbase.execSQL(sqlCategorys);
 
@@ -106,7 +102,6 @@ public class DbHelper extends SQLiteOpenHelper {
         sqlHighScores += "hscategory VARCHAR(255) NOT NULL,";
         sqlHighScores += "hsscore INTEGER NOT NULL";
         sqlHighScores += ");";
-        Log.d("highscores", "Table created");
 
         dbase.execSQL(sqlHighScores);
     }
@@ -141,9 +136,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_OPTD, q.getOPTD());
         cvs.put(KEY_CAT, q.getCATEGORY());
         cvs.put(KEY_ANSWER, q.getANSWER());
-        long id = dbaseWrite.insert(TABLE_QUESTION, null, cvs);
-        Log.d("Hej", "row id: " + id);
-
+        dbaseWrite.insert(TABLE_QUESTION, null, cvs);
     }
 
     /**
@@ -156,9 +149,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cvs.put(KEY_NAME, p.getName());
         cvs.put(KEY_SCORE, p.getScore());
 
-        long id = dbaseWrite.insert(TABLE_PROFILE, null, cvs);
-        Log.d(TAG, " addProfile: row id: " + id);
-
+        dbaseWrite.insert(TABLE_PROFILE, null, cvs);
         dbaseWrite.close();
     }
 
@@ -202,8 +193,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
         cvs.put(KEY_CATEGORY, category);
-        long id = dbaseWrite.insert(TABLE_CATEGORY, null, cvs);
-        Log.d("Hejcategory", "row id: " + id);
+        dbaseWrite.insert(TABLE_CATEGORY, null, cvs);
         dbaseWrite.close();
     }
 
@@ -384,10 +374,6 @@ public class DbHelper extends SQLiteOpenHelper {
             addProfile(new Profile("Simon", 0));
 
         }
-        Log.d("Standard content added", "OMG!");
-
-
-
     }
 
     /**
@@ -447,7 +433,6 @@ public class DbHelper extends SQLiteOpenHelper {
         dbaseRead = getReadableDatabase();
         Cursor cursor = dbaseRead.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
         cursor.moveToFirst();
-        Log.d("Curser check :", ""+ cursor.getCount());
         if(cursor.getCount() == 0){
             addNewHighscore(player, category);
         }else{
@@ -470,7 +455,6 @@ public class DbHelper extends SQLiteOpenHelper {
      */
 
     private void addNewHighscore(Profile player, String category){
-        Log.d("Inside addNewHighScore", "Hej");
         dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
 
@@ -511,12 +495,9 @@ public class DbHelper extends SQLiteOpenHelper {
                 while(questionTxt != null){
                     questionTxt = reader.readLine();
                     dbaseWrite.execSQL(questionTxt);
-                    Log.d("Read txt-file: ", questionTxt);
                 }
-        }catch (Exception e){
-            Log.d("Loading questions", "Read questions failed or list-file ended");
+        }catch (Exception ignored){
         }
-        Log.d("Outside exeption", "jajjemän");
 
     }
 }

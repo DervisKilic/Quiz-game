@@ -1,7 +1,6 @@
 package com.example.gualbertoscolari.grupp3.Logic;
 
 import android.content.Context;
-import android.util.Log;
 import com.example.gualbertoscolari.grupp3.Activity.MainGameActivity;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -115,7 +114,6 @@ public class GameLogic extends MainGameActivity {
 
     public void increaseScore(int score){
         currentPlayer.setScore(currentPlayer.getScore() + score);
-        Log.d("current player score ", "" + currentPlayer.getScore());
     }
 
     /**

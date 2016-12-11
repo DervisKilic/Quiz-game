@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,7 +116,7 @@ public class DeleteContentFragment extends Fragment {
 
                  //set message, title, and icon
                  .setTitle("Delete")
-                 .setMessage("Do you want to Delete")
+                 .setMessage("Are you sure you want to delete?")
                  .setCancelable(false)
                  .setIcon(R.drawable.warning)
                  .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
@@ -125,7 +124,6 @@ public class DeleteContentFragment extends Fragment {
                      public void onClick(DialogInterface dialog, int whichButton) {
 
                          if (quest) {
-                             Log.d("ta bort", "tog bort quest" + allints.get(position));
                              db.deleteCreatedQuestion(allints.get(position));
                              allints.remove(position);
                              arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
@@ -135,7 +133,6 @@ public class DeleteContentFragment extends Fragment {
 
                          } else if (prof) {
                              list.setAdapter(arrayAdapterStrings);
-                             Log.d("ta bort", "tog bort prof" + allints.get(position));
                              db.deleteCreatedProfiles(allints.get(position));
                              allints.remove(position);
                              arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
@@ -144,7 +141,6 @@ public class DeleteContentFragment extends Fragment {
                              db.close();
 
                          } else if (cat) {
-                             Log.d("ta bort", "tog bort cat " + allints.get(position));
                              db.deleteCreatedCategory(allints.get(position));
                              allints.remove(position);
                              arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
