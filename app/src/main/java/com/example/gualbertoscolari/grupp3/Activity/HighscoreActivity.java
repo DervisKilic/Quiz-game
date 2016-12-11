@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
@@ -35,6 +36,7 @@ public class HighscoreActivity extends AppCompatActivity {
 
         dropdownCategory = (Spinner) findViewById(R.id.spinner_highscore);
         chosenCategory = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, category);
+        chosenCategory.setDropDownViewResource(R.layout.spinner);
         dropdownCategory.setAdapter(chosenCategory);
         cat = chosenCategory.getItem(dropdownCategory.getSelectedItemPosition());
         displayCategoriesInSpinner();

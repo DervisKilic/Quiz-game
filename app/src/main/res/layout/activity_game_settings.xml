@@ -19,7 +19,8 @@
         android:layout_alignLeft="@+id/profile_spinner"
         android:layout_alignStart="@+id/profile_spinner"
         android:layout_below="@+id/choose_category_tv"
-        android:spinnerMode="dialog"/>
+        android:spinnerMode="dialog"
+        android:popupBackground="#f5f0f0"/>
 
     <TextView
         android:id="@+id/choose_category_tv"
@@ -57,7 +58,8 @@
         android:layout_alignLeft="@+id/current_profile1_tv"
         android:layout_alignStart="@+id/current_profile1_tv"
         android:layout_below="@+id/current_profile1_tv"
-        android:spinnerMode="dialog" />
+        android:spinnerMode="dialog"
+        android:popupBackground="#f5f0f0"/>
 
     <CheckBox
         android:id="@+id/one_player_cb"
@@ -97,7 +99,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/current_profile2_tv"
-        android:spinnerMode="dialog" />
+        android:spinnerMode="dialog"
+        android:popupBackground="#f5f0f0"/>
 
     <ImageView
         android:id="@+id/profile_img_iv2"
