@@ -1,7 +1,9 @@
 package com.example.gualbertoscolari.grupp3.Logic;
 
 import android.content.Context;
+
 import com.example.gualbertoscolari.grupp3.Activity.MainGameActivity;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
