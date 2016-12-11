@@ -360,9 +360,7 @@ public class MainGameActivity extends AppCompatActivity {
         finish();
     }
     private AlertDialog AskOption() {
-        myQuittingDialogBox = new AlertDialog.Builder(this)
-                .setTitle("Nästa spelare " + g1.getCurrentPlayer().getName())
-                .setMessage("Tryck ok för att köra")
+        myQuittingDialogBox = new AlertDialog.Builder(this, R.style.dialogTheme)
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
@@ -376,15 +374,21 @@ public class MainGameActivity extends AppCompatActivity {
                     }
                 })
                 .create();
+        final TextView dialogView = new TextView(this);
+        dialogView.setGravity(Gravity.CENTER_HORIZONTAL);
+        dialogView.setTextSize(25);
+        dialogView.setPadding(30, 30, 30, 30);
+        dialogView.setText("Det är din tur " + g1.getCurrentPlayer().getName() +
+                "\nTryck ok för att starta");
+        myQuittingDialogBox.setView(dialogView);
         return myQuittingDialogBox;
     }
 
     private AlertDialog getReadyDialog() {
-        final AlertDialog alertDialog  = new AlertDialog.Builder(this).create();
+        final AlertDialog alertDialog  = new AlertDialog.Builder(this, R.style.dialogTheme).create();
         final TextView dialogView = new TextView(this);
         dialogView.setGravity(Gravity.CENTER_HORIZONTAL);
         dialogView.setTextSize(25);
-        dialogView.setBackgroundColor(Color.parseColor("#A9E6A9"));
         dialogView.setPadding(30, 30, 30, 30);
         alertDialog.setView(dialogView);
         alertDialog.show();
@@ -461,8 +465,9 @@ public class MainGameActivity extends AppCompatActivity {
         optD = optDBtn.getText().toString();
 
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.dialogTheme);
         builder.setTitle("Skriv in nummret");
+        builder.setCancelable(false);
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_PHONE);
