@@ -18,7 +18,7 @@ import java.util.List;
 //
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     // Database Name
     private static final String DATABASE_NAME = "quiz_db";
     // tasks table name for questions
@@ -210,7 +210,7 @@ public class DbHelper extends SQLiteOpenHelper {
         // Select All Query
         dbaseRead = getReadableDatabase();
         Cursor cursor;
-        if (category.equals("Alla kategorier")) {
+        if (category.equals("Blandat")) {
             cursor = dbaseRead.query(true, TABLE_QUESTION, null, null, null, null, null, "Random()", "10");
         } else {
             cursor = dbaseRead.query(true, TABLE_QUESTION, null, KEY_CAT + "=?", new String[]{category}, null, null, "Random()", "10");
@@ -365,7 +365,7 @@ public class DbHelper extends SQLiteOpenHelper {
             addCategorys("Kultur/Nöje");
             addCategorys("Historia");
             addCategorys("Samhälle");
-            addCategorys("Alla kategorier");
+            addCategorys("Blandat");
         }
 
         List<Profile> profileList = getAllProfiles();
