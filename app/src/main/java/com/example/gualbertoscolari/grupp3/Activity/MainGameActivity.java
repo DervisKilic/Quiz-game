@@ -465,7 +465,7 @@ public class MainGameActivity extends AppCompatActivity {
         builder.setCancelable(false);
 
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_PHONE);
+        input.setInputType(InputType.TYPE_CLASS_PHONE | InputType.TYPE_NUMBER_VARIATION_NORMAL);
         builder.setView(input);
 
 
