@@ -17,10 +17,10 @@
     <string name="create_profile">Enter profile name</string>
     <string name="enter_category_name">Categoryname</string>
     <string name="enter_q_hint">Enter your question here</string>
-    <string name="correct_answer_et">Correct answer:</string>
-    <string name="enter_opt_b_hint">Option B:</string>
-    <string name="enter_opt_c_hint">Option C:</string>
-    <string name="enter_opt_d_hint">Option D:</string>
+    <string name="correct_answer_et">Rätt svar</string>
+    <string name="enter_opt_b_hint">Alternativ B:</string>
+    <string name="enter_opt_c_hint">Alternativ C:</string>
+    <string name="enter_opt_d_hint">Alternativ D:</string>
     <string name="save_category_btn">Save Category</string>
     <string name="save_question_button">Save Question</string>
     <string name="create_back_button">Back</string>
@@ -58,5 +58,14 @@
     <string name="time_played">Time played</string>
     <string name="manage_content">Manage Content</string>
     <string name="correct_answers">Correct Answers</string>
+    <string name="question_toast">Max 150 tecken och minst 3</string>
+    <string name="rigth_answer_toast">Max 20 tecken eller minst 1</string>
+    <string name="option_toast">Max 20 tecken eller minst 1</string>
+    <string name="added_question_toast">Du la till en fråga</string>
+    <string name="name_toast">Max 12 tecken eller minst 3</string>
+    <string name="name_exists_toast">Användarnamnet finns redan</string>
+    <string name="added_profile_toast">Du la till en ny profil</string>
+    <string name="category_exists_toast">Kategorin finns redan</string>
+    <string name="added_category_toast">Du la till en ny kategori</string>
 
 </resources>

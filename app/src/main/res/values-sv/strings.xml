@@ -58,4 +58,12 @@
     <string name="what_to_delete_tv">Vad vill du ta bort</string>
     <string name="time_played">Tid</string>
     <string name="manage_content">Ändra innehåll</string>
+    <string name="question_toast">Max 150 tecken och minst 3</string>
+    <string name="rigth_answer_toast">Max 20 tecken eller minst 1</string>
+    <string name="option_toast">Max 20 tecken eller minst 1</string>
+    <string name="added_question_toast">Du la till en fråga</string>
+    <string name="name_toast">Max 12 tecken eller minst 3</string>
+    <string name="name_exists_toast">Användarnamnet finns redan</string>
+    <string name="category_exists_toast">Kategorin finns redan</string>
+    <string name="added_category_toast">Du la till en ny kategori</string>
 </resources>

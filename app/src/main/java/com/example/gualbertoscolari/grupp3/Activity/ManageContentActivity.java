@@ -115,32 +115,32 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         String cat = chosenCat.getSelectedItem().toString();
 
         if (!question.matches(("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{3,150}$"))) {
-            Toast.makeText(this, "Max 150 tecken och minst 3", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.question_toast, Toast.LENGTH_SHORT).show();
             inputQuestion.setText("");
             inputQuestion.setHint(R.string.enter_q_hint);
 
         } else if (!correctAnswer.matches(("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{1,20}$"))) {
-            Toast.makeText(this, "Max 20 tecken eller minst 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.rigth_answer_toast, Toast.LENGTH_SHORT).show();
             inputcorrectAnswer.setText("");
             inputcorrectAnswer.setHint(R.string.correct_answer_et);
 
         } else if (!optb.matches("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{1,20}$")) {
-            Toast.makeText(this, "Max 20 tecken eller minst 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.option_toast, Toast.LENGTH_SHORT).show();
             inputOptb.setText("");
             inputOptb.setHint(R.string.enter_opt_b_hint);
 
         } else if (!optc.matches(("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{1,20}$"))) {
-            Toast.makeText(this, "Max 20 tecken eller minst 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.option_toast, Toast.LENGTH_SHORT).show();
             inputOptc.setText("");
             inputOptc.setHint(R.string.enter_opt_c_hint);
 
         } else if (!optd.matches(("^[a-zåäöA-ZÅÄÖ -1-9 -? ]{1,20}$"))) {
-            Toast.makeText(this, "Max 20 tecken eller minst 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.option_toast, Toast.LENGTH_SHORT).show();
             inputOptd.setText("");
             inputOptd.setHint(R.string.enter_opt_d_hint);
 
         } else {
-            Toast.makeText(this, "Du la till en fråga", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.added_question_toast, Toast.LENGTH_SHORT).show();
             inputQuestion.setText("");
             inputcorrectAnswer.setText("");
             inputOptb.setText("");
@@ -163,14 +163,14 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         db = new DbHelper(getApplicationContext());
 
         if (!name.matches("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{3,12}$")) {
-            Toast.makeText(this, "Max 12 tecken eller minst 3", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.name_toast, Toast.LENGTH_SHORT).show();
             inputName.setText("");
             inputName.setHint(this.getString(R.string.create_profile));
 
         } else if (!db.checkIfNameExists(name)) {
-            Toast.makeText(this, "Användarnamnet finns redan", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.name_exists_toast, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Du la till en ny profil", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.added_profile_toast, Toast.LENGTH_SHORT).show();
             inputName.setText("");
             inputName.setHint(this.getString(R.string.create_profile));
             db.addProfile(p);
@@ -184,14 +184,14 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         String cat = category.getText().toString();
 
         if(!cat.matches("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{3,12}$")){
-            Toast.makeText(this, "Max 12 tecken eller minst 3", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.name_toast, Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
 
         } else if(!db.checkIfCatExists(cat)) {
-            Toast.makeText(this, "Kategorin finns redan", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.category_exists_toast, Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(this, "Du la till en ny kategori", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.added_category_toast, Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
             db.addCategorys(cat);
