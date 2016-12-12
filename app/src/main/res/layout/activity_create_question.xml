@@ -17,6 +17,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/opt_d"
+        android:spinnerMode="dialog"
         android:layout_marginTop="5dp" />
 
     <TextView
