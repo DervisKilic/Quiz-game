@@ -15,7 +15,7 @@
     <string name="about_activity_lbl">Om</string>
     <string name="category_name">Skriv in namnet på kategorin</string>
     <string name="about_activity_ic_title">Om</string>
-    <string name="create_profile">Skriv in ditt profilnamn</string>
+    <string name="create_profile">Profilnamn</string>
     <string name="enter_category_name">Kategorinamn</string>
     <string name="enter_q_hint">Skriv in din fråga här</string>
     <string name="correct_answer_et">Rätt svar:</string>

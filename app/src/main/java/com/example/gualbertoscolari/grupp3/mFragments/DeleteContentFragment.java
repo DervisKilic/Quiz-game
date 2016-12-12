@@ -43,9 +43,9 @@ public class DeleteContentFragment extends Fragment {
         list = (ListView) rootView.findViewById(R.id.question_list);
         ArrayList<String> quesProfCat = new ArrayList<>();
 
-        quesProfCat.add("Questions");
-        quesProfCat.add("Profiles");
-        quesProfCat.add("Categories");
+        quesProfCat.add("Frågor");
+        quesProfCat.add("Profiler");
+        quesProfCat.add("Kategorier");
 
         optAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, quesProfCat);
 
@@ -56,17 +56,17 @@ public class DeleteContentFragment extends Fragment {
         options.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if(optAdapter.getItem(position).equals("Questions")) {
+                if(optAdapter.getItem(position).equals("Frågor")) {
                     cursor = db.getCreatedQuestions();
                     quest = true;
                     prof = false;
                     cat = false;
-                }else if(optAdapter.getItem(position).equals("Profiles")){
+                }else if(optAdapter.getItem(position).equals("Profiler")){
                     cursor = db.getCreatedProfiles();
                     prof = true;
                     quest = false;
                     cat = false;
-                }else if(optAdapter.getItem(position).equals("Categories")){
+                }else if(optAdapter.getItem(position).equals("Kategorier")){
                     cursor = db.getCreatedCategories();
                     cat = true;
                     prof = false;
