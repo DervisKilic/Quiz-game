@@ -48,6 +48,3 @@ insert into quest (question, opta, optb, optc, optd, category, answer) values ('
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vilket år förlorades Finland för Sveriges del till förmån för Ryssland ?', '1809', '1939', '1905', '1718', 'Samhälle', '1809'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vem blev utsedd till miss Universum 1984', 'Lena Philipsson', 'Donald Trump', 'Yvonne Ryding', 'Daniella Lombard', 'Samhälle', 'Yvonne Ryding'); \n
 insert into quest (question, opta, optb, optc, optd, category, answer) values ('Vad betyder ordet federation ?', 'Tillbedjan', 'Överskott', 'Förbund', 'Samling', 'Samhälle', 'Förbund'); \n
-
-
-
