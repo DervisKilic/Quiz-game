@@ -1,152 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/activity_result"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_result"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B2DFDB"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="5dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.gualbertoscolari.grupp3.Activity.ResultActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
+        android:id="@+id/result_title_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/category"
+            style="@style/title_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:text="@string/category_tv"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_img1_lo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/result_title_lo"
+        android:layout_marginTop="90dp">
+
+        <ImageView
+
+            android:id="@+id/profile_img1"
+            android:layout_width="80sp"
+            android:layout_height="50sp"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profile1_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/result_title_lo"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@id/profile_img1_lo"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/player1_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
             android:text="@string/player1_tv"
-            android:textSize="24sp" />
+            android:textSize="30sp"
+
+
+            />
 
         <TextView
             android:id="@+id/correct_answers_P1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
             android:text="@string/correct_answers"
-            android:textSize="24sp" />
 
-        <ImageView
-            android:layout_width="80sp"
-            android:layout_height="50sp"
-            android:layout_gravity="center"
-            android:id="@+id/profile_img1"/>
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/player1_score"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
+
             android:text="@string/score_tv"
-            android:textSize="24sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/time_played"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:text="@string/time_played"
-            android:textSize="24sp" />
+            android:textSize="30sp" />
 
+    </LinearLayout>
+
+    <!-->Blasldkaskldklasdlalkjalksjdlkasjdlakj-<-->
+
+    <LinearLayout
+
+        android:id="@+id/player2_image_lo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_img1_lo"
+        android:layout_marginTop="140dp"
+
+        android:orientation="horizontal"
+
+        >
+
+        <ImageView
+
+            android:id="@+id/profile_img2"
+            android:layout_width="80sp"
+            android:layout_height="50sp"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/player2_text_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile1_lo"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@id/player2_image_lo"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/player2_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
             android:text="@string/player2_tv"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
         <TextView
+
             android:id="@+id/correct_answers_P2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
             android:text="@string/correct_answers"
-            android:textSize="24sp" />
-
-        <ImageView
-            android:layout_width="80sp"
-            android:layout_height="50sp"
-            android:layout_gravity="center"
-            android:id="@+id/profile_img2"/>
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/player2_score"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
             android:text="@string/score_tv"
-            android:textSize="24sp"/>
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/time_played2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_weight="0"
             android:text="@string/time_played"
-            android:textSize="24sp" />
-
+            android:textAlignment="center"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottom_btn_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        >
+        android:layout_alignParentBottom="true">
 
         <Button
+            style="@style/standard_button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAllCaps="false"
-            android:text="@string/main_menu_btn"
-            android:onClick="goToMenu"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/standardcustombutton"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
-            android:layout_margin="5sp"/>
-
-        <Button
             android:layout_margin="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="goToMenu"
+            android:text="@string/main_menu_btn"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            style="@style/standard_button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5sp"
             android:layout_weight="1"
-            android:textAllCaps="false"
-            android:text="@string/high_score_btn"
-            android:onClick="goToHighScore"
-            android:textColor="#FFFFFF"
             android:background="@drawable/standardcustombutton"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:onClick="goToHighScore"
+            android:text="@string/high_score_btn"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
@@ -154,25 +197,22 @@
         android:id="@+id/play_btn_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_above="@+id/bottom_btn_layout"
         android:layout_alignParentLeft="true"
-        android:textAllCaps="false"
         android:layout_alignParentStart="true"
-        android:padding="5sp">
+        android:orientation="vertical"
+        android:padding="5sp"
+        android:textAllCaps="false">
 
         <Button
+            style="@style/standard_button_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/standardcustombutton"
+            android:onClick="goToMainGame"
             android:text="@string/play_again_btn"
             android:textAllCaps="false"
-            android:onClick="goToMainGame"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/standardcustombutton"
-            android:shadowColor="#FFEAE6"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"/>
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </RelativeLayout>
