@@ -509,4 +509,14 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
     */
+
+    /*
+    public void changeCategoryForQuestion(String category){
+        dbaseWrite = getWritableDatabase();
+        ContentValues cvs = new ContentValues();
+        cvs.put(KEY_CAT, "no category");
+
+        dbaseWrite.update(KEY_QUEST, cvs, KEY_CAT+"=?", new String[]{category});
+    }
+    */
 }
