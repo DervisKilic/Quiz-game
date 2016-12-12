@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
@@ -533,7 +534,11 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onStop()
     {
         super.onStop();
-        System.exit(0);
-        // insert here your instructions
+
+        if(g1.getNumberOfAnsweredQ() == 10) {
+
+        }else{
+            System.exit(0);
+        }
     }
 }
