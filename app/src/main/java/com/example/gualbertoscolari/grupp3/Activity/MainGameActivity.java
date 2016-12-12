@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
@@ -473,10 +474,9 @@ public class MainGameActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 int test;
-
-                test =input.getText().charAt(0);
-
+                test = input.getText().charAt(0);
 
                 if (test == 48) {
                     Toast.makeText(getApplicationContext(), "Ta bort första nollan, ingen landskod", Toast.LENGTH_SHORT).show();
@@ -497,7 +497,6 @@ public class MainGameActivity extends AppCompatActivity {
                         }
                     }, 1000);
 
-
                 } else {
                     phoneNr = input.getText().toString();
 
@@ -505,13 +504,11 @@ public class MainGameActivity extends AppCompatActivity {
                     smsManager.sendTextMessage("+46" + phoneNr, null, " Fråga: " + smsQ + " A : " +
                             optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
 
-
                     dialog.dismiss();
                     resume = true;
                     timerResume();
                     clock.start();
                     smsBtn.setVisibility(View.GONE);
-
 
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -557,6 +554,18 @@ public class MainGameActivity extends AppCompatActivity {
             resetTimer(pausTime);
         }else{
             finish();
+        }
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+
+        if(g1.getNumberOfAnsweredQ() == 10) {
+
+        }else{
+            System.exit(0);
         }
     }
 }
