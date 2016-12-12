@@ -54,6 +54,8 @@ public class DbHelper extends SQLiteOpenHelper {
     private int topTen = 0;
     //private boolean close;
 
+
+
     /**
      *  Constructor of the class. Calls the super constructor.
      * @param context context of the app

@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gualbertoscolari.grupp3.Logic.DbHelper;
 import com.example.gualbertoscolari.grupp3.Logic.GameLogic;
@@ -460,7 +461,7 @@ public class MainGameActivity extends AppCompatActivity {
         optD = optDBtn.getText().toString();
 
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.dialogTheme);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.dialogTheme);
         builder.setTitle("Skriv in nummret");
         builder.setCancelable(false);
 
@@ -472,29 +473,60 @@ public class MainGameActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                phoneNr = input.getText().toString();
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage("+46" + phoneNr, null, " Fråga: " + smsQ + " A : " + optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
+                int test;
 
-                dialog.dismiss();
-                resume = true;
-                timerResume();
-                clock.start();
-                smsBtn.setVisibility(View.GONE);
+                test =input.getText().charAt(0);
 
 
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        optABtn.setEnabled(true);
-                        optBBtn.setEnabled(true);
-                        optCBtn.setEnabled(true);
-                        optDBtn.setEnabled(true);
-                    }
-                }, 1000);
+                if (test == 48) {
+                    Toast.makeText(getApplicationContext(), "Ta bort första nollan, ingen landskod", Toast.LENGTH_SHORT).show();
+                    input.setText("");
 
+                    resume = true;
+                    timerResume();
+                    clock.start();
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            optABtn.setEnabled(true);
+                            optBBtn.setEnabled(true);
+                            optCBtn.setEnabled(true);
+                            optDBtn.setEnabled(true);
+                            smsBtn.setEnabled(true);
+                        }
+                    }, 1000);
+
+
+                } else {
+                    phoneNr = input.getText().toString();
+
+                    SmsManager smsManager = SmsManager.getDefault();
+                    smsManager.sendTextMessage("+46" + phoneNr, null, " Fråga: " + smsQ + " A : " +
+                            optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
+
+
+                    dialog.dismiss();
+                    resume = true;
+                    timerResume();
+                    clock.start();
+                    smsBtn.setVisibility(View.GONE);
+
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            optABtn.setEnabled(true);
+                            optBBtn.setEnabled(true);
+                            optCBtn.setEnabled(true);
+                            optDBtn.setEnabled(true);
+                        }
+                    }, 1000);
+
+                }
             }
         });
+
         builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
