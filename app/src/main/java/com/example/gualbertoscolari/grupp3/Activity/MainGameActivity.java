@@ -473,6 +473,7 @@ public class MainGameActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 phoneNr = input.getText().toString();
+
                 SmsManager smsManager = SmsManager.getDefault();
                 smsManager.sendTextMessage("+46" + phoneNr, null, " Fråga: " + smsQ + " A : " + optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
 
@@ -526,5 +527,13 @@ public class MainGameActivity extends AppCompatActivity {
         }else{
             finish();
         }
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        System.exit(0);
+        // insert here your instructions
     }
 }
