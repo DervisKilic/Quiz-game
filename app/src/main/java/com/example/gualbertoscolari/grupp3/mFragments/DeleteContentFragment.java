@@ -72,7 +72,7 @@ public class DeleteContentFragment extends Fragment {
                     prof = false;
                     quest = false;
                 }else{
-                    Toast.makeText(getActivity(), "No items to display", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.no_items_to_display, Toast.LENGTH_SHORT).show();
                 }
 
                 allStrings = new ArrayList<>();
@@ -91,7 +91,7 @@ public class DeleteContentFragment extends Fragment {
                 }else{
                     arrayAdapterStrings = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,allStrings);
                     list.setAdapter(arrayAdapterStrings);
-                    Toast.makeText(getActivity(), "No items to display", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.no_items_to_display, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

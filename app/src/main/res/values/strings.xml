@@ -67,5 +67,6 @@
     <string name="added_profile_toast">Du la till en ny profil</string>
     <string name="category_exists_toast">Kategorin finns redan</string>
     <string name="added_category_toast">Du la till en ny kategori</string>
+    <string name="no_items_to_display">No items to display</string>
 
 </resources>
