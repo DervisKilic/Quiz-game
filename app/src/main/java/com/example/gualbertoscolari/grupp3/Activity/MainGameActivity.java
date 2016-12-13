@@ -112,10 +112,7 @@ public class MainGameActivity extends AppCompatActivity {
         optCBtn = (Button) findViewById(R.id.answer_btn_c);
         optDBtn = (Button) findViewById(R.id.answer_btn_d);
         smsBtn = (Button) findViewById(R.id.send_question);
-        optABtn.setVisibility(View.GONE);
-        optBBtn.setVisibility(View.GONE);
-        optCBtn.setVisibility(View.GONE);
-        optDBtn.setVisibility(View.GONE);
+        hideQuestion();
         smsBtn.setVisibility(View.GONE);
         questionFrame = (ImageView) findViewById(R.id.question_frame);
         optABtn.setEnabled(false);
@@ -265,13 +262,8 @@ public class MainGameActivity extends AppCompatActivity {
             button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
             mp.start();
             clock.reset();
-
-
         }
-        optABtn.setEnabled(false);
-        optBBtn.setEnabled(false);
-        optCBtn.setEnabled(false);
-        optDBtn.setEnabled(false);
+        disableButtons();
         onButtonGuess(buttonText);
     }
 
@@ -409,14 +401,8 @@ public class MainGameActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                optABtn.setVisibility(View.VISIBLE);
-                optBBtn.setVisibility(View.VISIBLE);
-                optCBtn.setVisibility(View.VISIBLE);
-                optDBtn.setVisibility(View.VISIBLE);
-                optABtn.setEnabled(true);
-                optBBtn.setEnabled(true);
-                optCBtn.setEnabled(true);
-                optDBtn.setEnabled(true);
+                showQuestion();
+                enableButtons();
                 playerName.setText(g1.getCurrentPlayer().getName());
                 questiontv.setText(g1.getQuestion().getQUESTION());
                 cat.setText(chosenCat);
@@ -438,14 +424,12 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     public void smsSend(View view) {
+        hideQuestion();
         timer.cancel();
         clock.pause();
         resume = false;
 
-        optABtn.setEnabled(false);
-        optBBtn.setEnabled(false);
-        optCBtn.setEnabled(false);
-        optDBtn.setEnabled(false);
+        disableButtons();
         smsBtn.setEnabled(false);
 
         questiontv.setText(g1.getQuestion().getQUESTION());
@@ -483,11 +467,9 @@ public class MainGameActivity extends AppCompatActivity {
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
-                            optABtn.setEnabled(true);
-                            optBBtn.setEnabled(true);
-                            optCBtn.setEnabled(true);
-                            optDBtn.setEnabled(true);
+                            enableButtons();
                             smsBtn.setEnabled(true);
+                            showQuestion();
                         }
                     }, 1000);
 
@@ -507,13 +489,10 @@ public class MainGameActivity extends AppCompatActivity {
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
-                            optABtn.setEnabled(true);
-                            optBBtn.setEnabled(true);
-                            optCBtn.setEnabled(true);
-                            optDBtn.setEnabled(true);
+                            enableButtons();
+                            showQuestion();
                         }
                     }, 1000);
-
                 }
             }
         });
@@ -530,10 +509,8 @@ public class MainGameActivity extends AppCompatActivity {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
-                        optABtn.setEnabled(true);
-                        optBBtn.setEnabled(true);
-                        optCBtn.setEnabled(true);
-                        optDBtn.setEnabled(true);
+                        enableButtons();
+                        showQuestion();
                         smsBtn.setEnabled(true);
                     }
                 }, 1000);
@@ -558,5 +535,36 @@ public class MainGameActivity extends AppCompatActivity {
         if (!(g1.getNumberOfAnsweredQ() == 10 || quit)) {
             System.exit(0);
         }
+    }
+
+    public void enableButtons(){
+        optABtn.setEnabled(true);
+        optBBtn.setEnabled(true);
+        optCBtn.setEnabled(true);
+        optDBtn.setEnabled(true);
+    }
+
+    public void disableButtons(){
+        optABtn.setEnabled(false);
+        optBBtn.setEnabled(false);
+        optCBtn.setEnabled(false);
+        optDBtn.setEnabled(false);
+    }
+
+    public void showQuestion(){
+        optABtn.setVisibility(View.VISIBLE);
+        optBBtn.setVisibility(View.VISIBLE);
+        optCBtn.setVisibility(View.VISIBLE);
+        optDBtn.setVisibility(View.VISIBLE);
+        smsBtn.setVisibility(View.VISIBLE);
+        questiontv.setVisibility(View.VISIBLE);
+    }
+    public void hideQuestion(){
+        optABtn.setVisibility(View.GONE);
+        optBBtn.setVisibility(View.GONE);
+        optCBtn.setVisibility(View.GONE);
+        optDBtn.setVisibility(View.GONE);
+        smsBtn.setVisibility(View.GONE);
+        questiontv.setVisibility(View.GONE);
     }
 }
