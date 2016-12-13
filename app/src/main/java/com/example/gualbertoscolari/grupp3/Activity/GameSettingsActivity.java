@@ -226,6 +226,5 @@ public class GameSettingsActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
-        finish();
     }
 }

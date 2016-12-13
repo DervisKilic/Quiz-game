@@ -555,9 +555,7 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        if (g1.getNumberOfAnsweredQ() == 10) {
-
-        } else {
+        if (!(g1.getNumberOfAnsweredQ() == 10 || quit)) {
             System.exit(0);
         }
     }

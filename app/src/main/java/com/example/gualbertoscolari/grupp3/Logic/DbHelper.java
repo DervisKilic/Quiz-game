@@ -46,7 +46,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private static final String KEY_CATEGORY = "category";
     private static final String TABLE_HIGHSCORE = "highscore";
-    private static final String TAG = "dbhelper.java";
 
     private SQLiteDatabase dbaseRead;
     private SQLiteDatabase dbaseWrite;
