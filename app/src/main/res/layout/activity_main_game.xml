@@ -53,6 +53,7 @@
             android:shadowColor="#FFEAE6"
             android:text="@string/answer_a_btn"
             android:textAllCaps="false"
+            android:textStyle="bold"
             android:textColor="#fdfafafa" />
 
         <Button
@@ -65,7 +66,8 @@
             android:onClick="btnPressed"
             android:text="@string/answer_b_btn"
             android:textAllCaps="false"
-            android:textColor="#fdfafafa" />
+            android:textColor="#fdfafafa"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -85,7 +87,8 @@
             android:shadowColor="#FFEAE6"
             android:text="@string/answer_c_btn"
             android:textAllCaps="false"
-            android:textColor="#fdfafafa" />
+            android:textColor="#fdfafafa"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/answer_btn_d"
@@ -98,7 +101,8 @@
             android:shadowColor="#FFEAE6"
             android:text="@string/answer_d_btn"
             android:textAllCaps="false"
-            android:textColor="#fdfafafa" />
+            android:textColor="#fdfafafa"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
