@@ -117,8 +117,8 @@ public class DeleteContentFragment extends Fragment {
         return new AlertDialog.Builder(getActivity())
 
                 //set message, title, and icon
-                .setTitle("Delete")
-                .setMessage("Are you sure you want to delete?")
+                .setTitle("Radera")
+                .setMessage("Är du säker på att du vill radera ?")
                 .setCancelable(false)
                 .setIcon(R.drawable.warning)
                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
@@ -153,7 +153,7 @@ public class DeleteContentFragment extends Fragment {
                         dialog.dismiss();
                     }
                 })
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton("avbryt", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }

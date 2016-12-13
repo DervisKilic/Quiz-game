@@ -41,7 +41,7 @@
     <string name="number2_cb">2</string>
     <string name="nr_players_tv">Antal spelare</string>
     <string name="player2_tv">Spelare 2</string>
-    <string name="delete_question_btn">Ta bort fråga</string>
+    <string name="delete_question_btn">Radera fråga</string>
     <string name="choose_category_tv">Välj kategori</string>
     <string name="answer_a_btn">svar_a</string>
     <string name="answer_b_btn">svar_b</string>
@@ -55,7 +55,7 @@
     <string name="play_again_btn">Spela igen</string>
     <string name="next_player_tv">Nästa spelare</string>
     <string name="go_btn">Kör</string>
-    <string name="what_to_delete_tv">Vad vill du ta bort</string>
+    <string name="what_to_delete_tv">Vad vill du radera</string>
     <string name="time_played">Tid</string>
     <string name="manage_content">Ändra innehåll</string>
     <string name="question_toast">Max 150 tecken och minst 3</string>
@@ -70,5 +70,5 @@
     <string name="Question">Fråga</string>
     <string name="Category">Kategori</string>
     <string name="Profile">Profil</string>
-    <string name="Delete">Ta bort</string>
+    <string name="Delete">Radera</string>
 </resources>
