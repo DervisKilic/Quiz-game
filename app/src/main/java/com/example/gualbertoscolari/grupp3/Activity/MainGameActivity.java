@@ -127,11 +127,9 @@ public class MainGameActivity extends AppCompatActivity {
 
     /**
      * Method for increasing score, numberOfAnsweredQ.
-     * Takes a string and increases score if the guess is correct.
      *
-     * @param optString
+     * @param optString Takes a string and increases score if the guess is correct.
      */
-
     private void onButtonGuess(String optString) {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
@@ -184,6 +182,10 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param time resets the timer
+     */
     public void resetTimer(final long time) {
         clock = MediaPlayer.create(this, R.raw.clock);
         handler.postDelayed(new Runnable() {
@@ -218,6 +220,9 @@ public class MainGameActivity extends AppCompatActivity {
         }, 1000); // 1000 milliseconds = 1 second
     }
 
+    /**
+     * takes the player to result activity with intends
+     */
     public void goToResult() {
 
 
@@ -241,6 +246,10 @@ public class MainGameActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     *
+     * @param view handels options for button pressed
+     */
     public void btnPressed(View view) {
         String buttonText = ((Button) view).getText().toString();
         Button button = (Button) findViewById(view.getId());
@@ -267,6 +276,9 @@ public class MainGameActivity extends AppCompatActivity {
         onButtonGuess(buttonText);
     }
 
+    /**
+     * resets questions
+     */
     private void resetQuestion() {
         playerName.setText("");
         questiontv.setText("");
@@ -282,7 +294,9 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * graphics for the question frame
+     */
     private void loadQuestionFrame() {
 
         switch (chosenCat) {
@@ -311,6 +325,9 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * number of rounds played
+     */
     private void setRound() {
         TextView qAnswered;
 
@@ -327,6 +344,10 @@ public class MainGameActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param profile1 updates the highscore for player
+     */
     public void checkHighscore(Profile profile1) {
         DbHelper db = new DbHelper(this);
         db.updateHighScore(profile1, chosenCat);
@@ -342,6 +363,10 @@ public class MainGameActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     *
+     * @return resturns a alogbox and ask the player to click ok
+     */
     private AlertDialog AskOption() {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this, R.style.dialogTheme)
                 .setCancelable(false)
@@ -367,6 +392,10 @@ public class MainGameActivity extends AppCompatActivity {
         return myQuittingDialogBox;
     }
 
+    /**
+     *
+     * @return show a dialogbox countdown
+     */
     private AlertDialog getReadyDialog() {
         final AlertDialog alertDialog = new AlertDialog.Builder(this, R.style.dialogTheme).create();
         final TextView dialogView = new TextView(this);
@@ -397,6 +426,9 @@ public class MainGameActivity extends AppCompatActivity {
         return alertDialog;
     }
 
+    /**
+     * displays a question
+     */
     public void displayQuestion() {
         handler.postDelayed(new Runnable() {
             @Override
@@ -423,6 +455,10 @@ public class MainGameActivity extends AppCompatActivity {
         }, 1000);// 1000 milliseconds = 1 second
     }
 
+    /**
+     *
+     * @param view sends sms view
+     */
     public void smsSend(View view) {
         hideQuestion();
         timer.cancel();
@@ -520,6 +556,9 @@ public class MainGameActivity extends AppCompatActivity {
         builder.show();
     }
 
+    /**
+     * resumes the timer on position it was stopped
+     */
     private void timerResume() {
         if (resume && !quit) {
             resetTimer(pausTime);
@@ -537,6 +576,9 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * enables buttons
+     */
     public void enableButtons(){
         optABtn.setEnabled(true);
         optBBtn.setEnabled(true);
@@ -544,6 +586,9 @@ public class MainGameActivity extends AppCompatActivity {
         optDBtn.setEnabled(true);
     }
 
+    /**
+     * disables buttons
+     */
     public void disableButtons(){
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
@@ -551,6 +596,9 @@ public class MainGameActivity extends AppCompatActivity {
         optDBtn.setEnabled(false);
     }
 
+    /**
+     * shows the question
+     */
     public void showQuestion(){
         optABtn.setVisibility(View.VISIBLE);
         optBBtn.setVisibility(View.VISIBLE);
@@ -559,6 +607,10 @@ public class MainGameActivity extends AppCompatActivity {
         smsBtn.setVisibility(View.VISIBLE);
         questiontv.setVisibility(View.VISIBLE);
     }
+
+    /**
+     * hides the question
+     */
     public void hideQuestion(){
         optABtn.setVisibility(View.GONE);
         optBBtn.setVisibility(View.GONE);
