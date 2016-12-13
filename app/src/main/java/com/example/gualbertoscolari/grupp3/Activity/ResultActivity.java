@@ -68,8 +68,8 @@ public class ResultActivity extends AppCompatActivity {
         player2.setText(p2Name);
         scorep2.setText("Poäng: " + p2Score);
         category.setText("Kategori: " + chosenCategory);
-        correctAnsP1Tv.setText("Rätta svar " + correctAnsP1);
-        correctAnsP2Tv.setText("Rätta svar " + correctAnsP2);
+        correctAnsP1Tv.setText("Rätta: svar " + correctAnsP1);
+        correctAnsP2Tv.setText("Rätta: svar " + correctAnsP2);
 
         timePlayed.setText(String.valueOf("Tid: " + currentTime + " sekunder"));
         timePlayed2.setText(String.valueOf("Tid: " + currentTime2 + " sekunder"));
