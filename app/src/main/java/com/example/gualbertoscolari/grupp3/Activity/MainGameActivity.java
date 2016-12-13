@@ -416,8 +416,8 @@ public class MainGameActivity extends AppCompatActivity {
                 optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 setRound();
-                if (numberOfPlayers == 1) {
-                    smsBtn.setVisibility(View.VISIBLE);
+                if (numberOfPlayers == 2) {
+                    smsBtn.setVisibility(View.GONE);
                 }
             }
         }, 1000);// 1000 milliseconds = 1 second
