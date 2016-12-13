@@ -67,4 +67,8 @@
     <string name="category_exists_toast">Kategorin finns redan</string>
     <string name="added_category_toast">Du la till en ny kategori</string>
     <string name="no_items_to_display">Listan är tom</string>
+    <string name="Question">Fråga</string>
+    <string name="Category">Kategori</string>
+    <string name="Profile">Profil</string>
+    <string name="Delete">Ta bort</string>
 </resources>

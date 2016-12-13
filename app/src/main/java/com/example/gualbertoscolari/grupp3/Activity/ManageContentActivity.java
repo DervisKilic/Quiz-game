@@ -37,10 +37,10 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
 
     private void createNavItems() {
         //Create items in the bottom bar
-        AHBottomNavigationItem addQuestionItem = new AHBottomNavigationItem("Fråga", R.drawable.add_icon);
-        AHBottomNavigationItem addCategoryItem = new AHBottomNavigationItem("Kategori", R.drawable.add_icon);
-        AHBottomNavigationItem addProfile = new AHBottomNavigationItem("Profil", R.drawable.add_icon);
-        AHBottomNavigationItem deleteQuestionItem = new AHBottomNavigationItem("Ta bort", R.drawable.delete_icon);
+        AHBottomNavigationItem addQuestionItem = new AHBottomNavigationItem(getString(R.string.Question), R.drawable.add_icon);
+        AHBottomNavigationItem addCategoryItem = new AHBottomNavigationItem(getString(R.string.Category), R.drawable.add_icon);
+        AHBottomNavigationItem addProfile = new AHBottomNavigationItem(getString(R.string.Profile), R.drawable.add_icon);
+        AHBottomNavigationItem deleteQuestionItem = new AHBottomNavigationItem(getString(R.string.Delete), R.drawable.delete_icon);
 
         //Add them to bar
         bottomNavigation.addItem(addQuestionItem);
