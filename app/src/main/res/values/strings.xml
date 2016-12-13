@@ -72,5 +72,8 @@
     <string name="Category">Category</string>
     <string name="Profile">Profile</string>
     <string name="Delete">Delete</string>
+    <string name="sms_toast">Skriv in 10 siffror och börja med 0</string>
+    <string name="sms_ok">OK</string>
+    <string name="sms_telefon">Telefon</string>
 
 </resources>

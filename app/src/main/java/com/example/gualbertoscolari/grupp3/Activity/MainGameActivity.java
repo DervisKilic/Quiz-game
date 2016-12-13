@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -485,15 +486,16 @@ public class MainGameActivity extends AppCompatActivity {
         builder.setView(input);
 
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.sms_ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
                 String test;
                 test = input.getText().toString();
 
-                if (!test.matches("/^[0-9]{9}$/")) {
-                    Toast.makeText(getApplicationContext(), "Ta bort första nollan, ingen landskod", Toast.LENGTH_SHORT).show();
+
+                if (test.charAt(0) != '0' ||test.length() != 10) {
+                    Toast.makeText(getApplicationContext(), R.string.sms_toast, Toast.LENGTH_SHORT).show();
                     input.setText("");
 
                     resume = true;
@@ -510,10 +512,10 @@ public class MainGameActivity extends AppCompatActivity {
                     }, 1000);
 
                 } else {
-                    phoneNr = input.getText().toString();
-
+                    String finalNumber = new StringBuilder(test).deleteCharAt(0).toString();
+                    Log.d(getString(R.string.sms_telefon), finalNumber);
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+46" + phoneNr, null, " Fråga: " + smsQ + " A : " +
+                    smsManager.sendTextMessage("+46" + finalNumber, null, " Fråga: " + smsQ + " A : " +
                             optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
 
                     dialog.dismiss();
