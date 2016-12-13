@@ -113,6 +113,10 @@ public class DeleteContentFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * @param position gets the chosen position
+     * @return a dialogbox that asks if you realy want to delete
+     */
     private AlertDialog AskOption(final int position) {
         return new AlertDialog.Builder(getActivity())
 

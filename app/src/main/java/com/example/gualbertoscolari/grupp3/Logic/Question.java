@@ -13,6 +13,9 @@ public class Question {
     private String CATEGORY;
     private String ANSWER;
 
+    /**
+     * Questions
+     */
     Question() {
         ID = 0;
         QUESTION = "";
@@ -24,6 +27,17 @@ public class Question {
         ANSWER = "";
     }
 
+    /**
+     * Questions with parameters
+     *
+     * @param qUESTION
+     * @param oPTA
+     * @param oPTB
+     * @param oPTC
+     * @param oPTD
+     * @param cATEGORY
+     * @param aNSWER
+     */
     public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String oPTD, String cATEGORY, String aNSWER) {
         QUESTION = qUESTION;
         OPTA = oPTA;

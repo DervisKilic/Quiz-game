@@ -11,25 +11,12 @@ import com.example.gualbertoscolari.grupp3.R;
 
 public class AboutActivity extends AppCompatActivity {
 
-    /**
-     * This method is used called when user enters this activity
-     * Sets the corresponding layout for this activity.
-     *
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
     }
 
-
-    /**
-     * Method that overides the phones backbutton.
-     * Creates an Intent and starts MenuActivity. Finishes this activity.
-     *
-     * @param
-     */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MenuActivity.class);

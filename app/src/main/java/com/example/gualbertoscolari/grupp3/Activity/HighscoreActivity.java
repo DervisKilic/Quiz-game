@@ -47,7 +47,6 @@ public class HighscoreActivity extends AppCompatActivity {
      * Gets highscore from database depending on the chosen category in spinner.
      */
     private void displayHighscore() {
-        //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         List<String> allHighscores = db.getHighScoredata(cat);
         if (allHighscores.size() == 0) {
             Toast.makeText(this, "Topplistan är tom för tillfället!", Toast.LENGTH_SHORT).show();
@@ -83,10 +82,6 @@ public class HighscoreActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Method that overides the phones backbutton.
-     * Creates an Intent and starts MenuActivity. Finishes this activity.
-     */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MenuActivity.class);

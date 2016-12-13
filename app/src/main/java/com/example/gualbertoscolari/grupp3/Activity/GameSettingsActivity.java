@@ -94,6 +94,9 @@ public class GameSettingsActivity extends AppCompatActivity {
         profileIv2.setVisibility(View.GONE);
     }
 
+    /**
+     * @param view takes the player to main game with intents
+     */
     public void goToMainGame(View view) {
         db = new DbHelper(this);
 
@@ -121,13 +124,14 @@ public class GameSettingsActivity extends AppCompatActivity {
      *
      * @param view the view that was clicked
      */
-
     public void goToManageContent(View view) {
         startActivity(new Intent(this, ManageContentActivity.class));
         finish();
     }
 
-
+    /**
+     * gets standard categories from database
+     */
     private void getStandardCategorys() {
         db = new DbHelper(this);
 
@@ -138,6 +142,9 @@ public class GameSettingsActivity extends AppCompatActivity {
         db.close();
     }
 
+    /**
+     * gets standard profiles from database
+     */
     private void getStandardProfiles() {
         db = new DbHelper(this);  // my profile bank class
         List<Profile> profList = db.getAllProfiles();

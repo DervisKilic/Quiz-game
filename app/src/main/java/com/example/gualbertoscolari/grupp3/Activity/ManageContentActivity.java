@@ -35,6 +35,9 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         this.createNavItems();
     }
 
+    /**
+     * creates navigations bar with items
+     */
     private void createNavItems() {
         //Create items in the bottom bar
         AHBottomNavigationItem addQuestionItem = new AHBottomNavigationItem(getString(R.string.Question), R.drawable.add_icon);
@@ -95,7 +98,9 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         }
     }
 
-    //Saves a question in the AddQuestion fragment
+    /**
+     * @param v Saves a question in the AddQuestion fragment
+     */
     public void saveQuestion(View v) {
         EditText inputQuestion = (EditText) findViewById(R.id.question_tv);
         String question = inputQuestion.getText().toString();
@@ -179,6 +184,9 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         db.close();
     }
 
+    /**
+     * @param v adds a new category
+     */
     public void addCategory(View v) {
         db = new DbHelper(getApplicationContext());
         EditText category = (EditText) findViewById(R.id.categorie_name);
@@ -199,6 +207,4 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             db.close();
         }
     }
-
-
 }

@@ -64,9 +64,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Creates new database tables for questions, profiles, categories and highscores.
-     *
-     * @param dbase
+     * @param dbase Creates new database tables for questions, profiles, categories and highscores.
      */
     @Override
     public void onCreate(SQLiteDatabase dbase) {
@@ -128,9 +126,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Adds new question data to questions table in database.
-     *
-     * @param q
+     * @param q Adds new question data to questions table in database.
      */
     public void addQuestion(Question q) {
         dbaseWrite = getWritableDatabase();
@@ -146,9 +142,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Adds new profile data to profiles table in database.
-     *
-     * @param p
+     * @param p Adds new profile data to profiles table in database.
      */
     public void addProfile(Profile p) {
         dbaseWrite = getWritableDatabase();
@@ -161,9 +155,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Checks if input profile data already exists in profile table in database.
-     *
-     * @param profile
+     * @param profile Checks if input profile data already exists in profile table in database.
      * @return returns true or false
      */
     public boolean checkIfNameExists(String profile) {
@@ -175,9 +167,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Checks if input category data already exists in table category in database.
-     *
-     * @param category
+     * @param category Checks if input category data already exists in table category in database.
      * @return returns true or false
      */
     public boolean checkIfCatExists(String category) {
@@ -195,9 +185,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     /**
-     * Adds new category data to category table in database.
-     *
-     * @param category
+     * @param category Adds new category data to category table in database.
      */
     public void addCategorys(String category) {
         dbaseWrite = getWritableDatabase();
@@ -209,10 +197,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /**
      * Gets a list with all standard questions from table in database.
-     * Gets 10 questions in random order.
      *
-     * @param category
-     * @return returns 10 random questions witch chosen category
+     * @param category chosen category
+     * @return returns 10 random questions witch chosen category in random order.
      */
     public List<Question> getAllQuestions(String category) {
         List<Question> quesList = new ArrayList<>();
@@ -245,9 +232,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Gets all created question rows from table in database and returns a cursor.
-     *
-     * @return
+     * @return returns all created question rows from table in database and returns a cursor.
      */
     public Cursor getCreatedQuestions() {
         dbaseRead = getReadableDatabase();
@@ -266,9 +251,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Gets all created profile rows from table and returns a curser.
-     *
-     * @return
+     * @return returns all created profile rows from table and returns a curser.
      */
     public Cursor getCreatedProfiles() {
         dbaseRead = getReadableDatabase();
@@ -287,9 +270,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Gets all created category rows from table in database and returns a cursor.
-     *
-     * @return
+     * @return returns all created category rows from table in database and returns a cursor.
      */
     public Cursor getCreatedCategories() {
         dbaseRead = getReadableDatabase();
@@ -309,9 +290,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /**
      * Method for deleting users questions.
-     * Takes an id and deletes the corresponding question in question table in database.
      *
-     * @param id
+     * @param id Takes an id and deletes the corresponding question in question table in database.
      */
     public void deleteCreatedQuestion(int id) {
         dbaseWrite = getReadableDatabase();
@@ -321,9 +301,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /**
      * Method for deleting created profiles.
-     * Takes an id and deletes the corresponding question in question table in database.
      *
-     * @param id
+     * @param id Takes an id and deletes the corresponding question in question table in database.
      */
     public void deleteCreatedProfiles(int id) {
         dbaseWrite = getReadableDatabase();
@@ -332,9 +311,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /**
      * Method for deleting created categories
-     * Takes an id and deletes the corresponding category in category table in database.
      *
-     * @param id
+     * @param id Takes an id and deletes the corresponding category in category table in database.
      */
     public void deleteCreatedCategory(int id) {
         dbaseWrite = getReadableDatabase();
@@ -342,9 +320,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Gets all profiles from profile table in database and returns them as a List<>.
-     *
-     * @return
+     * @return Gets all profiles from profile table in database and returns them as a List<>.
      */
     public List<Profile> getAllProfiles() {
         List<Profile> profList = new ArrayList<>();
@@ -395,9 +371,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Gets all categories from table category in database and returns them as a List<>.
-     *
-     * @return
+     * @return returns all categories from table category in database and returns them as a List<>.
      */
     public List<String> getAllCatagories() {
         List<String> catList = new ArrayList<String>();
@@ -416,10 +390,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /**
      * Method for getting highscores.
-     * Gets the highescore (profile and name) from the table highscore in data base with the
-     * corresponding catagory.
+     * Gets the highescore (profile and name) from the table highscore in data base with the corresponding
      *
-     * @param category
+     * @param category chosen catagory.
      * @return returns a list
      */
     public List<String> getHighScoredata(String category) {
@@ -491,9 +464,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /**
      * Method for deleting a row in highscore table.
-     * Takes an id and deletes the corresponding row in table highscore in database.
      *
-     * @param id
+     * @param id Takes an id and deletes the corresponding row in table highscore in database.
      */
     public void deleteFromHighscore(int id) {
         dbaseWrite = getWritableDatabase();
@@ -523,21 +495,4 @@ public class DbHelper extends SQLiteOpenHelper {
 
         }
     }
-    /*
-    public void deleteQuestionsToActivity(String category){
-            dbaseWrite = getReadableDatabase();
-            dbaseWrite.delete(TABLE_QUESTION, KEY_CATEGORY+"=?", new String[]{category});
-
-    }
-    */
-
-    /*
-    public void changeCategoryForQuestion(String category){
-        dbaseWrite = getWritableDatabase();
-        ContentValues cvs = new ContentValues();
-        cvs.put(KEY_CAT, "no category");
-
-        dbaseWrite.update(KEY_QUEST, cvs, KEY_CAT+"=?", new String[]{category});
-    }
-    */
 }

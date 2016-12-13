@@ -191,19 +191,4 @@ public class GameLogic extends MainGameActivity {
     public Profile getP2() {
         return p2;
     }
-
-
-
-
-/*
-    public void updateHighscore(Profile profile1, Profile profile2){
-        DbHelper db = new DbHelper(this);
-        if(profile1.getScore() > db.getHighScoredata()) {
-            db.updateHighScore(profile1.getName(), profile1.getScore(), category);
-        }
-        else if(profile2.getScore() > db.getHighScoredata()){
-            db.updateHighScore(profile1.getName(), profile1.getScore(), category);
-        }
-    }
-    */
 }

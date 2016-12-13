@@ -7,13 +7,18 @@ public class Profile {
     private String name;
     private int score;
 
-    //For creating new profile
+    /**
+     * profile id and name
+     */
     public Profile() {
         ID = 0;
         name = "";
     }
 
-    //For creating profile from databas
+    /**
+     * @param nAme  input name
+     * @param sCore score is 0 at start
+     */
     public Profile(String nAme, int sCore) {
         name = nAme;
         score = sCore;

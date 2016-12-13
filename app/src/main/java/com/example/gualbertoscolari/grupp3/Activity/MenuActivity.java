@@ -19,6 +19,9 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * @param view takes the user to about screen
+     */
     public void about_button(View view) {
         Intent aboutIntent = new Intent(this, AboutActivity.class);
         startActivity(aboutIntent);
@@ -26,6 +29,9 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * @param view takes the user to high score screen
+     */
     public void high_score_button(View view) {
         Intent highScoreIntent = new Intent(this, HighscoreActivity.class);
         startActivity(highScoreIntent);
@@ -33,12 +39,18 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * @param view takes the user to game settings screen
+     */
     public void goToGameSettings(View view) {
         Intent gameSettingsIntent = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettingsIntent);
         finish();
     }
 
+    /**
+     * @param view starts a random game in sports category
+     */
     public void gameSp(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
         playIntent.putExtra(MainGameActivity.CATEGORY, "Sport");
@@ -49,6 +61,9 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * @param view starts a random game in history category
+     */
     public void gameHi(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
         playIntent.putExtra(MainGameActivity.CATEGORY, "Historia");
@@ -58,6 +73,9 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * @param view starts a random game in culture category
+     */
     public void gameKn(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
         playIntent.putExtra(MainGameActivity.CATEGORY, "Kultur/Nöje");
@@ -67,6 +85,9 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * @param view starts a random game in nature category
+     */
     public void gameNa(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
         playIntent.putExtra(MainGameActivity.CATEGORY, "Natur");
@@ -76,6 +97,9 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * @param view starts a random game in society category
+     */
     public void gameSk(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
         playIntent.putExtra(MainGameActivity.CATEGORY, "Samhälle");
@@ -85,6 +109,9 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * @param view nothing to see here
+     */
     public void easter(View view) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);

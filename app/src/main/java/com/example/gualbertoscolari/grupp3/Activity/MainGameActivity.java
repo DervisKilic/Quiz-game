@@ -183,7 +183,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param time resets the timer
      */
     public void resetTimer(final long time) {
@@ -247,7 +246,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param view handels options for button pressed
      */
     public void btnPressed(View view) {
@@ -327,7 +325,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param profile1 updates the highscore for player
      */
     public void checkHighscore(Profile profile1) {
@@ -346,7 +343,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @return resturns a alogbox and ask the player to click ok
      */
     private AlertDialog AskOption() {
@@ -375,7 +371,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @return show a dialogbox countdown
      */
     private AlertDialog getReadyDialog() {
@@ -438,7 +433,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param view sends sms view
      */
     public void smsSend(View view) {
@@ -475,7 +469,7 @@ public class MainGameActivity extends AppCompatActivity {
                 test = input.getText().toString();
 
 
-                if (test.charAt(0) != '0' ||test.length() != 10) {
+                if (test.charAt(0) != '0' || test.length() != 10) {
                     Toast.makeText(getApplicationContext(), R.string.sms_toast, Toast.LENGTH_SHORT).show();
                     input.setText("");
 
@@ -562,7 +556,7 @@ public class MainGameActivity extends AppCompatActivity {
     /**
      * enables buttons
      */
-    public void enableButtons(){
+    public void enableButtons() {
         optABtn.setEnabled(true);
         optBBtn.setEnabled(true);
         optCBtn.setEnabled(true);
@@ -572,7 +566,7 @@ public class MainGameActivity extends AppCompatActivity {
     /**
      * disables buttons
      */
-    public void disableButtons(){
+    public void disableButtons() {
         optABtn.setEnabled(false);
         optBBtn.setEnabled(false);
         optCBtn.setEnabled(false);
@@ -582,7 +576,7 @@ public class MainGameActivity extends AppCompatActivity {
     /**
      * shows the question
      */
-    public void showQuestion(){
+    public void showQuestion() {
         optABtn.setVisibility(View.VISIBLE);
         optBBtn.setVisibility(View.VISIBLE);
         optCBtn.setVisibility(View.VISIBLE);
@@ -594,7 +588,7 @@ public class MainGameActivity extends AppCompatActivity {
     /**
      * hides the question
      */
-    public void hideQuestion(){
+    public void hideQuestion() {
         optABtn.setVisibility(View.GONE);
         optBBtn.setVisibility(View.GONE);
         optCBtn.setVisibility(View.GONE);
