@@ -469,10 +469,10 @@ public class MainGameActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                int test;
-                test = input.getText().charAt(0);
+                String test;
+                test = input.getText().toString();
 
-                if (test == 48) {
+                if (!test.matches("/^[0-9]{9}$/")) {
                     Toast.makeText(getApplicationContext(), "Ta bort första nollan, ingen landskod", Toast.LENGTH_SHORT).show();
                     input.setText("");
 
