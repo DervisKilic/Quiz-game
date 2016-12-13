@@ -70,12 +70,16 @@
     <string name="Question">Fråga</string>
     <string name="Category">Kategori</string>
     <string name="Profile">Profil</string>
-<<<<<<< 0138a1d5dc2304fb5e30a361327bcdae471865e5
     <string name="Delete">Radera</string>
-=======
-    <string name="Delete">Ta bort</string>
     <string name="sms_toast">Skriv in 10 siffror och börja med 0</string>
     <string name="sms_ok">OK</string>
     <string name="sms_telefon">Telefon</string>
->>>>>>> Changed check for phone number
+    <string name="timer_points">"Poäng "</string>
+    <string name="setround">"Runda "</string>
+    <string name="ask_option_start">\nTryck ok för att starta</string>
+    <string name="get_ready_dialog">"Gör dig redo "</string>
+    <string name="sms_send_nr">Skriv in nummret</string>
+    <string name="sms_onclick_question">" Fråga: "</string>
+    <string name="sms_avbryt">Avbryt</string>
+
 </resources>

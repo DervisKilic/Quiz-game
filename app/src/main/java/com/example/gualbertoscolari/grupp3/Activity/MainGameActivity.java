@@ -52,7 +52,6 @@ public class MainGameActivity extends AppCompatActivity {
     private String optB;
     private String optC;
     private String optD;
-    private String phoneNr;
     private long pausTime;
     private boolean resume;
     private GameLogic g1;
@@ -168,7 +167,7 @@ public class MainGameActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         if (numberOfPlayers == 2) {
-                            resetQuestion();
+                            hideQuestion();
                             AlertDialog diabox = AskOption();
                             diabox.show();
                         } else {
@@ -197,7 +196,7 @@ public class MainGameActivity extends AppCompatActivity {
                 clock.start();
                 timer = new CountDownTimer(time, 10) {
                     public void onTick(long millisUntilFinished) {
-                        timerTV.setText("Poäng " + millisUntilFinished / 100);
+                        timerTV.setText(getString(R.string.timer_points) + millisUntilFinished / 100);
                         scoreValue = (int) (millisUntilFinished / 100);
                         timePlayed = 10 - ((int) (millisUntilFinished / 1000));
 
@@ -278,24 +277,6 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     /**
-     * resets questions
-     */
-    private void resetQuestion() {
-        playerName.setText("");
-        questiontv.setText("");
-        cat.setText("");
-        optABtn.setText("");
-        optBBtn.setText("");
-        optCBtn.setText("");
-        optDBtn.setText("");
-        optABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
-        optBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
-        optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
-        optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
-
-    }
-
-    /**
      * graphics for the question frame
      */
     private void loadQuestionFrame() {
@@ -334,12 +315,12 @@ public class MainGameActivity extends AppCompatActivity {
 
         if (numberOfPlayers == 1) {
             qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
-            qAnswered.setText("Runda " + gameRound + "/10");
+            qAnswered.setText(getString(R.string.setround) + gameRound + "/10");
             gameRound++;
 
         } else if (numberOfPlayers == 2) {
             qAnswered = (TextView) findViewById(R.id.questions_answered_tv);
-            qAnswered.setText("Runda " + gameRound + "/20");
+            qAnswered.setText(getString(R.string.setround) + gameRound + "/20");
             gameRound++;
         }
 
@@ -387,8 +368,8 @@ public class MainGameActivity extends AppCompatActivity {
         dialogView.setGravity(Gravity.CENTER_HORIZONTAL);
         dialogView.setTextSize(25);
         dialogView.setPadding(30, 30, 30, 30);
-        dialogView.setText("Det är din tur " + g1.getCurrentPlayer().getName() +
-                "\nTryck ok för att starta");
+        dialogView.setText(getString(R.string.ask_option) + g1.getCurrentPlayer().getName() +
+                getString(R.string.ask_option_start));
         myQuittingDialogBox.setView(dialogView);
         return myQuittingDialogBox;
     }
@@ -411,7 +392,7 @@ public class MainGameActivity extends AppCompatActivity {
         new CountDownTimer(4000, 1) {
             @Override
             public void onTick(long millisUntilFinished) {
-                dialogView.setText("Gör dig redo " + g1.getCurrentPlayer().getName() + "!" + "\n" + (millisUntilFinished / 1000));
+                dialogView.setText(getString(R.string.get_ready_dialog) + g1.getCurrentPlayer().getName() + "!" + "\n" + (millisUntilFinished / 1000));
             }
 
             @Override
@@ -478,7 +459,7 @@ public class MainGameActivity extends AppCompatActivity {
 
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.dialogTheme);
-        builder.setTitle("Skriv in nummret");
+        builder.setTitle(R.string.sms_send_nr);
         builder.setCancelable(false);
 
         final EditText input = new EditText(this);
@@ -515,7 +496,7 @@ public class MainGameActivity extends AppCompatActivity {
                     String finalNumber = new StringBuilder(test).deleteCharAt(0).toString();
                     Log.d(getString(R.string.sms_telefon), finalNumber);
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+46" + finalNumber, null, " Fråga: " + smsQ + " A : " +
+                    smsManager.sendTextMessage("+46" + finalNumber, null, getString(R.string.sms_onclick_question) + smsQ + " A : " +
                             optA + " B : " + optB + " C : " + optC + " D : " + optD, null, null);
 
                     dialog.dismiss();
@@ -535,7 +516,7 @@ public class MainGameActivity extends AppCompatActivity {
             }
         });
 
-        builder.setNegativeButton("Avbryt", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.sms_avbryt, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();

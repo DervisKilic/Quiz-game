@@ -75,5 +75,13 @@
     <string name="sms_toast">Skriv in 10 siffror och börja med 0</string>
     <string name="sms_ok">OK</string>
     <string name="sms_telefon">Telefon</string>
+    <string name="timer_points">"Poäng "</string>
+    <string name="setround">"Runda "</string>
+    <string name="ask_option">"Det är din tur "</string>
+    <string name="ask_option_start">\nTryck ok för att starta</string>
+    <string name="get_ready_dialog">"Gör dig redo "</string>
+    <string name="sms_send_nr">Skriv in nummret</string>
+    <string name="sms_onclick_question">" Fråga: "</string>
+    <string name="sms_avbryt">Avbryt</string>
 
 </resources>
