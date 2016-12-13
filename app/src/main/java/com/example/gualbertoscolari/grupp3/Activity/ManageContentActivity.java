@@ -94,6 +94,7 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             getFragmentManager().popBackStack();
         }
     }
+
     //Saves a question in the AddQuestion fragment
     public void saveQuestion(View v) {
         EditText inputQuestion = (EditText) findViewById(R.id.question_tv);
@@ -178,19 +179,19 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
         db.close();
     }
 
-    public void addCategory(View v){
+    public void addCategory(View v) {
         db = new DbHelper(getApplicationContext());
         EditText category = (EditText) findViewById(R.id.categorie_name);
         String cat = category.getText().toString();
 
-        if(!cat.matches("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{3,12}$")){
+        if (!cat.matches("^[a-zåäöA-ZÅÄÖ -0-9 -? ]{3,12}$")) {
             Toast.makeText(this, R.string.name_toast, Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
 
-        } else if(!db.checkIfCatExists(cat)) {
+        } else if (!db.checkIfCatExists(cat)) {
             Toast.makeText(this, R.string.category_exists_toast, Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(this, R.string.added_category_toast, Toast.LENGTH_SHORT).show();
             category.setText("");
             category.setHint(this.getString(R.string.enter_category_name));
@@ -198,7 +199,6 @@ public class ManageContentActivity extends AppCompatActivity implements AHBottom
             db.close();
         }
     }
-
 
 
 }

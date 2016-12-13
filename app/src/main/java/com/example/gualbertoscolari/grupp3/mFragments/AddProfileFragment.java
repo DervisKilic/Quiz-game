@@ -11,9 +11,9 @@ import com.example.gualbertoscolari.grupp3.R;
 
 public class AddProfileFragment extends Fragment {
 
-        @Nullable
-        @Override
-        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.activity_create_profile, container, false);
-        }
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_create_profile, container, false);
+    }
 }

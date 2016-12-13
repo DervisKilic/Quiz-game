@@ -22,10 +22,13 @@ import java.util.List;
 
 
 /**
- *The class that takes care of the Gamesettings, lets the player choose category, number of players,
+ * The class that takes care of the Gamesettings, lets the player choose category, number of players,
  * and profile.
  */
 public class GameSettingsActivity extends AppCompatActivity {
+    DbHelper db;
+    String p1name;
+    String p2name;
     private ArrayList<String> profile = new ArrayList<>();
     private ArrayAdapter<String> chosenCategory;
     private ArrayAdapter<String> chosenProfileP1;
@@ -34,19 +37,13 @@ public class GameSettingsActivity extends AppCompatActivity {
     private String p2;
     private CheckBox c1;
     private CheckBox c2;
-    DbHelper db;
-
     private int players = 1;
-
     private Spinner profileSpinner1;
     private Spinner profileSpinner2;
     private TextView profile2Tv;
     private ImageView profileIv1;
     private ImageView profileIv2;
     private Spinner dropdownCategory;
-
-    String p1name;
-    String p2name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +58,7 @@ public class GameSettingsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
-                if(c1.isChecked() && c2.isChecked() || !c2.isChecked()){
+                if (c1.isChecked() && c2.isChecked() || !c2.isChecked()) {
                     c1.setChecked(true);
                     c2.setChecked(false);
                 }
@@ -77,7 +74,7 @@ public class GameSettingsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
-                if(!c1.isChecked() || c2.isChecked()){
+                if (!c1.isChecked() || c2.isChecked()) {
                     c1.setChecked(false);
                     c2.setChecked(true);
                 }
@@ -104,7 +101,7 @@ public class GameSettingsActivity extends AppCompatActivity {
         p1 = chosenProfileP1.getItem(profileSpinner1.getSelectedItemPosition());
         p2 = chosenProfileP2.getItem(profileSpinner2.getSelectedItemPosition());
 
-        if(db.getAllQuestions(cat).size() == 10) {
+        if (db.getAllQuestions(cat).size() == 10) {
             Intent playIntent = new Intent(this, MainGameActivity.class);
             playIntent.putExtra(MainGameActivity.CATEGORY, cat);
             playIntent.putExtra(MainGameActivity.PLAYERS, players);
@@ -121,6 +118,7 @@ public class GameSettingsActivity extends AppCompatActivity {
 
     /**
      * Takes the player to the ManageContent activity.
+     *
      * @param view the view that was clicked
      */
 
@@ -130,9 +128,7 @@ public class GameSettingsActivity extends AppCompatActivity {
     }
 
 
-
-
-    private void getStandardCategorys(){
+    private void getStandardCategorys() {
         db = new DbHelper(this);
 
         List<String> category = db.getAllCatagories();
@@ -186,6 +182,7 @@ public class GameSettingsActivity extends AppCompatActivity {
                         break;
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here

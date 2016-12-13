@@ -23,8 +23,8 @@ public class ResultActivity extends AppCompatActivity {
     public static final String SCORE_PLAYER2 = "score of player 2";
     public static final String TIME_PLAYED_PLAYER1 = "time played of player 1";
     public static final String TIME_PLAYED_PLAYER2 = "time played of player 2";
-    public static final String CORRECT_ANS_P1= "correct answers player 1";
-    public static final String CORRECT_ANS_P2= "correct answers player 2";
+    public static final String CORRECT_ANS_P1 = "correct answers player 1";
+    public static final String CORRECT_ANS_P2 = "correct answers player 2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         int correctAnsP1 = extras.getInt(CORRECT_ANS_P1);
         int correctAnsP2 = extras.getInt(CORRECT_ANS_P2);
 
-        if(players.equals("1")){
+        if (players.equals("1")) {
             scorep2.setVisibility(View.GONE);
             player2.setVisibility(View.GONE);
             timePlayed2.setVisibility(View.GONE);
@@ -75,8 +75,6 @@ public class ResultActivity extends AppCompatActivity {
         timePlayed2.setText(String.valueOf("Tid: " + currentTime2 + " sekunder"));
 
 
-
-
         if (players.equals("1")) {
 
             if (p1Name.equals("Dervis")) {
@@ -92,35 +90,29 @@ public class ResultActivity extends AppCompatActivity {
             }
         }
 
-        if(players.equals("2")) {
+        if (players.equals("2")) {
 
-            if(p1Name.equals("Dervis")){
+            if (p1Name.equals("Dervis")) {
                 img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
-            }
-            else if(p1Name.equals("Fredrik")){
+            } else if (p1Name.equals("Fredrik")) {
                 img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
-            }
-            else if(p1Name.equals("Gualberto")){
+            } else if (p1Name.equals("Gualberto")) {
                 img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
-            }
-            else if(p1Name.equals("Simon")){
+            } else if (p1Name.equals("Simon")) {
                 img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
-            }else{
+            } else {
                 img1.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
             }
 
             if (p2Name.equals("Dervis")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar1));
-            }
-           else if (p2Name.equals("Fredrik")) {
+            } else if (p2Name.equals("Fredrik")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar2));
-            }
-            else if (p2Name.equals("Gualberto")) {
+            } else if (p2Name.equals("Gualberto")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar3));
-            }
-            else if (p2Name.equals("Simon")) {
+            } else if (p2Name.equals("Simon")) {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar4));
-            }else{
+            } else {
                 img2.setImageDrawable(getResources().getDrawable(R.drawable.avatar5));
             }
         }
@@ -139,7 +131,7 @@ public class ResultActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.start_about_activity_ic:
-            Intent intent = new Intent(this, AboutActivity.class);
+                Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 return true;
         }
@@ -147,7 +139,6 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param view takes the player to main menu
      */
     public void goToMenu(View view) {
@@ -157,20 +148,18 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param view takes the player to high score
      */
-    public void goToHighScore(View view){
+    public void goToHighScore(View view) {
         Intent HighScore = new Intent(this, HighscoreActivity.class);
         startActivity(HighScore);
         finish();
     }
 
     /**
-     *
      * @param view takes the player to game settings
      */
-    public void goToMainGame(View view){
+    public void goToMainGame(View view) {
         Intent gameSettings = new Intent(this, GameSettingsActivity.class);
         startActivity(gameSettings);
         finish();

@@ -6,7 +6,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
@@ -43,8 +42,7 @@ public class MainGameActivity extends AppCompatActivity {
     public final static String PLAYERS = "number of players";
     public final static String FIRSTPROFILE = "name of the player 1";
     public final static String SECONDPROFILE = "name of the player 2";
-
-
+    private final Handler handler = new Handler();
     private int numberOfPlayers;
     private int correctAnsP1 = 0;
     private int correctAnsP2 = 0;
@@ -56,20 +54,16 @@ public class MainGameActivity extends AppCompatActivity {
     private String phoneNr;
     private long pausTime;
     private boolean resume;
-
     private GameLogic g1;
-
     private ImageView questionFrame;
     private TextView playerName;
     private TextView questiontv;
-
     private String chosenCat;
     private Button optABtn;
     private Button optBBtn;
     private Button optCBtn;
     private Button optDBtn;
     private Button smsBtn;
-
     private TextView cat;
     private TextView timerTV;
     private CountDownTimer timer;
@@ -77,7 +71,6 @@ public class MainGameActivity extends AppCompatActivity {
     private int scoreValue;
     private int currentTime = 0;
     private int currentTime2 = 0;
-    private final Handler handler = new Handler();
     private int timePlayed = 0;
     private int timePlayed2 = 0;
     private boolean quit;
@@ -127,7 +120,7 @@ public class MainGameActivity extends AppCompatActivity {
         questionFrame = (ImageView) findViewById(R.id.question_frame);
         optABtn.setEnabled(false);
 
-        if(numberOfPlayers == 2){
+        if (numberOfPlayers == 2) {
             smsBtn.setVisibility(View.GONE);
             smsBtn.setEnabled(false);
         }
@@ -146,7 +139,7 @@ public class MainGameActivity extends AppCompatActivity {
         // Ska användas OnClick på alla knappar när användaren gissar.
         // Ska kolla om den intrykta knappens text är lika med frågans correctAnswer.
         timer.cancel();
-        if(!quit) {
+        if (!quit) {
             currentTime += timePlayed;
             currentTime2 += timePlayed2;
 
@@ -196,36 +189,36 @@ public class MainGameActivity extends AppCompatActivity {
 
     public void resetTimer(final long time) {
         clock = MediaPlayer.create(this, R.raw.clock);
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
-                    clock.setLooping(true);
-                    clock.start();
-                    timer = new CountDownTimer(time, 10) {
-                        public void onTick(long millisUntilFinished) {
-                            timerTV.setText("Poäng " + millisUntilFinished / 100);
-                            scoreValue = (int) (millisUntilFinished / 100);
-                            timePlayed = 10 - ((int) (millisUntilFinished / 1000));
+                clock.setLooping(true);
+                clock.start();
+                timer = new CountDownTimer(time, 10) {
+                    public void onTick(long millisUntilFinished) {
+                        timerTV.setText("Poäng " + millisUntilFinished / 100);
+                        scoreValue = (int) (millisUntilFinished / 100);
+                        timePlayed = 10 - ((int) (millisUntilFinished / 1000));
 
-                            if (g1.getCurrentPlayer() == g1.getP2()) {
-                                timePlayed2 = 10 - ((int) (millisUntilFinished / 1000));
-                            }
-
-                            int progress = (int) (millisUntilFinished / 100);
-                            progressbar.setProgress(progress);
-                            pausTime = millisUntilFinished;
+                        if (g1.getCurrentPlayer() == g1.getP2()) {
+                            timePlayed2 = 10 - ((int) (millisUntilFinished / 1000));
                         }
 
-                        public void onFinish() {
-                            clock.reset();
-                            progressbar.setProgress(0);
-                            timerTV.setText("0");
-                            onButtonGuess("");
-                        }
-                    }.start();
-                }
-            }, 1000); // 1000 milliseconds = 1 second
+                        int progress = (int) (millisUntilFinished / 100);
+                        progressbar.setProgress(progress);
+                        pausTime = millisUntilFinished;
+                    }
+
+                    public void onFinish() {
+                        clock.reset();
+                        progressbar.setProgress(0);
+                        timerTV.setText("0");
+                        onButtonGuess("");
+                    }
+                }.start();
+            }
+        }, 1000); // 1000 milliseconds = 1 second
     }
 
     public void goToResult() {
@@ -251,35 +244,35 @@ public class MainGameActivity extends AppCompatActivity {
         finish();
     }
 
-    public void btnPressed(View view){
-            String buttonText = ((Button) view).getText().toString();
-            Button button = (Button) findViewById(view.getId());
-            smsBtn.setEnabled(false);
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    smsBtn.setEnabled(true);
-                }
-            }, 2000);
-
-
-            if (g1.checkCorrectAnswer(buttonText)) {
-                button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
-                mp2.start();
-                clock.reset();
-
-            } else {
-                button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
-                mp.start();
-                clock.reset();
-
-
+    public void btnPressed(View view) {
+        String buttonText = ((Button) view).getText().toString();
+        Button button = (Button) findViewById(view.getId());
+        smsBtn.setEnabled(false);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                smsBtn.setEnabled(true);
             }
-            optABtn.setEnabled(false);
-            optBBtn.setEnabled(false);
-            optCBtn.setEnabled(false);
-            optDBtn.setEnabled(false);
-            onButtonGuess(buttonText);
+        }, 2000);
+
+
+        if (g1.checkCorrectAnswer(buttonText)) {
+            button.setBackgroundDrawable(getResources().getDrawable(R.drawable.correctanswerbutton));
+            mp2.start();
+            clock.reset();
+
+        } else {
+            button.setBackgroundDrawable(getResources().getDrawable(R.drawable.wronganswerbutton));
+            mp.start();
+            clock.reset();
+
+
+        }
+        optABtn.setEnabled(false);
+        optBBtn.setEnabled(false);
+        optCBtn.setEnabled(false);
+        optDBtn.setEnabled(false);
+        onButtonGuess(buttonText);
     }
 
     private void resetQuestion() {
@@ -356,6 +349,7 @@ public class MainGameActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
     private AlertDialog AskOption() {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this, R.style.dialogTheme)
                 .setCancelable(false)
@@ -382,7 +376,7 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     private AlertDialog getReadyDialog() {
-        final AlertDialog alertDialog  = new AlertDialog.Builder(this, R.style.dialogTheme).create();
+        final AlertDialog alertDialog = new AlertDialog.Builder(this, R.style.dialogTheme).create();
         final TextView dialogView = new TextView(this);
         dialogView.setGravity(Gravity.CENTER_HORIZONTAL);
         dialogView.setTextSize(25);
@@ -395,7 +389,7 @@ public class MainGameActivity extends AppCompatActivity {
         new CountDownTimer(4000, 1) {
             @Override
             public void onTick(long millisUntilFinished) {
-                dialogView.setText("Gör dig redo " + g1.getCurrentPlayer().getName() +"!"+ "\n"+ (millisUntilFinished/1000));
+                dialogView.setText("Gör dig redo " + g1.getCurrentPlayer().getName() + "!" + "\n" + (millisUntilFinished / 1000));
             }
 
             @Override
@@ -403,7 +397,7 @@ public class MainGameActivity extends AppCompatActivity {
                 alertDialog.dismiss();
                 progressbar.setProgress(0);
                 displayQuestion();
-                if(!quit) {
+                if (!quit) {
                     resetTimer(10000);
                 }
             }
@@ -436,7 +430,7 @@ public class MainGameActivity extends AppCompatActivity {
                 optCBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 optDBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.standardcustombutton));
                 setRound();
-                if(numberOfPlayers == 1) {
+                if (numberOfPlayers == 1) {
                     smsBtn.setVisibility(View.VISIBLE);
                 }
             }
@@ -457,7 +451,7 @@ public class MainGameActivity extends AppCompatActivity {
         questiontv.setText(g1.getQuestion().getQUESTION());
         smsQ = questiontv.getText().toString();
         optA = optABtn.getText().toString();
-        optB= optBBtn.getText().toString();
+        optB = optBBtn.getText().toString();
         optC = optCBtn.getText().toString();
         optD = optDBtn.getText().toString();
 
@@ -550,21 +544,20 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     private void timerResume() {
-        if(resume && !quit) {
+        if (resume && !quit) {
             resetTimer(pausTime);
-        }else{
+        } else {
             finish();
         }
     }
 
     @Override
-    protected void onStop()
-    {
+    protected void onStop() {
         super.onStop();
 
-        if(g1.getNumberOfAnsweredQ() == 10) {
+        if (g1.getNumberOfAnsweredQ() == 10) {
 
-        }else{
+        } else {
             System.exit(0);
         }
     }

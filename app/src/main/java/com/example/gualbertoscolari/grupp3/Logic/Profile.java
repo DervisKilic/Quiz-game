@@ -8,13 +8,13 @@ public class Profile {
     private int score;
 
     //For creating new profile
-    public Profile(){
+    public Profile() {
         ID = 0;
         name = "";
     }
 
     //For creating profile from databas
-    public Profile(String nAme, int sCore){
+    public Profile(String nAme, int sCore) {
         name = nAme;
         score = sCore;
     }

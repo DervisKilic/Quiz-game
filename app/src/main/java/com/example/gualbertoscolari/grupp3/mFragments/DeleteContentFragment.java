@@ -36,7 +36,7 @@ public class DeleteContentFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_delete,container,false);
+        View rootView = inflater.inflate(R.layout.activity_delete, container, false);
 
         list = (ListView) rootView.findViewById(R.id.question_list);
         Spinner options = (Spinner) rootView.findViewById(R.id.option_spinner);
@@ -56,22 +56,22 @@ public class DeleteContentFragment extends Fragment {
         options.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if(optAdapter.getItem(position).equals("Frågor")) {
+                if (optAdapter.getItem(position).equals("Frågor")) {
                     cursor = db.getCreatedQuestions();
                     quest = true;
                     prof = false;
                     cat = false;
-                }else if(optAdapter.getItem(position).equals("Profiler")){
+                } else if (optAdapter.getItem(position).equals("Profiler")) {
                     cursor = db.getCreatedProfiles();
                     prof = true;
                     quest = false;
                     cat = false;
-                }else if(optAdapter.getItem(position).equals("Kategorier")){
+                } else if (optAdapter.getItem(position).equals("Kategorier")) {
                     cursor = db.getCreatedCategories();
                     cat = true;
                     prof = false;
                     quest = false;
-                }else{
+                } else {
                     Toast.makeText(getActivity(), R.string.no_items_to_display, Toast.LENGTH_SHORT).show();
                 }
 
@@ -79,28 +79,29 @@ public class DeleteContentFragment extends Fragment {
                 allints = new ArrayList<>();
 
                 //istället för en cursoradapter använder vi en vanlig adapter, då dettta är mindre kod och fungerar.
-                for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                     allints.add(cursor.getInt(0));
                     allStrings.add(cursor.getString(1));
                 }
 
-                if(allStrings.size()>0) // check if list contains items.
+                if (allStrings.size() > 0) // check if list contains items.
                 {
-                    arrayAdapterStrings = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,allStrings);
+                    arrayAdapterStrings = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, allStrings);
                     list.setAdapter(arrayAdapterStrings);
-                }else{
-                    arrayAdapterStrings = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,allStrings);
+                } else {
+                    arrayAdapterStrings = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, allStrings);
                     list.setAdapter(arrayAdapterStrings);
                     Toast.makeText(getActivity(), R.string.no_items_to_display, Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here
             }
 
         });
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -112,52 +113,51 @@ public class DeleteContentFragment extends Fragment {
         return rootView;
     }
 
-    private AlertDialog AskOption(final int position)
-    {
+    private AlertDialog AskOption(final int position) {
         return new AlertDialog.Builder(getActivity())
 
-                 //set message, title, and icon
-                 .setTitle("Delete")
-                 .setMessage("Are you sure you want to delete?")
-                 .setCancelable(false)
-                 .setIcon(R.drawable.warning)
-                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                //set message, title, and icon
+                .setTitle("Delete")
+                .setMessage("Are you sure you want to delete?")
+                .setCancelable(false)
+                .setIcon(R.drawable.warning)
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
-                     public void onClick(DialogInterface dialog, int whichButton) {
+                    public void onClick(DialogInterface dialog, int whichButton) {
 
-                         if (quest) {
-                             db.deleteCreatedQuestion(allints.get(position));
-                             allints.remove(position);
-                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
-                             prof = false;
-                             cat = false;
-                             db.close();
+                        if (quest) {
+                            db.deleteCreatedQuestion(allints.get(position));
+                            allints.remove(position);
+                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                            prof = false;
+                            cat = false;
+                            db.close();
 
-                         } else if (prof) {
-                             list.setAdapter(arrayAdapterStrings);
-                             db.deleteCreatedProfiles(allints.get(position));
-                             allints.remove(position);
-                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
-                             quest = false;
-                             cat = false;
-                             db.close();
+                        } else if (prof) {
+                            list.setAdapter(arrayAdapterStrings);
+                            db.deleteCreatedProfiles(allints.get(position));
+                            allints.remove(position);
+                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                            quest = false;
+                            cat = false;
+                            db.close();
 
-                         } else if (cat) {
-                             db.deleteCreatedCategory(allints.get(position));
-                             allints.remove(position);
-                             arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
-                             quest = false;
-                             prof = false;
-                             db.close();
-                         }
-                         dialog.dismiss();
-                     }
-                 })
-                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                     public void onClick(DialogInterface dialog, int which) {
-                         dialog.dismiss();
-                     }
-                 })
-                 .create();
+                        } else if (cat) {
+                            db.deleteCreatedCategory(allints.get(position));
+                            allints.remove(position);
+                            arrayAdapterStrings.remove(arrayAdapterStrings.getItem(position));
+                            quest = false;
+                            prof = false;
+                            db.close();
+                        }
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
     }
 }

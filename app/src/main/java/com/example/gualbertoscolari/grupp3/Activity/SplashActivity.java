@@ -16,7 +16,7 @@ import com.example.gualbertoscolari.grupp3.R;
 /**
  * the intro screen
  */
-public class SplashActivity extends Activity implements Animation.AnimationListener{
+public class SplashActivity extends Activity implements Animation.AnimationListener {
     final float growTo = 1.1f;
     final long duration = 3000;
 
@@ -46,20 +46,20 @@ public class SplashActivity extends Activity implements Animation.AnimationListe
         growAndShrink.addAnimation(shrink);
         logo.startAnimation(growAndShrink);
 
-        final Thread timer= new Thread(){
-            public void run(){
-                try{
+        final Thread timer = new Thread() {
+            public void run() {
+                try {
 
-                    ImageView rotate_image =(ImageView) findViewById(R.id.rotateSplashImg);
-                    RotateAnimation rotate = new RotateAnimation(30, 360, Animation.RELATIVE_TO_SELF, 0.5f,  Animation.RELATIVE_TO_SELF, 0.5f);
+                    ImageView rotate_image = (ImageView) findViewById(R.id.rotateSplashImg);
+                    RotateAnimation rotate = new RotateAnimation(30, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                     rotate.setDuration(2500);
                     rotate_image.startAnimation(rotate);
-                    sleep (3000);
-                }catch(InterruptedException e){
+                    sleep(3000);
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
 
-                    Intent menuIntent = new Intent(SplashActivity.this,MenuActivity.class);
+                    Intent menuIntent = new Intent(SplashActivity.this, MenuActivity.class);
                     startActivity(menuIntent);
                     finish();
                 }

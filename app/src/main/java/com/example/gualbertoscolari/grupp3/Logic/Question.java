@@ -2,7 +2,7 @@ package com.example.gualbertoscolari.grupp3.Logic;
 //Den tomma konstruktorn ska tas bort.
 //Ett question objekt innehåller 1 fråga 4 svar 1 rätt svar och 1 kategori.
 
-public class Question{
+public class Question {
 
     private int ID;
     private String QUESTION;
@@ -13,7 +13,7 @@ public class Question{
     private String CATEGORY;
     private String ANSWER;
 
-    Question(){
+    Question() {
         ID = 0;
         QUESTION = "";
         OPTA = "";
@@ -23,7 +23,8 @@ public class Question{
         CATEGORY = "";
         ANSWER = "";
     }
-    public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String oPTD, String cATEGORY, String aNSWER){
+
+    public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String oPTD, String cATEGORY, String aNSWER) {
         QUESTION = qUESTION;
         OPTA = oPTA;
         OPTB = oPTB;
@@ -37,52 +38,52 @@ public class Question{
         return QUESTION;
     }
 
-    public String getOPTA() {
-        return OPTA;
-    }
-
-    public String getOPTB() {
-        return OPTB;
-    }
-
-    public String getOPTC() {
-        return OPTC;
-    }
-
-    public String getOPTD() {
-        return OPTD;
-    }
-
-    String getCATEGORY() {
-        return CATEGORY;
-    }
-
-    String getANSWER() {
-        return ANSWER;
-    }
-
     void setQUESTION(String QUESTION) {
         this.QUESTION = QUESTION;
+    }
+
+    public String getOPTA() {
+        return OPTA;
     }
 
     void setOPTA(String OPTA) {
         this.OPTA = OPTA;
     }
 
+    public String getOPTB() {
+        return OPTB;
+    }
+
     void setOPTB(String OPTB) {
         this.OPTB = OPTB;
+    }
+
+    public String getOPTC() {
+        return OPTC;
     }
 
     void setOPTC(String OPTC) {
         this.OPTC = OPTC;
     }
 
+    public String getOPTD() {
+        return OPTD;
+    }
+
     void setOPTD(String OPTD) {
         this.OPTD = OPTD;
     }
 
+    String getCATEGORY() {
+        return CATEGORY;
+    }
+
     void setCATEGORY(String CATEGORY) {
         this.CATEGORY = CATEGORY;
+    }
+
+    String getANSWER() {
+        return ANSWER;
     }
 
     void setANSWER(String ANSWER) {

@@ -49,7 +49,7 @@ public class HighscoreActivity extends AppCompatActivity {
     private void displayHighscore() {
         //Hämtar alla kategorier från DBhelper och lägger till dom i spinner.
         List<String> allHighscores = db.getHighScoredata(cat);
-        if(allHighscores.size() == 0){
+        if (allHighscores.size() == 0) {
             Toast.makeText(this, "Topplistan är tom för tillfället!", Toast.LENGTH_SHORT).show();
         }
         GridView hsGridV = (GridView) findViewById(R.id.hs_gridv);
@@ -57,6 +57,7 @@ public class HighscoreActivity extends AppCompatActivity {
         hsGridV.setAdapter(gridAdapter);
         db.close();
     }
+
     /**
      * Method for displaying existing categories in spinner.
      * Gets List<> from getHighScoredata with the correponding category chosen

@@ -55,9 +55,9 @@ public class DbHelper extends SQLiteOpenHelper {
     //private boolean close;
 
 
-
     /**
-     *  Constructor of the class. Calls the super constructor.
+     * Constructor of the class. Calls the super constructor.
+     *
      * @param context context of the app
      */
     public DbHelper(Context context) {
@@ -66,6 +66,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /**
      * Creates new database tables for questions, profiles, categories and highscores.
+     *
      * @param dbase
      */
     @Override
@@ -113,6 +114,7 @@ public class DbHelper extends SQLiteOpenHelper {
     /**
      * If a new version of the database exists this method will delete current tables and call
      * onCreate to add new tables in the database.
+     *
      * @param dbase
      * @param oldVersion
      * @param newVersion
@@ -127,7 +129,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Adds new question data to questions table in database.
+     * Adds new question data to questions table in database.
+     *
      * @param q
      */
     public void addQuestion(Question q) {
@@ -144,7 +147,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Adds new profile data to profiles table in database.
+     * Adds new profile data to profiles table in database.
+     *
      * @param p
      */
     public void addProfile(Profile p) {
@@ -158,11 +162,12 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Checks if input profile data already exists in profile table in database.
+     * Checks if input profile data already exists in profile table in database.
+     *
      * @param profile
      * @return returns true or false
      */
-    public boolean checkIfNameExists(String profile){
+    public boolean checkIfNameExists(String profile) {
         dbaseRead = getReadableDatabase();
 
         Cursor cursor = dbaseRead.query(true, TABLE_PROFILE, null, KEY_NAME + "=?", new String[]{profile}, null, null, null, null);
@@ -171,18 +176,19 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Checks if input category data already exists in table category in database.
+     * Checks if input category data already exists in table category in database.
+     *
      * @param category
      * @return returns true or false
      */
-    public boolean checkIfCatExists(String category){
+    public boolean checkIfCatExists(String category) {
         dbaseRead = getReadableDatabase();
 
         Cursor cursor = dbaseRead.query(true, TABLE_CATEGORY, null, KEY_CATEGORY + "=?", new String[]{category}, null, null, null, null);
         cursor.moveToFirst();
-        if (cursor.getCount() == 0){
+        if (cursor.getCount() == 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
@@ -190,7 +196,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     /**
-     *  Adds new category data to category table in database.
+     * Adds new category data to category table in database.
+     *
      * @param category
      */
     public void addCategorys(String category) {
@@ -202,8 +209,9 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Gets a list with all standard questions from table in database.
-     *  Gets 10 questions in random order.
+     * Gets a list with all standard questions from table in database.
+     * Gets 10 questions in random order.
+     *
      * @param category
      * @return returns 10 random questions witch chosen category
      */
@@ -238,7 +246,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Gets all created question rows from table in database and returns a cursor.
+     * Gets all created question rows from table in database and returns a cursor.
+     *
      * @return
      */
     public Cursor getCreatedQuestions() {
@@ -258,7 +267,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Gets all created profile rows from table and returns a curser.
+     * Gets all created profile rows from table and returns a curser.
+     *
      * @return
      */
     public Cursor getCreatedProfiles() {
@@ -278,7 +288,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Gets all created category rows from table in database and returns a cursor.
+     * Gets all created category rows from table in database and returns a cursor.
+     *
      * @return
      */
     public Cursor getCreatedCategories() {
@@ -298,38 +309,42 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Method for deleting users questions.
-     *  Takes an id and deletes the corresponding question in question table in database.
+     * Method for deleting users questions.
+     * Takes an id and deletes the corresponding question in question table in database.
+     *
      * @param id
      */
-    public void deleteCreatedQuestion(int id){
+    public void deleteCreatedQuestion(int id) {
         dbaseWrite = getReadableDatabase();
-        dbaseWrite.delete(TABLE_QUESTION, KEY_ID+"=?", new String[]{""+id});
+        dbaseWrite.delete(TABLE_QUESTION, KEY_ID + "=?", new String[]{"" + id});
 
     }
 
     /**
-     *  Method for deleting created profiles.
-     *  Takes an id and deletes the corresponding question in question table in database.
+     * Method for deleting created profiles.
+     * Takes an id and deletes the corresponding question in question table in database.
+     *
      * @param id
      */
-    public void deleteCreatedProfiles(int id){
+    public void deleteCreatedProfiles(int id) {
         dbaseWrite = getReadableDatabase();
-        dbaseWrite.delete(TABLE_PROFILE , KEY_ID+"=?", new String[]{""+id});
+        dbaseWrite.delete(TABLE_PROFILE, KEY_ID + "=?", new String[]{"" + id});
     }
 
     /**
-     *  Method for deleting created categories
-     *  Takes an id and deletes the corresponding category in category table in database.
+     * Method for deleting created categories
+     * Takes an id and deletes the corresponding category in category table in database.
+     *
      * @param id
      */
-    public void deleteCreatedCategory(int id){
+    public void deleteCreatedCategory(int id) {
         dbaseWrite = getReadableDatabase();
-        dbaseWrite.delete(TABLE_CATEGORY , KEY_ID+"=?", new String[]{""+id});
+        dbaseWrite.delete(TABLE_CATEGORY, KEY_ID + "=?", new String[]{"" + id});
     }
 
     /**
-     *  Gets all profiles from profile table in database and returns them as a List<>.
+     * Gets all profiles from profile table in database and returns them as a List<>.
+     *
      * @return
      */
     public List<Profile> getAllProfiles() {
@@ -352,8 +367,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *     Adds all standard questions, categories and profiles to the game.
-     *     Does not add stanard content if they already exists.
+     * Adds all standard questions, categories and profiles to the game.
+     * Does not add stanard content if they already exists.
      */
     public void addStandardItemsSQL(Context context) {
         List<Question> quesList = getAllQuestions("Natur");
@@ -381,7 +396,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *  Gets all categories from table category in database and returns them as a List<>.
+     * Gets all categories from table category in database and returns them as a List<>.
+     *
      * @return
      */
     public List<String> getAllCatagories() {
@@ -400,9 +416,10 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     /**
-     *  Method for getting highscores.
-     *  Gets the highescore (profile and name) from the table highscore in data base with the
-     *  corresponding catagory.
+     * Method for getting highscores.
+     * Gets the highescore (profile and name) from the table highscore in data base with the
+     * corresponding catagory.
+     *
      * @param category
      * @return returns a list
      */
@@ -410,7 +427,7 @@ public class DbHelper extends SQLiteOpenHelper {
         List<String> highScoreData = new ArrayList<>();
         dbaseRead = getReadableDatabase();
 
-        Cursor c = dbaseRead.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
+        Cursor c = dbaseRead.query(true, TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
 
         if (c.moveToFirst()) {
             do {
@@ -425,9 +442,10 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *    Method for updating the highscore table.
-     *    Adds profile name, score and category to the highscore table if the score is higher then
-     *    the row with the lowest score on current list. Deletes the row with lowest score.
+     * Method for updating the highscore table.
+     * Adds profile name, score and category to the highscore table if the score is higher then
+     * the row with the lowest score on current list. Deletes the row with lowest score.
+     *
      * @param player
      * @param category
      * @return
@@ -435,18 +453,18 @@ public class DbHelper extends SQLiteOpenHelper {
     public void updateHighScore(Profile player, String category) {
 
         dbaseRead = getReadableDatabase();
-        Cursor cursor = dbaseRead.query(true,TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
+        Cursor cursor = dbaseRead.query(true, TABLE_HIGHSCORE, null, KEY_HSCAT + "=?", new String[]{category}, null, null, KEY_HSSCORE + " DESC", null);
         cursor.moveToFirst();
-        if(cursor.getCount() == 0){
+        if (cursor.getCount() == 0) {
             addNewHighscore(player, category);
-        }else{
+        } else {
             cursor.moveToLast();
-            if(player.getScore() > cursor.getInt(2)){
+            if (player.getScore() > cursor.getInt(2)) {
                 addNewHighscore(player, category);
             }
         }
-        if(cursor.getCount() == 5){
-                deleteFromHighscore(cursor.getInt(0));
+        if (cursor.getCount() == 5) {
+            deleteFromHighscore(cursor.getInt(0));
         }
     }
 
@@ -454,11 +472,12 @@ public class DbHelper extends SQLiteOpenHelper {
     /**
      * Metohd for adding a new row highscore table.
      * Adds a new highscore to table highscore in database.
+     *
      * @param player
      * @param category
      */
 
-    private void addNewHighscore(Profile player, String category){
+    private void addNewHighscore(Profile player, String category) {
         dbaseWrite = getWritableDatabase();
         ContentValues cvs = new ContentValues();
 
@@ -474,18 +493,19 @@ public class DbHelper extends SQLiteOpenHelper {
     /**
      * Method for deleting a row in highscore table.
      * Takes an id and deletes the corresponding row in table highscore in database.
+     *
      * @param id
      */
-    public void deleteFromHighscore(int id){
+    public void deleteFromHighscore(int id) {
         dbaseWrite = getWritableDatabase();
-        dbaseWrite.delete(TABLE_HIGHSCORE, KEY_ID + "=?", new String[]{""+id});
+        dbaseWrite.delete(TABLE_HIGHSCORE, KEY_ID + "=?", new String[]{"" + id});
     }
-
 
 
     /**
      * Method used for adding standard questions to database.
      * Is called when app starts and adds questions from a txt file in project.
+     *
      * @param context
      */
     public void addQFromTxtFile(Context context) {

@@ -12,7 +12,6 @@ import com.example.gualbertoscolari.grupp3.R;
 public class MenuActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,7 @@ public class MenuActivity extends AppCompatActivity {
         finish();
     }
 
-    public void gameSp(View view){
+    public void gameSp(View view) {
         Intent playIntent = new Intent(this, MainGameActivity.class);
         playIntent.putExtra(MainGameActivity.CATEGORY, "Sport");
         playIntent.putExtra(MainGameActivity.PLAYERS, 1);
